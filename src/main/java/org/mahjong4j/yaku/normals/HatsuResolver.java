@@ -20,5 +20,4 @@ public class HatsuResolver implements MahjongResolver {
         }
         return false;
     }
-
 }

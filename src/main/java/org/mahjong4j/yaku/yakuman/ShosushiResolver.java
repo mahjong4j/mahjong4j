@@ -23,7 +23,6 @@ public class ShosushiResolver implements MahjongResolver {
                 fonpaiCount++;
             }
         }
-
         return fonpaiCount == 4;
     }
 }

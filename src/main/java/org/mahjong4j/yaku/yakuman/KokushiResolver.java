@@ -58,14 +58,9 @@ public class KokushiResolver implements MahjongResolver {
                     hands[32] == 1 ||
                     hands[33] == 1) {
                 return true;
-
             }
         }
-
         //残ってるのが１個以外ならfalse
         return false;
-
-
     }
-
 }

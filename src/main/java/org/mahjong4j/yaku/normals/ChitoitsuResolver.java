@@ -44,5 +44,4 @@ public class ChitoitsuResolver implements MahjongResolver {
             return false;
         }
     }
-
 }

@@ -27,8 +27,6 @@ public class IkkitsukanResolver implements MahjongResolver {
         } else {
             System.out.println("False...");
         }
-
-
     }
 
     public int howHan() {
@@ -104,5 +102,4 @@ public class IkkitsukanResolver implements MahjongResolver {
         }
         return number2 && number5 && number8;
     }
-
 }

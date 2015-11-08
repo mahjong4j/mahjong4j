@@ -41,5 +41,4 @@ public class TsuisoResolver implements MahjongResolver {
         }
         return true;
     }
-
 }

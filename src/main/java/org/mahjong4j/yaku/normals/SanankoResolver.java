@@ -15,5 +15,4 @@ public class SanankoResolver implements MahjongResolver {
     public boolean isSananko(MahjongTile[] kotsu) {
         return kotsu[2] != null;
     }
-
 }

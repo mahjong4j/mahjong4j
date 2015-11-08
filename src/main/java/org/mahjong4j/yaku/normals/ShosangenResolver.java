@@ -28,8 +28,6 @@ public class ShosangenResolver implements MahjongResolver {
         } else {
             System.out.println("False...");
         }
-
-
     }
 
     public int howHan() {

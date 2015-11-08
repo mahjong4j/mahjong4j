@@ -69,7 +69,6 @@ public class ChurenpohtohResolver implements MahjongResolver {
                     }
 
                 }
-
                 break;
             case PINZU:
                 for (int i = 0; i < hands.length; i++) {
@@ -96,7 +95,7 @@ public class ChurenpohtohResolver implements MahjongResolver {
                     }
 
                 }
-
+                //TODO:breakがないけどバグ？
             default:
                 return false;
         }
@@ -104,8 +103,5 @@ public class ChurenpohtohResolver implements MahjongResolver {
             return true;
         }
         return false;
-
-
     }
-
 }

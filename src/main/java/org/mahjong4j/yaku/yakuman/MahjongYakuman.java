@@ -18,7 +18,7 @@ public enum MahjongYakuman {
 
     private String kanji;
 
-    private MahjongYakuman(String kanji) {
+    MahjongYakuman(String kanji) {
         this.kanji = kanji;
     }
 

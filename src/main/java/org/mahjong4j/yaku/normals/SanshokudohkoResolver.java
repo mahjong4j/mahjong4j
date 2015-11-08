@@ -101,8 +101,6 @@ public class SanshokudohkoResolver implements MahjongResolver {
             }
 
         }
-
         return manzu && pinzu && sohzu;
     }
-
 }

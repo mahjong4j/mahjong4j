@@ -28,7 +28,6 @@ public class HonitsuResolver implements MahjongResolver {
             hasJihai = true;
         }
 
-
         if (!hasJihai) {
             for (int i = 0; i < kotsu.length && kotsu[i] != null; i++) {
                 if (kotsu[i].getNumber() == 0) {
@@ -55,11 +54,10 @@ public class HonitsuResolver implements MahjongResolver {
         // 初期化する。これが1ならtrue
         colorCount = 0;
         boolean hasJihai = false;
-
-		/*
+        /*
          * 字牌が含まれるかチェック
-		 * 最後の方に字牌が来ると思うので後ろからチェック
-		 */
+         * 最後の方に字牌が来ると思うので後ろからチェック
+         */
         for (int i = toitsu.length - 1; i >= 0; i--) {
             if (toitsu[i].getNumber() == 0) {
                 hasJihai = true;
@@ -77,12 +75,10 @@ public class HonitsuResolver implements MahjongResolver {
         return false;
     }
 
-
-	/*
-	 * ここからそれぞれの色が含まれるかをチェックするメソッド
-	 * 七対子用か通常用かは引数を見て判断して下さい。
-	 */
-
+    /*
+     * ここからそれぞれの色が含まれるかをチェックするメソッド
+     * 七対子用か通常用かは引数を見て判断して下さい。
+     */
 
     private void manzuCheck(MahjongTile[] shuntsu, MahjongTile[] kotsu,
                             MahjongTile janto) {
@@ -191,6 +187,5 @@ public class HonitsuResolver implements MahjongResolver {
                 break;
             }
         }
-
     }
 }

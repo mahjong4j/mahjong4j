@@ -27,8 +27,6 @@ public class SanshokudojunResolver implements MahjongResolver {
         } else {
             System.out.println("False...");
         }
-
-
     }
 
     public int howHan() {

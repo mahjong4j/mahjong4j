@@ -26,9 +26,9 @@ public class HonrohtohResolver implements MahjongResolver {
 
     public boolean isHonrohtoh(MahjongTile[] kotsu, MahjongTile janto) {
         /*
-		 * 通常型用
-		 * 七対子用は別
-		 */
+         * 通常型用
+         * 七対子用は別
+         */
         //全部刻子で無ければfalse
         if (kotsu[3] == null) {
             return false;
@@ -50,10 +50,10 @@ public class HonrohtohResolver implements MahjongResolver {
     }
 
     public boolean isHonrohtoh(MahjongTile[] toitsu) {
-		/*
-		 * 七対子用
-		 * 字一色でもtrueになっちゃいます
-		 */
+        /*
+         * 七対子用
+         * 字一色でもtrueになっちゃいます
+         */
         if (toitsu[6] == null) {
             return false;
         }
@@ -67,8 +67,6 @@ public class HonrohtohResolver implements MahjongResolver {
         if (count == 7) {
             return true;
         }
-
         return false;
     }
-
 }

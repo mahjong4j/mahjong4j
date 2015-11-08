@@ -13,5 +13,4 @@ public class SuankoResolver implements MahjongResolver {
     public boolean isSuanko(MahjongTile[] kotsu) {
         return kotsu[3] != null;
     }
-
 }

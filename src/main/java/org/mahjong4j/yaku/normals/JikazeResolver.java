@@ -13,7 +13,6 @@ public class JikazeResolver implements MahjongResolver {
         this.jikaze = jikaze;
     }
 
-    @Override
     public int howHan() {
         return HAN;
     }
@@ -27,5 +26,4 @@ public class JikazeResolver implements MahjongResolver {
         }
         return false;
     }
-
 }

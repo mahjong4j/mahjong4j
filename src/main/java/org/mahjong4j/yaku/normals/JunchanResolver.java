@@ -1,6 +1,5 @@
 package org.mahjong4j.yaku.normals;
 
-
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.MahjongResolver;
 
@@ -48,7 +47,5 @@ public class JunchanResolver implements MahjongResolver {
         } else {
             return false;
         }
-
     }
-
 }

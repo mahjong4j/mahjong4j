@@ -20,5 +20,4 @@ public class HakuResolver implements MahjongResolver {
         }
         return false;
     }
-
 }

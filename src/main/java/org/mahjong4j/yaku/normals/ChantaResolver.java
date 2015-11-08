@@ -51,5 +51,4 @@ public class ChantaResolver implements MahjongResolver {
             return false;
         }
     }
-
 }

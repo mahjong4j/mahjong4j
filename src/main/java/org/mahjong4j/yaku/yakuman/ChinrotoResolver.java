@@ -25,8 +25,6 @@ public class ChinrotoResolver implements MahjongResolver {
                 return false;
             }
         }
-
         return true;
     }
-
 }

@@ -20,5 +20,4 @@ public class ChunResolver implements MahjongResolver {
         }
         return false;
     }
-
 }

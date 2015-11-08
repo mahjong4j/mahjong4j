@@ -17,15 +17,8 @@ public class PinfuResolver implements MahjongResolver {
         this.bakazeHai = bakaze;
     }
 
-    @Override
     public int howHan() {
-        //コメントは鳴きをゲームに組み込む時用
-
-        //if(naki){
-        //return KUISAGARI;
-        //}else{
         return HAN;
-        //}
     }
 
     public boolean isPinfu(MahjongTile[] shuntsu, MahjongTile janto) {
@@ -38,7 +31,5 @@ public class PinfuResolver implements MahjongResolver {
                 return false;
             }
         }
-
     }
-
 }

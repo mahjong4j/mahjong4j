@@ -40,7 +40,6 @@ public class ChinitsuResolver implements MahjongResolver {
         }
 
         return false;
-
     }
 
     //七対子用
@@ -66,10 +65,9 @@ public class ChinitsuResolver implements MahjongResolver {
 
     }
 
-
-	/*
+    /*
      * ここからそれぞれの色が含まれるかをチェックするメソッド 七対子用か通常用かは引数を見て判断して下さい。
-	 */
+     */
 
     private void manzuCheck(MahjongTile[] shuntsu, MahjongTile[] kotsu,
                             MahjongTile janto) {
@@ -176,6 +174,5 @@ public class ChinitsuResolver implements MahjongResolver {
                 break;
             }
         }
-
     }
 }

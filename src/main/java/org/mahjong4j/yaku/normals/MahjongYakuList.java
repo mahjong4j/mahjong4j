@@ -32,7 +32,7 @@ public enum MahjongYakuList {
     private int kuisagari;
     private String kanji;
 
-    private MahjongYakuList(int han, int kuisagari, String kanji) {
+    MahjongYakuList(int han, int kuisagari, String kanji) {
         this.han = han;
         this.kuisagari = kuisagari;
         this.kanji = kanji;
@@ -48,6 +48,5 @@ public enum MahjongYakuList {
 
     public String getKanji() {
         return kanji;
-
     }
 }

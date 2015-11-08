@@ -1,6 +1,5 @@
 package org.mahjong4j.yaku.yakuman;
 
-
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
 import org.mahjong4j.yaku.MahjongResolver;
