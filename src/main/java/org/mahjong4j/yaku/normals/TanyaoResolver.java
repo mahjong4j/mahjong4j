@@ -1,7 +1,6 @@
 package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.yaku.MahjongResolver;
-import org.mahjong4j.yaku.normals.MahjongYakuList;
 
 public class TanyaoResolver implements MahjongResolver {
     private final int HAN = MahjongYakuList.TANYAO.getHan();
