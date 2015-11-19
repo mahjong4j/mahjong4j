@@ -16,24 +16,6 @@ public class ShosangenResolver implements MahjongResolver {
     boolean hatsu;
     boolean chun;
 
-    public static void main(String[] args) {
-        ShosangenResolver sho = new ShosangenResolver();
-
-        MahjongTile j = MahjongTile.HAT;
-
-        MahjongTile ko[] = {
-                MahjongTile.CHN,
-                MahjongTile.TON,
-                MahjongTile.S3
-        };
-
-        if (sho.isShosangen(ko, j)) {
-            System.out.println("True!!");
-        } else {
-            System.out.println("False...");
-        }
-    }
-
     public int howHan() {
         return HAN;
     }

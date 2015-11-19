@@ -16,23 +16,6 @@ public class SanshokudojunResolver implements MahjongResolver {
     boolean pinzu;
     boolean sohzu;
 
-    public static void main(String[] args) {
-        SanshokudojunResolver it = new SanshokudojunResolver();
-
-        MahjongTile shu[] = {
-                MahjongTile.HAT,
-                MahjongTile.CHN,
-                MahjongTile.HAK,
-                MahjongTile.S3
-        };
-
-        if (it.isSanshokudojun(shu)) {
-            System.out.println("True!!");
-        } else {
-            System.out.println("False...");
-        }
-    }
-
     public int howHan() {
         return HAN;
     }

@@ -17,22 +17,6 @@ public class IkkitsukanResolver implements MahjongResolver {
     boolean number5;
     boolean number8;
 
-    public static void main(String[] args) {
-        IkkitsukanResolver it = new IkkitsukanResolver();
-
-        MahjongTile shu[] = {
-                MahjongTile.M2,
-                MahjongTile.M8,
-                MahjongTile.M5,
-        };
-
-        if (it.isIttsu(shu)) {
-            System.out.println("True!!");
-        } else {
-            System.out.println("False...");
-        }
-    }
-
     public int howHan() {
         return HAN;
     }
