@@ -188,25 +188,21 @@ public class Mahjong {
     }
 
     public int[] getHands() {
-        // 手牌をゲットする
         return hands;
     }
 
     public void setHands(int[] set) {
-        // 改めて手牌をセットする
         this.hands = set;
     }
 
     public void initStock() {
-        for (int i = 0; i < hands.length; i++) {
-            hstock[i] = hands[i];
-        }
+        System.arraycopy(hands, 0, hstock, 0, hands.length);
     }
 
     public boolean canWin() {
         // 同じ牌が5個以上有ったらfalse
-        for (int i = 0; i < hands.length; i++) {
-            if (hands[i] > 4) {
+        for (int hand : hands) {
+            if (hand > 4) {
                 return false;
             }
         }
@@ -374,12 +370,6 @@ public class Mahjong {
     public boolean calcYakuman() {
         // 役満の計算をします。
 
-        // KOKUSHIMUSO,
-        /*
-         * if (kokushi.isKokushi()) { // ここにシングル役満になるようにする処理
-         * 国士無双はここで計算する必要がないことが発覚 return true; }
-         */
-
         // CHURENPOTO,
         churen = new ChurenpohtohResolver(hands);
         if (churen.isChuren()) {
@@ -390,11 +380,11 @@ public class Mahjong {
         ArrayList<MahjongYakuman> yakumanStock = new ArrayList<MahjongYakuman>(0);
         MahjongTile[] kohtsu;
         MahjongTile janto;
-        boolean isYakuman = false;
+        boolean isYakuman;
 
-        for (int i = 0; i < completeNumber.size(); i++) {
-            kohtsu = kotsuCandidate[completeNumber.get(i)];
-            janto = jantoCandidate[completeNumber.get(i)];
+        for (Integer aCompleteNumber : completeNumber) {
+            kohtsu = kotsuCandidate[aCompleteNumber];
+            janto = jantoCandidate[aCompleteNumber];
 
             // SUANKO,
             suanko = new SuankoResolver();
@@ -624,8 +614,8 @@ public class Mahjong {
             return yakuman.size() * 32000;
         } else if (normalYaku.size() != 0) {
             int han = 0;
-            for (int i = 0; i < normalYaku.size(); i++) {
-                han += normalYaku.get(i).getHan();
+            for (MahjongYakuList aNormalYaku : normalYaku) {
+                han += aNormalYaku.getHan();
             }
 
             switch (han) {
