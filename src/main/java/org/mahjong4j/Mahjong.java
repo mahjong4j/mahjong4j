@@ -1,5 +1,6 @@
 package org.mahjong4j;
 
+import org.mahjong4j.hands.Shuntsu;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.normals.*;
 import org.mahjong4j.yaku.yakuman.*;
@@ -17,8 +18,6 @@ public class Mahjong {
      */
     public ArrayList<MahjongYakuman> yakuman = new ArrayList<MahjongYakuman>(0);
     public ArrayList<MahjongYakuList> normalYaku = new ArrayList<MahjongYakuList>(0);
-
-    public int points = 0;
 
     public String manName;//倍満 とか 跳満とかを入れる
 
@@ -287,7 +286,7 @@ public class Mahjong {
             // 次に順子を探す
             for (int j = 1; j < hands.length - 1; j++) {
                 while (hstock[j - 1] > 0 && hstock[j] > 0 && hstock[j + 1] > 0) {// whileにしたのは一盃口などがあるから
-                    if (MentsuResolver.isShuntsu(MahjongTile.getTile(j - 1),
+                    if (Shuntsu.check(MahjongTile.getTile(j - 1),
                             MahjongTile.getTile(j), MahjongTile.getTile(j + 1))) {
                         shuntsuCandidate[candidateNumber][shuntsuCount++] = MahjongTile
                                 .getTile(j);
@@ -324,7 +323,7 @@ public class Mahjong {
             // 順子から調べる
             for (int j = 1; j < hands.length - 1; j++) {
                 while (hstock[j - 1] > 0 && hstock[j] > 0 && hstock[j + 1] > 0) {// whileにしたのは一盃口などがあるから
-                    if (MentsuResolver.isShuntsu(MahjongTile.getTile(j - 1),
+                    if (Shuntsu.check(MahjongTile.getTile(j - 1),
                             MahjongTile.getTile(j), MahjongTile.getTile(j + 1))) {
                         shuntsuCandidate[candidateNumber][shuntsuCount++] = MahjongTile
                                 .getTile(j);
@@ -454,12 +453,12 @@ public class Mahjong {
         ArrayList<MahjongYakuList> yakuStock = new ArrayList<MahjongYakuList>(
                 candidateNumber);
 
-        for (int i = 0; i < completeNumber.size(); i++) {
+        for (Integer aCompleteNumber : completeNumber) {
             // ストックの初期化
             hanStock = 0;
-            shuntsu = shuntsuCandidate[completeNumber.get(i)];
-            kohtsu = kotsuCandidate[completeNumber.get(i)];
-            janto = jantoCandidate[completeNumber.get(i)];
+            shuntsu = shuntsuCandidate[aCompleteNumber];
+            kohtsu = kotsuCandidate[aCompleteNumber];
+            janto = jantoCandidate[aCompleteNumber];
 
             yakuStock.add(MahjongYakuList.TSUMO);
             hanStock += 1;
@@ -593,7 +592,6 @@ public class Mahjong {
 
             // 役のストックも初期化
             yakuStock.clear();
-
         }
     }
 
