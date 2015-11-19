@@ -5,6 +5,10 @@ import org.mahjong4j.yaku.MahjongResolver;
 
 import java.util.ArrayList;
 
+/**
+ * @author yu1ro
+ *         一気通貫判定クラス
+ */
 public class IkkitsukanResolver implements MahjongResolver {
 
     final int HAN = MahjongYakuList.ITTSU.getHan();

@@ -4,6 +4,10 @@ package org.mahjong4j.yaku.normals;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.MahjongResolver;
 
+/**
+ * @author yu1ro
+ *         平和判定クラス
+ */
 public class PinfuResolver implements MahjongResolver {
 
     final int KUISAGARI = MahjongYakuList.PINFU.getHan();

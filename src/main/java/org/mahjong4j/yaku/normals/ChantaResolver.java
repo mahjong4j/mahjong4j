@@ -4,6 +4,10 @@ package org.mahjong4j.yaku.normals;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.MahjongResolver;
 
+/**
+ * @author yu1ro
+ *         チャンタ判定クラス
+ */
 public class ChantaResolver implements MahjongResolver {
     final int HAN = MahjongYakuList.CHANTA.getHan();
     final int KUISAGARI = MahjongYakuList.CHANTA.getKuisagari();

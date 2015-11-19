@@ -6,9 +6,10 @@ import org.mahjong4j.yaku.yakuman.*;
 
 import java.util.ArrayList;
 
-/*
- * 和了判定に関するクラスです。
- * 役の判定は別のクラスで行うがここから呼び出す予定です。
+/**
+ * @author yu1ro
+ *         和了判定に関するクラスです。
+ *         役の判定は別のクラスで行うがここから呼び出します
  */
 public class Mahjong {
     /*

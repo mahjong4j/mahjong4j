@@ -5,6 +5,10 @@ import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
 import org.mahjong4j.yaku.MahjongResolver;
 
+/**
+ * @author yu1ro
+ *         九蓮宝燈判定クラス
+ */
 public class ChurenpohtohResolver implements MahjongResolver {
 
     final int[] churenManzu = {

@@ -3,6 +3,10 @@ package org.mahjong4j.yaku.normals;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.MahjongResolver;
 
+/**
+ * @author yu1ro
+ *         場風判定クラス
+ */
 public class BakazeResolver implements MahjongResolver {
     final int HAN = MahjongYakuList.BAKAZE.getHan();
 

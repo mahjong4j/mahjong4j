@@ -4,6 +4,10 @@ import org.mahjong4j.MentsuResolver;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.MahjongResolver;
 
+/**
+ * @author yu1ro
+ *         二盃口判定クラス
+ */
 public class RyanpeikoResolver implements MahjongResolver {
     final int HAN = MahjongYakuList.RYANPEIKO.getHan();
 

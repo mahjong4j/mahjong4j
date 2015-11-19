@@ -5,6 +5,10 @@ import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
 import org.mahjong4j.yaku.MahjongResolver;
 
+/**
+ * @author yu1ro
+ *         小四喜判定クラス
+ */
 public class ShosushiResolver implements MahjongResolver {
 
     public int howHan() {

@@ -2,6 +2,10 @@ package org.mahjong4j.yaku.yakuman;
 
 import org.mahjong4j.yaku.MahjongResolver;
 
+/**
+ * @author yu1ro
+ *         国士無双判定クラス
+ */
 public class KokushiResolver implements MahjongResolver {
     final int HAN = 13;
     int[] kokushi = {1, 0, 0, 0, 0, 0, 0, 0, 1,

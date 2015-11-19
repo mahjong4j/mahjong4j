@@ -1,5 +1,9 @@
 package org.mahjong4j.yaku.yakuman;
 
+/**
+ * 役満の列挙
+ * TODO:English
+ */
 public enum MahjongYakuman {
     /*
      * 役満一覧です

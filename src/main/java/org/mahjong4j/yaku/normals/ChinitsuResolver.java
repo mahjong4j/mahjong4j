@@ -5,6 +5,10 @@ import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
 import org.mahjong4j.yaku.MahjongResolver;
 
+/**
+ * @author yu1ro
+ *         清一色判定クラス
+ */
 public class ChinitsuResolver implements MahjongResolver {
 
     final int HAN = MahjongYakuList.CHINITSU.getHan();

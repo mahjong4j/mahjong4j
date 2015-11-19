@@ -3,6 +3,10 @@ package org.mahjong4j.yaku.normals;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.MahjongResolver;
 
+/**
+ * @author yu1ro
+ *         純チャン判定クラス
+ */
 public class JunchanResolver implements MahjongResolver {
 
     final int HAN = MahjongYakuList.JUNCHAN.getHan();

@@ -5,6 +5,10 @@ import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
 import org.mahjong4j.yaku.MahjongResolver;
 
+/**
+ * @author yu1ro
+ *         混一色判定クラス
+ */
 public class HonitsuResolver implements MahjongResolver {
     final int HAN = MahjongYakuList.HONITSU.getHan();
     private int colorCount;

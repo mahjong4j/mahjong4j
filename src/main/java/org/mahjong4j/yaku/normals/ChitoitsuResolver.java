@@ -4,6 +4,10 @@ package org.mahjong4j.yaku.normals;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.MahjongResolver;
 
+/**
+ * @author yu1ro
+ *         七対子判定クラス
+ */
 public class ChitoitsuResolver implements MahjongResolver {
     /*
      * 七対子のクラス

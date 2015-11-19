@@ -5,6 +5,10 @@ import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
 import org.mahjong4j.yaku.MahjongResolver;
 
+/**
+ * @author yu1ro
+ *         小三元判定クラス
+ */
 public class ShosangenResolver implements MahjongResolver {
     final int HAN = MahjongYakuList.SHOSANGEN.getHan();
 

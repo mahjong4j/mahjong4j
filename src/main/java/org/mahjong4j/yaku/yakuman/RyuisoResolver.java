@@ -2,6 +2,10 @@ package org.mahjong4j.yaku.yakuman;
 
 import org.mahjong4j.yaku.MahjongResolver;
 
+/**
+ * @author yu1ro
+ *         緑一色判定クラス
+ */
 public class RyuisoResolver implements MahjongResolver {
 
     final int[] ryuisoHhands = {

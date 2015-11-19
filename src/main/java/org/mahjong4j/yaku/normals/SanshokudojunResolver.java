@@ -5,6 +5,10 @@ import org.mahjong4j.yaku.MahjongResolver;
 
 import java.util.ArrayList;
 
+/**
+ * @author yu1ro
+ *         三色同順判定クラス
+ */
 public class SanshokudojunResolver implements MahjongResolver {
 
     final int HAN = MahjongYakuList.SANSHOKUDOUJUN.getHan();

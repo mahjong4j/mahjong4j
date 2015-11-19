@@ -3,13 +3,13 @@ package org.mahjong4j;
 
 import org.mahjong4j.tile.MahjongTile;
 
+/**
+ * @author yu1ro
+ *         順子・刻子・（槓子）・雀頭かどうかを判定します。
+ *         なので、MahjongResolverインターフェースは実装しません
+ *         雀頭は面子とは言いませんがこのクラスに含めます
+ */
 public class MentsuResolver {
-    /*
-     * 順子・刻子・（槓子）・雀頭かどうかを判定します。
-     * なので、MahjongResolverインターフェースは実装しません
-     * 雀頭は面子とは言いませんがこのクラスに含めちゃいます。
-     */
-
 
     public static boolean isShuntsu(MahjongTile a, MahjongTile b, MahjongTile c) {
         if (a.getType() != b.getType() || b.getType() != c.getType()) {

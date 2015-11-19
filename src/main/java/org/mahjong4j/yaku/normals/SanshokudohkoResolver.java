@@ -5,6 +5,10 @@ import org.mahjong4j.yaku.MahjongResolver;
 
 import java.util.ArrayList;
 
+/**
+ * @author yu1ro
+ *         三色同刻判定クラス
+ */
 public class SanshokudohkoResolver implements MahjongResolver {
     final int HAN = MahjongYakuList.SANSHOKUDOKO.getKuisagari();
 

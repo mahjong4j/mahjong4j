@@ -5,6 +5,10 @@ import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
 import org.mahjong4j.yaku.MahjongResolver;
 
+/**
+ * @author yu1ro
+ *         大三元判定クラス
+ */
 public class DaisangenResolver implements MahjongResolver {
 
     public int howHan() {

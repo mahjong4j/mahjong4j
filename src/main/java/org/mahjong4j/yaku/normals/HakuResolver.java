@@ -4,6 +4,10 @@ package org.mahjong4j.yaku.normals;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.MahjongResolver;
 
+/**
+ * @author yu1ro
+ *         白判定クラス
+ */
 public class HakuResolver implements MahjongResolver {
     private final int HAN = MahjongYakuList.HAKU.getHan();
 

@@ -4,6 +4,10 @@ package org.mahjong4j.yaku.yakuman;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.MahjongResolver;
 
+/**
+ * @author yu1ro
+ *         字一色判定クラス
+ */
 public class TsuisoResolver implements MahjongResolver {
 
     public int howHan() {

@@ -4,9 +4,11 @@ package org.mahjong4j.yaku.normals;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.MahjongResolver;
 
-/*
- * 刻子だけなら混老頭が付く時って
- * 四暗刻になっちゃうからこれ使わないかも
+/**
+ * @author yu1ro
+ *         混老頭判定クラス
+ *         刻子だけなら混老頭が付く時って
+ *         四暗刻になっちゃうからこれ使わないかも
  */
 public class HonrohtohResolver implements MahjongResolver {
     final int HAN = MahjongYakuList.HONROHTOH.getHan();
