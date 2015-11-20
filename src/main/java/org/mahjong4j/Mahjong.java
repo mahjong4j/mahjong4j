@@ -177,9 +177,7 @@ public class Mahjong {
 
     protected void init() {
         // ストックを手牌の元の状態に初期化
-        for (int i = 0; i < hands.length; i++) {
-            hstock[i] = hands[i];
-        }
+        System.arraycopy(hands, 0, hstock, 0, hands.length);
 
         // kotsuCount・chuntsuCountを初期化
         kotsuCount = 0;
@@ -430,8 +428,8 @@ public class Mahjong {
             //役満と役満ストックを比べて大きい方を保持する
             if (yakuman.size() < yakumanStock.size()) {
                 yakuman.clear();
-                for (int k = 0; k < yakumanStock.size(); k++) {
-                    yakuman.add(yakumanStock.get(k));
+                for (MahjongYakuman aYakumanStock : yakumanStock) {
+                    yakuman.add(aYakumanStock);
                 }
             }
             yakumanStock.clear();
@@ -585,8 +583,8 @@ public class Mahjong {
             if (hanStock > hanSum) {
                 hanSum = hanStock;
                 normalYaku.clear();
-                for (int n = 0; n < yakuStock.size(); n++) {
-                    normalYaku.add(yakuStock.get(n));
+                for (MahjongYakuList aYakuStock : yakuStock) {
+                    normalYaku.add(aYakuStock);
                 }
             }
 
