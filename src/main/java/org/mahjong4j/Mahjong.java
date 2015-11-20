@@ -282,22 +282,7 @@ public class Mahjong {
             }
 
             // 次に順子を探す
-            for (int j = 1; j < hands.length - 1; j++) {
-                while (hstock[j - 1] > 0 && hstock[j] > 0 && hstock[j + 1] > 0) {// whileにしたのは一盃口などがあるから
-                    if (Shuntsu.check(MahjongTile.getTile(j - 1),
-                            MahjongTile.getTile(j), MahjongTile.getTile(j + 1))) {
-                        shuntsuCandidate[candidateNumber][shuntsuCount++] = MahjongTile
-                                .getTile(j);
-                        hstock[j - 1]--;
-                        hstock[j]--;
-                        hstock[j + 1]--;
-                    } else {
-                        // コードが並んでいるけど、順子じゃない時はwhileを抜ける
-                        // 字牌とM9,P1,P2などを想定
-                        break;
-                    }
-                }
-            }
+            findShuntsu();
             // stockがすべてゼロなら和了の型なのでfind=true
             int k;
             for (k = 0; k < hstock.length; k++) {
@@ -319,22 +304,7 @@ public class Mahjong {
             jantoCandidate[candidateNumber] = jantoStock[i];
 
             // 順子から調べる
-            for (int j = 1; j < hands.length - 1; j++) {
-                while (hstock[j - 1] > 0 && hstock[j] > 0 && hstock[j + 1] > 0) {// whileにしたのは一盃口などがあるから
-                    if (Shuntsu.check(MahjongTile.getTile(j - 1),
-                            MahjongTile.getTile(j), MahjongTile.getTile(j + 1))) {
-                        shuntsuCandidate[candidateNumber][shuntsuCount++] = MahjongTile
-                                .getTile(j);
-                        hstock[j - 1]--;
-                        hstock[j]--;
-                        hstock[j + 1]--;
-                    } else {
-                        // コードが並んでいるけど、順子じゃない時はwhileを抜ける
-                        // 字牌とM9,P1,P2などを想定
-                        break;
-                    }
-                }
-            }
+            findShuntsu();
 
             // 次に刻子を調べる
             for (int j = 0; j < hands.length; j++) {
@@ -362,6 +332,25 @@ public class Mahjong {
 
         return find;
 
+    }
+
+    private void findShuntsu() {
+        for (int j = 1; j < hands.length - 1; j++) {
+            while (hstock[j - 1] > 0 && hstock[j] > 0 && hstock[j + 1] > 0) {// whileにしたのは一盃口などがあるから
+                if (Shuntsu.check(MahjongTile.getTile(j - 1),
+                        MahjongTile.getTile(j), MahjongTile.getTile(j + 1))) {
+                    shuntsuCandidate[candidateNumber][shuntsuCount++] = MahjongTile
+                            .getTile(j);
+                    hstock[j - 1]--;
+                    hstock[j]--;
+                    hstock[j + 1]--;
+                } else {
+                    // コードが並んでいるけど、順子じゃない時はwhileを抜ける
+                    // 字牌とM9,P1,P2などを想定
+                    break;
+                }
+            }
+        }
     }
 
     public boolean calcYakuman() {
