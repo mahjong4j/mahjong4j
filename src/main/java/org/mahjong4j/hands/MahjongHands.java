@@ -7,6 +7,16 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ * 手牌に関する操作全般を扱います。
+ * このクラスのインスタンスをMahjongクラスに投げると
+ * 点数が返ってくるようにしたいと考えています
+ * 現在：何もできません。
+ *
+ * TODO: ツモって牌を捨てるオペレーションメソッド
+ * TODO: otherTilesから面子に変換していく
+ * TODO: 変換時に上がりの形ならばcanWinをtrueにする
+ * TODO: ありえない場合(同じ牌5枚など)はthrow Exception
+ *
  * @author yu1ro
  */
 public class MahjongHands {

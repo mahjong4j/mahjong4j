@@ -8,6 +8,9 @@ import org.mahjong4j.yaku.yakuman.*;
 import java.util.ArrayList;
 
 /**
+ * TODO:役満をまとめて判定する
+ * TODO:通常役をまとめて判定
+ *
  * @author yu1ro
  *         和了判定に関するクラスです。
  *         役の判定は別のクラスで行うがここから呼び出します
