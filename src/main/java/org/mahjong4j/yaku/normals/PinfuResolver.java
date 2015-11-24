@@ -2,16 +2,15 @@ package org.mahjong4j.yaku.normals;
 
 
 import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.yaku.MahjongResolver;
 
 /**
  * @author yu1ro
  *         平和判定クラス
  */
-public class PinfuResolver implements MahjongResolver {
+public class PinfuResolver implements NormalYakuResolver {
 
-    final int KUISAGARI = MahjongYakuList.PINFU.getHan();
-    private final int HAN = MahjongYakuList.PINFU.getHan();
+    final int KUISAGARI = MahjongYakuEnum.PINFU.getHan();
+    private final int HAN = MahjongYakuEnum.PINFU.getHan();
     private MahjongTile jikazeHai, bakazeHai;
     //boolean naki = false;
 
@@ -20,8 +19,12 @@ public class PinfuResolver implements MahjongResolver {
         this.bakazeHai = bakaze;
     }
 
-    public int howHan() {
+    public int getHan() {
         return HAN;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 
     public boolean isPinfu(MahjongTile[] shuntsu, MahjongTile janto) {

@@ -2,34 +2,33 @@ package org.mahjong4j.yaku.normals;
 
 
 import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.yaku.MahjongResolver;
 
 /**
  * @author yu1ro
  *         七対子判定クラス
  */
-public class ChitoitsuResolver implements MahjongResolver {
+public class ChitoitsuResolver implements NormalYakuResolver {
     /*
      * 七対子のクラス
      */
-
-    final int HAN = MahjongYakuList.CHIITOITSU.getHan();
+    final int HAN = MahjongYakuEnum.CHIITOITSU.getHan();
     int[] hands = new int[34];
     MahjongTile[] toitsu = new MahjongTile[7];
 
     public ChitoitsuResolver(int[] hands) {
-        for (int i = 0; i < hands.length; i++) {
-            this.hands[i] = hands[i];
-        }
+        System.arraycopy(hands, 0, this.hands, 0, hands.length);
     }
 
     public MahjongTile[] getToitsu() {
         return toitsu;
     }
 
-    public int howHan() {
-
+    public int getHan() {
         return HAN;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 
     public boolean isChitoi() {
@@ -42,10 +41,6 @@ public class ChitoitsuResolver implements MahjongResolver {
                 toitsuCount++;
             }
         }
-        if (toitsuCount == 7) {
-            return true;
-        } else {
-            return false;
-        }
+        return toitsuCount == 7;
     }
 }

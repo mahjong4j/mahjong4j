@@ -1,7 +1,6 @@
 package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.yaku.MahjongResolver;
 
 import java.util.ArrayList;
 
@@ -9,16 +8,20 @@ import java.util.ArrayList;
  * @author yu1ro
  *         一気通貫判定クラス
  */
-public class IkkitsukanResolver implements MahjongResolver {
+public class IkkitsukanResolver implements NormalYakuResolver {
 
-    final int HAN = MahjongYakuList.ITTSU.getHan();
+    final int HAN = MahjongYakuEnum.ITTSU.getHan();
 
     boolean number2;
     boolean number5;
     boolean number8;
 
-    public int howHan() {
+    public int getHan() {
         return HAN;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 
     public boolean isIttsu(MahjongTile[] shuntsu) {

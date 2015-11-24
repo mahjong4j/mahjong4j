@@ -1,13 +1,11 @@
 package org.mahjong4j.yaku.normals;
 
-import org.mahjong4j.yaku.MahjongResolver;
-
 /**
  * @author yu1ro
  *         断么九判定クラス
  */
-public class TanyaoResolver implements MahjongResolver {
-    private final int HAN = MahjongYakuList.TANYAO.getHan();
+public class TanyaoResolver implements NormalYakuResolver {
+    private final int HAN = MahjongYakuEnum.TANYAO.getHan();
     private final int[] tanyao = {
             0, 1, 1, 1, 1, 1, 1, 1, 0,
             0, 1, 1, 1, 1, 1, 1, 1, 0,
@@ -16,8 +14,12 @@ public class TanyaoResolver implements MahjongResolver {
             0, 0, 0
     };
 
-    public int howHan() {
+    public int getHan() {
         return HAN;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 
     public boolean isTanyao(int[] hands) {

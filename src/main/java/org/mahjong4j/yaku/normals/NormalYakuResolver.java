@@ -1,4 +1,4 @@
-package org.mahjong4j.yaku;
+package org.mahjong4j.yaku.normals;
 
 /**
  * @author yu1ro
@@ -7,6 +7,7 @@ package org.mahjong4j.yaku;
  *         和了判定は別です。
  *         TODO:判定するメソッドも共通にするべきかもしれない
  */
-public interface MahjongResolver {
-    int howHan();
+public interface NormalYakuResolver {
+    int getHan();
+    boolean isMatch();
 }

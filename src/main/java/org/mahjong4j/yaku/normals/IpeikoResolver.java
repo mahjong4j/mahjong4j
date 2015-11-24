@@ -1,18 +1,21 @@
 package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.yaku.MahjongResolver;
 
 /**
  * @author yu1ro
  *         一盃口判定クラス
  */
-public class IpeikoResolver implements MahjongResolver {
-    final int HAN = MahjongYakuList.IPEIKO.getHan();
-    final int KUISAGARI = MahjongYakuList.IPEIKO.getKuisagari();
+public class IpeikoResolver implements NormalYakuResolver {
+    final int HAN = MahjongYakuEnum.IPEIKO.getHan();
+    final int KUISAGARI = MahjongYakuEnum.IPEIKO.getKuisagari();
 
-    public int howHan() {
+    public int getHan() {
         return HAN;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 
     public boolean isIpeiko(MahjongTile[] shuntsu) {

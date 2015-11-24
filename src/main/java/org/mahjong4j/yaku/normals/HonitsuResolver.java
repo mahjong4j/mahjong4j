@@ -3,18 +3,21 @@ package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
-import org.mahjong4j.yaku.MahjongResolver;
 
 /**
  * @author yu1ro
  *         混一色判定クラス
  */
-public class HonitsuResolver implements MahjongResolver {
-    final int HAN = MahjongYakuList.HONITSU.getHan();
+public class HonitsuResolver implements NormalYakuResolver {
+    final int HAN = MahjongYakuEnum.HONITSU.getHan();
     private int colorCount;
 
-    public int howHan() {
+    public int getHan() {
         return HAN;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 
     /*

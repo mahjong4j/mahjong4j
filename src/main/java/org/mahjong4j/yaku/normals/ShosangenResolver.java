@@ -3,21 +3,24 @@ package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
-import org.mahjong4j.yaku.MahjongResolver;
 
 /**
  * @author yu1ro
  *         小三元判定クラス
  */
-public class ShosangenResolver implements MahjongResolver {
-    final int HAN = MahjongYakuList.SHOSANGEN.getHan();
+public class ShosangenResolver implements NormalYakuResolver {
+    final int HAN = MahjongYakuEnum.SHOSANGEN.getHan();
 
     boolean haku;
     boolean hatsu;
     boolean chun;
 
-    public int howHan() {
+    public int getHan() {
         return HAN;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 
     public void switching(MahjongTile s) {

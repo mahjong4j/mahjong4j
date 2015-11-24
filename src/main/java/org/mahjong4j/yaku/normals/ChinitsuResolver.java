@@ -3,19 +3,22 @@ package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
-import org.mahjong4j.yaku.MahjongResolver;
 
 /**
  * @author yu1ro
  *         清一色判定クラス
  */
-public class ChinitsuResolver implements MahjongResolver {
+public class ChinitsuResolver implements NormalYakuResolver {
 
-    final int HAN = MahjongYakuList.CHINITSU.getHan();
+    final int HAN = MahjongYakuEnum.CHINITSU.getHan();
     private int colorCount;
 
-    public int howHan() {
+    public int getHan() {
         return HAN;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 
     //通常型用

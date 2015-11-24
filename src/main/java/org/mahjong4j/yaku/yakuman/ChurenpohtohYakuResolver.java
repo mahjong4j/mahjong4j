@@ -3,13 +3,13 @@ package org.mahjong4j.yaku.yakuman;
 
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
-import org.mahjong4j.yaku.MahjongResolver;
+import org.mahjong4j.yaku.normals.NormalYakuResolver;
 
 /**
  * @author yu1ro
  *         九蓮宝燈判定クラス
  */
-public class ChurenpohtohResolver implements MahjongResolver {
+public class ChurenpohtohYakuResolver implements NormalYakuResolver {
 
     final int[] churenManzu = {
             3, 1, 1, 1, 1, 1, 1, 1, 3,
@@ -38,14 +38,18 @@ public class ChurenpohtohResolver implements MahjongResolver {
     MahjongTileType churenType;
     private int[] hands = new int[34];
 
-    public ChurenpohtohResolver(int[] hands) {
+    public ChurenpohtohYakuResolver(int[] hands) {
         for (int i = 0; i < hands.length; i++) {
             this.hands[i] = hands[i];
         }
     }
 
-    public int howHan() {
+    public int getHan() {
         return 0;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 
     public boolean isChuren() {

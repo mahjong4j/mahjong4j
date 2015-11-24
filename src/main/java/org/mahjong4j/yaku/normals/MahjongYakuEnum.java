@@ -6,7 +6,7 @@ package org.mahjong4j.yaku.normals;
  *         翻数,食い下がり翻数,日本語
  *         TODO:English
  */
-public enum MahjongYakuList {
+public enum MahjongYakuEnum {
     /*
      * 役の一覧です
      * 役満は別です
@@ -36,12 +36,12 @@ public enum MahjongYakuList {
 
     private int han;
     private int kuisagari;
-    private String kanji;
+    private String japanese;
 
-    MahjongYakuList(int han, int kuisagari, String kanji) {
+    MahjongYakuEnum(int han, int kuisagari, String japanese) {
         this.han = han;
         this.kuisagari = kuisagari;
-        this.kanji = kanji;
+        this.japanese = japanese;
     }
 
     public int getHan() {
@@ -52,7 +52,7 @@ public enum MahjongYakuList {
         return kuisagari;
     }
 
-    public String getKanji() {
-        return kanji;
+    public String getJapanese() {
+        return japanese;
     }
 }

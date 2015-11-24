@@ -1,16 +1,15 @@
 package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.yaku.MahjongResolver;
 
 /**
  * @author yu1ro
  *         純チャン判定クラス
  */
-public class JunchanResolver implements MahjongResolver {
+public class JunchanResolver implements NormalYakuResolver {
 
-    final int HAN = MahjongYakuList.JUNCHAN.getHan();
-    final int KUISAGARI = MahjongYakuList.JUNCHAN.getHan();
+    final int HAN = MahjongYakuEnum.JUNCHAN.getHan();
+    final int KUISAGARI = MahjongYakuEnum.JUNCHAN.getHan();
     int[] shuntsuHands = {
             0, 1, 0, 0, 0, 0, 0, 1, 0,
             0, 1, 0, 0, 0, 0, 0, 1, 0,
@@ -24,8 +23,12 @@ public class JunchanResolver implements MahjongResolver {
             0, 0, 0, 0,
             0, 0, 0};
 
-    public int howHan() {
+    public int getHan() {
         return HAN;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 
     public boolean isJunchan(MahjongTile[] shuntsu, MahjongTile[] kotsu, MahjongTile janto) {

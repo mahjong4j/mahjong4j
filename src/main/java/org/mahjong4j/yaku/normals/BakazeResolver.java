@@ -1,14 +1,13 @@
 package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.yaku.MahjongResolver;
 
 /**
  * @author yu1ro
  *         場風判定クラス
  */
-public class BakazeResolver implements MahjongResolver {
-    final int HAN = MahjongYakuList.BAKAZE.getHan();
+public class BakazeResolver implements NormalYakuResolver {
+    final int HAN = MahjongYakuEnum.BAKAZE.getHan();
 
     MahjongTile bakaze;
 
@@ -16,8 +15,12 @@ public class BakazeResolver implements MahjongResolver {
         this.bakaze = bakaze;
     }
 
-    public int howHan() {
+    public int getHan() {
         return HAN;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 
     public boolean isBakaze(MahjongTile[] kotsu) {

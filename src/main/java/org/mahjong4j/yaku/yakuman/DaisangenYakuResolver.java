@@ -3,16 +3,20 @@ package org.mahjong4j.yaku.yakuman;
 
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
-import org.mahjong4j.yaku.MahjongResolver;
+import org.mahjong4j.yaku.normals.NormalYakuResolver;
 
 /**
  * @author yu1ro
  *         大三元判定クラス
  */
-public class DaisangenResolver implements MahjongResolver {
+public class DaisangenYakuResolver implements NormalYakuResolver {
 
-    public int howHan() {
+    public int getHan() {
         return 0;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 
     public boolean isDaisangen(MahjongTile[] kotsu) {

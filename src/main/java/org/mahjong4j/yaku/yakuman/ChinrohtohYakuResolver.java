@@ -1,16 +1,20 @@
 package org.mahjong4j.yaku.yakuman;
 
 import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.yaku.MahjongResolver;
+import org.mahjong4j.yaku.normals.NormalYakuResolver;
 
 /**
  * @author yu1ro
  *         清老頭判定クラス
  */
-public class ChinrohtohResolver implements MahjongResolver {
+public class ChinrohtohYakuResolver implements NormalYakuResolver {
 
-    public int howHan() {
+    public int getHan() {
         return 0;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 
     public boolean isChinroto(MahjongTile[] kotsu, MahjongTile janto) {

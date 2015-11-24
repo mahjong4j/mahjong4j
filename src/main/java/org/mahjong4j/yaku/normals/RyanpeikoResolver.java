@@ -2,14 +2,13 @@ package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.hands.Shuntsu;
 import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.yaku.MahjongResolver;
 
 /**
  * @author yu1ro
  *         二盃口判定クラス
  */
-public class RyanpeikoResolver implements MahjongResolver {
-    final int HAN = MahjongYakuList.RYANPEIKO.getHan();
+public class RyanpeikoResolver implements NormalYakuResolver {
+    final int HAN = MahjongYakuEnum.RYANPEIKO.getHan();
 
     private MahjongTile[] shuntsuRevised = new MahjongTile[4];
     private MahjongTile jantoRevesed;
@@ -22,8 +21,12 @@ public class RyanpeikoResolver implements MahjongResolver {
         return shuntsuRevised;
     }
 
-    public int howHan() {
+    public int getHan() {
         return HAN;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 
     /*

@@ -1,7 +1,6 @@
 package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.yaku.MahjongResolver;
 
 import java.util.ArrayList;
 
@@ -9,15 +8,19 @@ import java.util.ArrayList;
  * @author yu1ro
  *         三色同刻判定クラス
  */
-public class SanshokudohkoResolver implements MahjongResolver {
-    final int HAN = MahjongYakuList.SANSHOKUDOKO.getKuisagari();
+public class SanshokudohkoResolver implements NormalYakuResolver {
+    final int HAN = MahjongYakuEnum.SANSHOKUDOKO.getKuisagari();
 
     boolean manzu;
     boolean pinzu;
     boolean sohzu;
 
-    public int howHan() {
+    public int getHan() {
         return HAN;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 
     public boolean isSanshokudoko(MahjongTile[] kotsu) {

@@ -3,16 +3,20 @@ package org.mahjong4j.yaku.yakuman;
 
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
-import org.mahjong4j.yaku.MahjongResolver;
+import org.mahjong4j.yaku.normals.NormalYakuResolver;
 
 /**
  * @author yu1ro
  *         小四喜判定クラス
  */
-public class ShosushiResolver implements MahjongResolver {
+public class ShosushiYakuResolver implements NormalYakuResolver {
 
-    public int howHan() {
+    public int getHan() {
         return 0;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 
     public boolean isShosushi(MahjongTile[] kotsu, MahjongTile janto) {
