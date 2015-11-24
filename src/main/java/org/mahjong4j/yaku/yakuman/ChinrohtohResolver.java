@@ -7,7 +7,7 @@ import org.mahjong4j.yaku.MahjongResolver;
  * @author yu1ro
  *         清老頭判定クラス
  */
-public class ChinrotoResolver implements MahjongResolver {
+public class ChinrohtohResolver implements MahjongResolver {
 
     public int howHan() {
         return 0;

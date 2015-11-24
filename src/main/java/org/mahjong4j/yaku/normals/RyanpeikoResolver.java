@@ -1,6 +1,6 @@
 package org.mahjong4j.yaku.normals;
 
-import org.mahjong4j.MentsuResolver;
+import org.mahjong4j.hands.Shuntsu;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.MahjongResolver;
 
@@ -43,10 +43,7 @@ public class RyanpeikoResolver implements MahjongResolver {
             }
         }
 
-        if (peikoCount == 2) {
-            return true;
-        }
-        return false;
+        return peikoCount == 2;
     }
 
     /*
@@ -58,7 +55,7 @@ public class RyanpeikoResolver implements MahjongResolver {
         int[] head = {1, 1, 1, 1, 1, 1, 1};
 
         for (int i = 1; i < toitsu.length - 1; i++) {
-            if (MentsuResolver.isShuntsu(toitsu[i - 1], toitsu[i], toitsu[i + 1])) {
+            if (Shuntsu.check(toitsu[i - 1], toitsu[i], toitsu[i + 1])) {
                 // 順子に修正する
                 shuntsuRevised[peikoCount * 2] = toitsu[i];
                 shuntsuRevised[peikoCount * 2 + 1] = toitsu[i];

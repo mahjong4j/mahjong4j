@@ -6,7 +6,7 @@ import org.mahjong4j.yaku.MahjongResolver;
  * @author yu1ro
  *         国士無双判定クラス
  */
-public class KokushiResolver implements MahjongResolver {
+public class KokushimusoResolver implements MahjongResolver {
     final int HAN = 13;
     int[] kokushi = {1, 0, 0, 0, 0, 0, 0, 0, 1,
             1, 0, 0, 0, 0, 0, 0, 0, 1,
@@ -15,7 +15,7 @@ public class KokushiResolver implements MahjongResolver {
             1, 1, 1};
     int[] hands = new int[34];
 
-    public KokushiResolver(int[] hands) {
+    public KokushimusoResolver(int[] hands) {
         for (int i = 0; i < hands.length; i++) {
             this.hands[i] = hands[i];
         }

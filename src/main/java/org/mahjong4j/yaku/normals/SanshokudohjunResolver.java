@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author yu1ro
  *         三色同順判定クラス
  */
-public class SanshokudojunResolver implements MahjongResolver {
+public class SanshokudohjunResolver implements MahjongResolver {
 
     final int HAN = MahjongYakuList.SANSHOKUDOUJUN.getHan();
     boolean manzu;
