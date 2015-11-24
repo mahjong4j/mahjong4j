@@ -8,7 +8,7 @@ import org.mahjong4j.tile.MahjongTileType;
  * @author yu1ro
  *         清一色判定クラス
  */
-public class ChinitsuResolver implements NormalYakuResolver {
+public class ChinitsuResolver implements YakuResolver {
 
     final int HAN = MahjongYakuEnum.CHINITSU.getHan();
     private int colorCount;

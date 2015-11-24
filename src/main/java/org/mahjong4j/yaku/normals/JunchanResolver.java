@@ -6,7 +6,7 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  *         純チャン判定クラス
  */
-public class JunchanResolver implements NormalYakuResolver {
+public class JunchanResolver implements YakuResolver {
 
     final int HAN = MahjongYakuEnum.JUNCHAN.getHan();
     final int KUISAGARI = MahjongYakuEnum.JUNCHAN.getHan();

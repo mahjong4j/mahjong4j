@@ -8,9 +8,9 @@ import java.util.ArrayList;
  * @author yu1ro
  *         三色同順判定クラス
  */
-public class SanshokudohjunResolver implements NormalYakuResolver {
+public class SanshokudohjunResolver implements YakuResolver {
 
-    final int HAN = MahjongYakuEnum.SANSHOKUDOUJUN.getHan();
+    final int HAN = MahjongYakuEnum.SANSHOKUDOHJUN.getHan();
     boolean manzu;
     boolean pinzu;
     boolean sohzu;

@@ -8,8 +8,8 @@ import java.util.ArrayList;
  * @author yu1ro
  *         三色同刻判定クラス
  */
-public class SanshokudohkoResolver implements NormalYakuResolver {
-    final int HAN = MahjongYakuEnum.SANSHOKUDOKO.getKuisagari();
+public class SanshokudohkoResolver implements YakuResolver {
+    final int HAN = MahjongYakuEnum.SANSHOKUDOHKO.getKuisagari();
 
     boolean manzu;
     boolean pinzu;

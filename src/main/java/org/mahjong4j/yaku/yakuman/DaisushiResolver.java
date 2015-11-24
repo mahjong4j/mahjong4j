@@ -1,15 +1,14 @@
 package org.mahjong4j.yaku.yakuman;
 
-
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
-import org.mahjong4j.yaku.normals.NormalYakuResolver;
+import org.mahjong4j.yaku.normals.YakuResolver;
 
 /**
  * @author yu1ro
- *         小四喜判定クラス
+ *         大四喜判定クラス
  */
-public class ShosushiYakuResolver implements NormalYakuResolver {
+public class DaisushiResolver implements YakuResolver {
 
     public int getHan() {
         return 0;
@@ -19,18 +18,15 @@ public class ShosushiYakuResolver implements NormalYakuResolver {
         return false;
     }
 
-    public boolean isShosushi(MahjongTile[] kotsu, MahjongTile janto) {
-        if (janto.getType() != MahjongTileType.FONPAI) {
-            return false;
-        }
-
-        int fonpaiCount = 1;
+    public boolean isDaisushi(MahjongTile[] kotsu) {
+        int sushiCount = 0;
 
         for (int i = 0; i < kotsu.length && kotsu[i] != null; i++) {
             if (kotsu[i].getType() == MahjongTileType.FONPAI) {
-                fonpaiCount++;
+                sushiCount++;
             }
         }
-        return fonpaiCount == 4;
+
+        return sushiCount == 4;
     }
 }

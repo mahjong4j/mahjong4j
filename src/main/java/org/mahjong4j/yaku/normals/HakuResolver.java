@@ -7,7 +7,7 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  *         白判定クラス
  */
-public class HakuResolver implements NormalYakuResolver {
+public class HakuResolver implements YakuResolver {
     private final int HAN = MahjongYakuEnum.HAKU.getHan();
 
     public int getHan() {

@@ -1,12 +1,12 @@
 package org.mahjong4j.yaku.yakuman;
 
-import org.mahjong4j.yaku.normals.NormalYakuResolver;
+import org.mahjong4j.yaku.normals.YakuResolver;
 
 /**
  * @author yu1ro
  *         国士無双判定クラス
  */
-public class KokushimusoYakuResolver implements NormalYakuResolver {
+public class KokushimusoResolver implements YakuResolver {
     final int HAN = 13;
     int[] kokushi = {1, 0, 0, 0, 0, 0, 0, 0, 1,
             1, 0, 0, 0, 0, 0, 0, 0, 1,
@@ -15,7 +15,7 @@ public class KokushimusoYakuResolver implements NormalYakuResolver {
             1, 1, 1};
     int[] hands = new int[34];
 
-    public KokushimusoYakuResolver(int[] hands) {
+    public KokushimusoResolver(int[] hands) {
         for (int i = 0; i < hands.length; i++) {
             this.hands[i] = hands[i];
         }

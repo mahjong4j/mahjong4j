@@ -11,7 +11,7 @@ import java.util.List;
  * このクラスのインスタンスをMahjongクラスに投げると
  * 点数が返ってくるようにしたいと考えています
  * 現在：何もできません。
- *
+ * <p>
  * TODO: ツモって牌を捨てるオペレーションメソッド
  * TODO: otherTilesから面子に変換していく
  * TODO: 変換時に上がりの形ならばcanWinをtrueにする

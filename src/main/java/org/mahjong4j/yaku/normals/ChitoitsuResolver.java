@@ -7,11 +7,11 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  *         七対子判定クラス
  */
-public class ChitoitsuResolver implements NormalYakuResolver {
+public class ChitoitsuResolver implements YakuResolver {
     /*
      * 七対子のクラス
      */
-    final int HAN = MahjongYakuEnum.CHIITOITSU.getHan();
+    final int HAN = MahjongYakuEnum.CHITOITSU.getHan();
     int[] hands = new int[34];
     MahjongTile[] toitsu = new MahjongTile[7];
 

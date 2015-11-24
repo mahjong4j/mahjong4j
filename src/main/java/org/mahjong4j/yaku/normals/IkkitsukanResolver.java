@@ -8,9 +8,9 @@ import java.util.ArrayList;
  * @author yu1ro
  *         一気通貫判定クラス
  */
-public class IkkitsukanResolver implements NormalYakuResolver {
+public class IkkitsukanResolver implements YakuResolver {
 
-    final int HAN = MahjongYakuEnum.ITTSU.getHan();
+    final int HAN = MahjongYakuEnum.IKKITSUKAN.getHan();
 
     boolean number2;
     boolean number5;

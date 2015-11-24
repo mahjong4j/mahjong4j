@@ -79,9 +79,9 @@ public class Mahjong {
 
     private HonrohtohResolver honrohtoh;
 
-    private KokushimusoYakuResolver kokushimuso;
+    private KokushimusoResolver kokushimuso;
 
-    private ChurenpohtohYakuResolver churenpohtoh;
+    private ChurenpohtohResolver churenpohtoh;
 
     private SanshokudohjunResolver dohjun;
 
@@ -95,21 +95,21 @@ public class Mahjong {
 
     private ChinitsuResolver chinitsu;
 
-    private SuankoYakuResolver suanko;
+    private SuankoResolver suanko;
 
     private RyanpeikoResolver ryanpeiko;
 
-    private DaisangenYakuResolver daisangen;
+    private DaisangenResolver daisangen;
 
-    private TsuisoYakuResolver tsuiso;
+    private TsuisoResolver tsuiso;
 
-    private ShosushiYakuResolver shosushi;
+    private ShosushiResolver shosushi;
 
-    private DaisushiYakuResolver daisushi;
+    private DaisushiResolver daisushi;
 
-    private ChinrohtohYakuResolver chinrohtoh;
+    private ChinrohtohResolver chinrohtoh;
 
-    private RyuisoYakuResolver ryuiso;
+    private RyuisoResolver ryuiso;
 
     private SanankoResolver sananko;
 
@@ -123,10 +123,6 @@ public class Mahjong {
     }
 
     public static void main(String[] args) {
-        MahjongYakuEnum[] yakumanList = MahjongYakuEnum.values();
-        for (MahjongYakuEnum yakuman : yakumanList) {
-
-        }
         int[] test = {
                 0, 2, 2, 2, 2, 2, 2, 2, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -137,7 +133,7 @@ public class Mahjong {
         Mahjong it = new Mahjong(test, MahjongTile.NAN, MahjongTile.TON);
         if (it.canWin()) {
             if (it.normalYaku.size() != 0) {
-                if (it.normalYaku.get(0) == MahjongYakuEnum.CHIITOITSU) {
+                if (it.normalYaku.get(0) == MahjongYakuEnum.CHITOITSU) {
 
                     if (it.calcChitoiYakuman()) {
                         System.out.println(it.yakuman.get(0));
@@ -216,7 +212,7 @@ public class Mahjong {
          */
 
         // 国士無双の判定
-        kokushimuso = new KokushimusoYakuResolver(hands);
+        kokushimuso = new KokushimusoResolver(hands);
         if (kokushimuso.isKokushi()) {
             // 役満で上がった事を保持
             yakuman.add(MahjongYakuman.KOKUSHIMUSO);
@@ -245,7 +241,7 @@ public class Mahjong {
                  */
             } else {
                 // 違ったら七対子で上がったことを保持しておく
-                normalYaku.add(MahjongYakuEnum.CHIITOITSU);
+                normalYaku.add(MahjongYakuEnum.CHITOITSU);
             }
 
             // 和了れるのでtrueを返す。
@@ -364,7 +360,7 @@ public class Mahjong {
         // 役満の計算をします。
 
         // CHURENPOHTO,
-        churenpohtoh = new ChurenpohtohYakuResolver(hands);
+        churenpohtoh = new ChurenpohtohResolver(hands);
         if (churenpohtoh.isChuren()) {
             yakuman.add(MahjongYakuman.CHURENPOHTO);
             return true;
@@ -380,43 +376,43 @@ public class Mahjong {
             janto = jantoCandidate[aCompleteNumber];
 
             // SUANKO,
-            suanko = new SuankoYakuResolver();
+            suanko = new SuankoResolver();
             if (suanko.isSuanko(kohtsu)) {
                 yakumanStock.add(MahjongYakuman.SUANKO);
             }
 
             // DAISANGEN,
-            daisangen = new DaisangenYakuResolver();
+            daisangen = new DaisangenResolver();
             if (daisangen.isDaisangen(kohtsu)) {
                 yakumanStock.add(MahjongYakuman.DAISANGEN);
             }
 
             // TSUISO,
-            tsuiso = new TsuisoYakuResolver();
+            tsuiso = new TsuisoResolver();
             if (tsuiso.isTsuiso(kohtsu, janto)) {
                 yakumanStock.add(MahjongYakuman.TSUISO);
             }
 
             // SHOSUSHI,
-            shosushi = new ShosushiYakuResolver();
+            shosushi = new ShosushiResolver();
             if (shosushi.isShosushi(kohtsu, janto)) {
                 yakumanStock.add(MahjongYakuman.SHOSUSHI);
             }
 
             // DAISUSHI,
-            daisushi = new DaisushiYakuResolver();
+            daisushi = new DaisushiResolver();
             if (daisushi.isDaisushi(kohtsu)) {
                 yakumanStock.add(MahjongYakuman.DAISUSHI);
             }
 
             // CHINROTO
-            chinrohtoh = new ChinrohtohYakuResolver();
+            chinrohtoh = new ChinrohtohResolver();
             if (chinrohtoh.isChinroto(kohtsu, janto)) {
                 yakumanStock.add(MahjongYakuman.CHINROTO);
             }
 
             // RYUISO,
-            ryuiso = new RyuisoYakuResolver();
+            ryuiso = new RyuisoResolver();
             if (ryuiso.isRyuiso(hands)) {
                 yakumanStock.add(MahjongYakuman.RYUISO);
             }
@@ -538,18 +534,18 @@ public class Mahjong {
             doko = new SanshokudohkoResolver();
 
             if (dohjun.isSanshokudojun(shuntsu)) {
-                yakuStock.add(MahjongYakuEnum.SANSHOKUDOUJUN);
+                yakuStock.add(MahjongYakuEnum.SANSHOKUDOHJUN);
                 hanStock += dohjun.getHan();
             }
             if (doko.isSanshokudoko(kohtsu)) {
-                yakuStock.add(MahjongYakuEnum.SANSHOKUDOKO);
+                yakuStock.add(MahjongYakuEnum.SANSHOKUDOHKO);
                 hanStock += doko.getHan();
             }
 
             // 一気通貫
             ittsu = new IkkitsukanResolver();
             if (ittsu.isIttsu(shuntsu)) {
-                yakuStock.add(MahjongYakuEnum.ITTSU);
+                yakuStock.add(MahjongYakuEnum.IKKITSUKAN);
                 hanStock += ittsu.getHan();
             }
 
@@ -648,7 +644,7 @@ public class Mahjong {
 
         boolean isYakuman = false;
 
-        tsuiso = new TsuisoYakuResolver();
+        tsuiso = new TsuisoResolver();
         if (tsuiso.isTsuiso(toitsu)) {
             yakuman.add(MahjongYakuman.TSUISO);
             isYakuman = true;
@@ -660,7 +656,7 @@ public class Mahjong {
 
     public void calcChitoiYaku() {
         //七対子の分と門前清自摸和の分を付けておく
-        hanSum += MahjongYakuEnum.CHIITOITSU.getHan();
+        hanSum += MahjongYakuEnum.CHITOITSU.getHan();
 
         normalYaku.add(MahjongYakuEnum.TSUMO);
         hanSum += MahjongYakuEnum.TSUMO.getHan();

@@ -8,7 +8,7 @@ import org.mahjong4j.tile.MahjongTileType;
  * @author yu1ro
  *         小三元判定クラス
  */
-public class ShosangenResolver implements NormalYakuResolver {
+public class ShosangenResolver implements YakuResolver {
     final int HAN = MahjongYakuEnum.SHOSANGEN.getHan();
 
     boolean haku;

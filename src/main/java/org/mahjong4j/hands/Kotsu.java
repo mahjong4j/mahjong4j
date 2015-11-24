@@ -26,7 +26,7 @@ public class Kotsu implements MahjongMentsu {
     /**
      * 刻子であることがわかっている場合に利用します
      *
-     * @param isOpen 暗刻ならばfalse 明刻ならばtrue
+     * @param isOpen         暗刻ならばfalse 明刻ならばtrue
      * @param identifierTile どの牌の刻子なのか
      */
     public Kotsu(boolean isOpen, MahjongTile identifierTile) {
@@ -53,6 +53,7 @@ public class Kotsu implements MahjongMentsu {
 
     /**
      * 刻子であるかの判定を行ないます
+     *
      * @param tile1 1枚目
      * @param tile2 2枚目
      * @param tile3 3枚目

@@ -1,13 +1,13 @@
 package org.mahjong4j.yaku.yakuman;
 
 import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.yaku.normals.NormalYakuResolver;
+import org.mahjong4j.yaku.normals.YakuResolver;
 
 /**
  * @author yu1ro
  *         清老頭判定クラス
  */
-public class ChinrohtohYakuResolver implements NormalYakuResolver {
+public class ChinrohtohResolver implements YakuResolver {
 
     public int getHan() {
         return 0;
