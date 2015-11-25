@@ -2,6 +2,7 @@ package org.mahjong4j.hands;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mahjong4j.MahjongTileOverFlowException;
 import org.mahjong4j.tile.MahjongTile;
 
 import java.util.ArrayList;
@@ -67,5 +68,24 @@ public class JantoTest {
         expected = new ArrayList<Janto>(7);
         expected.add(new Janto(MahjongTile.HAK));
         assertEquals(MahjongTile.HAK, expected.get(0).getTile());
+    }
+
+
+    @Test
+    public void testCatchException() {
+        int[] tiles = {
+                1, 5, 1, 1, 1, 1, 1, 1, 1,
+                0, 1, 1, 1, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0,
+                0, 2, 0
+        };
+
+        try {
+            new MahjongHands(tiles, MahjongTile.M6);
+        } catch (MahjongTileOverFlowException e) {
+            assertEquals("麻雀の牌は4枚までしかありません", e.getMessage());
+            assertEquals("M2(code = 1)が5枚見つかりました", e.getAdvice());
+        }
     }
 }

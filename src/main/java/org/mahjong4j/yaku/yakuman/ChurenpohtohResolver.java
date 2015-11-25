@@ -105,9 +105,6 @@ public class ChurenpohtohResolver implements YakuResolver {
             default:
                 return false;
         }
-        if (count == 1) {
-            return true;
-        }
-        return false;
+        return count == 1;
     }
 }
