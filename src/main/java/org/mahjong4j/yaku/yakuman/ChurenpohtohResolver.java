@@ -55,7 +55,7 @@ public class ChurenpohtohResolver implements YakuResolver {
         //どのタイプが含まれているか調べる
         for (int i = 0; i < hands.length; i++) {
             if (hands[i] > 0) {
-                churenType = MahjongTile.getTile(i).getType();
+                churenType = MahjongTile.valueOf(i).getType();
                 break;
             }
         }

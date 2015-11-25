@@ -64,7 +64,7 @@ public class Kantsu implements MahjongMentsu {
         return tile1 == tile2 && tile2 == tile3 && tile3 == tile4;
     }
 
-    public MahjongTile getIdentifierTile() {
+    public MahjongTile getTile() {
         return identifierTile;
     }
 

@@ -7,8 +7,9 @@ import org.mahjong4j.yaku.normals.YakuResolver;
  *         国士無双判定クラス
  */
 public class KokushimusoResolver implements YakuResolver {
-    final int HAN = 13;
-    int[] kokushi = {1, 0, 0, 0, 0, 0, 0, 0, 1,
+    public final int HAN = 13;
+    public static final int[] kokushi = {
+            1, 0, 0, 0, 0, 0, 0, 0, 1,
             1, 0, 0, 0, 0, 0, 0, 0, 1,
             1, 0, 0, 0, 0, 0, 0, 0, 1,
             1, 1, 1, 1,
@@ -16,9 +17,7 @@ public class KokushimusoResolver implements YakuResolver {
     int[] hands = new int[34];
 
     public KokushimusoResolver(int[] hands) {
-        for (int i = 0; i < hands.length; i++) {
-            this.hands[i] = hands[i];
-        }
+        System.arraycopy(hands, 0, this.hands, 0, hands.length);
     }
 
     public int getHan() {
@@ -29,8 +28,7 @@ public class KokushimusoResolver implements YakuResolver {
         return false;
     }
 
-    public boolean isKokushi() {
-
+    public static boolean isMatch(int[] hands) {
         //国士の形一個ずつ減らす
         int count = 0;
         for (int i = 0; i < hands.length; i++) {
@@ -41,7 +39,7 @@ public class KokushimusoResolver implements YakuResolver {
                 return false;
             }
 
-            //么九牌以外が含まれていたら
+            //么九牌以外が含まれていたらfalse
             if (kokushi[i] == 0 && hands[i] > 0) {
                 return false;
             }

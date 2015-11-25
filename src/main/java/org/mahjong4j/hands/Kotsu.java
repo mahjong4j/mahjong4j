@@ -2,6 +2,9 @@ package org.mahjong4j.hands;
 
 import org.mahjong4j.tile.MahjongTile;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 刻子に関するクラスです
  * 暗刻と明刻の両方を扱います
@@ -63,7 +66,7 @@ public class Kotsu implements MahjongMentsu {
         return tile1 == tile2 && tile2 == tile3;
     }
 
-    public MahjongTile getIdentifierTile() {
+    public MahjongTile getTile() {
         return identifierTile;
     }
 

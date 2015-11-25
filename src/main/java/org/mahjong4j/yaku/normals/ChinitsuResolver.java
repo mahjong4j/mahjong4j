@@ -42,11 +42,8 @@ public class ChinitsuResolver implements YakuResolver {
         sozuCheck(shuntsu, kotsu, janto);
 
 
-        if (colorCount == 1) {
-            return true;
-        }
+        return colorCount == 1;
 
-        return false;
     }
 
     //七対子用

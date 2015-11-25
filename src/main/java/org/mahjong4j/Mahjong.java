@@ -213,7 +213,7 @@ public class Mahjong {
 
         // 国士無双の判定
         kokushimuso = new KokushimusoResolver(hands);
-        if (kokushimuso.isKokushi()) {
+        if (kokushimuso.isMatch()) {
             // 役満で上がった事を保持
             yakuman.add(MahjongYakuman.KOKUSHIMUSO);
 
@@ -256,7 +256,7 @@ public class Mahjong {
         int jantoNum = 0;
         for (int i = 0; i < hands.length; i++) {
             if (hands[i] >= 2) {
-                jantoStock[jantoNum++] = MahjongTile.getTile(i);
+                jantoStock[jantoNum++] = MahjongTile.valueOf(i);
             }
         }
 
@@ -279,7 +279,7 @@ public class Mahjong {
             for (int j = 0; j < hands.length; j++) {
                 if (hstock[j] >= 3) {
                     kotsuCandidate[candidateNumber][kotsuCount++] = MahjongTile
-                            .getTile(j);
+                            .valueOf(j);
                     hstock[j] -= 3;
                 }
             }
@@ -313,7 +313,7 @@ public class Mahjong {
             for (int j = 0; j < hands.length; j++) {
                 if (hstock[j] >= 3) {
                     kotsuCandidate[candidateNumber][kotsuCount++] = MahjongTile
-                            .getTile(j);
+                            .valueOf(j);
                     hstock[j] -= 3;
                 }
             }
@@ -340,10 +340,10 @@ public class Mahjong {
     private void findShuntsu() {
         for (int j = 1; j < hands.length - 1; j++) {
             while (hstock[j - 1] > 0 && hstock[j] > 0 && hstock[j + 1] > 0) {// whileにしたのは一盃口などがあるから
-                if (Shuntsu.check(MahjongTile.getTile(j - 1),
-                        MahjongTile.getTile(j), MahjongTile.getTile(j + 1))) {
+                if (Shuntsu.check(MahjongTile.valueOf(j - 1),
+                        MahjongTile.valueOf(j), MahjongTile.valueOf(j + 1))) {
                     shuntsuCandidate[candidateNumber][shuntsuCount++] = MahjongTile
-                            .getTile(j);
+                            .valueOf(j);
                     hstock[j - 1]--;
                     hstock[j]--;
                     hstock[j + 1]--;

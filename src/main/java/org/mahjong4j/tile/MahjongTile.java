@@ -55,7 +55,7 @@ public enum MahjongTile {
         this.number = number;
     }
 
-    public static MahjongTile getTile(int c) {
+    public static MahjongTile valueOf(int c) {
         return MahjongTile.values()[c];
     }
 
