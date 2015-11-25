@@ -1,4 +1,5 @@
 [![Stories in Ready](https://badge.waffle.io/yu1ro/mahjong4j.png?label=ready&title=Ready)](https://waffle.io/yu1ro/mahjong4j)
+[![Circle CI](https://circleci.com/gh/yu1ro/mahjong4j.svg?style=svg)](https://circleci.com/gh/yu1ro/mahjong4j)
 # mahjong4j
 日本のルールにおける麻雀の役判定プログラムです
 現在未完成です
