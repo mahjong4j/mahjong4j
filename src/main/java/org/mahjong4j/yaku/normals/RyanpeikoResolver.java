@@ -7,7 +7,7 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  *         二盃口判定クラス
  */
-public class RyanpeikoResolver implements NormalYakuResolver {
+public class RyanpeikoResolver implements YakuResolver {
     final int HAN = MahjongYakuEnum.RYANPEIKO.getHan();
 
     private MahjongTile[] shuntsuRevised = new MahjongTile[4];

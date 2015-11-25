@@ -7,7 +7,7 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  *         三暗刻判定クラス
  */
-public class SanankoResolver implements NormalYakuResolver {
+public class SanankoResolver implements YakuResolver {
     final int HAN = MahjongYakuEnum.SANANKO.getHan();
 
     public int getHan() {

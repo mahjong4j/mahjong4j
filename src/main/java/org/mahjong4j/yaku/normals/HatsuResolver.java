@@ -7,7 +7,7 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  *         発判定クラス
  */
-public class HatsuResolver implements NormalYakuResolver {
+public class HatsuResolver implements YakuResolver {
     private final int HAN = MahjongYakuEnum.HATSU.getHan();
 
     public int getHan() {

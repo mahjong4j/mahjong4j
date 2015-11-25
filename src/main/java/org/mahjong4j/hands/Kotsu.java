@@ -2,6 +2,9 @@ package org.mahjong4j.hands;
 
 import org.mahjong4j.tile.MahjongTile;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 刻子に関するクラスです
  * 暗刻と明刻の両方を扱います
@@ -26,7 +29,7 @@ public class Kotsu implements MahjongMentsu {
     /**
      * 刻子であることがわかっている場合に利用します
      *
-     * @param isOpen 暗刻ならばfalse 明刻ならばtrue
+     * @param isOpen         暗刻ならばfalse 明刻ならばtrue
      * @param identifierTile どの牌の刻子なのか
      */
     public Kotsu(boolean isOpen, MahjongTile identifierTile) {
@@ -53,6 +56,7 @@ public class Kotsu implements MahjongMentsu {
 
     /**
      * 刻子であるかの判定を行ないます
+     *
      * @param tile1 1枚目
      * @param tile2 2枚目
      * @param tile3 3枚目
@@ -62,7 +66,7 @@ public class Kotsu implements MahjongMentsu {
         return tile1 == tile2 && tile2 == tile3;
     }
 
-    public MahjongTile getIdentifierTile() {
+    public MahjongTile getTile() {
         return identifierTile;
     }
 

@@ -2,13 +2,13 @@ package org.mahjong4j.yaku.yakuman;
 
 
 import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.yaku.normals.NormalYakuResolver;
+import org.mahjong4j.yaku.normals.YakuResolver;
 
 /**
  * @author yu1ro
  *         字一色判定クラス
  */
-public class TsuisoYakuResolver implements NormalYakuResolver {
+public class TsuisoResolver implements YakuResolver {
 
     public int getHan() {
         return 0;

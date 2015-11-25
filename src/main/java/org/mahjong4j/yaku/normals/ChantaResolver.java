@@ -7,7 +7,7 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  *         チャンタ判定クラス
  */
-public class ChantaResolver implements NormalYakuResolver {
+public class ChantaResolver implements YakuResolver {
     final int HAN = MahjongYakuEnum.CHANTA.getHan();
     final int KUISAGARI = MahjongYakuEnum.CHANTA.getKuisagari();
 

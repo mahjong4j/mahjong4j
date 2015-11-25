@@ -116,7 +116,7 @@ public class Shuntsu implements MahjongMentsu {
         return tile1.getNumber() + 1 == tile2.getNumber() && tile2.getNumber() + 1 == tile3.getNumber();
     }
 
-    public MahjongTile getIdentifierTile() {
+    public MahjongTile getTile() {
         return identifierTile;
     }
 

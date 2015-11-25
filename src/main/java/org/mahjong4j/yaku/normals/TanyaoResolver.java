@@ -4,7 +4,7 @@ package org.mahjong4j.yaku.normals;
  * @author yu1ro
  *         断么九判定クラス
  */
-public class TanyaoResolver implements NormalYakuResolver {
+public class TanyaoResolver implements YakuResolver {
     private final int HAN = MahjongYakuEnum.TANYAO.getHan();
     private final int[] tanyao = {
             0, 1, 1, 1, 1, 1, 1, 1, 0,

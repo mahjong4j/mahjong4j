@@ -7,7 +7,8 @@ package org.mahjong4j.yaku.normals;
  *         和了判定は別です。
  *         TODO:判定するメソッドも共通にするべきかもしれない
  */
-public interface NormalYakuResolver {
+public interface YakuResolver {
     int getHan();
+
     boolean isMatch();
 }

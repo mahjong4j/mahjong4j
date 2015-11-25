@@ -7,7 +7,7 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  *         平和判定クラス
  */
-public class PinfuResolver implements NormalYakuResolver {
+public class PinfuResolver implements YakuResolver {
 
     final int KUISAGARI = MahjongYakuEnum.PINFU.getHan();
     private final int HAN = MahjongYakuEnum.PINFU.getHan();

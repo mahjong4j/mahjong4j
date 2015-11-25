@@ -7,7 +7,7 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  *         中判定クラス
  */
-public class ChunResolver implements NormalYakuResolver {
+public class ChunResolver implements YakuResolver {
     private final int HAN = MahjongYakuEnum.CHUN.getHan();
 
     public int getHan() {

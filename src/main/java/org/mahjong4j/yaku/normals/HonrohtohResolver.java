@@ -9,7 +9,7 @@ import org.mahjong4j.tile.MahjongTile;
  *         刻子だけなら混老頭が付く時って
  *         四暗刻になっちゃうからこれ使わないかも
  */
-public class HonrohtohResolver implements NormalYakuResolver {
+public class HonrohtohResolver implements YakuResolver {
     final int HAN = MahjongYakuEnum.HONROHTOH.getHan();
 
     int[] honroHands = {

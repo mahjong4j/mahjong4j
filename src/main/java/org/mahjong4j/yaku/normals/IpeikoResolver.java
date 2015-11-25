@@ -6,7 +6,7 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  *         一盃口判定クラス
  */
-public class IpeikoResolver implements NormalYakuResolver {
+public class IpeikoResolver implements YakuResolver {
     final int HAN = MahjongYakuEnum.IPEIKO.getHan();
     final int KUISAGARI = MahjongYakuEnum.IPEIKO.getKuisagari();
 

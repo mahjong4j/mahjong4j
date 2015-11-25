@@ -7,7 +7,7 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  *         自風判定クラス
  */
-public class JikazeResolver implements NormalYakuResolver {
+public class JikazeResolver implements YakuResolver {
     final int HAN = MahjongYakuEnum.JIKAZE.getHan();
 
     MahjongTile jikaze;
