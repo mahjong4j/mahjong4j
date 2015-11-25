@@ -1,5 +1,6 @@
 package org.mahjong4j.hands;
 
+import org.mahjong4j.MahjongTileOverFlowException;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.normals.ChitoitsuResolver;
 import org.mahjong4j.yaku.yakuman.KokushimusoResolver;
@@ -16,8 +17,6 @@ import java.util.List;
  * <p>
  * TODO: ツモって牌を捨てるオペレーションメソッド
  * TODO: otherTilesから面子に変換していく
- * TODO: 変換時に上がりの形ならばcanWinをtrueにする
- * TODO: ありえない場合(同じ牌5枚など)はthrow Exception
  *
  * @author yu1ro
  */
@@ -55,24 +54,25 @@ public class MahjongHands {
     private List<Janto> jantoStock = new ArrayList<Janto>(14);
 
 
-    // TODO: throw exception
-    public MahjongHands(int[] otherTiles, MahjongTile last, List<MahjongMentsu> mentsuList) {
+    public MahjongHands(int[] otherTiles, MahjongTile last, List<MahjongMentsu> mentsuList) throws MahjongTileOverFlowException {
         inputtedTiles = otherTiles;
         this.last = last;
         inputtedMentsuList = mentsuList;
+        findMentsu();
     }
 
-    public MahjongHands(int[] otherTiles, MahjongTile last, MahjongMentsu... mentsus) {
+    public MahjongHands(int[] otherTiles, MahjongTile last, MahjongMentsu... mentsus) throws MahjongTileOverFlowException {
         inputtedTiles = otherTiles;
         this.last = last;
         Collections.addAll(inputtedMentsuList, mentsus);
+        findMentsu();
     }
 
     /**
      * @param otherTiles lastの牌も含めて下さい合計14になるはずです
      * @param last       この牌もotherTilesに含めてください
      */
-    public MahjongHands(int[] otherTiles, MahjongTile last) {
+    public MahjongHands(int[] otherTiles, MahjongTile last) throws MahjongTileOverFlowException {
         inputtedTiles = otherTiles;
         this.last = last;
 
@@ -106,13 +106,13 @@ public class MahjongHands {
     /**
      * 槓子は見つけません
      */
-    public void findMentsu() {
+    public void findMentsu() throws MahjongTileOverFlowException {
         // 同じ牌が5個以上有ったらfalse
-        for (int hand : inputtedTiles) {
+        for (int i = 0; i < inputtedTiles.length; i++) {
+            int hand = inputtedTiles[i];
             if (hand > 4) {
-                // TODO: throw exception
                 canWin = false;
-                return;
+                throw new MahjongTileOverFlowException(i, hand);
             }
         }
 

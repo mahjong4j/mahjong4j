@@ -1,5 +1,6 @@
 package org.mahjong4j.hands;
 
+import org.mahjong4j.MahjongTileOverFlowException;
 import org.mahjong4j.tile.MahjongTile;
 
 import java.util.ArrayList;
@@ -67,9 +68,12 @@ public class Janto implements MahjongMentsu {
      * @param tiles 手牌
      * @return 雀頭候補
      */
-    public static List<Janto> findJantoCandidate(int[] tiles) {
+    public static List<Janto> findJantoCandidate(int[] tiles) throws MahjongTileOverFlowException {
         List<Janto> result = new ArrayList<Janto>(7);
         for (int i = 0; i < tiles.length; i++) {
+            if (tiles[i] > 4) {
+                throw new MahjongTileOverFlowException(i,tiles[i]);
+            }
             if (tiles[i] >= 2) {
                 result.add(new Janto(MahjongTile.valueOf(i)));
             }
