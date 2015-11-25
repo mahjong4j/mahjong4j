@@ -1,6 +1,5 @@
 package org.mahjong4j.yaku.yakuman;
 
-
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
@@ -15,13 +14,6 @@ public class ShosushiResolver implements YakumanResolver {
 
     }
 
-    public int getHan() {
-        return 0;
-    }
-
-    public boolean isMatch() {
-        return false;
-    }
 
     public boolean isShosushi(MahjongTile[] kotsu, MahjongTile janto) {
         if (janto.getType() != MahjongTileType.FONPAI) {

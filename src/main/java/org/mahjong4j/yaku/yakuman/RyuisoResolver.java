@@ -6,7 +6,7 @@ import org.mahjong4j.hands.MahjongHands;
  * @author yu1ro
  *         緑一色判定クラス
  */
-public class RyuisoResolver implements YakumanResolver{
+public class RyuisoResolver implements YakumanResolver {
 
     final int[] ryuisoHhands = {
             0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -20,14 +20,6 @@ public class RyuisoResolver implements YakumanResolver{
 
     public RyuisoResolver(MahjongHands hands) {
 
-    }
-
-    public int getHan() {
-        return 0;
-    }
-
-    public boolean isMatch() {
-        return false;
     }
 
     public boolean isRyuiso(int[] hands) {

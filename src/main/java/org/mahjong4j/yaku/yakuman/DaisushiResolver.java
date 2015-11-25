@@ -14,14 +14,6 @@ public class DaisushiResolver implements YakumanResolver {
 
     }
 
-    public int getHan() {
-        return 0;
-    }
-
-    public boolean isMatch() {
-        return false;
-    }
-
     public boolean isDaisushi(MahjongTile[] kotsu) {
         int sushiCount = 0;
 

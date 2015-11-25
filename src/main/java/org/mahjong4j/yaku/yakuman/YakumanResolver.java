@@ -7,5 +7,6 @@ import org.mahjong4j.hands.MahjongHands;
  */
 public interface YakumanResolver {
     MahjongYakumanEnum getYakuman();
+
     boolean isMatch(MahjongHands hands);
 }

@@ -1,6 +1,5 @@
 package org.mahjong4j.yaku.yakuman;
 
-
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
@@ -14,9 +13,9 @@ public class TsuisoResolver implements YakumanResolver {
 
     }
 
-    /*
-         * 通常型用
-         */
+    /**
+     * 通常型用
+     */
     public boolean isTsuiso(MahjongTile[] kotsu, MahjongTile janto) {
         if (janto.getNumber() != 0) {
             return false;
@@ -34,12 +33,12 @@ public class TsuisoResolver implements YakumanResolver {
         return jihaiCount == 4;
     }
 
-    /*
+    /**
      * 七対子用
      */
     public boolean isTsuiso(MahjongTile[] toistu) {
-        for (int i = 0; i < toistu.length; i++) {
-            if (toistu[i].getNumber() != 0) {
+        for (MahjongTile aToistu : toistu) {
+            if (aToistu.getNumber() != 0) {
                 return false;
             }
         }

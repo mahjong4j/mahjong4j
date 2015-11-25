@@ -1,6 +1,5 @@
 package org.mahjong4j.yaku.yakuman;
 
-
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
@@ -12,14 +11,6 @@ public class SuankoResolver implements YakumanResolver {
 
     public SuankoResolver(MahjongHands hands) {
 
-    }
-
-    public int getHan() {
-        return 0;
-    }
-
-    public boolean isMatch() {
-        return false;
     }
 
     public boolean isSuanko(MahjongTile[] kotsu) {

@@ -13,14 +13,6 @@ public class ChinrohtohResolver implements YakumanResolver {
 
     }
 
-    public int getHan() {
-        return 0;
-    }
-
-    public boolean isMatch() {
-        return false;
-    }
-
     public boolean isChinroto(MahjongTile[] kotsu, MahjongTile janto) {
         //刻子が4個無いとfalse
         if (kotsu[3] == null) {

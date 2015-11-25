@@ -7,13 +7,13 @@ import org.mahjong4j.hands.MahjongHands;
  *         国士無双判定クラス
  */
 public class KokushimusoResolver implements YakumanResolver {
-    public final int HAN = 13;
     public static final int[] kokushi = {
             1, 0, 0, 0, 0, 0, 0, 0, 1,
             1, 0, 0, 0, 0, 0, 0, 0, 1,
             1, 0, 0, 0, 0, 0, 0, 0, 1,
             1, 1, 1, 1,
             1, 1, 1};
+    public final int HAN = 13;
     int[] hands = new int[34];
 
     public KokushimusoResolver(int[] hands) {
@@ -22,14 +22,6 @@ public class KokushimusoResolver implements YakumanResolver {
 
     public KokushimusoResolver(MahjongHands hands) {
 
-    }
-
-    public int getHan() {
-        return HAN;
-    }
-
-    public boolean isMatch() {
-        return false;
     }
 
     public static boolean isMatch(int[] hands) {

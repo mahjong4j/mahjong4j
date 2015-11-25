@@ -1,6 +1,5 @@
 package org.mahjong4j.yaku.yakuman;
 
-
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
@@ -44,14 +43,6 @@ public class ChurenpohtohResolver implements YakumanResolver {
 
     public ChurenpohtohResolver(MahjongHands hands) {
 
-    }
-
-    public int getHan() {
-        return 0;
-    }
-
-    public boolean isMatch() {
-        return false;
     }
 
     public boolean isChuren() {
