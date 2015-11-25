@@ -1,12 +1,12 @@
 package org.mahjong4j.yaku.yakuman;
 
-import org.mahjong4j.yaku.normals.YakuResolver;
+import org.mahjong4j.hands.MahjongHands;
 
 /**
  * @author yu1ro
  *         国士無双判定クラス
  */
-public class KokushimusoResolver implements YakuResolver {
+public class KokushimusoResolver implements YakumanResolver {
     public final int HAN = 13;
     public static final int[] kokushi = {
             1, 0, 0, 0, 0, 0, 0, 0, 1,
@@ -18,6 +18,10 @@ public class KokushimusoResolver implements YakuResolver {
 
     public KokushimusoResolver(int[] hands) {
         System.arraycopy(hands, 0, this.hands, 0, hands.length);
+    }
+
+    public KokushimusoResolver(MahjongHands hands) {
+
     }
 
     public int getHan() {
@@ -67,6 +71,14 @@ public class KokushimusoResolver implements YakuResolver {
             }
         }
         //残ってるのが１個以外ならfalse
+        return false;
+    }
+
+    public MahjongYakumanEnum getYakuman() {
+        return null;
+    }
+
+    public boolean isMatch(MahjongHands hands) {
         return false;
     }
 }

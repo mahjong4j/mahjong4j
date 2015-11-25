@@ -1,12 +1,13 @@
 package org.mahjong4j.yaku.normals;
 
+import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
  * @author yu1ro
  *         場風判定クラス
  */
-public class BakazeResolver implements YakuResolver {
+public class BakazeResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.BAKAZE.getHan();
 
     MahjongTile bakaze;
@@ -19,7 +20,7 @@ public class BakazeResolver implements YakuResolver {
         return HAN;
     }
 
-    public boolean isMatch() {
+    public boolean isMatch(MahjongHands hands) {
         return false;
     }
 

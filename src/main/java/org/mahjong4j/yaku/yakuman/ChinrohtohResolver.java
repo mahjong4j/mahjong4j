@@ -1,13 +1,17 @@
 package org.mahjong4j.yaku.yakuman;
 
+import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.yaku.normals.YakuResolver;
 
 /**
  * @author yu1ro
  *         清老頭判定クラス
  */
-public class ChinrohtohResolver implements YakuResolver {
+public class ChinrohtohResolver implements YakumanResolver {
+
+    public ChinrohtohResolver(MahjongHands hands) {
+
+    }
 
     public int getHan() {
         return 0;
@@ -33,5 +37,13 @@ public class ChinrohtohResolver implements YakuResolver {
             }
         }
         return true;
+    }
+
+    public MahjongYakumanEnum getYakuman() {
+        return null;
+    }
+
+    public boolean isMatch(MahjongHands hands) {
+        return false;
     }
 }

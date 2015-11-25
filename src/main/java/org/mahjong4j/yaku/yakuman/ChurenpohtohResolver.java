@@ -1,15 +1,15 @@
 package org.mahjong4j.yaku.yakuman;
 
 
+import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
-import org.mahjong4j.yaku.normals.YakuResolver;
 
 /**
  * @author yu1ro
  *         九蓮宝燈判定クラス
  */
-public class ChurenpohtohResolver implements YakuResolver {
+public class ChurenpohtohResolver implements YakumanResolver {
 
     final int[] churenManzu = {
             3, 1, 1, 1, 1, 1, 1, 1, 3,
@@ -40,6 +40,10 @@ public class ChurenpohtohResolver implements YakuResolver {
 
     public ChurenpohtohResolver(int[] hands) {
         System.arraycopy(hands, 0, this.hands, 0, hands.length);
+    }
+
+    public ChurenpohtohResolver(MahjongHands hands) {
+
     }
 
     public int getHan() {
@@ -106,5 +110,13 @@ public class ChurenpohtohResolver implements YakuResolver {
                 return false;
         }
         return count == 1;
+    }
+
+    public MahjongYakumanEnum getYakuman() {
+        return null;
+    }
+
+    public boolean isMatch(MahjongHands hands) {
+        return false;
     }
 }

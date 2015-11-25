@@ -1,13 +1,14 @@
 package org.mahjong4j.yaku.normals;
 
 
+import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
  * @author yu1ro
  *         平和判定クラス
  */
-public class PinfuResolver implements YakuResolver {
+public class PinfuResolver implements NormalYakuResolver {
 
     final int KUISAGARI = MahjongYakuEnum.PINFU.getHan();
     private final int HAN = MahjongYakuEnum.PINFU.getHan();
@@ -21,6 +22,10 @@ public class PinfuResolver implements YakuResolver {
 
     public int getHan() {
         return HAN;
+    }
+
+    public boolean isMatch(MahjongHands hands) {
+        return false;
     }
 
     public boolean isMatch() {

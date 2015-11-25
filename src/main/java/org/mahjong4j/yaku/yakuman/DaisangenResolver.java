@@ -1,15 +1,19 @@
 package org.mahjong4j.yaku.yakuman;
 
 
+import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
-import org.mahjong4j.yaku.normals.YakuResolver;
 
 /**
  * @author yu1ro
  *         大三元判定クラス
  */
-public class DaisangenResolver implements YakuResolver {
+public class DaisangenResolver implements YakumanResolver {
+
+    public DaisangenResolver(MahjongHands hands) {
+
+    }
 
     public int getHan() {
         return 0;
@@ -29,5 +33,13 @@ public class DaisangenResolver implements YakuResolver {
             }
         }
         return sangenCount == 3;
+    }
+
+    public MahjongYakumanEnum getYakuman() {
+        return null;
+    }
+
+    public boolean isMatch(MahjongHands hands) {
+        return false;
     }
 }
