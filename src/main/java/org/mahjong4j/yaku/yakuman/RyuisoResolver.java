@@ -2,6 +2,8 @@ package org.mahjong4j.yaku.yakuman;
 
 import org.mahjong4j.hands.MahjongHands;
 
+import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.RYUISO;
+
 /**
  * @author yu1ro
  *         緑一色判定クラス
@@ -34,7 +36,7 @@ public class RyuisoResolver implements YakumanResolver {
     }
 
     public MahjongYakumanEnum getYakuman() {
-        return null;
+        return RYUISO;
     }
 
     public boolean isMatch(MahjongHands hands) {

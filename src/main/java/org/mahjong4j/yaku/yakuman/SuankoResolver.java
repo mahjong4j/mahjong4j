@@ -3,6 +3,8 @@ package org.mahjong4j.yaku.yakuman;
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
+import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.SUANKO;
+
 /**
  * @author yu1ro
  *         四暗刻判定クラス
@@ -18,7 +20,7 @@ public class SuankoResolver implements YakumanResolver {
     }
 
     public MahjongYakumanEnum getYakuman() {
-        return null;
+        return SUANKO;
     }
 
     public boolean isMatch(MahjongHands hands) {

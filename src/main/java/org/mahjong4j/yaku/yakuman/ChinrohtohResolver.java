@@ -3,6 +3,8 @@ package org.mahjong4j.yaku.yakuman;
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
+import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.CHINROTO;
+
 /**
  * @author yu1ro
  *         清老頭判定クラス
@@ -32,7 +34,7 @@ public class ChinrohtohResolver implements YakumanResolver {
     }
 
     public MahjongYakumanEnum getYakuman() {
-        return null;
+        return CHINROTO;
     }
 
     public boolean isMatch(MahjongHands hands) {

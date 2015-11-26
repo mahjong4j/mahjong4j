@@ -4,6 +4,8 @@ import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
 
+import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.DAISUSHI;
+
 /**
  * @author yu1ro
  *         大四喜判定クラス
@@ -27,7 +29,7 @@ public class DaisushiResolver implements YakumanResolver {
     }
 
     public MahjongYakumanEnum getYakuman() {
-        return null;
+        return DAISUSHI;
     }
 
     public boolean isMatch(MahjongHands hands) {

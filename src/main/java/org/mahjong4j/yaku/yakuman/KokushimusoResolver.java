@@ -67,7 +67,7 @@ public class KokushimusoResolver implements YakumanResolver {
     }
 
     public MahjongYakumanEnum getYakuman() {
-        return null;
+        return MahjongYakumanEnum.KOKUSHIMUSO;
     }
 
     public boolean isMatch(MahjongHands hands) {

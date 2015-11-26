@@ -4,6 +4,8 @@ import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
 
+import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.CHURENPOHTO;
+
 /**
  * @author yu1ro
  *         九蓮宝燈判定クラス
@@ -36,10 +38,6 @@ public class ChurenpohtohResolver implements YakumanResolver {
 
     MahjongTileType churenType;
     private int[] hands = new int[34];
-
-    public ChurenpohtohResolver(int[] hands) {
-        System.arraycopy(hands, 0, this.hands, 0, hands.length);
-    }
 
     public ChurenpohtohResolver(MahjongHands hands) {
 
@@ -96,7 +94,7 @@ public class ChurenpohtohResolver implements YakumanResolver {
                     }
 
                 }
-                //TODO:breakがないけどバグ？
+                break;
             default:
                 return false;
         }
@@ -104,7 +102,7 @@ public class ChurenpohtohResolver implements YakumanResolver {
     }
 
     public MahjongYakumanEnum getYakuman() {
-        return null;
+        return CHURENPOHTO;
     }
 
     public boolean isMatch(MahjongHands hands) {

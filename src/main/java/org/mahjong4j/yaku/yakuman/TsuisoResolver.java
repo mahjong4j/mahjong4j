@@ -3,6 +3,8 @@ package org.mahjong4j.yaku.yakuman;
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
+import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.TSUISO;
+
 /**
  * @author yu1ro
  *         字一色判定クラス
@@ -46,7 +48,7 @@ public class TsuisoResolver implements YakumanResolver {
     }
 
     public MahjongYakumanEnum getYakuman() {
-        return null;
+        return TSUISO;
     }
 
     public boolean isMatch(MahjongHands hands) {
