@@ -20,21 +20,23 @@ public class Mahjong {
     /*
      * 付いた役のリストを保持する用の変数。 役満の場合は普通の役は見ない
      */
-    public ArrayList<MahjongYakumanEnum> yakuman = new ArrayList<MahjongYakumanEnum>(0);
+    public ArrayList<MahjongYakumanEnum> yakuman = new ArrayList<MahjongYakumanEnum>(1);
     public ArrayList<MahjongYakuEnum> normalYaku = new ArrayList<MahjongYakuEnum>(0);
 
     public String manName;//倍満 とか 跳満とかを入れる
 
-    List<YakumanResolver> yakumanResolvers;
+    List<YakumanResolver> yakumanResolverList;
 
 
     public Mahjong(MahjongHands hands) {
-        yakumanResolvers = Mahjong4jYakuConfig.getYakumanResolverList(hands);
+        yakumanResolverList = Mahjong4jYakuConfig.getYakumanResolverList(hands);
     }
 
     public void calcYakuman() {
-        for (YakumanResolver yakumanResolver : yakumanResolvers) {
-            
+        for (YakumanResolver yakumanResolver : yakumanResolverList) {
+            if (yakumanResolver.isMatch()) {
+                yakuman.add(yakumanResolver.getYakuman());
+            }
         }
     }
 
