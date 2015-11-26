@@ -36,7 +36,7 @@ public class ShosushiResolver implements YakumanResolver {
         return SHOSUSHI;
     }
 
-    public boolean isMatch(MahjongHands hands) {
+    public boolean isMatch() {
         return false;
     }
 }

@@ -51,7 +51,7 @@ public class TsuisoResolver implements YakumanResolver {
         return TSUISO;
     }
 
-    public boolean isMatch(MahjongHands hands) {
+    public boolean isMatch() {
         return false;
     }
 }

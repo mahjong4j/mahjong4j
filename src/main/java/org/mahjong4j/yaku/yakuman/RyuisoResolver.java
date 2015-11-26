@@ -39,7 +39,7 @@ public class RyuisoResolver implements YakumanResolver {
         return RYUISO;
     }
 
-    public boolean isMatch(MahjongHands hands) {
+    public boolean isMatch() {
         return false;
     }
 }

@@ -105,7 +105,7 @@ public class ChurenpohtohResolver implements YakumanResolver {
         return CHURENPOHTO;
     }
 
-    public boolean isMatch(MahjongHands hands) {
+    public boolean isMatch() {
         return false;
     }
 }

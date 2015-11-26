@@ -23,7 +23,7 @@ public class SuankoResolver implements YakumanResolver {
         return SUANKO;
     }
 
-    public boolean isMatch(MahjongHands hands) {
+    public boolean isMatch() {
         return false;
     }
 }

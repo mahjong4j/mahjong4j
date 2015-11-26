@@ -16,10 +16,6 @@ public class KokushimusoResolver implements YakumanResolver {
     public final int HAN = 13;
     int[] hands = new int[34];
 
-    public KokushimusoResolver(int[] hands) {
-        System.arraycopy(hands, 0, this.hands, 0, hands.length);
-    }
-
     public KokushimusoResolver(MahjongHands hands) {
 
     }
@@ -70,7 +66,7 @@ public class KokushimusoResolver implements YakumanResolver {
         return MahjongYakumanEnum.KOKUSHIMUSO;
     }
 
-    public boolean isMatch(MahjongHands hands) {
+    public boolean isMatch() {
         return false;
     }
 }

@@ -37,7 +37,7 @@ public class ChinrohtohResolver implements YakumanResolver {
         return CHINROTO;
     }
 
-    public boolean isMatch(MahjongHands hands) {
+    public boolean isMatch() {
         return false;
     }
 }

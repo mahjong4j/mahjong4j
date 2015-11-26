@@ -32,7 +32,7 @@ public class DaisangenResolver implements YakumanResolver {
         return DAISANGEN;
     }
 
-    public boolean isMatch(MahjongHands hands) {
+    public boolean isMatch() {
         return false;
     }
 }
