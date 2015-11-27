@@ -5,8 +5,10 @@ import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
+ * 三暗刻判定クラス
+ * 暗刻が３つ存在する場合に成立
+ *
  * @author yu1ro
- *         三暗刻判定クラス
  */
 public class SanankoResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.SANANKO.getHan();

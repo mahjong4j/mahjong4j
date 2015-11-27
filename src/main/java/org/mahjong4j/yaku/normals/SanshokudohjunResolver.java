@@ -6,8 +6,10 @@ import org.mahjong4j.tile.MahjongTile;
 import java.util.ArrayList;
 
 /**
+ * 三色同順判定クラス
+ * 萬子・索子・筒子それぞれの色で同じ並びの順子を作ったときに成立
+ *
  * @author yu1ro
- *         三色同順判定クラス
  */
 public class SanshokudohjunResolver implements NormalYakuResolver {
 

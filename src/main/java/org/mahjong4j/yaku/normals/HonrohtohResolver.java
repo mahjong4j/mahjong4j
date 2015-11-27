@@ -5,10 +5,10 @@ import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
+ * 混老頭判定クラス
+ * 么九牌のみで構成される場合成立
+ *
  * @author yu1ro
- *         混老頭判定クラス
- *         刻子だけなら混老頭が付く時って
- *         四暗刻になっちゃうからこれ使わないかも
  */
 public class HonrohtohResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.HONROHTOH.getHan();

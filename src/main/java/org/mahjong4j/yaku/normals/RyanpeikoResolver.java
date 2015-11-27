@@ -5,8 +5,11 @@ import org.mahjong4j.hands.Shuntsu;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
+ * 二盃口判定クラス
+ * 一盃口が２つ含まれる場合に成立
+ * 一盃口とは複合しない
+ *
  * @author yu1ro
- *         二盃口判定クラス
  */
 public class RyanpeikoResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.RYANPEIKO.getHan();

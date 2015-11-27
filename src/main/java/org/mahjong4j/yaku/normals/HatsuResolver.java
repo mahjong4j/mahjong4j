@@ -5,8 +5,10 @@ import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
+ * 發判定クラス
+ * 發の刻子もしくは槓子が含まれる場合成立
+ *
  * @author yu1ro
- *         発判定クラス
  */
 public class HatsuResolver implements NormalYakuResolver {
     private final int HAN = MahjongYakuEnum.HATSU.getHan();

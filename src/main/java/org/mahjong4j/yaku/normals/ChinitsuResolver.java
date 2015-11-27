@@ -6,8 +6,10 @@ import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
 
 /**
+ * 清一色判定クラス
+ * 萬子、索子、筒子のどれか一種の牌だけで構成された場合成立
+ *
  * @author yu1ro
- *         清一色判定クラス
  */
 public class ChinitsuResolver implements NormalYakuResolver {
 

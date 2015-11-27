@@ -5,8 +5,11 @@ import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
+ * チャンタ判定クラス
+ * 123の順子と789の順子、および一九字牌の対子と刻子
+ * のみで構成された場合成立
+ *
  * @author yu1ro
- *         チャンタ判定クラス
  */
 public class ChantaResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.CHANTA.getHan();

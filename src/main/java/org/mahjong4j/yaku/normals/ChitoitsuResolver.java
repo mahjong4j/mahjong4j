@@ -5,8 +5,10 @@ import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
+ * 七対子判定クラス
+ * 対子のみで構成された場合成立
+ *
  * @author yu1ro
- *         七対子判定クラス
  */
 public class ChitoitsuResolver implements NormalYakuResolver {
     static MahjongTile[] toitsu = new MahjongTile[7];

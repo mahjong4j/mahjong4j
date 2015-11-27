@@ -1,10 +1,11 @@
 package org.mahjong4j.yaku.normals;
 
 /**
+ * 役一覧列挙
+ * 翻数,食い下がり翻数,日本語
+ * TODO:Add English
+ *
  * @author yu1ro
- *         役一覧列挙
- *         翻数,食い下がり翻数,日本語
- *         TODO:English
  */
 public enum MahjongYakuEnum {
     /*

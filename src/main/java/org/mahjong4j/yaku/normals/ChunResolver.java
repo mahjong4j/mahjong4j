@@ -5,8 +5,10 @@ import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
+ * 中判定クラス
+ * 中の刻子もしくは槓子が含まれる場合成立
+ *
  * @author yu1ro
- *         中判定クラス
  */
 public class ChunResolver implements NormalYakuResolver {
     private final int HAN = MahjongYakuEnum.CHUN.getHan();

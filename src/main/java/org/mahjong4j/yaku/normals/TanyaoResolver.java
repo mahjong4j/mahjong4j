@@ -3,8 +3,10 @@ package org.mahjong4j.yaku.normals;
 import org.mahjong4j.hands.MahjongHands;
 
 /**
+ * 断么九判定クラス
+ * 么九牌（一九字牌）を一切使わず、中張牌（数牌の2〜8）のみを使って手牌を完成させた場合に成立
+ *
  * @author yu1ro
- *         断么九判定クラス
  */
 public class TanyaoResolver implements NormalYakuResolver {
     private final int HAN = MahjongYakuEnum.TANYAO.getHan();

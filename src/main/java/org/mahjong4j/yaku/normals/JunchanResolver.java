@@ -4,8 +4,11 @@ import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
+ * 純チャン判定クラス
+ * 123の順子と789の順子、および111、999といった老頭牌の刻子もしくは槓子
+ * のみの場合に成立
+ *
  * @author yu1ro
- *         純チャン判定クラス
  */
 public class JunchanResolver implements NormalYakuResolver {
 
