@@ -1,6 +1,5 @@
 package org.mahjong4j.hands;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mahjong4j.tile.MahjongTile;
@@ -27,11 +26,6 @@ public class MahjongHandsTest {
         };
         MahjongTile last = MahjongTile.M6;
         hands = new MahjongHands(tiles, last);
-    }
-
-    @After
-    public void tearDown() throws Exception {
-
     }
 
     @Test

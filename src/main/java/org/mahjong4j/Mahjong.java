@@ -19,10 +19,10 @@ import java.util.List;
 public class Mahjong {
 
     //付いた役満リスト
-    public ArrayList<MahjongYakumanEnum> yakuman = new ArrayList<MahjongYakumanEnum>(1);
+    public List<MahjongYakumanEnum> yakumanList = new ArrayList<MahjongYakumanEnum>(1);
 
     //付いた通常役リスト
-    public ArrayList<MahjongYakuEnum> normalYaku = new ArrayList<MahjongYakuEnum>(0);
+    public List<MahjongYakuEnum> normalYakuList = new ArrayList<MahjongYakuEnum>(0);
 
     //倍満や跳満などを入れる
     public String manName;
@@ -35,10 +35,14 @@ public class Mahjong {
         yakumanResolverList = Mahjong4jYakuConfig.getYakumanResolverList(hands);
     }
 
+    public List<MahjongYakumanEnum> getYakumanList () {
+        return yakumanList;
+    }
+
     public void calcYakuman() {
         for (YakumanResolver yakumanResolver : yakumanResolverList) {
             if (yakumanResolver.isMatch()) {
-                yakuman.add(yakumanResolver.getYakuman());
+                yakumanList.add(yakumanResolver.getYakuman());
             }
         }
     }
@@ -47,10 +51,18 @@ public class Mahjong {
 
     }
 
+    public void calcChitoiYakuman() {
+
+    }
+
+    public void calcChitoiYaku() {
+
+    }
+
     public int calcPoint() {
 
-        if (yakuman.size() != 0) {
-            switch (yakuman.size()) {
+        if (yakumanList.size() != 0) {
+            switch (yakumanList.size()) {
                 case 1:
                     manName = "役満";
                     break;
@@ -61,10 +73,10 @@ public class Mahjong {
                     manName = "トリプル役満";
                     break;
             }
-            return yakuman.size() * 32000;
-        } else if (normalYaku.size() != 0) {
+            return yakumanList.size() * 32000;
+        } else if (normalYakuList.size() != 0) {
             int han = 0;
-            for (MahjongYakuEnum aNormalYaku : normalYaku) {
+            for (MahjongYakuEnum aNormalYaku : normalYakuList) {
                 han += aNormalYaku.getHan();
             }
 
@@ -100,13 +112,5 @@ public class Mahjong {
             }
         }
         return 0;
-    }
-
-    public void calcChitoiYakuman() {
-
-    }
-
-    public void calcChitoiYaku() {
-
     }
 }
