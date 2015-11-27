@@ -20,6 +20,10 @@ public class HonrohtohResolver implements NormalYakuResolver {
             1, 1, 1, 1,
             1, 1, 1};
 
+    public HonrohtohResolver(MahjongHands hands) {
+
+    }
+
 
     public int getHan() {
         return HAN;

@@ -2,6 +2,7 @@ package org.mahjong4j;
 
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.yaku.normals.MahjongYakuEnum;
+import org.mahjong4j.yaku.normals.NormalYakuResolver;
 import org.mahjong4j.yaku.yakuman.MahjongYakumanEnum;
 import org.mahjong4j.yaku.yakuman.YakumanResolver;
 
@@ -30,10 +31,14 @@ public class Mahjong {
     //役満判定用に利用する
     List<YakumanResolver> yakumanResolverList;
 
+    //通常役判定用に利用する
+    List<NormalYakuResolver> normalYakuResolverList;
 
     public Mahjong(MahjongHands hands) {
         yakumanResolverList = Mahjong4jYakuConfig.getYakumanResolverList(hands);
+        normalYakuResolverList = Mahjong4jYakuConfig.getNormalYakuResolverList(hands);
     }
+
 
     public List<MahjongYakumanEnum> getYakumanList () {
         return yakumanList;

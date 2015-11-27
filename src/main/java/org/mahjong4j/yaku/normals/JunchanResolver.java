@@ -24,6 +24,10 @@ public class JunchanResolver implements NormalYakuResolver {
             0, 0, 0, 0,
             0, 0, 0};
 
+    public JunchanResolver(MahjongHands hands) {
+
+    }
+
     public int getHan() {
         return HAN;
     }

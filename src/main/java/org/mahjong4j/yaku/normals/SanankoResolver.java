@@ -11,6 +11,10 @@ import org.mahjong4j.tile.MahjongTile;
 public class SanankoResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.SANANKO.getHan();
 
+    public SanankoResolver(MahjongHands hands) {
+
+    }
+
     public int getHan() {
         return HAN;
     }

@@ -17,6 +17,10 @@ public class IkkitsukanResolver implements NormalYakuResolver {
     boolean number5;
     boolean number8;
 
+    public IkkitsukanResolver(MahjongHands hands) {
+
+    }
+
     public int getHan() {
         return HAN;
     }

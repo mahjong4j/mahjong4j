@@ -25,6 +25,10 @@ public class ChantaResolver implements NormalYakuResolver {
             1, 1, 1, 1,
             1, 1, 1};
 
+    public ChantaResolver(MahjongHands hands) {
+
+    }
+
 
     public int getHan() {
         return HAN;

@@ -11,6 +11,10 @@ import org.mahjong4j.tile.MahjongTile;
 public class HatsuResolver implements NormalYakuResolver {
     private final int HAN = MahjongYakuEnum.HATSU.getHan();
 
+    public HatsuResolver(MahjongHands hands) {
+
+    }
+
     public int getHan() {
         return HAN;
     }

@@ -11,6 +11,10 @@ public class IpeikoResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.IPEIKO.getHan();
     final int KUISAGARI = MahjongYakuEnum.IPEIKO.getKuisagari();
 
+    public IpeikoResolver(MahjongHands hands) {
+
+    }
+
     public int getHan() {
         return HAN;
     }

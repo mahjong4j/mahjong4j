@@ -16,6 +16,10 @@ public class TanyaoResolver implements NormalYakuResolver {
             0, 0, 0
     };
 
+    public TanyaoResolver(MahjongHands hands) {
+
+    }
+
     public int getHan() {
         return HAN;
     }

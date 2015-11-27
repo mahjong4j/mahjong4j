@@ -16,6 +16,10 @@ public class ShosangenResolver implements NormalYakuResolver {
     boolean hatsu;
     boolean chun;
 
+    public ShosangenResolver(MahjongHands hands) {
+
+    }
+
     public int getHan() {
         return HAN;
     }

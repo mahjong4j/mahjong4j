@@ -14,6 +14,10 @@ public class RyanpeikoResolver implements NormalYakuResolver {
     private MahjongTile[] shuntsuRevised = new MahjongTile[4];
     private MahjongTile jantoRevesed;
 
+    public RyanpeikoResolver(MahjongHands hands) {
+
+    }
+
     public MahjongTile getJantoRevised() {
         return jantoRevesed;
     }

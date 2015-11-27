@@ -13,6 +13,10 @@ public class HonitsuResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.HONITSU.getHan();
     private int colorCount;
 
+    public HonitsuResolver(MahjongHands hands) {
+
+    }
+
     public int getHan() {
         return HAN;
     }

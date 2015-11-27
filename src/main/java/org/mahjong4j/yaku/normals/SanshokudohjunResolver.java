@@ -16,6 +16,10 @@ public class SanshokudohjunResolver implements NormalYakuResolver {
     boolean pinzu;
     boolean sohzu;
 
+    public SanshokudohjunResolver(MahjongHands hands) {
+
+    }
+
     public int getHan() {
         return HAN;
     }

@@ -14,6 +14,10 @@ public class ChinitsuResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.CHINITSU.getHan();
     private int colorCount;
 
+    public ChinitsuResolver(MahjongHands hands) {
+
+    }
+
     public int getHan() {
         return HAN;
     }

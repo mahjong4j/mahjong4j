@@ -16,8 +16,8 @@ public class ChitoitsuResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.CHITOITSU.getHan();
     int[] hands = new int[34];
 
-    public ChitoitsuResolver(int[] hands) {
-        System.arraycopy(hands, 0, this.hands, 0, hands.length);
+    public ChitoitsuResolver(MahjongHands hands) {
+
     }
 
     /**

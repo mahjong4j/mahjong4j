@@ -20,6 +20,10 @@ public class PinfuResolver implements NormalYakuResolver {
         this.bakazeHai = bakaze;
     }
 
+    public PinfuResolver(MahjongHands hands) {
+
+    }
+
     public int getHan() {
         return HAN;
     }
