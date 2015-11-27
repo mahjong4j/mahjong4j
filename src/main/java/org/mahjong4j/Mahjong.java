@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TODO:役満をまとめて判定する
- * TODO:通常役をまとめて判定
  *
  * @author yu1ro
  *         和了判定に関するクラスです。
@@ -37,11 +35,22 @@ public class Mahjong {
     public Mahjong(MahjongHands hands) {
         yakumanResolverList = Mahjong4jYakuConfig.getYakumanResolverList(hands);
         normalYakuResolverList = Mahjong4jYakuConfig.getNormalYakuResolverList(hands);
+
+        calcYakuman();
+
+        //役満が見つからなかった場合のみ調べる
+        if (yakumanList.size() == 0) {
+            calcNormalYaku();
+        }
     }
 
 
     public List<MahjongYakumanEnum> getYakumanList () {
         return yakumanList;
+    }
+
+    public List<MahjongYakuEnum> getNormalYakuList() {
+        return normalYakuList;
     }
 
     public void calcYakuman() {
@@ -58,14 +67,6 @@ public class Mahjong {
                 normalYakuList.add(yakuResolver.getNormalYaku());
             }
         }
-    }
-
-    public void calcChitoiYakuman() {
-
-    }
-
-    public void calcChitoiYaku() {
-
     }
 
     public int calcPoint() {
