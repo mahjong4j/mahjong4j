@@ -31,7 +31,6 @@ public class ChinrohtohTest {
 
     @Test
     public void testChinrohtoh() throws Exception {
-        mahjong.calcYakuman();
         List<MahjongYakumanEnum> actual = mahjong.getYakumanList();
 
         assertEquals(1, actual.size());
