@@ -17,14 +17,17 @@ import java.util.List;
  *         役の判定は別のクラスで行うがここから呼び出します
  */
 public class Mahjong {
-    /*
-     * 付いた役のリストを保持する用の変数。 役満の場合は普通の役は見ない
-     */
+
+    //付いた役満リスト
     public ArrayList<MahjongYakumanEnum> yakuman = new ArrayList<MahjongYakumanEnum>(1);
+
+    //付いた通常役リスト
     public ArrayList<MahjongYakuEnum> normalYaku = new ArrayList<MahjongYakuEnum>(0);
 
-    public String manName;//倍満 とか 跳満とかを入れる
+    //倍満や跳満などを入れる
+    public String manName;
 
+    //役満判定用に利用する
     List<YakumanResolver> yakumanResolverList;
 
 
