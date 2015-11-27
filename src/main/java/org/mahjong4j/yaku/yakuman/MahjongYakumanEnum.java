@@ -6,7 +6,7 @@ package org.mahjong4j.yaku.yakuman;
  * 四暗刻ドラ13などでダブル役満にならないようにします
  * TODO:English
  */
-public enum MahjongYakuman {
+public enum MahjongYakumanEnum {
     KOKUSHIMUSO("国士無双"),
     SUANKO("四暗刻"),
     CHURENPOHTO("九蓮宝燈"),
@@ -19,7 +19,7 @@ public enum MahjongYakuman {
 
     private String japanese;
 
-    MahjongYakuman(String japanese) {
+    MahjongYakumanEnum(String japanese) {
         this.japanese = japanese;
     }
 

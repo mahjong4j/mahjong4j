@@ -1,6 +1,7 @@
 package org.mahjong4j.yaku.normals;
 
 
+import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
@@ -9,7 +10,7 @@ import org.mahjong4j.tile.MahjongTile;
  *         刻子だけなら混老頭が付く時って
  *         四暗刻になっちゃうからこれ使わないかも
  */
-public class HonrohtohResolver implements YakuResolver {
+public class HonrohtohResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.HONROHTOH.getHan();
 
     int[] honroHands = {
@@ -24,7 +25,7 @@ public class HonrohtohResolver implements YakuResolver {
         return HAN;
     }
 
-    public boolean isMatch() {
+    public boolean isMatch(MahjongHands hands) {
         return false;
     }
 

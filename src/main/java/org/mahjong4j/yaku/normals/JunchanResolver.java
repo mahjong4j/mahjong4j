@@ -1,12 +1,13 @@
 package org.mahjong4j.yaku.normals;
 
+import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
  * @author yu1ro
  *         純チャン判定クラス
  */
-public class JunchanResolver implements YakuResolver {
+public class JunchanResolver implements NormalYakuResolver {
 
     final int HAN = MahjongYakuEnum.JUNCHAN.getHan();
     final int KUISAGARI = MahjongYakuEnum.JUNCHAN.getHan();
@@ -25,6 +26,10 @@ public class JunchanResolver implements YakuResolver {
 
     public int getHan() {
         return HAN;
+    }
+
+    public boolean isMatch(MahjongHands hands) {
+        return false;
     }
 
     public boolean isMatch() {

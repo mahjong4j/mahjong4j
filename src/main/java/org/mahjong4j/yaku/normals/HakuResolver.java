@@ -1,20 +1,21 @@
 package org.mahjong4j.yaku.normals;
 
 
+import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
  * @author yu1ro
  *         白判定クラス
  */
-public class HakuResolver implements YakuResolver {
+public class HakuResolver implements NormalYakuResolver {
     private final int HAN = MahjongYakuEnum.HAKU.getHan();
 
     public int getHan() {
         return HAN;
     }
 
-    public boolean isMatch() {
+    public boolean isMatch(MahjongHands hands) {
         return false;
     }
 

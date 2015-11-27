@@ -1,6 +1,7 @@
 package org.mahjong4j.yaku.normals;
 
 
+import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
 
@@ -8,7 +9,7 @@ import org.mahjong4j.tile.MahjongTileType;
  * @author yu1ro
  *         清一色判定クラス
  */
-public class ChinitsuResolver implements YakuResolver {
+public class ChinitsuResolver implements NormalYakuResolver {
 
     final int HAN = MahjongYakuEnum.CHINITSU.getHan();
     private int colorCount;
@@ -17,7 +18,7 @@ public class ChinitsuResolver implements YakuResolver {
         return HAN;
     }
 
-    public boolean isMatch() {
+    public boolean isMatch(MahjongHands hands) {
         return false;
     }
 

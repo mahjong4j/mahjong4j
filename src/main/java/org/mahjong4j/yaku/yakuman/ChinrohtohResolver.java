@@ -1,37 +1,66 @@
 package org.mahjong4j.yaku.yakuman;
 
-import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.yaku.normals.YakuResolver;
+import org.mahjong4j.hands.Kantsu;
+import org.mahjong4j.hands.Kotsu;
+import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MentsuComp;
+
+import java.util.List;
+
+import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.CHINROTO;
 
 /**
  * @author yu1ro
  *         清老頭判定クラス
  */
-public class ChinrohtohResolver implements YakuResolver {
+public class ChinrohtohResolver implements YakumanResolver {
+    List<MentsuComp> compList;
 
-    public int getHan() {
-        return 0;
+    public ChinrohtohResolver(MahjongHands hands) {
+        this.compList = hands.getMentsuCompList();
     }
 
+    public MahjongYakumanEnum getYakuman() {
+        return CHINROTO;
+    }
+
+    /**
+     *
+     * @return 清老頭かどうか
+     */
     public boolean isMatch() {
-        return false;
-    }
-
-    public boolean isChinroto(MahjongTile[] kotsu, MahjongTile janto) {
-        //刻子が4個無いとfalse
-        if (kotsu[3] == null) {
-            return false;
-        }
-
-        if (janto.getNumber() != 1 && janto.getNumber() != 9) {
-            return false;
-        }
-
-        for (int i = 0; i < kotsu.length && kotsu[i] != null; i++) {
-            if (kotsu[i].getNumber() != 1 && kotsu[i].getNumber() != 9) {
-                return false;
+        //全ての上がり型を調べる
+        comploop:
+        for (MentsuComp comp : compList) {
+            int total = comp.getKotsuNum() + comp.getKantsuNum();
+            if (total != 4) {
+                continue;
             }
+
+            int tileNum = comp.getJanto().getTile().getNumber();
+            if (tileNum != 1 && tileNum != 9 ) {
+                continue;
+            }
+
+            //刻子が全て一九牌か
+            for (Kotsu kotsu : comp.getKotsuList()) {
+                tileNum = kotsu.getTile().getNumber();
+                if (tileNum != 1 && tileNum != 9) {
+                    continue comploop;
+                }
+            }
+
+            //槓子が全て一九牌か
+            for (Kantsu kantsu : comp.getKantsuList()) {
+                tileNum = kantsu.getTile().getNumber();
+                if (tileNum != 1 && tileNum != 9) {
+                    continue comploop;
+                }
+            }
+
+            //ここまできたら見つかっている
+            return true;
         }
-        return true;
+        return false;
     }
 }

@@ -1,17 +1,22 @@
 package org.mahjong4j.yaku.normals;
 
+import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
  * @author yu1ro
  *         一盃口判定クラス
  */
-public class IpeikoResolver implements YakuResolver {
+public class IpeikoResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.IPEIKO.getHan();
     final int KUISAGARI = MahjongYakuEnum.IPEIKO.getKuisagari();
 
     public int getHan() {
         return HAN;
+    }
+
+    public boolean isMatch(MahjongHands hands) {
+        return false;
     }
 
     public boolean isMatch() {

@@ -1,13 +1,14 @@
 package org.mahjong4j.yaku.normals;
 
 
+import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
  * @author yu1ro
  *         七対子判定クラス
  */
-public class ChitoitsuResolver implements YakuResolver {
+public class ChitoitsuResolver implements NormalYakuResolver {
     static MahjongTile[] toitsu = new MahjongTile[7];
     /*
      * 七対子のクラス
@@ -45,6 +46,10 @@ public class ChitoitsuResolver implements YakuResolver {
 
     public int getHan() {
         return HAN;
+    }
+
+    public boolean isMatch(MahjongHands hands) {
+        return false;
     }
 
     public boolean isMatch() {

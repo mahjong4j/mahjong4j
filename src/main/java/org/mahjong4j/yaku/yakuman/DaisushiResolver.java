@@ -1,21 +1,19 @@
 package org.mahjong4j.yaku.yakuman;
 
+import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
-import org.mahjong4j.yaku.normals.YakuResolver;
+
+import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.DAISUSHI;
 
 /**
  * @author yu1ro
  *         大四喜判定クラス
  */
-public class DaisushiResolver implements YakuResolver {
+public class DaisushiResolver implements YakumanResolver {
 
-    public int getHan() {
-        return 0;
-    }
+    public DaisushiResolver(MahjongHands hands) {
 
-    public boolean isMatch() {
-        return false;
     }
 
     public boolean isDaisushi(MahjongTile[] kotsu) {
@@ -28,5 +26,13 @@ public class DaisushiResolver implements YakuResolver {
         }
 
         return sushiCount == 4;
+    }
+
+    public MahjongYakumanEnum getYakuman() {
+        return DAISUSHI;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 }

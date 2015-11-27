@@ -1,6 +1,5 @@
 package org.mahjong4j.hands;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mahjong4j.tile.MahjongTile;
@@ -29,23 +28,21 @@ public class MahjongHandsTest {
         hands = new MahjongHands(tiles, last);
     }
 
-    @After
-    public void tearDown() throws Exception {
-
-    }
-
     @Test
     public void testFindMentsu() throws Exception {
         assertEquals("Normal", hands.getWinType());
-        List<List<MahjongMentsu>> winSetList = hands.getWinMentsuList();
+        List<MentsuComp> winSetList = hands.getMentsuCompList();
         assertEquals(2, winSetList.size());
     }
 
     @Test
     public void testWinMentsuList() throws Exception {
-        List<List<MahjongMentsu>> winSetList = hands.getWinMentsuList();
-        for (List<MahjongMentsu> winMentsuSet : winSetList) {
-            assertEquals(5, winMentsuSet.size());
+        List<MentsuComp> winSetList = hands.getMentsuCompList();
+        for (MentsuComp winMentsuSet : winSetList) {
+            assertEquals(0, winMentsuSet.getKantsuNum());
+            assertEquals(0, winMentsuSet.getKotsuNum());
+            assertEquals(4, winMentsuSet.getShuntsuNum());
+            assertEquals(MahjongTile.HAT, winMentsuSet.getJanto().getTile());
         }
     }
 

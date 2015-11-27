@@ -1,5 +1,6 @@
 package org.mahjong4j.yaku.normals;
 
+import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.ArrayList;
  * @author yu1ro
  *         三色同刻判定クラス
  */
-public class SanshokudohkoResolver implements YakuResolver {
+public class SanshokudohkoResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.SANSHOKUDOHKO.getKuisagari();
 
     boolean manzu;
@@ -17,6 +18,10 @@ public class SanshokudohkoResolver implements YakuResolver {
 
     public int getHan() {
         return HAN;
+    }
+
+    public boolean isMatch(MahjongHands hands) {
+        return false;
     }
 
     public boolean isMatch() {

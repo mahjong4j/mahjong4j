@@ -1,24 +1,21 @@
 package org.mahjong4j.yaku.yakuman;
 
-
+import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.yaku.normals.YakuResolver;
+
+import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.TSUISO;
 
 /**
  * @author yu1ro
  *         字一色判定クラス
  */
-public class TsuisoResolver implements YakuResolver {
+public class TsuisoResolver implements YakumanResolver {
 
-    public int getHan() {
-        return 0;
+    public TsuisoResolver(MahjongHands hands) {
+
     }
 
-    public boolean isMatch() {
-        return false;
-    }
-
-    /*
+    /**
      * 通常型用
      */
     public boolean isTsuiso(MahjongTile[] kotsu, MahjongTile janto) {
@@ -38,15 +35,23 @@ public class TsuisoResolver implements YakuResolver {
         return jihaiCount == 4;
     }
 
-    /*
+    /**
      * 七対子用
      */
     public boolean isTsuiso(MahjongTile[] toistu) {
-        for (int i = 0; i < toistu.length; i++) {
-            if (toistu[i].getNumber() != 0) {
+        for (MahjongTile aToistu : toistu) {
+            if (aToistu.getNumber() != 0) {
                 return false;
             }
         }
         return true;
+    }
+
+    public MahjongYakumanEnum getYakuman() {
+        return TSUISO;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 }

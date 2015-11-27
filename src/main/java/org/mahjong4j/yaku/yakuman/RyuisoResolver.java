@@ -1,12 +1,14 @@
 package org.mahjong4j.yaku.yakuman;
 
-import org.mahjong4j.yaku.normals.YakuResolver;
+import org.mahjong4j.hands.MahjongHands;
+
+import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.RYUISO;
 
 /**
  * @author yu1ro
  *         緑一色判定クラス
  */
-public class RyuisoResolver implements YakuResolver {
+public class RyuisoResolver implements YakumanResolver {
 
     final int[] ryuisoHhands = {
             0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -18,12 +20,8 @@ public class RyuisoResolver implements YakuResolver {
 
     int[] hands;
 
-    public int getHan() {
-        return 0;
-    }
+    public RyuisoResolver(MahjongHands hands) {
 
-    public boolean isMatch() {
-        return false;
     }
 
     public boolean isRyuiso(int[] hands) {
@@ -35,5 +33,13 @@ public class RyuisoResolver implements YakuResolver {
             }
         }
         return true;
+    }
+
+    public MahjongYakumanEnum getYakuman() {
+        return RYUISO;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 }

@@ -23,15 +23,15 @@ import java.util.List;
 public class MahjongHands {
     // -------------------------確定系-----------------------
 
-    //最後の牌
-    private MahjongTile last;
-
     // TODO: 14をありうる最大の数にしたい
     //確定した上がりの形のリスト
-    private List<List<MahjongMentsu>> winMentsuList = new ArrayList<List<MahjongMentsu>>(14);
+    private List<MentsuComp> mentsuCompList = new ArrayList<MentsuComp>(14);
 
     //確定した各牌の数一覧
     private int[] handsComp = new int[34];
+
+    //最後の牌
+    private MahjongTile last;
 
     //あがれるか
     private boolean canWin = false;
@@ -79,8 +79,8 @@ public class MahjongHands {
         findMentsu();
     }
 
-    public List<List<MahjongMentsu>> getWinMentsuList() {
-        return winMentsuList;
+    public List<MentsuComp> getMentsuCompList() {
+        return mentsuCompList;
     }
 
     public String getWinType() {
@@ -180,8 +180,9 @@ public class MahjongHands {
         //全て0かチェック
         if (isAllZero(handStocks)) {
             winType = "Normal";
-            winMentsuList.add(winCandidate);
             canWin = true;
+            MentsuComp mentsuComp = new MentsuComp(winCandidate);
+            mentsuCompList.add(mentsuComp);
         }
     }
 

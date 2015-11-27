@@ -1,23 +1,21 @@
 package org.mahjong4j.yaku.yakuman;
 
-
+import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
-import org.mahjong4j.yaku.normals.YakuResolver;
+
+import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.SHOSUSHI;
 
 /**
  * @author yu1ro
  *         小四喜判定クラス
  */
-public class ShosushiResolver implements YakuResolver {
+public class ShosushiResolver implements YakumanResolver {
 
-    public int getHan() {
-        return 0;
+    public ShosushiResolver(MahjongHands hands) {
+
     }
 
-    public boolean isMatch() {
-        return false;
-    }
 
     public boolean isShosushi(MahjongTile[] kotsu, MahjongTile janto) {
         if (janto.getType() != MahjongTileType.FONPAI) {
@@ -32,5 +30,13 @@ public class ShosushiResolver implements YakuResolver {
             }
         }
         return fonpaiCount == 4;
+    }
+
+    public MahjongYakumanEnum getYakuman() {
+        return SHOSUSHI;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 }
