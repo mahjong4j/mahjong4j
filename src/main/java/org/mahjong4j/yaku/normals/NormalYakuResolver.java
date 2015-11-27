@@ -1,16 +1,26 @@
 package org.mahjong4j.yaku.normals;
 
-import org.mahjong4j.hands.MahjongHands;
-
 /**
+ * 役判定のためのインターフェイスです。
+ * 役を判定するクラスを実装します
+ * 和了判定は別です。
+ *
  * @author yu1ro
- *         役判定のためのインターフェイスです。
- *         役を判定するクラスを実装します
- *         和了判定は別です。
  */
 public interface NormalYakuResolver {
 
     int getHan();
 
-    boolean isMatch(MahjongHands hands);
+    /**
+     * このメソッドは役判定を行わないので
+     * 先にisMatchを実行して判定して利用します
+     * @return
+     */
+    MahjongYakuEnum getNormalYaku();
+
+    /**
+     * 実際に役判定をおこないます
+     * @return その役がつくかどうか
+     */
+    boolean isMatch();
 }

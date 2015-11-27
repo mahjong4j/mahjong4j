@@ -6,19 +6,29 @@ import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
 
 /**
+ * 混一色判定クラス
+ * 萬子、索子、筒子のどれか一種と、字牌のみで構成される場合成立
+ *
  * @author yu1ro
- *         混一色判定クラス
  */
 public class HonitsuResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.HONITSU.getHan();
     private int colorCount;
 
+    public HonitsuResolver(MahjongHands hands) {
+
+    }
+
     public int getHan() {
         return HAN;
     }
 
-    public boolean isMatch(MahjongHands hands) {
+    public boolean isMatch() {
         return false;
+    }
+
+    public MahjongYakuEnum getNormalYaku() {
+        return null;
     }
 
     /*

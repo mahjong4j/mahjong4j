@@ -4,24 +4,32 @@ import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
+ * 一盃口判定クラス
+ * 223344など、同種同数の順子が2組ある場合に成立
+ * 二盃口の場合は二盃口のみとなる
+ *
  * @author yu1ro
- *         一盃口判定クラス
  */
 public class IpeikoResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.IPEIKO.getHan();
     final int KUISAGARI = MahjongYakuEnum.IPEIKO.getKuisagari();
 
-    public int getHan() {
-        return HAN;
+    public IpeikoResolver(MahjongHands hands) {
+
     }
 
-    public boolean isMatch(MahjongHands hands) {
-        return false;
+    public int getHan() {
+        return HAN;
     }
 
     public boolean isMatch() {
         return false;
     }
+
+    public MahjongYakuEnum getNormalYaku() {
+        return null;
+    }
+
 
     public boolean isIpeiko(MahjongTile[] shuntsu) {
 

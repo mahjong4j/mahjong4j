@@ -5,14 +5,21 @@ import org.mahjong4j.hands.Shuntsu;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
+ * 二盃口判定クラス
+ * 一盃口が２つ含まれる場合に成立
+ * 一盃口とは複合しない
+ *
  * @author yu1ro
- *         二盃口判定クラス
  */
 public class RyanpeikoResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.RYANPEIKO.getHan();
 
     private MahjongTile[] shuntsuRevised = new MahjongTile[4];
     private MahjongTile jantoRevesed;
+
+    public RyanpeikoResolver(MahjongHands hands) {
+
+    }
 
     public MahjongTile getJantoRevised() {
         return jantoRevesed;
@@ -26,8 +33,9 @@ public class RyanpeikoResolver implements NormalYakuResolver {
         return HAN;
     }
 
-    public boolean isMatch(MahjongHands hands) {
-        return false;
+
+    public MahjongYakuEnum getNormalYaku() {
+        return null;
     }
 
     public boolean isMatch() {

@@ -6,8 +6,10 @@ import org.mahjong4j.tile.MahjongTile;
 import java.util.ArrayList;
 
 /**
+ * 一気通貫判定クラス
+ * 同種の数牌で123・456・789と揃えると成立
+ *
  * @author yu1ro
- *         一気通貫判定クラス
  */
 public class IkkitsukanResolver implements NormalYakuResolver {
 
@@ -17,12 +19,20 @@ public class IkkitsukanResolver implements NormalYakuResolver {
     boolean number5;
     boolean number8;
 
+    public IkkitsukanResolver(MahjongHands hands) {
+
+    }
+
     public int getHan() {
         return HAN;
     }
 
-    public boolean isMatch(MahjongHands hands) {
+    public boolean isMatch() {
         return false;
+    }
+
+    public MahjongYakuEnum getNormalYaku() {
+        return null;
     }
 
     public boolean isIttsu(MahjongTile[] shuntsu) {

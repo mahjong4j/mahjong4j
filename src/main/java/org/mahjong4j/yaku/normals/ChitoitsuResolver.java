@@ -5,8 +5,10 @@ import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
+ * 七対子判定クラス
+ * 対子のみで構成された場合成立
+ *
  * @author yu1ro
- *         七対子判定クラス
  */
 public class ChitoitsuResolver implements NormalYakuResolver {
     static MahjongTile[] toitsu = new MahjongTile[7];
@@ -16,8 +18,8 @@ public class ChitoitsuResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.CHITOITSU.getHan();
     int[] hands = new int[34];
 
-    public ChitoitsuResolver(int[] hands) {
-        System.arraycopy(hands, 0, this.hands, 0, hands.length);
+    public ChitoitsuResolver(MahjongHands hands) {
+
     }
 
     /**
@@ -48,12 +50,12 @@ public class ChitoitsuResolver implements NormalYakuResolver {
         return HAN;
     }
 
-    public boolean isMatch(MahjongHands hands) {
+    public boolean isMatch() {
         return false;
     }
 
-    public boolean isMatch() {
-        return false;
+    public MahjongYakuEnum getNormalYaku() {
+        return null;
     }
 
     public boolean isChitoi() {

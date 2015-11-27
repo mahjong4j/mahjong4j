@@ -5,8 +5,10 @@ import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
+ * 平和判定クラス
+ * 面子が全て順子で、雀頭が役牌でなく、待ちが両面待ちになっている場合に成立
+ *
  * @author yu1ro
- *         平和判定クラス
  */
 public class PinfuResolver implements NormalYakuResolver {
 
@@ -15,17 +17,18 @@ public class PinfuResolver implements NormalYakuResolver {
     private MahjongTile jikazeHai, bakazeHai;
     //boolean naki = false;
 
-    public PinfuResolver(MahjongTile jikaze, MahjongTile bakaze) {
-        this.jikazeHai = jikaze;
-        this.bakazeHai = bakaze;
+
+    public PinfuResolver(MahjongHands hands) {
+
     }
 
     public int getHan() {
         return HAN;
     }
 
-    public boolean isMatch(MahjongHands hands) {
-        return false;
+
+    public MahjongYakuEnum getNormalYaku() {
+        return null;
     }
 
     public boolean isMatch() {
