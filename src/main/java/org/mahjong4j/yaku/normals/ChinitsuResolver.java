@@ -22,8 +22,12 @@ public class ChinitsuResolver implements NormalYakuResolver {
         return HAN;
     }
 
-    public boolean isMatch(MahjongHands hands) {
+    public boolean isMatch() {
         return false;
+    }
+
+    public MahjongYakuEnum getNormalYaku() {
+        return null;
     }
 
     //通常型用

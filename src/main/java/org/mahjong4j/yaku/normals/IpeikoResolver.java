@@ -19,13 +19,14 @@ public class IpeikoResolver implements NormalYakuResolver {
         return HAN;
     }
 
-    public boolean isMatch(MahjongHands hands) {
-        return false;
-    }
-
     public boolean isMatch() {
         return false;
     }
+
+    public MahjongYakuEnum getNormalYaku() {
+        return null;
+    }
+
 
     public boolean isIpeiko(MahjongTile[] shuntsu) {
 

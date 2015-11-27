@@ -19,8 +19,12 @@ public class HakuResolver implements NormalYakuResolver {
         return HAN;
     }
 
-    public boolean isMatch(MahjongHands hands) {
+    public boolean isMatch() {
         return false;
+    }
+
+    public MahjongYakuEnum getNormalYaku() {
+        return null;
     }
 
     public boolean isHaku(MahjongTile[] kotsu) {

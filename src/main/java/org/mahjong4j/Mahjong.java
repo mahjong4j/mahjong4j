@@ -53,7 +53,11 @@ public class Mahjong {
     }
 
     public void calcNormalYaku() {
-
+        for (NormalYakuResolver yakuResolver : normalYakuResolverList) {
+            if (yakuResolver.isMatch()) {
+                normalYakuList.add(yakuResolver.getNormalYaku());
+            }
+        }
     }
 
     public void calcChitoiYakuman() {

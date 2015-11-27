@@ -34,12 +34,12 @@ public class ChantaResolver implements NormalYakuResolver {
         return HAN;
     }
 
-    public boolean isMatch(MahjongHands hands) {
+    public boolean isMatch() {
         return false;
     }
 
-    public boolean isMatch() {
-        return false;
+    public MahjongYakuEnum getNormalYaku() {
+        return null;
     }
 
     public boolean isChanta(MahjongTile[] shuntsu, MahjongTile[] kotsu, MahjongTile janto) {

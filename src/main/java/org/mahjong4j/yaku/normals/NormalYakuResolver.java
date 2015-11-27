@@ -1,7 +1,5 @@
 package org.mahjong4j.yaku.normals;
 
-import org.mahjong4j.hands.MahjongHands;
-
 /**
  * @author yu1ro
  *         役判定のためのインターフェイスです。
@@ -12,5 +10,7 @@ public interface NormalYakuResolver {
 
     int getHan();
 
-    boolean isMatch(MahjongHands hands);
+    boolean isMatch();
+
+    MahjongYakuEnum getNormalYaku();
 }

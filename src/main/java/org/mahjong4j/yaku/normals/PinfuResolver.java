@@ -28,8 +28,9 @@ public class PinfuResolver implements NormalYakuResolver {
         return HAN;
     }
 
-    public boolean isMatch(MahjongHands hands) {
-        return false;
+
+    public MahjongYakuEnum getNormalYaku() {
+        return null;
     }
 
     public boolean isMatch() {
