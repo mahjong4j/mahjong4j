@@ -13,8 +13,7 @@ import java.util.List;
  * 手牌に関する操作全般を扱います
  * このクラスのインスタンスをMahjongクラスに投げると
  * 点数が返ってくるようにしたいと考えています
- * 現在：何もできません
- * <p>
+ * 
  * TODO: ツモって牌を捨てるオペレーションメソッド
  * TODO: otherTilesから面子に変換していく
  *
@@ -37,7 +36,7 @@ public class MahjongHands {
     private boolean canWin = false;
 
     // TODO: 良き型
-    private String winType;
+    private WinTypeEnum winType;
 
     // ------------------------ストック系----------------------
 
@@ -83,7 +82,7 @@ public class MahjongHands {
         return mentsuCompList;
     }
 
-    public String getWinType() {
+    public WinTypeEnum getWinType() {
         return winType;
     }
 
@@ -119,7 +118,7 @@ public class MahjongHands {
         // 国士無双型の判定
         initStock();
         if (KokushimusoResolver.isMatch(handStocks)) {
-            winType = "Kokushimuso";
+            winType = WinTypeEnum.KOKUSHIMUSO;
             canWin = true;
             return;
         }
@@ -127,7 +126,7 @@ public class MahjongHands {
         // 七対子の判定
         initStock();
         if (ChitoitsuResolver.isMatch(handStocks)) {
-            winType = "Chitoitsu";
+            winType = WinTypeEnum.CHITOITSU;
             canWin = true;
             return;
         }
@@ -179,7 +178,7 @@ public class MahjongHands {
     private void checkWin(List<MahjongMentsu> winCandidate) {
         //全て0かチェック
         if (isAllZero(handStocks)) {
-            winType = "Normal";
+            winType = WinTypeEnum.NORMAL;
             canWin = true;
             MentsuComp mentsuComp = new MentsuComp(winCandidate);
             mentsuCompList.add(mentsuComp);
