@@ -1,5 +1,6 @@
 [![Stories in Ready](https://badge.waffle.io/yu1ro/mahjong4j.png?label=ready&title=Ready)](https://waffle.io/yu1ro/mahjong4j)
 [![Build Status](https://travis-ci.org/yu1ro/mahjong4j.svg?branch=master)](https://travis-ci.org/yu1ro/mahjong4j)
+[![codecov.io](https://codecov.io/github/yu1ro/mahjong4j/coverage.svg?branch=master)](https://codecov.io/github/yu1ro/mahjong4j?branch=master)
 [![overity Scan Build Status](https://scan.coverity.com/projects/7164/badge.svg)](https://scan.coverity.com/projects/yu1ro-mahjong4j)
 
 # mahjong4j
