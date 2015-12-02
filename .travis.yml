@@ -5,5 +5,18 @@ jdk:
   - oraclejdk7
   - oraclejdk8
 
-after_success:
-  - mvn clean test jacoco:report coveralls:report
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "HyK8qhm758lFCVFfDyumfK7eRm4pfd9Tj8BDWhY80GQK/D1lji7ia2fPMRQ+XNxPkepkioYnZQ6F8GJEjLTmOUcNb3vCQR7jsWKE5quKYk9l33XvaY8uX/B7ax2onlc9MLQv6Hl54ayURnHCOm1vSHjUB4AAN8AOSiGM5fL+aTmHfpVVEZGa/HJgKOKoEPa/lf4GxxKd58ftdjL1Dr7Z/1IPHM9xNBJpm4KDZnryvnfHH7cIucHknHipqLr2yz2vvsVjnVejqF0SZ56SYGSnJl/CtA6yVJf0hO+RbMn6clyEB85Q86mqmjaUtb1BkzxpR/+3V0keH/aquea/tJruP2ku8nH1WQOdjH3UyxeVoBiOHYWP/V4ICZpIRcY5ptVQL7BFb2LhiDxKC4jyKYFExGhWwK0dXsaDaNaqHhiKzrzNfZsqwKip71aYGknSSJU/uNrgsxfX/YNTC1gcymjqw17Ep4cUSgGtRkD+FsPxD35JH+GhIUbscMTRw8jF8fltOj2GHj7uX676knWskSAzQwDVxPXgcMtbex140aFtwlQgAajxcoKAUE7Ezh4xZMr3pjzoTyBGUU10VMoyOuk8teQb35up7oE1b6tLgCDkZ1K2fCCwQSzU+Jacv9zUBHCOc1t0em/7QMngI9csGk8pS3j+IJN9ljVkedovXKxWr/I="
+
+addons:
+  coverity_scan:
+    project:
+      name: "yu1ro/mahjong4j"
+      description: "Build submitted via Travis CI"
+    notification_email: tresener.yu1ro@gmail.com
+    build_command_prepend: "mvn clean"
+    build_command:   "mvn -DskipTests=true compile"
+    branch_pattern: coverity_scan
