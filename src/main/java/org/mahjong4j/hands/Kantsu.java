@@ -48,7 +48,9 @@ public class Kantsu implements MahjongMentsu {
      */
     public Kantsu(boolean isOpen, MahjongTile tile1, MahjongTile tile2, MahjongTile tile3, MahjongTile tile4) {
         this.isOpen = isOpen;
-        this.isMentsu = check(tile1, tile2, tile3, tile4);
+        if (this.isMentsu = check(tile1, tile2, tile3, tile4)) {
+            identifierTile = tile1;
+        }
     }
 
     /**
