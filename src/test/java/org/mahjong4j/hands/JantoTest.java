@@ -83,9 +83,21 @@ public class JantoTest {
 
         try {
             new MahjongHands(tiles, MahjongTile.M6);
-        } catch (MahjongTileOverFlowException e) {
+        } catch (MahjongTileOverFlowException e) {//messageもテストするためにcatch
             assertEquals("麻雀の牌は4枚までしかありません", e.getMessage());
             assertEquals("M2(code = 1)が5枚見つかりました", e.getAdvice());
         }
+    }
+
+    @Test(expected = MahjongTileOverFlowException.class)
+    public void testThrow() throws Exception {
+        int[] tiles = {
+                0, 2, 3, 4, 5, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0,
+                0, 0, 0
+        };
+        Janto.findJantoCandidate(tiles);
     }
 }
