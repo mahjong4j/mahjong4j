@@ -1,5 +1,10 @@
 [![Stories in Ready](https://badge.waffle.io/yu1ro/mahjong4j.png?label=ready&title=Ready)](https://waffle.io/yu1ro/mahjong4j)
-[![Circle CI](https://circleci.com/gh/yu1ro/mahjong4j.svg?style=shield)](https://circleci.com/gh/yu1ro/mahjong4j)
+[![Build Status](https://travis-ci.org/yu1ro/mahjong4j.svg?branch=master)](https://travis-ci.org/yu1ro/mahjong4j)
+[![overity Scan Build Status](https://scan.coverity.com/projects/7164/badge.svg)](https://scan.coverity.com/projects/yu1ro-mahjong4j)
+<a href="https://scan.coverity.com/projects/yu1ro-mahjong4j">
+  <img alt="Coverity Scan Build Status"
+       src="https://scan.coverity.com/projects/7164/badge.svg"/>
+</a>
 # mahjong4j
 日本のルールにおける麻雀の役判定プログラムのJavaラッパーです
 
