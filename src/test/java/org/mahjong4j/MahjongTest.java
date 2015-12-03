@@ -21,11 +21,11 @@ public class MahjongTest {
     @Before
     public void setUp() throws Exception {
         int[] tiles = {
-                3,0,0,0,0,0,0,0,3,
-                0,0,0,0,0,0,0,0,3,
-                0,0,2,0,0,0,0,0,3,
-                0,0,0,0,
-                0,0,0
+            3, 0, 0, 0, 0, 0, 0, 0, 3,
+            0, 0, 0, 0, 0, 0, 0, 0, 3,
+            0, 0, 2, 0, 0, 0, 0, 0, 3,
+            0, 0, 0, 0,
+            0, 0, 0
         };
         MahjongTile last = MahjongTile.M6;
         hands = new MahjongHands(tiles, last);
