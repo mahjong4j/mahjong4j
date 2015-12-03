@@ -72,13 +72,13 @@ public class JantoTest {
 
 
     @Test
-    public void testCatchException() {
+    public void testCatchException() throws Exception {
         int[] tiles = {
-            1, 5, 1, 1, 1, 1, 1, 1, 1,
+            1, 5, 1, 1, 1, 1, 1, 0, 0,
             0, 1, 1, 1, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0,
-            0, 2, 0
+            0, 0, 0
         };
 
         try {
