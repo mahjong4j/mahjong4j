@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 和了判定に関するクラスです。
+ * 役の判定は別のクラスで行うがここから呼び出します
  *
  * @author yu1ro
- *         和了判定に関するクラスです。
- *         役の判定は別のクラスで行うがここから呼び出します
  */
 public class Mahjong {
 
@@ -45,7 +45,7 @@ public class Mahjong {
     }
 
 
-    public List<MahjongYakumanEnum> getYakumanList () {
+    public List<MahjongYakumanEnum> getYakumanList() {
         return yakumanList;
     }
 
