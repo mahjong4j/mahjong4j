@@ -47,7 +47,7 @@ public class IkkitsukanResolver implements NormalYakuResolver {
         number8 = false;
 
         //処理用の変数
-        //同じ色のメンツを入れる。
+        //同じ色の面子を入れる。
         ArrayList<MahjongTile> categoryA = new ArrayList<MahjongTile>(0);
         ArrayList<MahjongTile> categoryB = new ArrayList<MahjongTile>(0);
 

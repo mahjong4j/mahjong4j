@@ -63,14 +63,30 @@ public class Kotsu implements MahjongMentsu {
         return tile1 == tile2 && tile2 == tile3;
     }
 
+    /**
+     * 刻子の牌の種類
+     * 面子として成立してなければnullをかえします
+     *
+     * @return 刻子の牌の種類
+     */
     public MahjongTile getTile() {
         return identifierTile;
     }
 
+    /**
+     * 刻子として成立しているか
+     *
+     * @return 面子として成立していればtrue
+     */
     public boolean getIsMentsu() {
         return isMentsu;
     }
 
+    /**
+     * 食い下がりが適用されるか
+     *
+     * @return 明刻であればtrue 暗刻であればfalse
+     */
     public boolean getIsOpen() {
         return isOpen;
     }

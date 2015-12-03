@@ -116,14 +116,31 @@ public class Shuntsu implements MahjongMentsu {
         return tile1.getNumber() + 1 == tile2.getNumber() && tile2.getNumber() + 1 == tile3.getNumber();
     }
 
+    /**
+     * 順子の牌の2番目を返します
+     * 例：345の順子の場合は4の牌を返します
+     * 面子として成立してなければnullを返します
+     *
+     * @return 順子の牌の2番目の牌を返します
+     */
     public MahjongTile getTile() {
         return identifierTile;
     }
 
+    /**
+     * 順子として成立しているか
+     *
+     * @return 面子として成立していればtrue
+     */
     public boolean getIsMentsu() {
         return isMentsu;
     }
 
+    /**
+     * 食い下がりが適用されるか
+     *
+     * @return 明順子であればtrue 暗順子であればfalse
+     */
     public boolean getIsOpen() {
         return isOpen;
     }

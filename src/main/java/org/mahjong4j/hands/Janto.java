@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 雀頭は厳密にはメンツではありませんがここでは含めることにします
+ * 雀頭は厳密には面子ではありませんがここでは含めることにします
  *
  * @author yu1ro
  */
@@ -65,10 +65,18 @@ public class Janto implements MahjongMentsu {
         return result;
     }
 
+    /**
+     * 雀頭として成立していなければnullを返します
+     *
+     * @return 雀頭の牌の種類
+     */
     public MahjongTile getTile() {
         return identifierTile;
     }
 
+    /**
+     * @return 面子(雀頭)として成立していればtrue
+     */
     public boolean getIsMentsu() {
         return isMentsu;
     }
