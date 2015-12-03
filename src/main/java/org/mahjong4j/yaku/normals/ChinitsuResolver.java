@@ -72,12 +72,7 @@ public class ChinitsuResolver implements NormalYakuResolver {
         pinzuCheck(toitsu);
         sozuCheck(toitsu);
 
-        if (colorCount == 1) {
-            return true;
-        }
-
-        return false;
-
+        return colorCount == 1;
     }
 
     /*
@@ -111,8 +106,8 @@ public class ChinitsuResolver implements NormalYakuResolver {
     }
 
     private void manzuCheck(MahjongTile[] toitsu) {
-        for (int i = 0; i < toitsu.length; i++) {
-            if (toitsu[i].getType() == MahjongTileType.MANZU) {
+        for (MahjongTile aToitsu : toitsu) {
+            if (aToitsu.getType() == MahjongTileType.MANZU) {
                 colorCount++;
                 break;
             }
@@ -147,8 +142,8 @@ public class ChinitsuResolver implements NormalYakuResolver {
     }
 
     private void pinzuCheck(MahjongTile[] toitsu) {
-        for (int i = 0; i < toitsu.length; i++) {
-            if (toitsu[i].getType() == MahjongTileType.PINZU) {
+        for (MahjongTile aToitsu : toitsu) {
+            if (aToitsu.getType() == MahjongTileType.PINZU) {
                 colorCount++;
                 break;
             }
@@ -183,8 +178,8 @@ public class ChinitsuResolver implements NormalYakuResolver {
     }
 
     private void sozuCheck(MahjongTile[] toitsu) {
-        for (int i = 0; i < toitsu.length; i++) {
-            if (toitsu[i].getType() == MahjongTileType.SOHZU) {
+        for (MahjongTile aToitsu : toitsu) {
+            if (aToitsu.getType() == MahjongTileType.SOHZU) {
                 colorCount++;
                 break;
             }

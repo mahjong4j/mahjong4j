@@ -14,11 +14,11 @@ public class HonrohtohResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.HONROHTOH.getHan();
 
     int[] honroHands = {
-            1, 0, 0, 0, 0, 0, 0, 0, 1,
-            1, 0, 0, 0, 0, 0, 0, 0, 1,
-            1, 0, 0, 0, 0, 0, 0, 0, 1,
-            1, 1, 1, 1,
-            1, 1, 1};
+        1, 0, 0, 0, 0, 0, 0, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 1,
+        1, 1, 1, 1,
+        1, 1, 1};
 
     public HonrohtohResolver(MahjongHands hands) {
 
@@ -55,12 +55,7 @@ public class HonrohtohResolver implements NormalYakuResolver {
             }
         }
 
-        if (count == 4 && honroHands[janto.getCode()] == 1) {
-            return true;
-        } else {
-            return false;
-        }
-
+        return count == 4 && honroHands[janto.getCode()] == 1;
     }
 
     public boolean isHonrohtoh(MahjongTile[] toitsu) {
@@ -78,9 +73,6 @@ public class HonrohtohResolver implements NormalYakuResolver {
                 count++;
             }
         }
-        if (count == 7) {
-            return true;
-        }
-        return false;
+        return count == 7;
     }
 }

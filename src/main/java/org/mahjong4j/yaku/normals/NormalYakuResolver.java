@@ -14,12 +14,14 @@ public interface NormalYakuResolver {
     /**
      * このメソッドは役判定を行わないので
      * 先にisMatchを実行して判定して利用します
+     *
      * @return
      */
     MahjongYakuEnum getNormalYaku();
 
     /**
      * 実際に役判定をおこないます
+     *
      * @return その役がつくかどうか
      */
     boolean isMatch();

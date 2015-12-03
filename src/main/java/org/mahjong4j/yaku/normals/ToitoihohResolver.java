@@ -13,11 +13,11 @@ public class ToitoihohResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.TOITOIHO.getHan();
 
     int[] honroHands = {
-            1, 0, 0, 0, 0, 0, 0, 0, 1,
-            1, 0, 0, 0, 0, 0, 0, 0, 1,
-            1, 0, 0, 0, 0, 0, 0, 0, 1,
-            1, 1, 1, 1,
-            1, 1, 1};
+        1, 0, 0, 0, 0, 0, 0, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 1,
+        1, 1, 1, 1,
+        1, 1, 1};
 
     public ToitoihohResolver(MahjongHands hands) {
 

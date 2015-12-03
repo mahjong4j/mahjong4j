@@ -66,8 +66,8 @@ public class SanshokudohjunResolver implements NormalYakuResolver {
 
 
         if (categoryA.size() >= 3) {
-            for (int k = 0; k < categoryA.size(); k++) {
-                switch (categoryA.get(k).getType()) {
+            for (MahjongTile aCategoryA : categoryA) {
+                switch (aCategoryA.getType()) {
                     case MANZU:
                         manzu = true;
                         break;
@@ -83,8 +83,8 @@ public class SanshokudohjunResolver implements NormalYakuResolver {
                 }
             }
         } else if (categoryB.size() >= 3) {
-            for (int k = 0; k < categoryB.size(); k++) {
-                switch (categoryB.get(k).getType()) {
+            for (MahjongTile aCategoryB : categoryB) {
+                switch (aCategoryB.getType()) {
                     case MANZU:
                         manzu = true;
                         break;

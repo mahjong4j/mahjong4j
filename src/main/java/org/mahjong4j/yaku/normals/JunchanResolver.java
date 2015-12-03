@@ -15,17 +15,17 @@ public class JunchanResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.JUNCHAN.getHan();
     final int KUISAGARI = MahjongYakuEnum.JUNCHAN.getHan();
     int[] shuntsuHands = {
-            0, 1, 0, 0, 0, 0, 0, 1, 0,
-            0, 1, 0, 0, 0, 0, 0, 1, 0,
-            0, 1, 0, 0, 0, 0, 0, 1, 0,
-            0, 0, 0, 0,
-            0, 0, 0};
+        0, 1, 0, 0, 0, 0, 0, 1, 0,
+        0, 1, 0, 0, 0, 0, 0, 1, 0,
+        0, 1, 0, 0, 0, 0, 0, 1, 0,
+        0, 0, 0, 0,
+        0, 0, 0};
     int[] kotsuHands = {
-            1, 0, 0, 0, 0, 0, 0, 0, 1,
-            1, 0, 0, 0, 0, 0, 0, 0, 1,
-            1, 0, 0, 0, 0, 0, 0, 0, 1,
-            0, 0, 0, 0,
-            0, 0, 0};
+        1, 0, 0, 0, 0, 0, 0, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 1,
+        0, 0, 0, 0,
+        0, 0, 0};
 
     public JunchanResolver(MahjongHands hands) {
 
@@ -61,10 +61,6 @@ public class JunchanResolver implements NormalYakuResolver {
         }
 
         //4になってるかと雀頭もチェック
-        if (count == 4 && kotsuHands[janto.getCode()] == 1) {
-            return true;
-        } else {
-            return false;
-        }
+        return count == 4 && kotsuHands[janto.getCode()] == 1;
     }
 }

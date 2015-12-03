@@ -59,10 +59,7 @@ public class HonitsuResolver implements NormalYakuResolver {
         pinzuCheck(shuntsu, kotsu, janto);
         sozuCheck(shuntsu, kotsu, janto);
 
-        if (colorCount == 1 && hasJihai) {
-            return true;
-        }
-        return false;
+        return colorCount == 1 && hasJihai;
     }
 
     /*
@@ -87,10 +84,7 @@ public class HonitsuResolver implements NormalYakuResolver {
         pinzuCheck(toitsu);
         sozuCheck(toitsu);
 
-        if (colorCount == 1) {
-            return hasJihai;
-        }
-        return false;
+        return colorCount == 1 && hasJihai;
     }
 
     /*
@@ -162,8 +156,8 @@ public class HonitsuResolver implements NormalYakuResolver {
     }
 
     private void pinzuCheck(MahjongTile[] toitsu) {
-        for (int i = 0; i < toitsu.length; i++) {
-            if (toitsu[i].getType() == MahjongTileType.PINZU) {
+        for (MahjongTile aToitsu : toitsu) {
+            if (aToitsu.getType() == MahjongTileType.PINZU) {
                 colorCount++;
                 break;
             }
