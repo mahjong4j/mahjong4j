@@ -11,11 +11,11 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.RYUISO;
 public class RyuisoResolver implements YakumanResolver {
 
     final int[] ryuisoHhands = {
-            0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 1, 1, 1, 0, 1, 0, 1, 0,
-            0, 0, 0, 0,
-            0, 1, 0
+        0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 1, 1, 1, 0, 1, 0, 1, 0,
+        0, 0, 0, 0,
+        0, 1, 0
     };
 
     int[] hands;

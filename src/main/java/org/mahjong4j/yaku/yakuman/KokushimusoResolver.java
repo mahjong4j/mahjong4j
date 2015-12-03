@@ -8,11 +8,11 @@ import org.mahjong4j.hands.MahjongHands;
  */
 public class KokushimusoResolver implements YakumanResolver {
     public static final int[] kokushi = {
-            1, 0, 0, 0, 0, 0, 0, 0, 1,
-            1, 0, 0, 0, 0, 0, 0, 0, 1,
-            1, 0, 0, 0, 0, 0, 0, 0, 1,
-            1, 1, 1, 1,
-            1, 1, 1};
+        1, 0, 0, 0, 0, 0, 0, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 1,
+        1, 1, 1, 1,
+        1, 1, 1};
     public final int HAN = 13;
     int[] hands = new int[34];
 
@@ -43,18 +43,18 @@ public class KokushimusoResolver implements YakumanResolver {
 
             //残ってるのが么九牌1つならtrue
             if (hands[0] == 1 ||
-                    hands[8] == 1 ||
-                    hands[9] == 1 ||
-                    hands[17] == 1 ||
-                    hands[18] == 1 ||
-                    hands[26] == 1 ||
-                    hands[27] == 1 ||
-                    hands[28] == 1 ||
-                    hands[29] == 1 ||
-                    hands[30] == 1 ||
-                    hands[31] == 1 ||
-                    hands[32] == 1 ||
-                    hands[33] == 1) {
+                hands[8] == 1 ||
+                hands[9] == 1 ||
+                hands[17] == 1 ||
+                hands[18] == 1 ||
+                hands[26] == 1 ||
+                hands[27] == 1 ||
+                hands[28] == 1 ||
+                hands[29] == 1 ||
+                hands[30] == 1 ||
+                hands[31] == 1 ||
+                hands[32] == 1 ||
+                hands[33] == 1) {
                 return true;
             }
         }
