@@ -46,6 +46,25 @@ public class Janto implements MahjongMentsu {
         return tile1 == tile2;
     }
 
+    /**
+     * 雀頭になりうる牌をリストにして返す
+     *
+     * @param tiles 手牌
+     * @return 雀頭候補
+     */
+    public static List<Janto> findJantoCandidate(int[] tiles) throws MahjongTileOverFlowException {
+        List<Janto> result = new ArrayList<Janto>(7);
+        for (int i = 0; i < tiles.length; i++) {
+            if (tiles[i] > 4) {
+                throw new MahjongTileOverFlowException(i, tiles[i]);
+            }
+            if (tiles[i] >= 2) {
+                result.add(new Janto(MahjongTile.valueOf(i)));
+            }
+        }
+        return result;
+    }
+
     public MahjongTile getTile() {
         return identifierTile;
     }
@@ -61,23 +80,5 @@ public class Janto implements MahjongMentsu {
      */
     public boolean getIsOpen() {
         return false;
-    }
-
-    /**
-     * 雀頭になりうる牌をリストにして返す
-     * @param tiles 手牌
-     * @return 雀頭候補
-     */
-    public static List<Janto> findJantoCandidate(int[] tiles) throws MahjongTileOverFlowException {
-        List<Janto> result = new ArrayList<Janto>(7);
-        for (int i = 0; i < tiles.length; i++) {
-            if (tiles[i] > 4) {
-                throw new MahjongTileOverFlowException(i,tiles[i]);
-            }
-            if (tiles[i] >= 2) {
-                result.add(new Janto(MahjongTile.valueOf(i)));
-            }
-        }
-        return result;
     }
 }

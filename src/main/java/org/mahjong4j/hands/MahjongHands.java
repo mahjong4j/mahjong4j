@@ -13,7 +13,6 @@ import java.util.List;
  * 手牌に関する操作全般を扱います
  * このクラスのインスタンスをMahjongクラスに投げると
  * 点数が返ってくるようにしたいと考えています
- * 
  * TODO: ツモって牌を捨てるオペレーションメソッド
  * TODO: otherTilesから面子に変換していく
  *
@@ -201,10 +200,10 @@ public class MahjongHands {
             // whileにしたのは一盃口などがあるから
             while (handStocks[j - 1] > 0 && handStocks[j] > 0 && handStocks[j + 1] > 0) {
                 Shuntsu shuntsu = new Shuntsu(
-                        false,
-                        MahjongTile.valueOf(j - 1),
-                        MahjongTile.valueOf(j),
-                        MahjongTile.valueOf(j + 1));
+                    false,
+                    MahjongTile.valueOf(j - 1),
+                    MahjongTile.valueOf(j),
+                    MahjongTile.valueOf(j + 1));
                 if (shuntsu.getIsMentsu()) {
                     resultList.add(shuntsu);
                     handStocks[j - 1]--;

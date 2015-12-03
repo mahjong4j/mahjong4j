@@ -2,9 +2,6 @@ package org.mahjong4j.hands;
 
 import org.mahjong4j.tile.MahjongTile;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * 刻子に関するクラスです
  * 暗刻と明刻の両方を扱います
