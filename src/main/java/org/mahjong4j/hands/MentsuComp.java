@@ -13,9 +13,9 @@ import java.util.List;
 public class MentsuComp {
 
     private Janto janto;
-    private List<Shuntsu> shuntsuList = new ArrayList<Shuntsu>(4);
-    private List<Kotsu> kotsuList = new ArrayList<Kotsu>(4);
-    private List<Kantsu> kantsuList = new ArrayList<Kantsu>(4);
+    private List<Shuntsu> shuntsuList = new ArrayList<>(4);
+    private List<Kotsu> kotsuList = new ArrayList<>(4);
+    private List<Kantsu> kantsuList = new ArrayList<>(4);
 
     /**
      * いらないかもしれない
