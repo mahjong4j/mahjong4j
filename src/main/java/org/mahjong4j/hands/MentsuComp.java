@@ -62,10 +62,6 @@ public class MentsuComp {
         return janto;
     }
 
-    public void setJanto(Janto janto) {
-        this.janto = janto;
-    }
-
     public void setShuntsu(Shuntsu shuntsu) {
         shuntsuList.add(shuntsu);
     }
