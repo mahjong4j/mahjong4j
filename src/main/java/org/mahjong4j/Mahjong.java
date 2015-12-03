@@ -8,6 +8,8 @@ import org.mahjong4j.yaku.yakuman.YakumanResolver;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * 和了判定に関するクラスです。
@@ -18,10 +20,10 @@ import java.util.List;
 public class Mahjong {
 
     //付いた役満リスト
-    public List<MahjongYakumanEnum> yakumanList = new ArrayList<MahjongYakumanEnum>(1);
+    public List<MahjongYakumanEnum> yakumanList = new ArrayList<>(1);
 
     //付いた通常役リスト
-    public List<MahjongYakuEnum> normalYakuList = new ArrayList<MahjongYakuEnum>(0);
+    public List<MahjongYakuEnum> normalYakuList = new ArrayList<>(0);
 
     //倍満や跳満などを入れる
     public String manName;
@@ -54,19 +56,18 @@ public class Mahjong {
     }
 
     public void calcYakuman() {
-        for (YakumanResolver yakumanResolver : yakumanResolverList) {
-            if (yakumanResolver.isMatch()) {
-                yakumanList.add(yakumanResolver.getYakuman());
-            }
-        }
+        Stream<YakumanResolver> stream = yakumanResolverList.stream();
+        Stream<YakumanResolver> yakumanResolverStream = stream.filter(YakumanResolver::isMatch);
+        Stream<MahjongYakumanEnum> mahjongYakumanEnumStream = yakumanResolverStream.map(YakumanResolver::getYakuman);
+        yakumanList.addAll(mahjongYakumanEnumStream.collect(Collectors.toList())
+        );
     }
 
     public void calcNormalYaku() {
-        for (NormalYakuResolver yakuResolver : normalYakuResolverList) {
-            if (yakuResolver.isMatch()) {
-                normalYakuList.add(yakuResolver.getNormalYaku());
-            }
-        }
+        Stream<NormalYakuResolver> stream = normalYakuResolverList.stream();
+        Stream<NormalYakuResolver> normalYakuResolverStream = stream.filter(NormalYakuResolver::isMatch);
+        Stream<MahjongYakuEnum> mahjongYakuEnumStream = normalYakuResolverStream.map(NormalYakuResolver::getNormalYaku);
+        normalYakuList.addAll(mahjongYakuEnumStream.collect(Collectors.toList()));
     }
 
     public int calcPoint() {
