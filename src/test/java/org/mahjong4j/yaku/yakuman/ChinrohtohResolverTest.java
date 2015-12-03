@@ -5,9 +5,7 @@ import org.junit.Test;
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * @author yu1ro
@@ -19,19 +17,19 @@ public class ChinrohtohResolverTest {
     @Before
     public void setUp() throws Exception {
         int[] match = {
-                3,0,0,0,0,0,0,0,3,
-                0,0,0,0,0,0,0,0,3,
-                2,0,0,0,0,0,0,0,3,
-                0,0,0,0,
-                0,0,0
+            3, 0, 0, 0, 0, 0, 0, 0, 3,
+            0, 0, 0, 0, 0, 0, 0, 0, 3,
+            2, 0, 0, 0, 0, 0, 0, 0, 3,
+            0, 0, 0, 0,
+            0, 0, 0
         };
 
         int[] notMatch = {
-                3,0,0,0,0,0,0,0,3,
-                0,0,0,0,0,0,0,0,0,
-                2,2,2,2,0,0,0,0,0,
-                0,0,0,0,
-                0,0,0
+            3, 0, 0, 0, 0, 0, 0, 0, 3,
+            0, 0, 0, 0, 0, 0, 0, 0, 0,
+            2, 2, 2, 2, 0, 0, 0, 0, 0,
+            0, 0, 0, 0,
+            0, 0, 0
         };
         MahjongHands hands = new MahjongHands(match, MahjongTile.M1);
         chinrohtoh = new ChinrohtohResolver(hands);

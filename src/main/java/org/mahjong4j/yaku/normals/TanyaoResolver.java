@@ -11,11 +11,11 @@ import org.mahjong4j.hands.MahjongHands;
 public class TanyaoResolver implements NormalYakuResolver {
     private final int HAN = MahjongYakuEnum.TANYAO.getHan();
     private final int[] tanyao = {
-            0, 1, 1, 1, 1, 1, 1, 1, 0,
-            0, 1, 1, 1, 1, 1, 1, 1, 0,
-            0, 1, 1, 1, 1, 1, 1, 1, 0,
-            0, 0, 0, 0,
-            0, 0, 0
+        0, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 0, 0, 0,
+        0, 0, 0
     };
 
     public TanyaoResolver(MahjongHands hands) {

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 雀頭は厳密にはメンツではありませんがここでは含めることにします
+ * 雀頭は厳密には面子ではありませんがここでは含めることにします
  *
  * @author yu1ro
  */
@@ -46,10 +46,37 @@ public class Janto implements MahjongMentsu {
         return tile1 == tile2;
     }
 
+    /**
+     * 雀頭になりうる牌をリストにして返す
+     *
+     * @param tiles 手牌
+     * @return 雀頭候補
+     */
+    public static List<Janto> findJantoCandidate(int[] tiles) throws MahjongTileOverFlowException {
+        List<Janto> result = new ArrayList<Janto>(7);
+        for (int i = 0; i < tiles.length; i++) {
+            if (tiles[i] > 4) {
+                throw new MahjongTileOverFlowException(i, tiles[i]);
+            }
+            if (tiles[i] >= 2) {
+                result.add(new Janto(MahjongTile.valueOf(i)));
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 雀頭として成立していなければnullを返します
+     *
+     * @return 雀頭の牌の種類
+     */
     public MahjongTile getTile() {
         return identifierTile;
     }
 
+    /**
+     * @return 面子(雀頭)として成立していればtrue
+     */
     public boolean getIsMentsu() {
         return isMentsu;
     }
@@ -61,23 +88,5 @@ public class Janto implements MahjongMentsu {
      */
     public boolean getIsOpen() {
         return false;
-    }
-
-    /**
-     * 雀頭になりうる牌をリストにして返す
-     * @param tiles 手牌
-     * @return 雀頭候補
-     */
-    public static List<Janto> findJantoCandidate(int[] tiles) throws MahjongTileOverFlowException {
-        List<Janto> result = new ArrayList<Janto>(7);
-        for (int i = 0; i < tiles.length; i++) {
-            if (tiles[i] > 4) {
-                throw new MahjongTileOverFlowException(i,tiles[i]);
-            }
-            if (tiles[i] >= 2) {
-                result.add(new Janto(MahjongTile.valueOf(i)));
-            }
-        }
-        return result;
     }
 }

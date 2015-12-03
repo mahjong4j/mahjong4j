@@ -30,6 +30,7 @@ public class MentsuComp {
 
     /**
      * TODO:引数のリストのサイズが5以外はthrow
+     *
      * @param mentsuList 上がりとなった面子のリスト
      */
     public MentsuComp(List<MahjongMentsu> mentsuList) {

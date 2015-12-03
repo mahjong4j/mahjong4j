@@ -39,11 +39,7 @@ public class PinfuResolver implements NormalYakuResolver {
         if (shuntsu[3] == null) {
             return false;
         } else {
-            if (janto != jikazeHai && janto != bakazeHai && janto.getNumber() != 0) {
-                return true;
-            } else {
-                return false;
-            }
+            return janto != jikazeHai && janto != bakazeHai && janto.getNumber() != 0;
         }
     }
 }

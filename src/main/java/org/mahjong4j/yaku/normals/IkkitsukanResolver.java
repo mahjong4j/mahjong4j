@@ -41,14 +41,13 @@ public class IkkitsukanResolver implements NormalYakuResolver {
             return false;
         }
 
-
         //初期化
         number2 = false;
         number5 = false;
         number8 = false;
 
         //処理用の変数
-        //同じ色のメンツを入れる。
+        //同じ色の面子を入れる。
         ArrayList<MahjongTile> categoryA = new ArrayList<MahjongTile>(0);
         ArrayList<MahjongTile> categoryB = new ArrayList<MahjongTile>(0);
 
@@ -67,8 +66,8 @@ public class IkkitsukanResolver implements NormalYakuResolver {
         }
 
         if (categoryA.size() >= 3) {
-            for (int k = 0; k < categoryA.size(); k++) {
-                switch (categoryA.get(k).getNumber()) {
+            for (MahjongTile aCategoryA : categoryA) {
+                switch (aCategoryA.getNumber()) {
                     case 2:
                         number2 = true;
                         break;
@@ -84,8 +83,8 @@ public class IkkitsukanResolver implements NormalYakuResolver {
                 }
             }
         } else if (categoryB.size() >= 3) {
-            for (int k = 0; k < categoryB.size(); k++) {
-                switch (categoryB.get(k).getNumber()) {
+            for (MahjongTile aCategoryB : categoryB) {
+                switch (aCategoryB.getNumber()) {
                     case 2:
                         number2 = true;
                         break;
@@ -100,7 +99,6 @@ public class IkkitsukanResolver implements NormalYakuResolver {
                         break;
                 }
             }
-
         }
         return number2 && number5 && number8;
     }

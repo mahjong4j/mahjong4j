@@ -55,11 +55,11 @@ public class JantoTest {
     @Test
     public void testFindJantoCandidate() throws Exception {
         int[] tiles = {
-                1, 1, 1, 1, 1, 1, 1, 1, 1,
-                0, 1, 1, 1, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0,
-                0, 2, 0
+            1, 1, 1, 1, 1, 1, 1, 1, 1,
+            0, 1, 1, 1, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0,
+            0, 2, 0
         };
         List<Janto> expected, actual = Janto.findJantoCandidate(tiles);
 
@@ -74,11 +74,11 @@ public class JantoTest {
     @Test
     public void testCatchException() {
         int[] tiles = {
-                1, 5, 1, 1, 1, 1, 1, 1, 1,
-                0, 1, 1, 1, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0,
-                0, 2, 0
+            1, 5, 1, 1, 1, 1, 1, 1, 1,
+            0, 1, 1, 1, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0,
+            0, 2, 0
         };
 
         try {
@@ -92,11 +92,11 @@ public class JantoTest {
     @Test(expected = MahjongTileOverFlowException.class)
     public void testThrow() throws Exception {
         int[] tiles = {
-                0, 2, 3, 4, 5, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0,
-                0, 0, 0
+            0, 2, 3, 4, 5, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0,
+            0, 0, 0
         };
         Janto.findJantoCandidate(tiles);
     }

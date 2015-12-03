@@ -25,7 +25,7 @@
 
 の
 
-org.mahjong4j.ChintohtohTest
+org.mahjong4j.ChinrohtohTest
 
 を見て頂ければ確認頂けると思います
 

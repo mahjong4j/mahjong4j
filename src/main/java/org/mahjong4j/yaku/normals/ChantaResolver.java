@@ -16,17 +16,19 @@ public class ChantaResolver implements NormalYakuResolver {
     final int KUISAGARI = MahjongYakuEnum.CHANTA.getKuisagari();
 
     int[] shuntsuHands = {
-            0, 1, 0, 0, 0, 0, 0, 1, 0,
-            0, 1, 0, 0, 0, 0, 0, 1, 0,
-            0, 1, 0, 0, 0, 0, 0, 1, 0,
-            0, 0, 0, 0,
-            0, 0, 0};
+        0, 1, 0, 0, 0, 0, 0, 1, 0,
+        0, 1, 0, 0, 0, 0, 0, 1, 0,
+        0, 1, 0, 0, 0, 0, 0, 1, 0,
+        0, 0, 0, 0,
+        0, 0, 0
+    };
     int[] kotsuHands = {
-            1, 0, 0, 0, 0, 0, 0, 0, 1,
-            1, 0, 0, 0, 0, 0, 0, 0, 1,
-            1, 0, 0, 0, 0, 0, 0, 0, 1,
-            1, 1, 1, 1,
-            1, 1, 1};
+        1, 0, 0, 0, 0, 0, 0, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 1,
+        1, 1, 1, 1,
+        1, 1, 1
+    };
 
     public ChantaResolver(MahjongHands hands) {
 
@@ -64,10 +66,6 @@ public class ChantaResolver implements NormalYakuResolver {
         }
 
         //４になってるかと雀頭もチェック
-        if (count == 4 && kotsuHands[janto.getCode()] == 1) {
-            return true;
-        } else {
-            return false;
-        }
+        return count == 4 && kotsuHands[janto.getCode()] == 1;
     }
 }

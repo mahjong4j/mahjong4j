@@ -19,11 +19,11 @@ public class ChinrohtohTest {
     @Before
     public void setUp() throws Exception {
         int[] match = {
-                3,0,0,0,0,0,0,0,3,
-                0,0,0,0,0,0,0,0,3,
-                2,0,0,0,0,0,0,0,3,
-                0,0,0,0,
-                0,0,0
+            3, 0, 0, 0, 0, 0, 0, 0, 3,
+            0, 0, 0, 0, 0, 0, 0, 0, 3,
+            2, 0, 0, 0, 0, 0, 0, 0, 3,
+            0, 0, 0, 0,
+            0, 0, 0
         };
         MahjongHands hands = new MahjongHands(match, MahjongTile.M1);
         mahjong = new Mahjong(hands);

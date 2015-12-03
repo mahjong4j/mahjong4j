@@ -18,11 +18,11 @@ public class MahjongHandsTest {
     @Before
     public void setUp() throws Exception {
         int[] tiles = {
-                1, 1, 1, 1, 1, 1, 1, 1, 1,
-                0, 1, 1, 1, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0,
-                0, 2, 0
+            1, 1, 1, 1, 1, 1, 1, 1, 1,
+            0, 1, 1, 1, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0,
+            0, 2, 0
         };
         MahjongTile last = MahjongTile.M6;
         hands = new MahjongHands(tiles, last);

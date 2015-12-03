@@ -25,7 +25,6 @@ public class ChinrohtohResolver implements YakumanResolver {
     }
 
     /**
-     *
      * @return 清老頭かどうか
      */
     public boolean isMatch() {
@@ -38,7 +37,7 @@ public class ChinrohtohResolver implements YakumanResolver {
             }
 
             int tileNum = comp.getJanto().getTile().getNumber();
-            if (tileNum != 1 && tileNum != 9 ) {
+            if (tileNum != 1 && tileNum != 9) {
                 continue;
             }
 
