@@ -23,7 +23,7 @@ public class MahjongHands {
 
     // TODO: 14をありうる最大の数にしたい
     //確定した上がりの形のリスト
-    private List<MentsuComp> mentsuCompList = new ArrayList<MentsuComp>(14);
+    private List<MentsuComp> mentsuCompList = new ArrayList<>(14);
 
     //確定した各牌の数一覧
     private int[] handsComp = new int[34];
@@ -40,7 +40,7 @@ public class MahjongHands {
     // ------------------------ストック系----------------------
 
     // コンストラクタで入力された面子リスト
-    private List<MahjongMentsu> inputtedMentsuList = new ArrayList<MahjongMentsu>();
+    private List<MahjongMentsu> inputtedMentsuList = new ArrayList<>();
 
     // 操作する用のストック
     private int[] handStocks = new int[34];
@@ -49,7 +49,7 @@ public class MahjongHands {
     private int[] inputtedTiles;
 
     // 雀頭の候補をストック
-    private List<Janto> jantoStock = new ArrayList<Janto>(14);
+    private List<Janto> jantoStock = new ArrayList<>(14);
 
 
     public MahjongHands(int[] otherTiles, MahjongTile last, List<MahjongMentsu> mentsuList) throws MahjongTileOverFlowException {
@@ -143,7 +143,7 @@ public class MahjongHands {
         }
 
         //雀頭候補から探す
-        List<MahjongMentsu> winCandidate = new ArrayList<MahjongMentsu>(4);
+        List<MahjongMentsu> winCandidate = new ArrayList<>(4);
         for (Janto janto : jantoStock) {
             // 操作変数を初期化
             init(winCandidate, janto);
@@ -194,7 +194,7 @@ public class MahjongHands {
     }
 
     private List<MahjongMentsu> findShuntsuCandidate() {
-        List<MahjongMentsu> resultList = new ArrayList<MahjongMentsu>(4);
+        List<MahjongMentsu> resultList = new ArrayList<>(4);
         //字牌などはチェックしないので26まで
         for (int j = 1; j < 26; j++) {
             // whileにしたのは一盃口などがあるから
@@ -220,7 +220,7 @@ public class MahjongHands {
     }
 
     private List<MahjongMentsu> findKotsuCandidate() {
-        List<MahjongMentsu> resultList = new ArrayList<MahjongMentsu>(4);
+        List<MahjongMentsu> resultList = new ArrayList<>(4);
         for (int i = 0; i < handStocks.length; i++) {
             if (handStocks[i] >= 3) {
                 resultList.add(new Kotsu(false, MahjongTile.valueOf(i)));

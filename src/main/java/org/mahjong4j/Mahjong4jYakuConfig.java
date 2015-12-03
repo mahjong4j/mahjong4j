@@ -19,7 +19,7 @@ public class Mahjong4jYakuConfig {
     private List<NormalYakuResolver> normalResolverList = new ArrayList<NormalYakuResolver>(19);
 
     public static List<YakumanResolver> getYakumanResolverList(MahjongHands hands) {
-        List<YakumanResolver> yakumanResolverList = new ArrayList<YakumanResolver>(9);
+        List<YakumanResolver> yakumanResolverList = new ArrayList<>(9);
         yakumanResolverList.add(new ChinrohtohResolver(hands));
         yakumanResolverList.add(new ChurenpohtohResolver(hands));
         yakumanResolverList.add(new DaisangenResolver(hands));
@@ -34,7 +34,7 @@ public class Mahjong4jYakuConfig {
     }
 
     public static List<NormalYakuResolver> getNormalYakuResolverList(MahjongHands hands) {
-        List<NormalYakuResolver> normalYakuResolverList = new ArrayList<NormalYakuResolver>(20);
+        List<NormalYakuResolver> normalYakuResolverList = new ArrayList<>(20);
         normalYakuResolverList.add(new ChantaResolver(hands));
         normalYakuResolverList.add(new ChunResolver(hands));
         normalYakuResolverList.add(new ChinitsuResolver(hands));

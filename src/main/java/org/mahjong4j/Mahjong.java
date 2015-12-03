@@ -18,10 +18,10 @@ import java.util.List;
 public class Mahjong {
 
     //付いた役満リスト
-    public List<MahjongYakumanEnum> yakumanList = new ArrayList<MahjongYakumanEnum>(1);
+    public List<MahjongYakumanEnum> yakumanList = new ArrayList<>(1);
 
     //付いた通常役リスト
-    public List<MahjongYakuEnum> normalYakuList = new ArrayList<MahjongYakuEnum>(0);
+    public List<MahjongYakuEnum> normalYakuList = new ArrayList<>(0);
 
     //倍満や跳満などを入れる
     public String manName;
