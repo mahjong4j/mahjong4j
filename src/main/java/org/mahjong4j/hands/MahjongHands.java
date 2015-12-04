@@ -1,5 +1,6 @@
 package org.mahjong4j.hands;
 
+import org.mahjong4j.HandsOverFlowException;
 import org.mahjong4j.MahjongTileOverFlowException;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.normals.ChitoitsuResolver;
@@ -67,15 +68,18 @@ public class MahjongHands {
     }
 
     /**
-     * @param otherTiles lastの牌も含めて下さい合計14になるはずです
-     * @param last       この牌もotherTilesに含めてください
+     * @param allTiles lastの牌も含めて下さい合計14になるはずです
+     * @param last     この牌もotherTilesに含めてください
      */
-    public MahjongHands(int[] otherTiles, MahjongTile last) throws MahjongTileOverFlowException {
-        inputtedTiles = otherTiles;
+    public MahjongHands(int[] allTiles, MahjongTile last) throws MahjongTileOverFlowException, HandsOverFlowException {
+        inputtedTiles = allTiles;
         this.last = last;
+
+        checkTiles(allTiles);
 
         findMentsu();
     }
+
 
     public List<MentsuComp> getMentsuCompList() {
         return mentsuCompList;
@@ -95,6 +99,16 @@ public class MahjongHands {
 
     public int[] getHandsComp() {
         return handsComp;
+    }
+
+    private void checkTiles(int[] allTiles) throws HandsOverFlowException {
+        int num = 0;
+        for (int tileNum : allTiles) {
+            num += tileNum;
+            if (num > 14) {
+                throw new HandsOverFlowException();
+            }
+        }
     }
 
     public void initStock() {
