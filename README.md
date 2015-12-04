@@ -2,10 +2,9 @@
 [![Build Status](https://travis-ci.org/yu1ro/mahjong4j.svg?branch=master)](https://travis-ci.org/yu1ro/mahjong4j)
 [![codecov.io](https://codecov.io/github/yu1ro/mahjong4j/coverage.svg?branch=master)](https://codecov.io/github/yu1ro/mahjong4j?branch=master)
 [![overity Scan Build Status](https://scan.coverity.com/projects/7164/badge.svg)](https://scan.coverity.com/projects/yu1ro-mahjong4j)
+[![Join the chat at https://gitter.im/yu1ro/mahjong4j](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/yu1ro/mahjong4j?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 # mahjong4j
-
-[![Join the chat at https://gitter.im/yu1ro/mahjong4j](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/yu1ro/mahjong4j?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 日本のルールにおける麻雀の役判定プログラムのJavaラッパーです
 
 Androidで動いて欲しいのでJava7に対応させます
