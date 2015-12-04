@@ -153,5 +153,24 @@ public class Shuntsu implements MahjongMentsu {
         return isOpen;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Shuntsu)) return false;
 
+        Shuntsu shuntsu = (Shuntsu) o;
+
+        if (isMentsu != shuntsu.isMentsu) return false;
+        if (isOpen != shuntsu.isOpen) return false;
+        return identifierTile == shuntsu.identifierTile;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = identifierTile != null ? identifierTile.hashCode() : 0;
+        result = 31 * result + (isMentsu ? 1 : 0);
+        result = 31 * result + (isOpen ? 1 : 0);
+        return result;
+    }
 }

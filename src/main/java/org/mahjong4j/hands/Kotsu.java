@@ -90,4 +90,25 @@ public class Kotsu implements MahjongMentsu {
     public boolean getIsOpen() {
         return isOpen;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Kotsu)) return false;
+
+        Kotsu kotsu = (Kotsu) o;
+
+        if (isMentsu != kotsu.isMentsu) return false;
+        if (isOpen != kotsu.isOpen) return false;
+        return identifierTile == kotsu.identifierTile;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = identifierTile != null ? identifierTile.hashCode() : 0;
+        result = 31 * result + (isMentsu ? 1 : 0);
+        result = 31 * result + (isOpen ? 1 : 0);
+        return result;
+    }
 }

@@ -97,4 +97,27 @@ public class MentsuComp {
     public List<Kantsu> getKantsuList() {
         return kantsuList;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MentsuComp)) return false;
+
+        MentsuComp that = (MentsuComp) o;
+
+        if (!janto.equals(that.janto)) return false;
+        if (shuntsuList != null ? !shuntsuList.equals(that.shuntsuList) : that.shuntsuList != null) return false;
+        if (kotsuList != null ? !kotsuList.equals(that.kotsuList) : that.kotsuList != null) return false;
+        return !(kantsuList != null ? !kantsuList.equals(that.kantsuList) : that.kantsuList != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = janto.hashCode();
+        result = 31 * result + (shuntsuList != null ? shuntsuList.hashCode() : 0);
+        result = 31 * result + (kotsuList != null ? kotsuList.hashCode() : 0);
+        result = 31 * result + (kantsuList != null ? kantsuList.hashCode() : 0);
+        return result;
+    }
 }
