@@ -1,5 +1,6 @@
 package org.mahjong4j.hands;
 
+import org.mahjong4j.IllegalShuntsuIdentifierException;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
@@ -33,11 +34,18 @@ public class Shuntsu implements MahjongMentsu {
      * @param isOpen         明順子ならばtrue 暗順子ならばfalse
      * @param identifierTile 順子の組の二番目
      */
-    public Shuntsu(boolean isOpen, MahjongTile identifierTile) {
-        // TODO: centerTileがありえない数ならthrow
-        this.identifierTile = identifierTile;
+    public Shuntsu(boolean isOpen, MahjongTile identifierTile) throws IllegalShuntsuIdentifierException {
+        setIdentifierTile(identifierTile);
         this.isOpen = isOpen;
         this.isMentsu = true;
+    }
+
+    private void setIdentifierTile(MahjongTile identifierTile) throws IllegalShuntsuIdentifierException {
+        int tileNum = identifierTile.getNumber();
+        if (tileNum == 0 || tileNum == 1 || tileNum == 9) {
+            throw new IllegalShuntsuIdentifierException(identifierTile);
+        }
+        this.identifierTile = identifierTile;
     }
 
     /**

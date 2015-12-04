@@ -14,10 +14,15 @@ public class MentsuCompTest {
     private MentsuComp comp1;
     private Janto janto;
     private MahjongMentsu a, b, c, d;
-    private Shuntsu shuntsu1 = new Shuntsu(true, P2);
-    private Shuntsu shuntsu2 = new Shuntsu(false, S5);
+    private Shuntsu shuntsu1;
+    private Shuntsu shuntsu2;
     private Kotsu kotsu = new Kotsu(false, M4);
     private Kantsu kantsu = new Kantsu(true, CHN);
+
+    public MentsuCompTest() throws Exception{
+        shuntsu1 = new Shuntsu(true, P2);
+        shuntsu2 = new Shuntsu(false, S5);
+    }
 
     @Before
     public void setUp() throws Exception {
