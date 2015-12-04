@@ -89,4 +89,23 @@ public class Janto implements MahjongMentsu {
     public boolean getIsOpen() {
         return false;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Janto)) return false;
+
+        Janto janto = (Janto) o;
+
+        if (isMentsu != janto.isMentsu) return false;
+        return identifierTile == janto.identifierTile;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = identifierTile != null ? identifierTile.hashCode() : 0;
+        result = 31 * result + (isMentsu ? 1 : 0);
+        return result;
+    }
 }

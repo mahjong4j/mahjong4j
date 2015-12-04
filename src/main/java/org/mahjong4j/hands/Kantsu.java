@@ -93,4 +93,25 @@ public class Kantsu implements MahjongMentsu {
     public boolean getIsOpen() {
         return isOpen;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Kantsu)) return false;
+
+        Kantsu kantsu = (Kantsu) o;
+
+        if (isMentsu != kantsu.isMentsu) return false;
+        if (isOpen != kantsu.isOpen) return false;
+        return identifierTile == kantsu.identifierTile;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = identifierTile != null ? identifierTile.hashCode() : 0;
+        result = 31 * result + (isMentsu ? 1 : 0);
+        result = 31 * result + (isOpen ? 1 : 0);
+        return result;
+    }
 }
