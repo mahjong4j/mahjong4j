@@ -4,6 +4,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mahjong4j.tile.MahjongTile;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 import static org.mahjong4j.tile.MahjongTile.*;
 
@@ -11,6 +14,9 @@ import static org.mahjong4j.tile.MahjongTile.*;
  * @author yu1ro
  */
 public class MentsuCompTest {
+    List<Kotsu> eKotsu = new ArrayList<>(1);
+    List<Kantsu> eKantsu = new ArrayList<>(1);
+    List<Shuntsu> eShuntsu = new ArrayList<>(2);
     private MentsuComp comp1;
     private Janto janto;
     private MahjongMentsu a, b, c, d;
@@ -19,7 +25,7 @@ public class MentsuCompTest {
     private Kotsu kotsu = new Kotsu(false, M4);
     private Kantsu kantsu = new Kantsu(true, CHN);
 
-    public MentsuCompTest() throws Exception{
+    public MentsuCompTest() throws Exception {
         shuntsu1 = new Shuntsu(true, P2);
         shuntsu2 = new Shuntsu(false, S5);
     }
@@ -43,11 +49,20 @@ public class MentsuCompTest {
         comp1.setMentsu(c);
         comp1.setMentsu(d);
 
+        eKotsu = new ArrayList<>(1);
+        eKantsu = new ArrayList<>(1);
+        eShuntsu = new ArrayList<>(2);
+
+        eKotsu.add(new Kotsu(false, M1, M1, M1));
+        eKantsu.add(new Kantsu(false, M2, M2, M2, M2));
+        eShuntsu.add(new Shuntsu(false, M4, M5, M6));
+        eShuntsu.add(new Shuntsu(true, S4, S5, S3));
+
+
         assertEquals(janto, comp1.getJanto());
-        assertEquals(a, comp1.getKotsuList().get(0));
-        assertEquals(b, comp1.getShuntsuList().get(0));
-        assertEquals(c, comp1.getKantsuList().get(0));
-        assertEquals(d, comp1.getShuntsuList().get(1));
+        assertEquals(eKotsu, comp1.getKotsuList());
+        assertEquals(eKantsu, comp1.getKantsuList());
+        assertEquals(eShuntsu, comp1.getShuntsuList());
     }
 
     @Test
@@ -57,12 +72,16 @@ public class MentsuCompTest {
         comp1.setKotsu(kotsu);
         comp1.setKantsu(kantsu);
 
+        eKotsu.add(new Kotsu(false, M4, M4, M4));
+        eKantsu.add(new Kantsu(true, CHN, CHN, CHN, CHN));
+        eShuntsu.add(new Shuntsu(true, P1, P2, P3));
+        eShuntsu.add(new Shuntsu(false, S4, S5, S6));
+
         assertEquals(janto, comp1.getJanto());
 
-        assertEquals(shuntsu1, comp1.getShuntsuList().get(0));
-        assertEquals(shuntsu2, comp1.getShuntsuList().get(1));
-        assertEquals(kotsu, comp1.getKotsuList().get(0));
-        assertEquals(kantsu, comp1.getKantsuList().get(0));
+        assertEquals(eShuntsu, comp1.getShuntsuList());
+        assertEquals(eKotsu, comp1.getKotsuList());
+        assertEquals(eKantsu, comp1.getKantsuList());
 
         assertEquals(2, comp1.getShuntsuNum());
         assertEquals(1, comp1.getKantsuNum());
