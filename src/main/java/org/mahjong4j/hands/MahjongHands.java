@@ -194,7 +194,9 @@ public class MahjongHands {
             winType = WinTypeEnum.NORMAL;
             canWin = true;
             MentsuComp mentsuComp = new MentsuComp(winCandidate);
-            mentsuCompList.add(mentsuComp);
+            if (!mentsuCompList.contains(mentsuComp)) {
+                mentsuCompList.add(mentsuComp);
+            }
         }
     }
 
