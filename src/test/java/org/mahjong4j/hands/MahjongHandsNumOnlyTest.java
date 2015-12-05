@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * @author yu1ro
  */
-public class MahjongHandsTest {
+public class MahjongHandsNumOnlyTest {
     MahjongHands hands;
 
     @Before
