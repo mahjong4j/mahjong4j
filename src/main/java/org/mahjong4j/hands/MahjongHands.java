@@ -35,7 +35,7 @@ public class MahjongHands {
     //あがれるか
     private boolean canWin = false;
 
-    // TODO: 良き型
+    //和了の形の種類
     private WinTypeEnum winType;
 
     // ------------------------ストック系----------------------
@@ -75,7 +75,10 @@ public class MahjongHands {
         inputtedTiles = allTiles;
         this.last = last;
 
+        //整合性をチェック
         checkTiles(allTiles);
+
+        handsComp = allTiles;
 
         findMentsu();
     }

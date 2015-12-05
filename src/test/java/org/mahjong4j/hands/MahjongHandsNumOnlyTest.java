@@ -6,6 +6,7 @@ import org.mahjong4j.tile.MahjongTile;
 
 import java.util.List;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mahjong4j.tile.MahjongTile.M6;
@@ -55,5 +56,18 @@ public class MahjongHandsNumOnlyTest {
     @Test
     public void testGetLast() throws Exception {
         assertEquals(M6, hands.getLast());
+    }
+
+    @Test
+    public void testGetHandsComp() throws Exception {
+        int[] expected = new int[]{
+            1, 1, 1, 1, 1, 1, 1, 1, 1,
+            0, 1, 1, 1, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0,
+            0, 2, 0
+        };
+
+        assertArrayEquals(expected, hands.getHandsComp());
     }
 }
