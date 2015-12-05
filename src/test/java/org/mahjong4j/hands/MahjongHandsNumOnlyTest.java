@@ -6,25 +6,27 @@ import org.mahjong4j.tile.MahjongTile;
 
 import java.util.List;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.mahjong4j.tile.MahjongTile.M6;
 
 /**
  * @author yu1ro
  */
-public class MahjongHandsTest {
+public class MahjongHandsNumOnlyTest {
     MahjongHands hands;
 
     @Before
     public void setUp() throws Exception {
-        int[] tiles = {
+        int[] tiles = new int[]{
             1, 1, 1, 1, 1, 1, 1, 1, 1,
             0, 1, 1, 1, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0,
             0, 2, 0
         };
-        MahjongTile last = MahjongTile.M6;
+        MahjongTile last = M6;
         hands = new MahjongHands(tiles, last);
     }
 
@@ -49,5 +51,23 @@ public class MahjongHandsTest {
     @Test
     public void testGetCanWin() throws Exception {
         assertTrue(hands.getCanWin());
+    }
+
+    @Test
+    public void testGetLast() throws Exception {
+        assertEquals(M6, hands.getLast());
+    }
+
+    @Test
+    public void testGetHandsComp() throws Exception {
+        int[] expected = new int[]{
+            1, 1, 1, 1, 1, 1, 1, 1, 1,
+            0, 1, 1, 1, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0,
+            0, 2, 0
+        };
+
+        assertArrayEquals(expected, hands.getHandsComp());
     }
 }

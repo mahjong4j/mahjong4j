@@ -1,12 +1,14 @@
 package org.mahjong4j.hands;
 
 import org.mahjong4j.HandsOverFlowException;
+import org.mahjong4j.Mahjong4jException;
 import org.mahjong4j.MahjongTileOverFlowException;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.normals.ChitoitsuResolver;
 import org.mahjong4j.yaku.yakuman.KokushimusoResolver;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -15,7 +17,6 @@ import java.util.List;
  * このクラスのインスタンスをMahjongクラスに投げると
  * 点数が返ってくるようにしたいと考えています
  * TODO: ツモって牌を捨てるオペレーションメソッド
- * TODO: otherTilesから面子に変換していく
  *
  * @author yu1ro
  */
@@ -35,7 +36,7 @@ public class MahjongHands {
     //あがれるか
     private boolean canWin = false;
 
-    // TODO: 良き型
+    //和了の形の種類
     private WinTypeEnum winType;
 
     // ------------------------ストック系----------------------
@@ -46,24 +47,34 @@ public class MahjongHands {
     // 操作する用のストック
     private int[] handStocks = new int[34];
 
-    //
+    // コンストラクタで入力された各牌の数の配列
     private int[] inputtedTiles;
 
-    // 雀頭の候補をストック
-    private List<Janto> jantoStock = new ArrayList<>(14);
-
-
+    /**
+     * @param otherTiles
+     * @param last
+     * @param mentsuList
+     * @throws MahjongTileOverFlowException
+     */
     public MahjongHands(int[] otherTiles, MahjongTile last, List<MahjongMentsu> mentsuList) throws MahjongTileOverFlowException {
         inputtedTiles = otherTiles;
         this.last = last;
         inputtedMentsuList = mentsuList;
+        setHandsComp(otherTiles, mentsuList);
         findMentsu();
     }
 
-    public MahjongHands(int[] otherTiles, MahjongTile last, MahjongMentsu... mentsus) throws MahjongTileOverFlowException {
+    /**
+     * @param otherTiles
+     * @param last
+     * @param mentsu
+     * @throws MahjongTileOverFlowException
+     */
+    public MahjongHands(int[] otherTiles, MahjongTile last, MahjongMentsu... mentsu) throws MahjongTileOverFlowException {
         inputtedTiles = otherTiles;
+        setHandsComp(otherTiles, Arrays.asList(mentsu));
         this.last = last;
-        Collections.addAll(inputtedMentsuList, mentsus);
+        Collections.addAll(inputtedMentsuList, mentsu);
         findMentsu();
     }
 
@@ -71,15 +82,42 @@ public class MahjongHands {
      * @param allTiles lastの牌も含めて下さい合計14になるはずです
      * @param last     この牌もotherTilesに含めてください
      */
-    public MahjongHands(int[] allTiles, MahjongTile last) throws MahjongTileOverFlowException, HandsOverFlowException {
+    public MahjongHands(int[] allTiles, MahjongTile last) throws Mahjong4jException {
         inputtedTiles = allTiles;
         this.last = last;
 
+        //整合性をチェック
         checkTiles(allTiles);
+
+        handsComp = allTiles;
 
         findMentsu();
     }
 
+    /**
+     * コンストラクタで面子を入力した場合に
+     * 面子を各牌の数に変換します
+     *
+     * @param otherTiles 各牌の数
+     * @param mentsuList 面子のリスト
+     */
+    private void setHandsComp(int[] otherTiles, List<MahjongMentsu> mentsuList) {
+        System.arraycopy(otherTiles, 0, handsComp, 0, otherTiles.length);
+        for (MahjongMentsu mentsu : mentsuList) {
+            int code = mentsu.getTile().getCode();
+            if (mentsu instanceof Shuntsu) {
+                handsComp[code] += 1;
+                handsComp[code] += 1;
+                handsComp[code] += 1;
+            } else if (mentsu instanceof Kotsu) {
+                handsComp[code] += 3;
+            } else if (mentsu instanceof Kantsu) {
+                handsComp[code] += 4;
+            } else if (mentsu instanceof Janto) {
+                handsComp[code] += 2;
+            }
+        }
+    }
 
     public List<MentsuComp> getMentsuCompList() {
         return mentsuCompList;
@@ -147,7 +185,7 @@ public class MahjongHands {
         // その他の判定
         // 雀頭の候補を探してストックしておく
         initStock();
-        jantoStock = Janto.findJantoCandidate(handStocks);
+        List<Janto> jantoStock = Janto.findJantoCandidate(handStocks);
 
 
         // 雀頭が一つも見つからなければfalse
@@ -167,18 +205,24 @@ public class MahjongHands {
             winCandidate.addAll(findKotsuCandidate());
             winCandidate.addAll(findShuntsuCandidate());
             //全て0かチェック
-            checkWin(winCandidate);
-
+            convertToMentsuComp(winCandidate);
 
             init(winCandidate, janto);
-            //検索
+            //順子優先検索
             winCandidate.addAll(findShuntsuCandidate());
             winCandidate.addAll(findKotsuCandidate());
-            checkWin(winCandidate);
+            convertToMentsuComp(winCandidate);
         }
 
     }
 
+    /**
+     * 操作変数・面子の候補を初期化し
+     * 雀頭の分をストックから減らします
+     *
+     * @param winCandidate 面子の候補
+     * @param janto        この検索サイクルの雀頭候補
+     */
     private void init(List<MahjongMentsu> winCandidate, Janto janto) {
         // 操作変数を初期化
         initStock();
@@ -188,11 +232,19 @@ public class MahjongHands {
         winCandidate.add(janto);
     }
 
-    private void checkWin(List<MahjongMentsu> winCandidate) {
+    /**
+     * handsStockが全て0の場合
+     * winCandidateは完成しているので
+     * mentsuCompに代入します
+     *
+     * @param winCandidate mentsuCompに代入するかもしれない
+     */
+    private void convertToMentsuComp(List<MahjongMentsu> winCandidate) {
         //全て0かチェック
         if (isAllZero(handStocks)) {
             winType = WinTypeEnum.NORMAL;
             canWin = true;
+            winCandidate.addAll(inputtedMentsuList);
             MentsuComp mentsuComp = new MentsuComp(winCandidate);
             if (!mentsuCompList.contains(mentsuComp)) {
                 mentsuCompList.add(mentsuComp);
@@ -200,6 +252,12 @@ public class MahjongHands {
         }
     }
 
+    /**
+     * 入力の配列が全て0かを調べます
+     *
+     * @param stocks 調べたい配列
+     * @return すべて0ならtrue ひとつでも0でなければfalse
+     */
     private boolean isAllZero(int[] stocks) {
         for (int i : stocks) {
             if (i != 0) {
@@ -219,16 +277,15 @@ public class MahjongHands {
                     false,
                     MahjongTile.valueOf(j - 1),
                     MahjongTile.valueOf(j),
-                    MahjongTile.valueOf(j + 1));
+                    MahjongTile.valueOf(j + 1)
+                );
+
+                //3つ並んでいても順子であるとは限らないので調べる
                 if (shuntsu.getIsMentsu()) {
                     resultList.add(shuntsu);
                     handStocks[j - 1]--;
                     handStocks[j]--;
                     handStocks[j + 1]--;
-                } else {
-                    // コードが並んでいるけど、順子じゃない時はwhileを抜ける
-                    // M9,P1,P2などを想定
-                    break;
                 }
             }
         }
