@@ -106,9 +106,9 @@ public class MahjongHands {
         for (MahjongMentsu mentsu : mentsuList) {
             int code = mentsu.getTile().getCode();
             if (mentsu instanceof Shuntsu) {
+                handsComp[code - 1] += 1;
                 handsComp[code] += 1;
-                handsComp[code] += 1;
-                handsComp[code] += 1;
+                handsComp[code + 1] += 1;
             } else if (mentsu instanceof Kotsu) {
                 handsComp[code] += 3;
             } else if (mentsu instanceof Kantsu) {
