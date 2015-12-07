@@ -36,7 +36,7 @@ public class ChinrohtohResolver implements YakumanResolver {
                 continue;
             }
 
-            int tileNum = comp.getJanto().getTile().getNumber();
+            int tileNum = comp.getToitsu().getTile().getNumber();
             if (tileNum != 1 && tileNum != 9) {
                 continue;
             }

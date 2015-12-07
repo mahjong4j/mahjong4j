@@ -13,43 +13,43 @@ import static org.junit.Assert.*;
 /**
  * @author yu1ro
  */
-public class JantoTest {
-    Janto janto1;
-    Janto janto2;
-    Janto jantoF;
+public class ToitsuTest {
+    Toitsu toitsu1;
+    Toitsu toitsu2;
+    Toitsu toitsuF;
 
     @Before
     public void setUp() throws Exception {
-        janto1 = new Janto(MahjongTile.M1);
-        janto2 = new Janto(MahjongTile.M1, MahjongTile.M1);
-        jantoF = new Janto(MahjongTile.M1, MahjongTile.M2);
+        toitsu1 = new Toitsu(MahjongTile.M1);
+        toitsu2 = new Toitsu(MahjongTile.M1, MahjongTile.M1);
+        toitsuF = new Toitsu(MahjongTile.M1, MahjongTile.M2);
     }
 
     @Test
     public void testCheck() throws Exception {
-        assertTrue(Janto.check(MahjongTile.P1, MahjongTile.P1));
-        assertFalse(Janto.check(MahjongTile.P1, MahjongTile.P4));
+        assertTrue(Toitsu.check(MahjongTile.P1, MahjongTile.P1));
+        assertFalse(Toitsu.check(MahjongTile.P1, MahjongTile.P4));
     }
 
     @Test
     public void testGetTile() throws Exception {
-        assertEquals(MahjongTile.M1, janto1.getTile());
-        assertEquals(MahjongTile.M1, janto2.getTile());
-        assertEquals(null, jantoF.getTile());
+        assertEquals(MahjongTile.M1, toitsu1.getTile());
+        assertEquals(MahjongTile.M1, toitsu2.getTile());
+        assertEquals(null, toitsuF.getTile());
     }
 
     @Test
     public void testGetIsMentsu() throws Exception {
-        assertTrue(janto1.getIsMentsu());
-        assertTrue(janto2.getIsMentsu());
-        assertFalse(jantoF.getIsMentsu());
+        assertTrue(toitsu1.getIsMentsu());
+        assertTrue(toitsu2.getIsMentsu());
+        assertFalse(toitsuF.getIsMentsu());
     }
 
     @Test
     public void testGetIsOpen() throws Exception {
-        assertFalse(janto1.getIsOpen());
-        assertFalse(janto2.getIsOpen());
-        assertFalse(jantoF.getIsOpen());
+        assertFalse(toitsu1.getIsOpen());
+        assertFalse(toitsu2.getIsOpen());
+        assertFalse(toitsuF.getIsOpen());
     }
 
     @Test
@@ -61,12 +61,12 @@ public class JantoTest {
             0, 0, 0, 0,
             0, 2, 0
         };
-        List<Janto> expected, actual = Janto.findJantoCandidate(tiles);
+        List<Toitsu> expected, actual = Toitsu.findJantoCandidate(tiles);
 
         assertEquals(1, actual.size());
 
-        expected = new ArrayList<Janto>(7);
-        expected.add(new Janto(MahjongTile.HAK));
+        expected = new ArrayList<Toitsu>(7);
+        expected.add(new Toitsu(MahjongTile.HAK));
         assertEquals(MahjongTile.HAK, expected.get(0).getTile());
     }
 
@@ -82,6 +82,6 @@ public class JantoTest {
             0, 0, 0, 0,
             0, 0, 0
         };
-        Janto.findJantoCandidate(tiles);
+        Toitsu.findJantoCandidate(tiles);
     }
 }

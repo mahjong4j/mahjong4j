@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class MentsuComp {
 
-    private Janto janto;
+    private Toitsu toitsu;
     private List<Shuntsu> shuntsuList = new ArrayList<>(4);
     private List<Kotsu> kotsuList = new ArrayList<>(4);
     private List<Kantsu> kantsuList = new ArrayList<>(4);
@@ -22,10 +22,10 @@ public class MentsuComp {
      * 雀頭だけ先に入れておいて、
      * あとから他の面子を入れていくスタイル用を想定
      *
-     * @param janto
+     * @param toitsu
      */
-    public MentsuComp(Janto janto) {
-        this.janto = janto;
+    public MentsuComp(Toitsu toitsu) {
+        this.toitsu = toitsu;
     }
 
     /**
@@ -47,8 +47,8 @@ public class MentsuComp {
      * @param mentsu 入力したい面子
      */
     public void setMentsu(MahjongMentsu mentsu) {
-        if (mentsu instanceof Janto) {
-            janto = (Janto) mentsu;
+        if (mentsu instanceof Toitsu) {
+            toitsu = (Toitsu) mentsu;
         } else if (mentsu instanceof Shuntsu) {
             shuntsuList.add((Shuntsu) mentsu);
         } else if (mentsu instanceof Kotsu) {
@@ -58,8 +58,8 @@ public class MentsuComp {
         }
     }
 
-    public Janto getJanto() {
-        return janto;
+    public Toitsu getToitsu() {
+        return toitsu;
     }
 
     public void setShuntsu(Shuntsu shuntsu) {
@@ -105,7 +105,7 @@ public class MentsuComp {
 
         MentsuComp that = (MentsuComp) o;
 
-        if (!janto.equals(that.janto)) return false;
+        if (!toitsu.equals(that.toitsu)) return false;
         if (shuntsuList != null ? !shuntsuList.equals(that.shuntsuList) : that.shuntsuList != null) return false;
         if (kotsuList != null ? !kotsuList.equals(that.kotsuList) : that.kotsuList != null) return false;
         return !(kantsuList != null ? !kantsuList.equals(that.kantsuList) : that.kantsuList != null);
@@ -114,7 +114,7 @@ public class MentsuComp {
 
     @Override
     public int hashCode() {
-        int result = janto.hashCode();
+        int result = toitsu.hashCode();
         result = 31 * result + (shuntsuList != null ? shuntsuList.hashCode() : 0);
         result = 31 * result + (kotsuList != null ? kotsuList.hashCode() : 0);
         result = 31 * result + (kantsuList != null ? kantsuList.hashCode() : 0);

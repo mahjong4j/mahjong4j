@@ -113,7 +113,7 @@ public class MahjongHands {
                 handsComp[code] += 3;
             } else if (mentsu instanceof Kantsu) {
                 handsComp[code] += 4;
-            } else if (mentsu instanceof Janto) {
+            } else if (mentsu instanceof Toitsu) {
                 handsComp[code] += 2;
             }
         }
@@ -185,20 +185,20 @@ public class MahjongHands {
         // その他の判定
         // 雀頭の候補を探してストックしておく
         initStock();
-        List<Janto> jantoStock = Janto.findJantoCandidate(handStocks);
+        List<Toitsu> toitsuStock = Toitsu.findJantoCandidate(handStocks);
 
 
         // 雀頭が一つも見つからなければfalse
-        if (jantoStock.size() == 0) {
+        if (toitsuStock.size() == 0) {
             canWin = false;
             return;
         }
 
         //雀頭候補から探す
         List<MahjongMentsu> winCandidate = new ArrayList<>(4);
-        for (Janto janto : jantoStock) {
+        for (Toitsu toitsu : toitsuStock) {
             // 操作変数を初期化
-            init(winCandidate, janto);
+            init(winCandidate, toitsu);
 
             //刻子優先検索
             //検索
@@ -207,7 +207,7 @@ public class MahjongHands {
             //全て0かチェック
             convertToMentsuComp(winCandidate);
 
-            init(winCandidate, janto);
+            init(winCandidate, toitsu);
             //順子優先検索
             winCandidate.addAll(findShuntsuCandidate());
             winCandidate.addAll(findKotsuCandidate());
@@ -221,15 +221,15 @@ public class MahjongHands {
      * 雀頭の分をストックから減らします
      *
      * @param winCandidate 面子の候補
-     * @param janto        この検索サイクルの雀頭候補
+     * @param toitsu        この検索サイクルの雀頭候補
      */
-    private void init(List<MahjongMentsu> winCandidate, Janto janto) {
+    private void init(List<MahjongMentsu> winCandidate, Toitsu toitsu) {
         // 操作変数を初期化
         initStock();
         winCandidate.clear();
         //ストックから雀頭を減らす
-        handStocks[janto.getTile().getCode()] -= 2;
-        winCandidate.add(janto);
+        handStocks[toitsu.getTile().getCode()] -= 2;
+        winCandidate.add(toitsu);
     }
 
     /**

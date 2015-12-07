@@ -7,32 +7,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 雀頭は厳密には面子ではありませんがここでは含めることにします
- *
  * @author yu1ro
  */
-public class Janto implements MahjongMentsu {
+public class Toitsu implements MahjongMentsu {
     private MahjongTile identifierTile;
     private boolean isMentsu;
 
     /**
-     * 雀頭であることがわかっている場合に使います
+     * 対子であることがわかっている場合に使います
      *
-     * @param identifierTile 雀頭の種類
+     * @param identifierTile 対子の種類
      */
-    public Janto(MahjongTile identifierTile) {
+    public Toitsu(MahjongTile identifierTile) {
         this.identifierTile = identifierTile;
         this.isMentsu = true;
     }
 
     /**
-     * 雀頭であるかのチェックを伴います
+     * 対子であるかのチェックを伴います
      *
      * @param tile1 1枚目
      * @param tile2 2枚目
      */
-    public Janto(MahjongTile tile1, MahjongTile tile2) {
-        if (this.isMentsu = Janto.check(tile1, tile2)) {
+    public Toitsu(MahjongTile tile1, MahjongTile tile2) {
+        if (this.isMentsu = Toitsu.check(tile1, tile2)) {
             this.identifierTile = tile1;
         }
     }
@@ -47,42 +45,42 @@ public class Janto implements MahjongMentsu {
     }
 
     /**
-     * 雀頭になりうる牌をリストにして返す
+     * 対子になりうる牌をリストにして返す
      *
      * @param tiles 手牌
-     * @return 雀頭候補
+     * @return 雀頭候補の対子リスト
      */
-    public static List<Janto> findJantoCandidate(int[] tiles) throws MahjongTileOverFlowException {
-        List<Janto> result = new ArrayList<>(7);
+    public static List<Toitsu> findJantoCandidate(int[] tiles) throws MahjongTileOverFlowException {
+        List<Toitsu> result = new ArrayList<>(7);
         for (int i = 0; i < tiles.length; i++) {
             if (tiles[i] > 4) {
                 throw new MahjongTileOverFlowException(i, tiles[i]);
             }
             if (tiles[i] >= 2) {
-                result.add(new Janto(MahjongTile.valueOf(i)));
+                result.add(new Toitsu(MahjongTile.valueOf(i)));
             }
         }
         return result;
     }
 
     /**
-     * 雀頭として成立していなければnullを返します
+     * 対子として成立していなければnullを返します
      *
-     * @return 雀頭の牌の種類
+     * @return 対子の牌の種類
      */
     public MahjongTile getTile() {
         return identifierTile;
     }
 
     /**
-     * @return 面子(雀頭)として成立していればtrue
+     * @return 面子(対子)として成立していればtrue
      */
     public boolean getIsMentsu() {
         return isMentsu;
     }
 
     /**
-     * 雀頭は常に見せないので常にfalse
+     * 対子は常に見せないので常にfalse
      *
      * @return false
      */
@@ -93,12 +91,12 @@ public class Janto implements MahjongMentsu {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Janto)) return false;
+        if (!(o instanceof Toitsu)) return false;
 
-        Janto janto = (Janto) o;
+        Toitsu toitsu = (Toitsu) o;
 
-        if (isMentsu != janto.isMentsu) return false;
-        return identifierTile == janto.identifierTile;
+        if (isMentsu != toitsu.isMentsu) return false;
+        return identifierTile == toitsu.identifierTile;
 
     }
 
