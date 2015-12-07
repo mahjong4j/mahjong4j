@@ -65,7 +65,7 @@ public class ToitsuTest {
 
         assertEquals(1, actual.size());
 
-        expected = new ArrayList<Toitsu>(7);
+        expected = new ArrayList<>(7);
         expected.add(new Toitsu(MahjongTile.HAK));
         assertEquals(MahjongTile.HAK, expected.get(0).getTile());
     }
