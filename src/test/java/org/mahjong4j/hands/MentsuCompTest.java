@@ -20,7 +20,7 @@ public class MentsuCompTest {
     private List<Kotsu> eKotsu = new ArrayList<>(1);
     private List<Kantsu> eKantsu = new ArrayList<>(1);
 
-    private Janto janto = new Janto(MahjongTile.M7);
+    private Toitsu toitsu = new Toitsu(MahjongTile.M7);
     private MahjongMentsu a, b, c, d;
     private Shuntsu shuntsu1;
     private Shuntsu shuntsu2;
@@ -29,8 +29,8 @@ public class MentsuCompTest {
 
     @Before
     public void setUp() throws Exception {
-        actual = new MentsuComp(new Janto(MahjongTile.M7));
-        expected = new MentsuComp(new Janto(MahjongTile.M7));
+        actual = new MentsuComp(new Toitsu(MahjongTile.M7));
+        expected = new MentsuComp(new Toitsu(MahjongTile.M7));
 
         a = new Kotsu(false, M1);
         b = new Shuntsu(false, M5);
@@ -60,7 +60,7 @@ public class MentsuCompTest {
         eShuntsu.add(new Shuntsu(true, S4, S5, S3));
 
 
-        assertEquals(janto, actual.getJanto());
+        assertEquals(toitsu, actual.getToitsu());
         assertEquals(eKotsu, actual.getKotsuList());
         assertEquals(eKantsu, actual.getKantsuList());
         assertEquals(eShuntsu, actual.getShuntsuList());
@@ -78,7 +78,7 @@ public class MentsuCompTest {
         eShuntsu.add(new Shuntsu(true, P1, P2, P3));
         eShuntsu.add(new Shuntsu(false, S4, S5, S6));
 
-        assertEquals(janto, actual.getJanto());
+        assertEquals(toitsu, actual.getToitsu());
 
         assertEquals(eShuntsu, actual.getShuntsuList());
         assertEquals(eKotsu, actual.getKotsuList());

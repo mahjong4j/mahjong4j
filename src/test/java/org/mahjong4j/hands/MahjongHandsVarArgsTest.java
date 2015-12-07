@@ -33,7 +33,7 @@ public class MahjongHandsVarArgsTest {
     @Test
     public void testGetMentsuCompList() throws Exception {
         List<MahjongMentsu> expectedMentsuList = new ArrayList<>(5);
-        expectedMentsuList.add(new Janto(S1));
+        expectedMentsuList.add(new Toitsu(S1));
         expectedMentsuList.add(new Shuntsu(false, P7));
         expectedMentsuList.add(new Shuntsu(true, M7));
         expectedMentsuList.add(new Kotsu(false, S2));

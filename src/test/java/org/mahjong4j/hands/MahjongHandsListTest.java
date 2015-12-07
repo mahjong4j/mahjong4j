@@ -37,7 +37,7 @@ public class MahjongHandsListTest {
     @Test
     public void testGetMentsuCompList() throws Exception {
         List<MahjongMentsu> expectedMentsuList = new ArrayList<>(5);
-        expectedMentsuList.add(new Janto(TON));
+        expectedMentsuList.add(new Toitsu(TON));
         expectedMentsuList.add(new Shuntsu(false, M4));
         expectedMentsuList.add(new Shuntsu(false, P4));
         expectedMentsuList.add(new Kotsu(true, P4));
