@@ -44,7 +44,7 @@ public class MahjongHandsNumOnlyTest {
             assertEquals(0, winMentsuSet.getKantsuNum());
             assertEquals(0, winMentsuSet.getKotsuNum());
             assertEquals(4, winMentsuSet.getShuntsuNum());
-            assertEquals(MahjongTile.HAT, winMentsuSet.getToitsu().getTile());
+            assertEquals(MahjongTile.HAT, winMentsuSet.getToitsuList().get(0).getTile());
         }
     }
 
