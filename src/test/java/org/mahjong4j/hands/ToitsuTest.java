@@ -1,5 +1,6 @@
 package org.mahjong4j.hands;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mahjong4j.MahjongTileOverFlowException;
@@ -83,5 +84,18 @@ public class ToitsuTest {
             0, 0, 0
         };
         Toitsu.findJantoCandidate(tiles);
+    }
+
+    @Test
+    public void testEquals() throws Exception {
+        assertTrue(toitsu1.equals(toitsu2));
+        assertFalse(toitsu1.equals(toitsuF));
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        assertEquals(toitsu1.hashCode(), toitsu2.hashCode());
+        assertNotEquals(toitsu1.hashCode(), toitsuF.hashCode());
+
     }
 }
