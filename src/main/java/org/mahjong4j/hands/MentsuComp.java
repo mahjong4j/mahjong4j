@@ -69,6 +69,12 @@ public class MentsuComp {
         return toitsuList;
     }
 
+    /**
+     * 対子の数を返します
+     * 1もしくは7以外を返すことはありません
+     *
+     * @return 通常の型の場合1 七対子の型の場合7
+     */
     public int getToitsuCount() {
         return toitsuList.size();
     }
@@ -77,6 +83,12 @@ public class MentsuComp {
         return shuntsuList;
     }
 
+    /**
+     * 順子の数を返します
+     * 0~4のどれかです
+     *
+     * @return 順子の数
+     */
     public int getShuntsuCount() {
         return shuntsuList.size();
     }
@@ -85,6 +97,12 @@ public class MentsuComp {
         return kotsuList;
     }
 
+    /**
+     * 刻子の数を返します
+     * 0~4のどれかです
+     *
+     * @return 刻子の数
+     */
     public int getKotsuCount() {
         return kotsuList.size();
     }
@@ -93,6 +111,12 @@ public class MentsuComp {
         return kantsuList;
     }
 
+    /**
+     * 槓子の数を返します
+     * 0~4のどれかです
+     *
+     * @return 槓子の数
+     */
     public int getKantsuCount() {
         return kantsuList.size();
     }
