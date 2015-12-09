@@ -13,12 +13,14 @@ public class ShuntsuTest {
     private Shuntsu open;
     private Shuntsu close;
     private Shuntsu openTrue;
+    private Shuntsu equal;
 
     @Before
     public void setUp() throws Exception {
         open = new Shuntsu(true, M2);
         close = new Shuntsu(false, M3, M1, M2);
         openTrue = new Shuntsu(true, P4, P3, P2);
+        equal = new Shuntsu(true, M2, M1, M3);
     }
 
     @Test
@@ -59,5 +61,19 @@ public class ShuntsuTest {
     @Test
     public void testGetIsOpenF() throws Exception {
         assertFalse(close.getIsOpen());
+    }
+
+    @Test
+    public void testEquals() throws Exception {
+        assertTrue(open.equals(equal));
+        assertFalse(open.equals(close));
+        assertFalse(open.equals(openTrue));
+    }
+
+    @Test
+    public void testHashCode() throws Exception {
+        assertEquals(open.hashCode(), equal.hashCode());
+        assertNotEquals(open.hashCode(), close.hashCode());
+        assertNotEquals(open.hashCode(), openTrue.hashCode());
     }
 }
