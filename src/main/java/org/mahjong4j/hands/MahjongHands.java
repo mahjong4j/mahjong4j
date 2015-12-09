@@ -56,7 +56,7 @@ public class MahjongHands {
      * @param mentsuList
      * @throws MahjongTileOverFlowException
      */
-    public MahjongHands(int[] otherTiles, MahjongTile last, List<MahjongMentsu> mentsuList) throws MahjongTileOverFlowException {
+    public MahjongHands(int[] otherTiles, MahjongTile last, List<MahjongMentsu> mentsuList) throws Mahjong4jException {
         inputtedTiles = otherTiles;
         this.last = last;
         inputtedMentsuList = mentsuList;
@@ -70,7 +70,7 @@ public class MahjongHands {
      * @param mentsu
      * @throws MahjongTileOverFlowException
      */
-    public MahjongHands(int[] otherTiles, MahjongTile last, MahjongMentsu... mentsu) throws MahjongTileOverFlowException {
+    public MahjongHands(int[] otherTiles, MahjongTile last, MahjongMentsu... mentsu) throws Mahjong4jException {
         inputtedTiles = otherTiles;
         setHandsComp(otherTiles, Arrays.asList(mentsu));
         this.last = last;
@@ -156,7 +156,7 @@ public class MahjongHands {
     /**
      * 槓子は見つけません
      */
-    public void findMentsu() throws MahjongTileOverFlowException {
+    public void findMentsu() throws Mahjong4jException {
         // 同じ牌が5個以上有ったらfalse
         for (int i = 0; i < inputtedTiles.length; i++) {
             int hand = inputtedTiles[i];
@@ -239,7 +239,7 @@ public class MahjongHands {
      *
      * @param winCandidate mentsuCompに代入するかもしれない
      */
-    private void convertToMentsuComp(List<MahjongMentsu> winCandidate) {
+    private void convertToMentsuComp(List<MahjongMentsu> winCandidate) throws Mahjong4jException {
         //全て0かチェック
         if (isAllZero(handStocks)) {
             winType = WinTypeEnum.NORMAL;
