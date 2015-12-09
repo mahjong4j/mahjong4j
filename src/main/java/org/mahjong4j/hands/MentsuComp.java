@@ -29,7 +29,9 @@ public class MentsuComp {
 
         //整合性を確認する
         int checkSum = shuntsuList.size() + kotsuList.size() + kantsuList.size();
-        if (!(checkSum == 4 || toitsuList.size() == 7)) {
+        boolean isNormal = checkSum == 4 && toitsuList.size() == 1;
+        boolean isChitoitsu = toitsuList.size() == 7 && checkSum == 0;
+        if (!isNormal && !isChitoitsu) {
             throw new IllegalMentsuSizeException(mentsuList);
         }
     }
