@@ -31,7 +31,7 @@ public class ChinrohtohResolver implements YakumanResolver {
         //全ての上がり型を調べる
         comploop:
         for (MentsuComp comp : compList) {
-            int total = comp.getKotsuNum() + comp.getKantsuNum();
+            int total = comp.getKotsuCount() + comp.getKantsuCount();
             if (total != 4) {
                 continue;
             }

@@ -41,9 +41,9 @@ public class MahjongHandsNumOnlyTest {
     public void testWinMentsuList() throws Exception {
         List<MentsuComp> winSetList = hands.getMentsuCompList();
         for (MentsuComp winMentsuSet : winSetList) {
-            assertEquals(0, winMentsuSet.getKantsuNum());
-            assertEquals(0, winMentsuSet.getKotsuNum());
-            assertEquals(4, winMentsuSet.getShuntsuNum());
+            assertEquals(0, winMentsuSet.getKantsuCount());
+            assertEquals(0, winMentsuSet.getKotsuCount());
+            assertEquals(4, winMentsuSet.getShuntsuCount());
             assertEquals(MahjongTile.HAT, winMentsuSet.getToitsuList().get(0).getTile());
         }
     }

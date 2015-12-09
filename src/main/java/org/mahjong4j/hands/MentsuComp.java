@@ -59,7 +59,7 @@ public class MentsuComp {
      * @return 雀頭を返します
      */
     public Toitsu getJanto() {
-        if (getToitsuNum() == 1) {
+        if (getToitsuCount() == 1) {
             return toitsuList.get(0);
         }
         return null;
@@ -69,7 +69,7 @@ public class MentsuComp {
         return toitsuList;
     }
 
-    public int getToitsuNum() {
+    public int getToitsuCount() {
         return toitsuList.size();
     }
 
@@ -77,7 +77,7 @@ public class MentsuComp {
         return shuntsuList;
     }
 
-    public int getShuntsuNum() {
+    public int getShuntsuCount() {
         return shuntsuList.size();
     }
 
@@ -85,7 +85,7 @@ public class MentsuComp {
         return kotsuList;
     }
 
-    public int getKotsuNum() {
+    public int getKotsuCount() {
         return kotsuList.size();
     }
 
@@ -93,7 +93,7 @@ public class MentsuComp {
         return kantsuList;
     }
 
-    public int getKantsuNum() {
+    public int getKantsuCount() {
         return kantsuList.size();
     }
 
