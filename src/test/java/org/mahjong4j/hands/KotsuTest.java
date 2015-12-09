@@ -13,12 +13,14 @@ public class KotsuTest {
     private Kotsu open;
     private Kotsu close;
     private Kotsu closeFls;
+    private Kotsu equal;
 
     @Before
     public void setUp() throws Exception {
         open = new Kotsu(true, TON);
         close = new Kotsu(false, SHA, SHA, SHA);
         closeFls = new Kotsu(false, HAK, HAK, CHN);
+        equal = new Kotsu(true, TON, TON, TON);
     }
 
     @Test
@@ -54,5 +56,19 @@ public class KotsuTest {
         assertTrue(open.getIsOpen());
         assertFalse(close.getIsOpen());
         assertFalse(closeFls.getIsOpen());
+    }
+
+    @Test
+    public void testEquals() throws Exception {
+        assertTrue(open.equals(equal));
+        assertFalse(open.equals(close));
+        assertFalse(open.equals(closeFls));
+    }
+
+    @Test
+    public void testHashCode() throws Exception {
+        assertEquals(open.hashCode(), equal.hashCode());
+        assertNotEquals(open.hashCode(), close.hashCode());
+        assertNotEquals(open.hashCode(), closeFls.hashCode());
     }
 }
