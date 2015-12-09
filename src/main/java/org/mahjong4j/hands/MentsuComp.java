@@ -53,6 +53,18 @@ public class MentsuComp {
         }
     }
 
+    /**
+     * 七対子の場合はnullを返します
+     *
+     * @return 雀頭を返します
+     */
+    public Toitsu getJanto() {
+        if (getToitsuNum() == 1) {
+            return toitsuList.get(0);
+        }
+        return null;
+    }
+
     public List<Toitsu> getToitsuList() {
         return toitsuList;
     }
@@ -96,7 +108,6 @@ public class MentsuComp {
         if (shuntsuList != null ? !shuntsuList.equals(that.shuntsuList) : that.shuntsuList != null) return false;
         if (kotsuList != null ? !kotsuList.equals(that.kotsuList) : that.kotsuList != null) return false;
         return !(kantsuList != null ? !kantsuList.equals(that.kantsuList) : that.kantsuList != null);
-
     }
 
     @Override
