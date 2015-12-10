@@ -1,7 +1,6 @@
 package org.mahjong4j.hands;
 
 import org.mahjong4j.IllegalMentsuSizeException;
-import org.mahjong4j.Mahjong4jException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +21,7 @@ public class MentsuComp {
      * @param mentsuList 上がりとなった面子のリスト
      * @throws IllegalMentsuSizeException 和了れる形になっていなければthrow
      */
-    public MentsuComp(List<MahjongMentsu> mentsuList) throws Mahjong4jException {
+    public MentsuComp(List<MahjongMentsu> mentsuList) throws IllegalMentsuSizeException {
         for (MahjongMentsu mentsu : mentsuList) {
             setMentsu(mentsu);
         }
@@ -53,11 +52,29 @@ public class MentsuComp {
         }
     }
 
+    /**
+     * 七対子の場合はnullを返します
+     *
+     * @return 雀頭を返します
+     */
+    public Toitsu getJanto() {
+        if (getToitsuCount() == 1) {
+            return toitsuList.get(0);
+        }
+        return null;
+    }
+
     public List<Toitsu> getToitsuList() {
         return toitsuList;
     }
 
-    public int getToitsuNum() {
+    /**
+     * 対子の数を返します
+     * 1もしくは7以外を返すことはありません
+     *
+     * @return 通常の型の場合1 七対子の型の場合7
+     */
+    public int getToitsuCount() {
         return toitsuList.size();
     }
 
@@ -65,7 +82,13 @@ public class MentsuComp {
         return shuntsuList;
     }
 
-    public int getShuntsuNum() {
+    /**
+     * 順子の数を返します
+     * 0~4のどれかです
+     *
+     * @return 順子の数
+     */
+    public int getShuntsuCount() {
         return shuntsuList.size();
     }
 
@@ -73,7 +96,13 @@ public class MentsuComp {
         return kotsuList;
     }
 
-    public int getKotsuNum() {
+    /**
+     * 刻子の数を返します
+     * 0~4のどれかです
+     *
+     * @return 刻子の数
+     */
+    public int getKotsuCount() {
         return kotsuList.size();
     }
 
@@ -81,10 +110,23 @@ public class MentsuComp {
         return kantsuList;
     }
 
-    public int getKantsuNum() {
+    /**
+     * 槓子の数を返します
+     * 0~4のどれかです
+     *
+     * @return 槓子の数
+     */
+    public int getKantsuCount() {
         return kantsuList.size();
     }
 
+    /**
+     * 各面子のリストの順番は関係ないので、
+     * 面子の順番が違っていてもtrueになります
+     *
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -92,19 +134,61 @@ public class MentsuComp {
 
         MentsuComp that = (MentsuComp) o;
 
-        if (toitsuList != null ? !toitsuList.equals(that.toitsuList) : that.toitsuList != null) return false;
-        if (shuntsuList != null ? !shuntsuList.equals(that.shuntsuList) : that.shuntsuList != null) return false;
-        if (kotsuList != null ? !kotsuList.equals(that.kotsuList) : that.kotsuList != null) return false;
-        return !(kantsuList != null ? !kantsuList.equals(that.kantsuList) : that.kantsuList != null);
+        if (toitsuList.size() != that.toitsuList.size()) return false;
+        if (shuntsuList.size() != that.shuntsuList.size()) return false;
+        if (kotsuList.size() != that.kotsuList.size()) return false;
+        if (kantsuList.size() != that.kantsuList.size()) return false;
+        for (Toitsu toitsu : toitsuList) {
+            if (!that.toitsuList.contains(toitsu)) return false;
+        }
+        for (Shuntsu shuntsu : shuntsuList) {
+            if (!that.shuntsuList.contains(shuntsu)) return false;
+        }
+        for (Kotsu kotsu : kotsuList) {
+            if (!that.kotsuList.contains(kotsu)) return false;
+        }
+        for (Kantsu kantsu : kantsuList) {
+            if (!that.kantsuList.contains(kantsu)) return false;
+        }
 
+        return true;
     }
 
     @Override
     public int hashCode() {
-        int result = toitsuList != null ? toitsuList.hashCode() : 0;
-        result = 31 * result + (shuntsuList != null ? shuntsuList.hashCode() : 0);
-        result = 31 * result + (kotsuList != null ? kotsuList.hashCode() : 0);
-        result = 31 * result + (kantsuList != null ? kantsuList.hashCode() : 0);
-        return result;
+        int tmp = 0;
+        int result = 0;
+        if (toitsuList != null) {
+            for (Toitsu toitsu : toitsuList) {
+                tmp += toitsu.hashCode();
+            }
+        }
+
+        tmp = 0;
+        if (shuntsuList != null) {
+            for (Shuntsu shuntsu : shuntsuList) {
+                tmp += shuntsu.hashCode();
+            }
+        }
+
+        result = 31 * result + tmp;
+
+        tmp = 0;
+        if (kotsuList != null) {
+            for (Kotsu kotsu : kotsuList) {
+                tmp += kotsu.hashCode();
+            }
+        }
+
+        result = 31 * result + tmp;
+
+        tmp = 0;
+        if (kantsuList != null) {
+            for (Kantsu kantsu : kantsuList) {
+                tmp += kantsu.hashCode();
+            }
+        }
+
+        return 31 * result + tmp;
     }
 }
