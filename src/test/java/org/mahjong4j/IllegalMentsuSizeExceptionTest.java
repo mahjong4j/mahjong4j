@@ -16,9 +16,8 @@ import static org.mahjong4j.tile.MahjongTile.*;
  * @author yu1ro
  */
 public class IllegalMentsuSizeExceptionTest {
-    List<MahjongMentsu> less;
-    private MentsuComp mentsuComp;
-    List<MahjongMentsu> more;
+    private List<MahjongMentsu> less;
+    private List<MahjongMentsu> more;
 
     @Before
     public void setUp() throws Exception {
@@ -41,7 +40,7 @@ public class IllegalMentsuSizeExceptionTest {
     @Test
     public void testSetLessMentsu() throws Exception {
         try {
-            mentsuComp = new MentsuComp(less);
+            new MentsuComp(less);
         } catch (IllegalMentsuSizeException e) {
             assertEquals("面子の組が和了の形になっていません", e.getMessage());
             assertEquals("面子の数は合計で5個もしくは七対子の場合のみ7個でなければなりませんが4個の面子が見つかりました", e.getAdvice());
@@ -57,7 +56,7 @@ public class IllegalMentsuSizeExceptionTest {
     @Test
     public void testSetMoreMentsu() throws Exception {
         try {
-            mentsuComp = new MentsuComp(more);
+            new MentsuComp(more);
         } catch (IllegalMentsuSizeException e) {
             assertEquals("面子の組が和了の形になっていません", e.getMessage());
             assertEquals("面子の数は合計で5個もしくは七対子の場合のみ7個でなければなりませんが7個の面子が見つかりました", e.getAdvice());
