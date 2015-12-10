@@ -3,8 +3,11 @@ package org.mahjong4j.hands;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
-import static org.mahjong4j.tile.MahjongTile.SHA;
+import static org.mahjong4j.tile.MahjongTile.*;
 
 /**
  * @author yu1ro
@@ -27,7 +30,19 @@ public class MahjongHandsChitoitsuTest {
 
     @Test
     public void testGetMentsuCompList() throws Exception {
-        assertEquals(0, actual.getMentsuCompList().size());
+        List<MahjongMentsu> expectedList = new ArrayList<>(7);
+        expectedList.add(new Toitsu(M4));
+        expectedList.add(new Toitsu(SHA));
+        expectedList.add(new Toitsu(M2));
+        expectedList.add(new Toitsu(M1));
+        expectedList.add(new Toitsu(M7));
+        expectedList.add(new Toitsu(S3));
+        expectedList.add(new Toitsu(M5));
+
+        MentsuComp expected = new MentsuComp(expectedList);
+
+        assertEquals(1, actual.getMentsuCompList().size());
+        assertEquals(expected, actual.getMentsuCompList().get(0));
     }
 
     @Test
