@@ -32,9 +32,9 @@ public class ChinrohtohResolverTest {
             0, 0, 0
         };
         MahjongHands hands = new MahjongHands(match, MahjongTile.M1);
-        chinrohtoh = new ChinrohtohResolver(hands);
+        chinrohtoh = new ChinrohtohResolver(hands.getMentsuCompList().get(0));
         hands = new MahjongHands(notMatch, MahjongTile.M1);
-        notchin = new ChinrohtohResolver(hands);
+        notchin = new ChinrohtohResolver(hands.getMentsuCompList().get(0));
     }
 
     @Test

@@ -30,11 +30,12 @@ public class MahjongTest {
         MahjongTile last = MahjongTile.M6;
         hands = new MahjongHands(tiles, last);
         mahjong = new Mahjong(hands);
+        mahjong.calculate();
     }
 
     @Test
     public void testGetYakumanList() throws Exception {
-        List<MahjongYakumanEnum> expected = new ArrayList<MahjongYakumanEnum>(1);
+        List<MahjongYakumanEnum> expected = new ArrayList<>(1);
         List<MahjongYakumanEnum> actual = mahjong.getYakumanList();
 
         assertEquals(expected.size(), actual.size());

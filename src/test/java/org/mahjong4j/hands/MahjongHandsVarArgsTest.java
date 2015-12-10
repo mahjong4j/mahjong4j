@@ -45,11 +45,6 @@ public class MahjongHandsVarArgsTest {
     }
 
     @Test
-    public void testGetWinType() throws Exception {
-        assertEquals(WinTypeEnum.NORMAL, actualHands.getWinType());
-    }
-
-    @Test
     public void testGetCanWin() throws Exception {
         assertTrue(actualHands.getCanWin());
     }

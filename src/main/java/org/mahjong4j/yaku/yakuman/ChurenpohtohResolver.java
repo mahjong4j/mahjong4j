@@ -1,6 +1,6 @@
 package org.mahjong4j.yaku.yakuman;
 
-import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
 
@@ -39,7 +39,7 @@ public class ChurenpohtohResolver implements YakumanResolver {
     MahjongTileType churenType;
     private int[] hands = new int[34];
 
-    public ChurenpohtohResolver(MahjongHands hands) {
+    public ChurenpohtohResolver(MentsuComp hands) {
 
     }
 

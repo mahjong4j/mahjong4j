@@ -1,6 +1,6 @@
 package org.mahjong4j.yaku.normals;
 
-import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class IkkitsukanResolver implements NormalYakuResolver {
     boolean number5;
     boolean number8;
 
-    public IkkitsukanResolver(MahjongHands hands) {
+    public IkkitsukanResolver(MentsuComp hands) {
 
     }
 

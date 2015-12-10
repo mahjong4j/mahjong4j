@@ -27,6 +27,7 @@ public class ChinrohtohTest {
         };
         MahjongHands hands = new MahjongHands(match, MahjongTile.M1);
         mahjong = new Mahjong(hands);
+        mahjong.calculate();
     }
 
     @Test

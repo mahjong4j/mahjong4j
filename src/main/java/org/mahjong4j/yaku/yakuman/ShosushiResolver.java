@@ -1,6 +1,7 @@
 package org.mahjong4j.yaku.yakuman;
 
 import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
 
@@ -12,7 +13,7 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.SHOSUSHI;
  */
 public class ShosushiResolver implements YakumanResolver {
 
-    public ShosushiResolver(MahjongHands hands) {
+    public ShosushiResolver(MentsuComp hands) {
 
     }
 

@@ -1,6 +1,7 @@
 package org.mahjong4j.yaku.yakuman;
 
 import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MentsuComp;
 
 /**
  * @author yu1ro
@@ -16,7 +17,7 @@ public class KokushimusoResolver implements YakumanResolver {
     public final int HAN = 13;
     int[] hands = new int[34];
 
-    public KokushimusoResolver(MahjongHands hands) {
+    public KokushimusoResolver(MentsuComp hands) {
 
     }
 

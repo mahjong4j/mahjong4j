@@ -4,7 +4,6 @@ import org.mahjong4j.HandsOverFlowException;
 import org.mahjong4j.Mahjong4jException;
 import org.mahjong4j.MahjongTileOverFlowException;
 import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.yaku.normals.ChitoitsuResolver;
 import org.mahjong4j.yaku.yakuman.KokushimusoResolver;
 
 import java.util.ArrayList;
@@ -36,9 +35,6 @@ public class MahjongHands {
     //あがれるか
     private boolean canWin = false;
 
-    //和了の形の種類
-    private WinTypeEnum winType;
-
     // ------------------------ストック系----------------------
 
     // コンストラクタで入力された面子リスト
@@ -49,6 +45,7 @@ public class MahjongHands {
 
     // コンストラクタで入力された各牌の数の配列
     private int[] inputtedTiles;
+    private boolean isKokushimuso = false;
 
     /**
      * @param otherTiles
@@ -123,10 +120,6 @@ public class MahjongHands {
         return mentsuCompList;
     }
 
-    public WinTypeEnum getWinType() {
-        return winType;
-    }
-
     public boolean getCanWin() {
         return canWin;
     }
@@ -169,39 +162,34 @@ public class MahjongHands {
         // 国士無双型の判定
         initStock();
         if (KokushimusoResolver.isMatch(handStocks)) {
-            winType = WinTypeEnum.KOKUSHIMUSO;
+            isKokushimuso = true;
             canWin = true;
             return;
         }
 
-        // 七対子の判定
+        // 雀頭の候補を探してストックしておく
         initStock();
         List<Toitsu> toitsuList = Toitsu.findJantoCandidate(handStocks);
-        if (ChitoitsuResolver.isMatch(handStocks)) {
-            winType = WinTypeEnum.CHITOITSU;
+
+        // 雀頭が一つも見つからなければfalse
+        if (toitsuList.size() == 0) {
+            canWin = false;
+            return;
+        }
+
+        //七対子なら保存しておく
+        if (toitsuList.size() == 7) {
             canWin = true;
             List<MahjongMentsu> mentsuList = new ArrayList<>(7);
             mentsuList.addAll(toitsuList);
             MentsuComp comp = new MentsuComp(mentsuList);
             mentsuCompList.add(comp);
-            return;
         }
 
         // その他の判定
-        // 雀頭の候補を探してストックしておく
-        initStock();
-        List<Toitsu> toitsuStock = toitsuList;
-
-
-        // 雀頭が一つも見つからなければfalse
-        if (toitsuStock.size() == 0) {
-            canWin = false;
-            return;
-        }
-
         //雀頭候補から探す
         List<MahjongMentsu> winCandidate = new ArrayList<>(4);
-        for (Toitsu toitsu : toitsuStock) {
+        for (Toitsu toitsu : toitsuList) {
             // 操作変数を初期化
             init(winCandidate, toitsu);
 
@@ -247,7 +235,6 @@ public class MahjongHands {
     private void convertToMentsuComp(List<MahjongMentsu> winCandidate) throws Mahjong4jException {
         //全て0かチェック
         if (isAllZero(handStocks)) {
-            winType = WinTypeEnum.NORMAL;
             canWin = true;
             winCandidate.addAll(inputtedMentsuList);
             MentsuComp mentsuComp = new MentsuComp(winCandidate);
@@ -306,5 +293,9 @@ public class MahjongHands {
             }
         }
         return resultList;
+    }
+
+    public boolean getIsKokushimuso() {
+        return isKokushimuso;
     }
 }

@@ -1,7 +1,7 @@
 package org.mahjong4j.yaku.normals;
 
 
-import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
@@ -13,7 +13,7 @@ import org.mahjong4j.tile.MahjongTile;
 public class SanankoResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.SANANKO.getHan();
 
-    public SanankoResolver(MahjongHands hands) {
+    public SanankoResolver(MentsuComp hands) {
 
     }
 

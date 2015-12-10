@@ -1,6 +1,6 @@
 package org.mahjong4j.yaku.normals;
 
-import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
@@ -14,7 +14,7 @@ public class IpeikoResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.IPEIKO.getHan();
     final int KUISAGARI = MahjongYakuEnum.IPEIKO.getKuisagari();
 
-    public IpeikoResolver(MahjongHands hands) {
+    public IpeikoResolver(MentsuComp hands) {
 
     }
 

@@ -1,6 +1,7 @@
 package org.mahjong4j.yaku.yakuman;
 
 import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 
 import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.TSUISO;
@@ -11,7 +12,7 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.TSUISO;
  */
 public class TsuisoResolver implements YakumanResolver {
 
-    public TsuisoResolver(MahjongHands hands) {
+    public TsuisoResolver(MentsuComp hands) {
 
     }
 

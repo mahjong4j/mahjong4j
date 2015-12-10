@@ -1,6 +1,6 @@
 package org.mahjong4j.yaku.normals;
 
-import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MentsuComp;
 
 /**
  * 断么九判定クラス
@@ -18,7 +18,7 @@ public class TanyaoResolver implements NormalYakuResolver {
         0, 0, 0
     };
 
-    public TanyaoResolver(MahjongHands hands) {
+    public TanyaoResolver(MentsuComp hands) {
 
     }
 

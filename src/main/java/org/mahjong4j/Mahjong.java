@@ -1,6 +1,7 @@
 package org.mahjong4j;
 
 import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.yaku.normals.MahjongYakuEnum;
 import org.mahjong4j.yaku.normals.NormalYakuResolver;
 import org.mahjong4j.yaku.yakuman.MahjongYakumanEnum;
@@ -23,27 +24,58 @@ public class Mahjong {
     //付いた通常役リスト
     public List<MahjongYakuEnum> normalYakuList = new ArrayList<>(0);
 
-    //倍満や跳満などを入れる
-    public String manName;
+    //翻
+    private int han;
 
-    //役満判定用に利用する
-    List<YakumanResolver> yakumanResolverList;
-
-    //通常役判定用に利用する
-    List<NormalYakuResolver> normalYakuResolverList;
+    private MahjongHands hands;
 
     public Mahjong(MahjongHands hands) {
-        yakumanResolverList = Mahjong4jYakuConfig.getYakumanResolverList(hands);
-        normalYakuResolverList = Mahjong4jYakuConfig.getNormalYakuResolverList(hands);
-
-        calcYakuman();
-
-        //役満が見つからなかった場合のみ調べる
-        if (yakumanList.size() == 0) {
-            calcNormalYaku();
-        }
+        this.hands = hands;
     }
 
+    public void calculate() {
+        //和了れない場合は即座に終了
+        if (!hands.getCanWin()) return;
+
+        //国士無双の場合はそれ以外ありえないので保存して即座に終了
+        if (hands.getIsKokushimuso()) {
+            yakumanList.add(MahjongYakumanEnum.KOKUSHIMUSO);
+            return;
+        }
+
+        //役満を探し見つかれば通常役は調べずに終了
+        if (findYakuman()) return;
+
+        findNormalYaku();
+    }
+
+    /**
+     *
+     * @return 役満が見つかったか
+     */
+    private boolean findYakuman() {
+        //役満をストックしておき、見つかったら先にこちらに保存する
+        List<MahjongYakumanEnum> yakumanStock = new ArrayList<>(4);
+
+        //それぞれの面子の完成形で判定する
+        for (MentsuComp comp : hands.getMentsuCompList()) {
+            List<YakumanResolver> yakumanResolverList
+                = Mahjong4jYakuConfig.getYakumanResolverList(comp);
+
+            for (YakumanResolver resolver : yakumanResolverList) {
+                if (resolver.isMatch()) {
+                    yakumanStock.add(resolver.getYakuman());
+                }
+            }
+
+            //ストックと保存する役満リストと比較し大きい方を保存する
+            if (yakumanList.size() < yakumanStock.size()) {
+                yakumanList = yakumanStock;
+            }
+        }
+
+        return yakumanList.size() > 0;
+    }
 
     public List<MahjongYakumanEnum> getYakumanList() {
         return yakumanList;
@@ -53,74 +85,27 @@ public class Mahjong {
         return normalYakuList;
     }
 
-    public void calcYakuman() {
-        for (YakumanResolver yakumanResolver : yakumanResolverList) {
-            if (yakumanResolver.isMatch()) {
-                yakumanList.add(yakumanResolver.getYakuman());
+
+    public void findNormalYaku() {
+        //役をストックしておく
+        List<MahjongYakuEnum> yakuStock = new ArrayList<>(7);
+        //それぞれの面子の完成形で判定する
+        for (MentsuComp comp : hands.getMentsuCompList()) {
+            List<NormalYakuResolver> resolverList
+                = Mahjong4jYakuConfig.getNormalYakuResolverList(comp);
+            for (NormalYakuResolver resolver : resolverList) {
+                if (resolver.isMatch()) {
+                    yakuStock.add(resolver.getNormalYaku());
+                }
+            }
+            int hanSum = 0;
+            for (MahjongYakuEnum yaku : yakuStock) {
+                hanSum += yaku.getHan();
+            }
+            if (hanSum > this.han) {
+                han = hanSum;
+                normalYakuList = yakuStock;
             }
         }
-    }
-
-    public void calcNormalYaku() {
-        for (NormalYakuResolver yakuResolver : normalYakuResolverList) {
-            if (yakuResolver.isMatch()) {
-                normalYakuList.add(yakuResolver.getNormalYaku());
-            }
-        }
-    }
-
-    public int calcPoint() {
-
-        if (yakumanList.size() != 0) {
-            switch (yakumanList.size()) {
-                case 1:
-                    manName = "役満";
-                    break;
-                case 2:
-                    manName = "ダブル役満";
-                    break;
-                case 3:
-                    manName = "トリプル役満";
-                    break;
-            }
-            return yakumanList.size() * 32000;
-        } else if (normalYakuList.size() != 0) {
-            int han = 0;
-            for (MahjongYakuEnum aNormalYaku : normalYakuList) {
-                han += aNormalYaku.getHan();
-            }
-
-            switch (han) {
-                case 1:
-                    return 1000;
-                case 2:
-                    return 2000;
-                case 3:
-                    return 4000;
-                case 4:
-                case 5:
-                    manName = "満貫";
-                    return 8000;
-                case 6:
-                case 7:
-                    manName = "跳満";
-                    return 12000;
-                case 8:
-                case 9:
-                case 10:
-                    manName = "倍満";
-                    return 16000;
-                case 11:
-                case 12:
-                    manName = "三倍満";
-                    return 24000;
-                default:
-                    if (han > 13) {
-                        manName = "役満";
-                        return 32000;
-                    }
-            }
-        }
-        return 0;
     }
 }

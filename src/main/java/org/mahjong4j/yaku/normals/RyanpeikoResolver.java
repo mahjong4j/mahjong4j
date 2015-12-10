@@ -1,6 +1,6 @@
 package org.mahjong4j.yaku.normals;
 
-import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.hands.Shuntsu;
 import org.mahjong4j.tile.MahjongTile;
 
@@ -17,7 +17,7 @@ public class RyanpeikoResolver implements NormalYakuResolver {
     private MahjongTile[] shuntsuRevised = new MahjongTile[4];
     private MahjongTile jantoRevesed;
 
-    public RyanpeikoResolver(MahjongHands hands) {
+    public RyanpeikoResolver(MentsuComp hands) {
 
     }
 

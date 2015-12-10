@@ -1,7 +1,7 @@
 package org.mahjong4j.yaku.normals;
 
 
-import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
 
@@ -15,7 +15,7 @@ public class HonitsuResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.HONITSU.getHan();
     private int colorCount;
 
-    public HonitsuResolver(MahjongHands hands) {
+    public HonitsuResolver(MentsuComp hands) {
 
     }
 
