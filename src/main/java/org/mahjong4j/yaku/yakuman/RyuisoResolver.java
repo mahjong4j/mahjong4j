@@ -1,6 +1,7 @@
 package org.mahjong4j.yaku.yakuman;
 
 import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MentsuComp;
 
 import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.RYUISO;
 
@@ -20,7 +21,7 @@ public class RyuisoResolver implements YakumanResolver {
 
     int[] hands;
 
-    public RyuisoResolver(MahjongHands hands) {
+    public RyuisoResolver(MentsuComp hands) {
 
     }
 

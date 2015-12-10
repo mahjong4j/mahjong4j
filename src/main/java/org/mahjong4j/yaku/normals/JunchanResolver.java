@@ -1,6 +1,6 @@
 package org.mahjong4j.yaku.normals;
 
-import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
@@ -27,7 +27,7 @@ public class JunchanResolver implements NormalYakuResolver {
         0, 0, 0, 0,
         0, 0, 0};
 
-    public JunchanResolver(MahjongHands hands) {
+    public JunchanResolver(MentsuComp hands) {
 
     }
 

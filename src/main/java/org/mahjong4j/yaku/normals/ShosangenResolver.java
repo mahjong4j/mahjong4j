@@ -1,7 +1,7 @@
 package org.mahjong4j.yaku.normals;
 
 
-import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
 
@@ -18,7 +18,7 @@ public class ShosangenResolver implements NormalYakuResolver {
     boolean hatsu;
     boolean chun;
 
-    public ShosangenResolver(MahjongHands hands) {
+    public ShosangenResolver(MentsuComp hands) {
 
     }
 

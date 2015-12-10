@@ -1,7 +1,7 @@
 package org.mahjong4j.yaku.normals;
 
 
-import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
@@ -13,7 +13,7 @@ import org.mahjong4j.tile.MahjongTile;
 public class HatsuResolver implements NormalYakuResolver {
     private final int HAN = MahjongYakuEnum.HATSU.getHan();
 
-    public HatsuResolver(MahjongHands hands) {
+    public HatsuResolver(MentsuComp hands) {
 
     }
 

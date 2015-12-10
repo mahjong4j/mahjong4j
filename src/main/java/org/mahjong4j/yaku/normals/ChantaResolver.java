@@ -2,6 +2,7 @@ package org.mahjong4j.yaku.normals;
 
 
 import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
@@ -30,7 +31,7 @@ public class ChantaResolver implements NormalYakuResolver {
         1, 1, 1
     };
 
-    public ChantaResolver(MahjongHands hands) {
+    public ChantaResolver(MentsuComp hands) {
 
     }
 

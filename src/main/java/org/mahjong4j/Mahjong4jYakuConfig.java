@@ -1,6 +1,6 @@
 package org.mahjong4j;
 
-import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.yaku.normals.*;
 import org.mahjong4j.yaku.yakuman.*;
 
@@ -13,47 +13,41 @@ import java.util.List;
  * @author yu1ro
  */
 public class Mahjong4jYakuConfig {
-    //---------------役満------------------
-    private List<YakumanResolver> yakumanResolverList = new ArrayList<YakumanResolver>(9);
-    //--------------通常役-----------------
-    private List<NormalYakuResolver> normalResolverList = new ArrayList<NormalYakuResolver>(19);
-
-    public static List<YakumanResolver> getYakumanResolverList(MahjongHands hands) {
+    public static List<YakumanResolver> getYakumanResolverList(MentsuComp comp) {
         List<YakumanResolver> yakumanResolverList = new ArrayList<>(9);
-        yakumanResolverList.add(new ChinrohtohResolver(hands));
-        yakumanResolverList.add(new ChurenpohtohResolver(hands));
-        yakumanResolverList.add(new DaisangenResolver(hands));
-        yakumanResolverList.add(new DaisushiResolver(hands));
-        yakumanResolverList.add(new KokushimusoResolver(hands));
-        yakumanResolverList.add(new RyuisoResolver(hands));
-        yakumanResolverList.add(new ShosushiResolver(hands));
-        yakumanResolverList.add(new SuankoResolver(hands));
-        yakumanResolverList.add(new TsuisoResolver(hands));
+        yakumanResolverList.add(new ChinrohtohResolver(comp));
+        yakumanResolverList.add(new ChurenpohtohResolver(comp));
+        yakumanResolverList.add(new DaisangenResolver(comp));
+        yakumanResolverList.add(new DaisushiResolver(comp));
+        yakumanResolverList.add(new KokushimusoResolver(comp));
+        yakumanResolverList.add(new RyuisoResolver(comp));
+        yakumanResolverList.add(new ShosushiResolver(comp));
+        yakumanResolverList.add(new SuankoResolver(comp));
+        yakumanResolverList.add(new TsuisoResolver(comp));
 
         return yakumanResolverList;
     }
 
-    public static List<NormalYakuResolver> getNormalYakuResolverList(MahjongHands hands) {
+    public static List<NormalYakuResolver> getNormalYakuResolverList(MentsuComp comp) {
         List<NormalYakuResolver> normalYakuResolverList = new ArrayList<>(20);
-        normalYakuResolverList.add(new ChantaResolver(hands));
-        normalYakuResolverList.add(new ChunResolver(hands));
-        normalYakuResolverList.add(new ChinitsuResolver(hands));
-        normalYakuResolverList.add(new ChitoitsuResolver(hands));
-        normalYakuResolverList.add(new ChunResolver(hands));
-        normalYakuResolverList.add(new HakuResolver(hands));
-        normalYakuResolverList.add(new HatsuResolver(hands));
-        normalYakuResolverList.add(new HonitsuResolver(hands));
-        normalYakuResolverList.add(new HonrohtohResolver(hands));
-        normalYakuResolverList.add(new IkkitsukanResolver(hands));
-        normalYakuResolverList.add(new IpeikoResolver(hands));
-        normalYakuResolverList.add(new JunchanResolver(hands));
-        normalYakuResolverList.add(new PinfuResolver(hands));
-        normalYakuResolverList.add(new RyanpeikoResolver(hands));
-        normalYakuResolverList.add(new SanankoResolver(hands));
-        normalYakuResolverList.add(new SanshokudohjunResolver(hands));
-        normalYakuResolverList.add(new SanshokudohkoResolver(hands));
-        normalYakuResolverList.add(new ShosangenResolver(hands));
-        normalYakuResolverList.add(new TanyaoResolver(hands));
+        normalYakuResolverList.add(new ChantaResolver(comp));
+        normalYakuResolverList.add(new ChunResolver(comp));
+        normalYakuResolverList.add(new ChinitsuResolver(comp));
+        normalYakuResolverList.add(new ChitoitsuResolver(comp));
+        normalYakuResolverList.add(new HakuResolver(comp));
+        normalYakuResolverList.add(new HatsuResolver(comp));
+        normalYakuResolverList.add(new HonitsuResolver(comp));
+        normalYakuResolverList.add(new HonrohtohResolver(comp));
+        normalYakuResolverList.add(new IkkitsukanResolver(comp));
+        normalYakuResolverList.add(new IpeikoResolver(comp));
+        normalYakuResolverList.add(new JunchanResolver(comp));
+        normalYakuResolverList.add(new PinfuResolver(comp));
+        normalYakuResolverList.add(new RyanpeikoResolver(comp));
+        normalYakuResolverList.add(new SanankoResolver(comp));
+        normalYakuResolverList.add(new SanshokudohjunResolver(comp));
+        normalYakuResolverList.add(new SanshokudohkoResolver(comp));
+        normalYakuResolverList.add(new ShosangenResolver(comp));
+        normalYakuResolverList.add(new TanyaoResolver(comp));
 
         return normalYakuResolverList;
     }

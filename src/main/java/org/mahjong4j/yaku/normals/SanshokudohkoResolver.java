@@ -1,6 +1,6 @@
 package org.mahjong4j.yaku.normals;
 
-import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class SanshokudohkoResolver implements NormalYakuResolver {
     boolean pinzu;
     boolean sohzu;
 
-    public SanshokudohkoResolver(MahjongHands hands) {
+    public SanshokudohkoResolver(MentsuComp hands) {
 
     }
 

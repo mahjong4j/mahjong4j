@@ -1,7 +1,7 @@
 package org.mahjong4j.yaku.normals;
 
 
-import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 
 /**
@@ -18,7 +18,7 @@ public class PinfuResolver implements NormalYakuResolver {
     //boolean naki = false;
 
 
-    public PinfuResolver(MahjongHands hands) {
+    public PinfuResolver(MentsuComp hands) {
 
     }
 
