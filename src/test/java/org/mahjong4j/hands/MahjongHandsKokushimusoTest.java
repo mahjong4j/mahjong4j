@@ -31,11 +31,6 @@ public class MahjongHandsKokushimusoTest {
     }
 
     @Test
-    public void testGetWinType() throws Exception {
-        assertEquals(WinTypeEnum.KOKUSHIMUSO, actual.getWinType());
-    }
-
-    @Test
     public void testGetCanWin() throws Exception {
         assertTrue(actual.getCanWin());
     }

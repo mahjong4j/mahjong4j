@@ -41,7 +41,6 @@ public class Mahjong {
         }
     }
 
-
     public List<MahjongYakumanEnum> getYakumanList() {
         return yakumanList;
     }

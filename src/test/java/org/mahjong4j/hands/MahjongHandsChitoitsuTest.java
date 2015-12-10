@@ -46,11 +46,6 @@ public class MahjongHandsChitoitsuTest {
     }
 
     @Test
-    public void testGetWinType() throws Exception {
-        assertEquals(WinTypeEnum.CHITOITSU, actual.getWinType());
-    }
-
-    @Test
     public void testGetCanWin() throws Exception {
         assertTrue(actual.getCanWin());
     }

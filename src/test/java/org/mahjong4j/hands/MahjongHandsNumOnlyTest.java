@@ -32,7 +32,6 @@ public class MahjongHandsNumOnlyTest {
 
     @Test
     public void testFindMentsu() throws Exception {
-        assertEquals(WinTypeEnum.NORMAL, hands.getWinType());
         List<MentsuComp> winSetList = hands.getMentsuCompList();
         assertEquals(1, winSetList.size());
     }
