@@ -176,16 +176,21 @@ public class MahjongHands {
 
         // 七対子の判定
         initStock();
+        List<Toitsu> toitsuList = Toitsu.findJantoCandidate(handStocks);
         if (ChitoitsuResolver.isMatch(handStocks)) {
             winType = WinTypeEnum.CHITOITSU;
             canWin = true;
+            List<MahjongMentsu> mentsuList = new ArrayList<>(7);
+            mentsuList.addAll(toitsuList);
+            MentsuComp comp = new MentsuComp(mentsuList);
+            mentsuCompList.add(comp);
             return;
         }
 
         // その他の判定
         // 雀頭の候補を探してストックしておく
         initStock();
-        List<Toitsu> toitsuStock = Toitsu.findJantoCandidate(handStocks);
+        List<Toitsu> toitsuStock = toitsuList;
 
 
         // 雀頭が一つも見つからなければfalse
