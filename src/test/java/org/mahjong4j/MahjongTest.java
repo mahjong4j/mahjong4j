@@ -30,6 +30,7 @@ public class MahjongTest {
         MahjongTile last = MahjongTile.M6;
         hands = new MahjongHands(tiles, last);
         mahjong = new Mahjong(hands);
+        mahjong.calculate();
     }
 
     @Test
