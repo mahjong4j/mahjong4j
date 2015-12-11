@@ -1,9 +1,11 @@
 package org.mahjong4j.yaku.normals;
 
 
-import org.mahjong4j.hands.MentsuComp;
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.hands.*;
 import org.mahjong4j.tile.MahjongTileType;
+
+import static org.mahjong4j.tile.MahjongTileType.FONPAI;
+import static org.mahjong4j.tile.MahjongTileType.SANGEN;
 
 /**
  * 清一色判定クラス
@@ -12,177 +14,58 @@ import org.mahjong4j.tile.MahjongTileType;
  * @author yu1ro
  */
 public class ChinitsuResolver implements NormalYakuResolver {
-
     final int HAN = MahjongYakuEnum.CHINITSU.getHan();
-    private int colorCount;
+    private MentsuComp mentsuComp;
 
-    public ChinitsuResolver(MentsuComp hands) {
-
+    public ChinitsuResolver(MentsuComp mentsuComp) {
+        this.mentsuComp = mentsuComp;
     }
 
     public int getHan() {
         return HAN;
     }
 
-    public boolean isMatch() {
-        return false;
-    }
-
     public MahjongYakuEnum getNormalYaku() {
-        return null;
+        return MahjongYakuEnum.CHINITSU;
     }
 
-    //通常型用
-    public boolean isChinitsu(MahjongTile[] shuntsu, MahjongTile[] kotsu,
-                              MahjongTile janto) {
+    public boolean isMatch() {
+        MahjongTileType type = null;
+        for (Toitsu toitsu : mentsuComp.getToitsuList()) {
+            MahjongTileType toitsuType = toitsu.getTile().getType();
+            if (toitsuType == FONPAI || toitsuType == SANGEN) {
+                return false;
+            }
+            if (type == null) {
+                type = toitsuType;
+            }
 
-        //字牌が含まれていたらfalse
-        if (janto.getNumber() == 0) {
-            return false;
-        }
-        for (int i = 0; i < kotsu.length && kotsu[i] != null; i++) {
-            if (kotsu[i].getNumber() == 0) {
+            if (type != toitsuType) {
                 return false;
             }
         }
 
-        colorCount = 0;
-
-        manzuCheck(shuntsu, kotsu, janto);
-        pinzuCheck(shuntsu, kotsu, janto);
-        sozuCheck(shuntsu, kotsu, janto);
-
-
-        return colorCount == 1;
-
-    }
-
-    //七対子用
-    public boolean isChinitsu(MahjongTile[] toitsu) {
-        //字牌が含まれていたらfalse
-        for (int i = toitsu.length - 1; i >= 0; i--) {
-            if (toitsu[i].getNumber() == 0) {
+        //順子がこれまでのTypeと違う場合false
+        for (Shuntsu shuntsu : mentsuComp.getShuntsuList()) {
+            if (type != shuntsu.getTile().getType()) {
                 return false;
             }
         }
 
-        colorCount = 0;
-
-        manzuCheck(toitsu);
-        pinzuCheck(toitsu);
-        sozuCheck(toitsu);
-
-        return colorCount == 1;
-    }
-
-    /*
-     * ここからそれぞれの色が含まれるかをチェックするメソッド 七対子用か通常用かは引数を見て判断して下さい。
-     */
-
-    private void manzuCheck(MahjongTile[] shuntsu, MahjongTile[] kotsu,
-                            MahjongTile janto) {
-        boolean flag = true;
-        if (janto.getType() == MahjongTileType.MANZU) {
-            colorCount++;
-            flag = false;
-        } else if (flag) {
-            for (int i = 0; i < shuntsu.length && shuntsu[i] != null; i++) {
-                if (shuntsu[i].getType() == MahjongTileType.MANZU) {
-                    colorCount++;
-                    flag = false;
-                    break;
-                }
-            }
-        } else if (flag) {
-            for (int i = 0; i < kotsu.length && kotsu[i] != null; i++) {
-                if (kotsu[i].getType() == MahjongTileType.MANZU) {
-                    colorCount++;
-                    flag = false;
-                    break;
-                }
-            }
-
-        }
-    }
-
-    private void manzuCheck(MahjongTile[] toitsu) {
-        for (MahjongTile aToitsu : toitsu) {
-            if (aToitsu.getType() == MahjongTileType.MANZU) {
-                colorCount++;
-                break;
+        //刻子がこれまでのTypeと違う場合false
+        for (Kotsu kotsu : mentsuComp.getKotsuList()) {
+            if (type != kotsu.getTile().getType()) {
+                return false;
             }
         }
 
-    }
-
-    private void pinzuCheck(MahjongTile[] shuntsu, MahjongTile[] kotsu,
-                            MahjongTile janto) {
-        boolean flag = true;
-        if (janto.getType() == MahjongTileType.PINZU) {
-            colorCount++;
-            flag = false;
-        } else if (flag) {
-            for (int i = 0; i < shuntsu.length && shuntsu[i] != null; i++) {
-                if (shuntsu[i].getType() == MahjongTileType.PINZU) {
-                    colorCount++;
-                    flag = false;
-                    break;
-                }
-            }
-        } else if (flag) {
-            for (int i = 0; i < kotsu.length && kotsu[i] != null; i++) {
-                if (kotsu[i].getType() == MahjongTileType.PINZU) {
-                    colorCount++;
-                    flag = false;
-                    break;
-                }
-            }
-
-        }
-    }
-
-    private void pinzuCheck(MahjongTile[] toitsu) {
-        for (MahjongTile aToitsu : toitsu) {
-            if (aToitsu.getType() == MahjongTileType.PINZU) {
-                colorCount++;
-                break;
+        //槓子がこれまでのTypeと違う場合false
+        for (Kantsu kantsu : mentsuComp.getKantsuList()) {
+            if (type != kantsu.getTile().getType()) {
+                return false;
             }
         }
 
-    }
-
-    private void sozuCheck(MahjongTile[] shuntsu, MahjongTile[] kotsu,
-                           MahjongTile janto) {
-        boolean flag = true;
-        if (janto.getType() == MahjongTileType.SOHZU) {
-            colorCount++;
-            flag = false;
-        } else if (flag) {
-            for (int i = 0; i < shuntsu.length && shuntsu[i] != null; i++) {
-                if (shuntsu[i].getType() == MahjongTileType.SOHZU) {
-                    colorCount++;
-                    flag = false;
-                    break;
-                }
-            }
-        } else if (flag) {
-            for (int i = 0; i < kotsu.length && kotsu[i] != null; i++) {
-                if (kotsu[i].getType() == MahjongTileType.SOHZU) {
-                    colorCount++;
-                    flag = false;
-                    break;
-                }
-            }
-
-        }
-    }
-
-    private void sozuCheck(MahjongTile[] toitsu) {
-        for (MahjongTile aToitsu : toitsu) {
-            if (aToitsu.getType() == MahjongTileType.SOHZU) {
-                colorCount++;
-                break;
-            }
-        }
+        return true;
     }
 }
