@@ -1,9 +1,10 @@
 package org.mahjong4j.yaku.normals;
 
 
-import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.Kantsu;
+import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.hands.Shuntsu;
 
 /**
  * チャンタ判定クラス
@@ -16,57 +17,61 @@ public class ChantaResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.CHANTA.getHan();
     final int KUISAGARI = MahjongYakuEnum.CHANTA.getKuisagari();
 
-    int[] shuntsuHands = {
-        0, 1, 0, 0, 0, 0, 0, 1, 0,
-        0, 1, 0, 0, 0, 0, 0, 1, 0,
-        0, 1, 0, 0, 0, 0, 0, 1, 0,
-        0, 0, 0, 0,
-        0, 0, 0
-    };
-    int[] kotsuHands = {
-        1, 0, 0, 0, 0, 0, 0, 0, 1,
-        1, 0, 0, 0, 0, 0, 0, 0, 1,
-        1, 0, 0, 0, 0, 0, 0, 0, 1,
-        1, 1, 1, 1,
-        1, 1, 1
-    };
+    private MentsuComp comp;
 
-    public ChantaResolver(MentsuComp hands) {
-
+    public ChantaResolver(MentsuComp comp) {
+        this.comp = comp;
     }
-
 
     public int getHan() {
         return HAN;
     }
 
-    public boolean isMatch() {
-        return false;
-    }
-
     public MahjongYakuEnum getNormalYaku() {
-        return null;
+        return MahjongYakuEnum.CHANTA;
     }
 
-    public boolean isChanta(MahjongTile[] shuntsu, MahjongTile[] kotsu, MahjongTile janto) {
+    public boolean isMatch() {
+        //雀頭がnullなら七対子なのでfalse
+        if (comp.getJanto() == null) {
+            return false;
+        }
+        //雀頭が一九字牌以外ならfalse
+        int jantoNum = comp.getJanto().getTile().getNumber();
+        if (jantoNum != 1 && jantoNum != 9 && jantoNum != 0) {
+            return false;
+        }
 
-        int count = 0;//これが4になれば全部么九牌を含む
+        //順子が無ければfalse
+        if (comp.getShuntsuCount() == 0) {
+            return false;
+        }
 
-        //まずは順子
-        for (int i = 0; i < shuntsu.length && shuntsu[i] != null; i++) {
-            if (shuntsuHands[shuntsu[i].getCode()] == 1) {
-                count++;
+        //順子が123の順子と789の順子でなければfalse
+        for (Shuntsu shuntsu : comp.getShuntsuList()) {
+            int shuntsuNum = shuntsu.getTile().getNumber();
+            if (shuntsuNum != 2 && shuntsuNum != 8) {
+                return false;
             }
         }
 
-        //次に刻子
-        for (int i = 0; kotsu[i] != null && i < kotsu.length; i++) {
-            if (kotsuHands[kotsu[i].getCode()] == 1) {
-                count++;
+        //刻子が一九字牌以外ならfalse
+        for (Kotsu kotsu : comp.getKotsuList()) {
+            int kotsuNum = kotsu.getTile().getNumber();
+            if (kotsuNum != 1 && kotsuNum != 9 && kotsuNum != 0) {
+                return false;
             }
         }
 
-        //４になってるかと雀頭もチェック
-        return count == 4 && kotsuHands[janto.getCode()] == 1;
+        //槓子が一九字牌以外ならfalse
+        for (Kantsu kantsu : comp.getKantsuList()) {
+            int kantsuNum = kantsu.getTile().getNumber();
+            if (kantsuNum != 1 && kantsuNum != 9 && kantsuNum != 0) {
+                return false;
+            }
+        }
+
+        //ここまでくればtrue
+        return true;
     }
 }
