@@ -1,3 +1,4 @@
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.txt)
 [![Stories in Ready](https://badge.waffle.io/yu1ro/mahjong4j.png?label=ready&title=Ready)](https://waffle.io/yu1ro/mahjong4j)
 [![Build Status](https://travis-ci.org/yu1ro/mahjong4j.svg?branch=master)](https://travis-ci.org/yu1ro/mahjong4j)
 [![codecov.io](https://codecov.io/github/yu1ro/mahjong4j/coverage.svg?branch=master)](https://codecov.io/github/yu1ro/mahjong4j?branch=master)
@@ -11,7 +12,7 @@ Androidで動いて欲しいのでJava7に対応させます
 
 ## 現状
 - 手牌が和了の形かどうかを判定できます
-- 清老頭かどうかの判定ができます
+- いくつかの役かどうかの判定ができます
 
 ## 使い方
 ### MahjongHands(手牌)クラス
@@ -22,7 +23,7 @@ Androidで動いて欲しいのでJava7に対応させます
 ### Mahjong(麻雀)クラス
 1. 先ほどのMahjongHandsのインスタンスを投げます
 1. 現状ではcalcYakuman()を実行すると役満かどうかを判定
-1. getYakumanList()で合致する役満のEnumを返します。（現在は清老頭・字一色のみ）
+1. getYakumanList()で合致する役満のEnumを返します。（現在は清老頭・字一色・大三元のみ）
 1. getNormalYakuList()で合致する通常役のEnumを返します。（現在はチャンタ・清一色のみ）
 
 詳細はsrc/test/java/
@@ -43,7 +44,7 @@ Pull Request・Issueはいつでもお待ちしております
 
 それぞれの役判定クラスのisMatchメソッドが一番わかりやすいです
 
-清老頭・チャンタ・清一色だけは作成したので、参考にして頂ければと思います
+作成した役もあるので、参考にして頂ければと思います
 
 最初に作成した際の名残コード(is\[役名\])のメソッドがあるので
 
