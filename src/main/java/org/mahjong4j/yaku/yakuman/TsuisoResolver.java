@@ -1,51 +1,24 @@
 package org.mahjong4j.yaku.yakuman;
 
-import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.Kantsu;
+import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.hands.Toitsu;
 
 import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.TSUISO;
 
 /**
+ * 字一色判定クラス
+ * 字牌のみで構成された場合に成立
+ *
  * @author yu1ro
- *         字一色判定クラス
  */
 public class TsuisoResolver implements YakumanResolver {
 
-    public TsuisoResolver(MentsuComp hands) {
+    private MentsuComp comp;
 
-    }
-
-    /**
-     * 通常型用
-     */
-    public boolean isTsuiso(MahjongTile[] kotsu, MahjongTile janto) {
-        if (janto.getNumber() != 0) {
-            return false;
-        }
-
-        int jihaiCount = 0;
-        for (int i = 0; i < kotsu.length && kotsu[i] != null; i++) {
-            if (kotsu[i].getNumber() == 0) {
-                jihaiCount++;
-            } else {
-                return false;
-            }
-        }
-
-        return jihaiCount == 4;
-    }
-
-    /**
-     * 七対子用
-     */
-    public boolean isTsuiso(MahjongTile[] toistu) {
-        for (MahjongTile aToistu : toistu) {
-            if (aToistu.getNumber() != 0) {
-                return false;
-            }
-        }
-        return true;
+    public TsuisoResolver(MentsuComp comp) {
+        this.comp = comp;
     }
 
     public MahjongYakumanEnum getYakuman() {
@@ -53,6 +26,31 @@ public class TsuisoResolver implements YakumanResolver {
     }
 
     public boolean isMatch() {
-        return false;
+        if (comp.getJanto() == null) {
+            for (Toitsu toitsu : comp.getToitsuList()) {
+                if (toitsu.getTile().getNumber() != 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        if (comp.getJanto().getTile().getNumber() != 0) {
+            return false;
+        }
+
+        for (Kotsu kotsu : comp.getKotsuList()) {
+            if (kotsu.getTile().getNumber() != 0) {
+                return false;
+            }
+        }
+
+        for (Kantsu kantsu : comp.getKantsuList()) {
+            if (kantsu.getTile().getNumber() != 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
