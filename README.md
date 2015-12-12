@@ -22,7 +22,8 @@ Androidで動いて欲しいのでJava7に対応させます
 ### Mahjong(麻雀)クラス
 1. 先ほどのMahjongHandsのインスタンスを投げます
 1. 現状ではcalcYakuman()を実行すると役満かどうかを判定
-1. getYakumanList()で合致する役満のEnumを返します。（現在は清老頭のみ）
+1. getYakumanList()で合致する役満のEnumを返します。（現在は清老頭・字一色のみ）
+1. getNormalYakuList()で合致する通常役のEnumを返します。（現在はチャンタ・清一色のみ）
 
 詳細はsrc/test/java/
 
