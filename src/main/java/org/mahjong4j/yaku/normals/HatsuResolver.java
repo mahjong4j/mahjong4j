@@ -1,8 +1,12 @@
 package org.mahjong4j.yaku.normals;
 
 
+import org.mahjong4j.hands.Kantsu;
+import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
+
+import java.util.List;
 
 /**
  * 發判定クラス
@@ -12,30 +16,35 @@ import org.mahjong4j.tile.MahjongTile;
  */
 public class HatsuResolver implements NormalYakuResolver {
     private final int HAN = MahjongYakuEnum.HATSU.getHan();
+    List<Kotsu> kotsuList;
+    List<Kantsu> kantsuList;
 
-    public HatsuResolver(MentsuComp hands) {
-
+    public HatsuResolver(MentsuComp comp) {
+        kotsuList = comp.getKotsuList();
+        kantsuList = comp.getKantsuList();
     }
 
     public int getHan() {
         return HAN;
     }
 
-    public boolean isMatch() {
-        return false;
-    }
-
     public MahjongYakuEnum getNormalYaku() {
-        return null;
+        return MahjongYakuEnum.HATSU;
     }
 
-    public boolean isHatsu(MahjongTile[] kotsu) {
-        for (int i = 0; i < kotsu.length && kotsu[i] != null; i++) {
-            if (kotsu[i] == MahjongTile.HAT) {
+    public boolean isMatch() {
+        for (Kotsu kotsu : kotsuList) {
+            if (kotsu.getTile() == MahjongTile.HAT){
                 return true;
             }
-
         }
+
+        for (Kantsu kantsu : kantsuList) {
+            if(kantsu.getTile() == MahjongTile.HAT) {
+                return true;
+            }
+        }
+
         return false;
     }
 }
