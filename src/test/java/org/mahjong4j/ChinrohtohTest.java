@@ -2,13 +2,15 @@ package org.mahjong4j;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mahjong4j.hands.Kantsu;
 import org.mahjong4j.hands.MahjongHands;
-import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.yakuman.MahjongYakumanEnum;
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.mahjong4j.tile.MahjongTile.M1;
+import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.CHINROTO;
 
 /**
  * @author yu1ro
@@ -19,13 +21,13 @@ public class ChinrohtohTest {
     @Before
     public void setUp() throws Exception {
         int[] match = {
-            3, 0, 0, 0, 0, 0, 0, 0, 3,
+            0, 0, 0, 0, 0, 0, 0, 0, 3,
             0, 0, 0, 0, 0, 0, 0, 0, 3,
             2, 0, 0, 0, 0, 0, 0, 0, 3,
             0, 0, 0, 0,
             0, 0, 0
         };
-        MahjongHands hands = new MahjongHands(match, MahjongTile.M1);
+        MahjongHands hands = new MahjongHands(match, M1, new Kantsu(true, M1));
         mahjong = new Mahjong(hands);
         mahjong.calculate();
     }
@@ -35,6 +37,6 @@ public class ChinrohtohTest {
         List<MahjongYakumanEnum> actual = mahjong.getYakumanList();
 
         assertEquals(1, actual.size());
-        assertEquals(MahjongYakumanEnum.CHINROTO, actual.get(0));
+        assertEquals(CHINROTO, actual.get(0));
     }
 }
