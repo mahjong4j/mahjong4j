@@ -15,7 +15,7 @@ import static org.junit.Assert.assertThat;
 /**
  * @author yu1ro
  */
-public class MahjongTest {
+public class SuankoTest {
     MahjongHands hands;
     Mahjong mahjong;
 
