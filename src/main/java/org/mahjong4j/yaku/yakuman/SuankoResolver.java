@@ -1,23 +1,30 @@
 package org.mahjong4j.yaku.yakuman;
 
-import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.Kantsu;
+import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
-import org.mahjong4j.tile.MahjongTile;
+
+import java.util.List;
 
 import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.SUANKO;
 
 /**
+ * 四暗刻判定クラス
+ * 暗刻を4つ作って和了した場合成立
+ * 暗槓が含まれても良い
+ *
  * @author yu1ro
- *         四暗刻判定クラス
  */
 public class SuankoResolver implements YakumanResolver {
 
-    public SuankoResolver(MentsuComp hands) {
+    private final int count;
+    private final List<Kotsu> kotsuList;
+    private final List<Kantsu> kantsuList;
 
-    }
-
-    public boolean isSuanko(MahjongTile[] kotsu) {
-        return kotsu[3] != null;
+    public SuankoResolver(MentsuComp comp) {
+        kotsuList = comp.getKotsuList();
+        kantsuList = comp.getKantsuList();
+        count = comp.getKotsuCount() + comp.getKantsuCount();
     }
 
     public MahjongYakumanEnum getYakuman() {
@@ -25,6 +32,20 @@ public class SuankoResolver implements YakumanResolver {
     }
 
     public boolean isMatch() {
-        return false;
+        if (count < 4) {
+            return false;
+        }
+        for (Kotsu kotsu : kotsuList) {
+            if (kotsu.getIsOpen()) {
+                return false;
+            }
+        }
+        for (Kantsu kantsu : kantsuList) {
+            if (kantsu.getIsOpen()) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
