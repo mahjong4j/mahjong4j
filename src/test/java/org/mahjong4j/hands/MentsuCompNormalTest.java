@@ -60,6 +60,15 @@ public class MentsuCompNormalTest {
     }
 
     @Test
+    public void testGetKotsuKantsu() throws Exception {
+        assertThat(actual.getKotsuKantsu(), hasItems(new Kotsu(false, NAN)));
+        assertThat(actual.getKotsuKantsu(), hasItems(new Kotsu(false, CHN)));
+
+        //刻子の数はそのまま
+        assertEquals(1, actual.getKotsuCount());
+    }
+
+    @Test
     public void testGetAllMentsu() throws Exception {
         List<MahjongMentsu> actualAllMentsu = actual.getAllMentsu();
         assertThat(actualAllMentsu, hasItems((MahjongMentsu) new Kotsu(false, NAN)));
