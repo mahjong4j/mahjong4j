@@ -69,6 +69,18 @@ public class MentsuCompChitoitsuTest {
     }
 
     @Test
+    public void testGetAllMentsu() throws Exception {
+        List<MahjongMentsu> actualAllMentsu = actual.getAllMentsu();
+        assertThat(actualAllMentsu, hasItems((MahjongMentsu)new Toitsu(M1)));
+        assertThat(actualAllMentsu, hasItems((MahjongMentsu)new Toitsu(CHN)));
+        assertThat(actualAllMentsu, hasItems((MahjongMentsu)new Toitsu(NAN)));
+        assertThat(actualAllMentsu, hasItems((MahjongMentsu)new Toitsu(P9)));
+        assertThat(actualAllMentsu, hasItems((MahjongMentsu)new Toitsu(P4)));
+        assertThat(actualAllMentsu, hasItems((MahjongMentsu)new Toitsu(P2)));
+        assertThat(actualAllMentsu, hasItems((MahjongMentsu)new Toitsu(PEI)));
+    }
+
+    @Test
     public void testEquals() throws Exception {
         List<MahjongMentsu> expectedList = new ArrayList<>(7);
         expectedList.add(new Toitsu(M1));

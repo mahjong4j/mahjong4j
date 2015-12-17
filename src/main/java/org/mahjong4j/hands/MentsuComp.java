@@ -97,6 +97,20 @@ public class MentsuComp {
     }
 
     /**
+     * 刻子でも槓子でも役の判定に影響しない場合に利用します
+     * 刻子と槓子をまとめて返します。
+     *
+     * @return 刻子と槓子をまとめたリスト
+     */
+    public List<Kotsu> getKotsuKantsu() {
+        List<Kotsu> kotsuList = new ArrayList<>(this.kotsuList);
+        for (Kantsu kantsu : kantsuList) {
+            kotsuList.add(new Kotsu(kantsu.getIsOpen(),kantsu.getTile()));
+        }
+        return kotsuList;
+    }
+
+    /**
      * 刻子の数を返します
      * 0~4のどれかです
      *
@@ -118,6 +132,21 @@ public class MentsuComp {
      */
     public int getKantsuCount() {
         return kantsuList.size();
+    }
+
+    /**
+     * 対子も含めて全ての面子をリストにして返します
+     *
+     * @return 構成する全ての面子のリスト
+     */
+    public List<MahjongMentsu> getAllMentsu() {
+        List<MahjongMentsu> allMentsu = new ArrayList<>(7);
+        allMentsu.addAll(getToitsuList());
+        allMentsu.addAll(getShuntsuList());
+        allMentsu.addAll(getKotsuList());
+        allMentsu.addAll(getKantsuList());
+
+        return allMentsu;
     }
 
     /**
