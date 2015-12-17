@@ -121,6 +121,21 @@ public class MentsuComp {
     }
 
     /**
+     * 対子も含めて全ての面子をリストにして返します
+     *
+     * @return 構成する全ての面子のリスト
+     */
+    public List<MahjongMentsu> getAllMentsu() {
+        List<MahjongMentsu> allMentsu = new ArrayList<>(7);
+        allMentsu.addAll(getToitsuList());
+        allMentsu.addAll(getShuntsuList());
+        allMentsu.addAll(getKotsuList());
+        allMentsu.addAll(getKantsuList());
+
+        return allMentsu;
+    }
+
+    /**
      * 各面子のリストの順番は関係ないので、
      * 面子の順番が違っていてもtrueになります
      *
