@@ -1,7 +1,8 @@
 package org.mahjong4j.yaku.normals;
 
 
-import org.mahjong4j.hands.*;
+import org.mahjong4j.hands.MahjongMentsu;
+import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTileType;
 
 import java.util.List;
@@ -17,19 +18,13 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.HONITSU;
 public class HonitsuResolver implements NormalYakuResolver {
     final int HAN = HONITSU.getHan();
 
-    private List<Toitsu> toitsuList;
-    private List<Shuntsu> shuntsuList;
-    private List<Kotsu> kotsuList;
-    private List<Kantsu> kantsuList;
+    private List<MahjongMentsu> allMentsu;
 
     private boolean hasJihai = false;
     private MahjongTileType type = null;
 
     public HonitsuResolver(MentsuComp comp) {
-        toitsuList = comp.getToitsuList();
-        shuntsuList = comp.getShuntsuList();
-        kotsuList = comp.getKotsuList();
-        kantsuList = comp.getKantsuList();
+        allMentsu = comp.getAllMentsu();
     }
 
     public int getHan() {
@@ -42,26 +37,8 @@ public class HonitsuResolver implements NormalYakuResolver {
 
     public boolean isMatch() {
 
-        for (Toitsu toitsu : toitsuList) {
-            if (!hasOnlyOneType(toitsu)) {
-                return false;
-            }
-        }
-
-        for (Shuntsu shuntsu : shuntsuList) {
-            if (!hasOnlyOneType(shuntsu)) {
-                return false;
-            }
-        }
-
-        for (Kotsu kotsu : kotsuList) {
-            if (!hasOnlyOneType(kotsu)) {
-                return false;
-            }
-        }
-
-        for (Kantsu kantsu : kantsuList) {
-            if (!hasOnlyOneType(kantsu)) {
+        for (MahjongMentsu mentsu : allMentsu) {
+            if (!hasOnlyOneType(mentsu)) {
                 return false;
             }
         }
