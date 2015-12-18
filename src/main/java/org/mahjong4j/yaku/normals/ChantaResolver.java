@@ -1,7 +1,6 @@
 package org.mahjong4j.yaku.normals;
 
 
-import org.mahjong4j.hands.Kantsu;
 import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.hands.Shuntsu;
@@ -55,18 +54,10 @@ public class ChantaResolver implements NormalYakuResolver {
             }
         }
 
-        //刻子が一九字牌以外ならfalse
-        for (Kotsu kotsu : comp.getKotsuList()) {
+        //刻子・槓子が一九字牌以外ならfalse
+        for (Kotsu kotsu : comp.getKotsuKantsu()) {
             int kotsuNum = kotsu.getTile().getNumber();
             if (kotsuNum != 1 && kotsuNum != 9 && kotsuNum != 0) {
-                return false;
-            }
-        }
-
-        //槓子が一九字牌以外ならfalse
-        for (Kantsu kantsu : comp.getKantsuList()) {
-            int kantsuNum = kantsu.getTile().getNumber();
-            if (kantsuNum != 1 && kantsuNum != 9 && kantsuNum != 0) {
                 return false;
             }
         }

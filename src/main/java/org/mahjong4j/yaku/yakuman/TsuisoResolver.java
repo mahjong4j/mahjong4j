@@ -1,9 +1,10 @@
 package org.mahjong4j.yaku.yakuman;
 
-import org.mahjong4j.hands.Kantsu;
 import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.hands.Toitsu;
+
+import java.util.List;
 
 import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.TSUISO;
 
@@ -15,10 +16,14 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.TSUISO;
  */
 public class TsuisoResolver implements YakumanResolver {
 
-    private MentsuComp comp;
+    private Toitsu janto;
+    private List<Toitsu> toitsuList;
+    private List<Kotsu> kotsuList;
 
     public TsuisoResolver(MentsuComp comp) {
-        this.comp = comp;
+        janto = comp.getJanto();
+        toitsuList = comp.getToitsuList();
+        kotsuList = comp.getKotsuKantsu();
     }
 
     public MahjongYakumanEnum getYakuman() {
@@ -26,8 +31,8 @@ public class TsuisoResolver implements YakumanResolver {
     }
 
     public boolean isMatch() {
-        if (comp.getJanto() == null) {
-            for (Toitsu toitsu : comp.getToitsuList()) {
+        if (janto == null) {
+            for (Toitsu toitsu : toitsuList) {
                 if (toitsu.getTile().getNumber() != 0) {
                     return false;
                 }
@@ -35,18 +40,12 @@ public class TsuisoResolver implements YakumanResolver {
             return true;
         }
 
-        if (comp.getJanto().getTile().getNumber() != 0) {
+        if (janto.getTile().getNumber() != 0) {
             return false;
         }
 
-        for (Kotsu kotsu : comp.getKotsuList()) {
+        for (Kotsu kotsu : kotsuList) {
             if (kotsu.getTile().getNumber() != 0) {
-                return false;
-            }
-        }
-
-        for (Kantsu kantsu : comp.getKantsuList()) {
-            if (kantsu.getTile().getNumber() != 0) {
                 return false;
             }
         }

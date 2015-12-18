@@ -1,6 +1,5 @@
 package org.mahjong4j.yaku.yakuman;
 
-import org.mahjong4j.hands.Kantsu;
 import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
 
@@ -19,11 +18,9 @@ public class SuankoResolver implements YakumanResolver {
 
     private final int count;
     private final List<Kotsu> kotsuList;
-    private final List<Kantsu> kantsuList;
 
     public SuankoResolver(MentsuComp comp) {
-        kotsuList = comp.getKotsuList();
-        kantsuList = comp.getKantsuList();
+        kotsuList = comp.getKotsuKantsu();
         count = comp.getKotsuCount() + comp.getKantsuCount();
     }
 
@@ -37,11 +34,6 @@ public class SuankoResolver implements YakumanResolver {
         }
         for (Kotsu kotsu : kotsuList) {
             if (kotsu.getIsOpen()) {
-                return false;
-            }
-        }
-        for (Kantsu kantsu : kantsuList) {
-            if (kantsu.getIsOpen()) {
                 return false;
             }
         }

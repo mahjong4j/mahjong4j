@@ -4,6 +4,8 @@ package org.mahjong4j.yaku.normals;
 import org.mahjong4j.hands.*;
 import org.mahjong4j.tile.MahjongTileType;
 
+import java.util.List;
+
 import static org.mahjong4j.tile.MahjongTileType.FONPAI;
 import static org.mahjong4j.tile.MahjongTileType.SANGEN;
 
@@ -15,10 +17,10 @@ import static org.mahjong4j.tile.MahjongTileType.SANGEN;
  */
 public class ChinitsuResolver implements NormalYakuResolver {
     final int HAN = MahjongYakuEnum.CHINITSU.getHan();
-    private MentsuComp mentsuComp;
+    private MentsuComp comp;
 
-    public ChinitsuResolver(MentsuComp mentsuComp) {
-        this.mentsuComp = mentsuComp;
+    public ChinitsuResolver(MentsuComp comp) {
+        this.comp = comp;
     }
 
     public int getHan() {
@@ -30,38 +32,16 @@ public class ChinitsuResolver implements NormalYakuResolver {
     }
 
     public boolean isMatch() {
-        MahjongTileType type = null;
-        for (Toitsu toitsu : mentsuComp.getToitsuList()) {
-            MahjongTileType toitsuType = toitsu.getTile().getType();
-            if (toitsuType == FONPAI || toitsuType == SANGEN) {
-                return false;
-            }
-            if (type == null) {
-                type = toitsuType;
-            }
-
-            if (type != toitsuType) {
-                return false;
-            }
+        List<MahjongMentsu> allMentsu = comp.getAllMentsu();
+        MahjongTileType firstType= allMentsu.get(0).getTile().getType();
+        
+        if (firstType == FONPAI || firstType == SANGEN) {
+            return false;
         }
 
-        //順子がこれまでのTypeと違う場合false
-        for (Shuntsu shuntsu : mentsuComp.getShuntsuList()) {
-            if (type != shuntsu.getTile().getType()) {
-                return false;
-            }
-        }
-
-        //刻子がこれまでのTypeと違う場合false
-        for (Kotsu kotsu : mentsuComp.getKotsuList()) {
-            if (type != kotsu.getTile().getType()) {
-                return false;
-            }
-        }
-
-        //槓子がこれまでのTypeと違う場合false
-        for (Kantsu kantsu : mentsuComp.getKantsuList()) {
-            if (type != kantsu.getTile().getType()) {
+        for (MahjongMentsu mentsu : allMentsu) {
+            MahjongTileType checkType = mentsu.getTile().getType();
+            if (firstType != checkType){
                 return false;
             }
         }

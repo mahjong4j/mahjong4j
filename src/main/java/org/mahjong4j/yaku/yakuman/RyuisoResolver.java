@@ -1,6 +1,9 @@
 package org.mahjong4j.yaku.yakuman;
 
-import org.mahjong4j.hands.*;
+import org.mahjong4j.hands.Kotsu;
+import org.mahjong4j.hands.MentsuComp;
+import org.mahjong4j.hands.Shuntsu;
+import org.mahjong4j.hands.Toitsu;
 import org.mahjong4j.tile.MahjongTile;
 
 import java.util.List;
@@ -19,13 +22,11 @@ public class RyuisoResolver implements YakumanResolver {
     private List<Toitsu> toitsuList;
     private List<Shuntsu> shuntsuList;
     private List<Kotsu> kotsuList;
-    private List<Kantsu> kantsuList;
 
     public RyuisoResolver(MentsuComp hands) {
         toitsuList = hands.getToitsuList();
         shuntsuList = hands.getShuntsuList();
-        kotsuList = hands.getKotsuList();
-        kantsuList = hands.getKantsuList();
+        kotsuList = hands.getKotsuKantsu();
     }
 
     public MahjongYakumanEnum getYakuman() {
@@ -40,11 +41,6 @@ public class RyuisoResolver implements YakumanResolver {
         }
         for (Kotsu kotsu : kotsuList) {
             if (!isGreen(kotsu.getTile())) {
-                return false;
-            }
-        }
-        for (Kantsu kantsu : kantsuList) {
-            if (!isGreen(kantsu.getTile())) {
                 return false;
             }
         }

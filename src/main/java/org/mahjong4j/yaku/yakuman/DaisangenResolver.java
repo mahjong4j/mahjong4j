@@ -1,6 +1,5 @@
 package org.mahjong4j.yaku.yakuman;
 
-import org.mahjong4j.hands.Kantsu;
 import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTileType;
@@ -17,11 +16,9 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.DAISANGEN;
  */
 public class DaisangenResolver implements YakumanResolver {
     List<Kotsu> kotsuList;
-    List<Kantsu> kantsuList;
 
     public DaisangenResolver(MentsuComp comp) {
-        kantsuList = comp.getKantsuList();
-        kotsuList = comp.getKotsuList();
+        kotsuList = comp.getKotsuKantsu();
     }
 
     public MahjongYakumanEnum getYakuman() {
@@ -36,11 +33,6 @@ public class DaisangenResolver implements YakumanResolver {
             }
         }
 
-        for (Kantsu kantsu : kantsuList) {
-            if (kantsu.getTile().getType() == MahjongTileType.SANGEN) {
-                sangenCount++;
-            }
-        }
         return sangenCount == 3;
     }
 }

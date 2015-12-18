@@ -1,8 +1,10 @@
 package org.mahjong4j.yaku.yakuman;
 
-import org.mahjong4j.hands.Kantsu;
 import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
+import org.mahjong4j.hands.Toitsu;
+
+import java.util.List;
 
 import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.CHINROTO;
 
@@ -13,10 +15,14 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.CHINROTO;
  * @author yu1ro
  */
 public class ChinrohtohResolver implements YakumanResolver {
-    private MentsuComp comp;
+    private int totalKotsuKantsu;
+    private List<Kotsu> kotsuList;
+    private Toitsu janto;
 
     public ChinrohtohResolver(MentsuComp comp) {
-        this.comp = comp;
+        totalKotsuKantsu = comp.getKotsuCount() + comp.getKantsuCount();
+        kotsuList = comp.getKotsuKantsu();
+        janto = comp.getJanto();
     }
 
     public MahjongYakumanEnum getYakuman() {
@@ -29,27 +35,18 @@ public class ChinrohtohResolver implements YakumanResolver {
      * @return 清老頭かどうか
      */
     public boolean isMatch() {
-        int total = comp.getKotsuCount() + comp.getKantsuCount();
-        if (total != 4) {
+        if (totalKotsuKantsu != 4) {
             return false;
         }
 
-        int tileNum = comp.getToitsuList().get(0).getTile().getNumber();
+        int tileNum = janto.getTile().getNumber();
         if (tileNum != 1 && tileNum != 9) {
             return false;
         }
 
         //刻子が全て一九牌か
-        for (Kotsu kotsu : comp.getKotsuList()) {
+        for (Kotsu kotsu : kotsuList) {
             tileNum = kotsu.getTile().getNumber();
-            if (tileNum != 1 && tileNum != 9) {
-                return false;
-            }
-        }
-
-        //槓子が全て一九牌か
-        for (Kantsu kantsu : comp.getKantsuList()) {
-            tileNum = kantsu.getTile().getNumber();
             if (tileNum != 1 && tileNum != 9) {
                 return false;
             }
