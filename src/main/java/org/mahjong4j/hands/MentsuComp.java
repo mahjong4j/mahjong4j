@@ -99,6 +99,7 @@ public class MentsuComp {
     /**
      * 刻子でも槓子でも役の判定に影響しない場合に利用します
      * 刻子と槓子をまとめて返します。
+     * TODO:good name
      *
      * @return 刻子と槓子をまとめたリスト
      */
