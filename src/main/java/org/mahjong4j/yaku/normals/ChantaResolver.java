@@ -5,6 +5,8 @@ import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.hands.Shuntsu;
 
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.CHANTA;
+
 /**
  * チャンタ判定クラス
  * 123の順子と789の順子、および一九字牌の対子と刻子
@@ -13,8 +15,7 @@ import org.mahjong4j.hands.Shuntsu;
  * @author yu1ro
  */
 public class ChantaResolver implements NormalYakuResolver {
-    final int HAN = MahjongYakuEnum.CHANTA.getHan();
-    final int KUISAGARI = MahjongYakuEnum.CHANTA.getKuisagari();
+    private final MahjongYakuEnum yakuEnum = CHANTA;
 
     private MentsuComp comp;
 
@@ -22,12 +23,8 @@ public class ChantaResolver implements NormalYakuResolver {
         this.comp = comp;
     }
 
-    public int getHan() {
-        return HAN;
-    }
-
     public MahjongYakuEnum getNormalYaku() {
-        return MahjongYakuEnum.CHANTA;
+        return yakuEnum;
     }
 
     public boolean isMatch() {

@@ -11,7 +11,7 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  */
 public class HonrohtohResolver implements NormalYakuResolver {
-    final int HAN = MahjongYakuEnum.HONROHTOH.getHan();
+    final MahjongYakuEnum yakuEnum = MahjongYakuEnum.HONROHTOH;
 
     int[] honroHands = {
         1, 0, 0, 0, 0, 0, 0, 0, 1,
@@ -24,19 +24,13 @@ public class HonrohtohResolver implements NormalYakuResolver {
 
     }
 
-
-    public int getHan() {
-        return HAN;
+    public MahjongYakuEnum getNormalYaku() {
+        return yakuEnum;
     }
 
     public boolean isMatch() {
         return false;
     }
-
-    public MahjongYakuEnum getNormalYaku() {
-        return null;
-    }
-
 
     public boolean isHonrohtoh(MahjongTile[] kotsu, MahjongTile janto) {
         /*

@@ -2,6 +2,8 @@ package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.hands.MentsuComp;
 
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.TANYAO;
+
 /**
  * 断么九判定クラス
  * 么九牌（一九字牌）を一切使わず、中張牌（数牌の2〜8）のみを使って手牌を完成させた場合に成立
@@ -9,7 +11,7 @@ import org.mahjong4j.hands.MentsuComp;
  * @author yu1ro
  */
 public class TanyaoResolver implements NormalYakuResolver {
-    private final int HAN = MahjongYakuEnum.TANYAO.getHan();
+    private MahjongYakuEnum yakuEnum = TANYAO;
     private final int[] tanyao = {
         0, 1, 1, 1, 1, 1, 1, 1, 0,
         0, 1, 1, 1, 1, 1, 1, 1, 0,
@@ -22,16 +24,12 @@ public class TanyaoResolver implements NormalYakuResolver {
 
     }
 
-    public int getHan() {
-        return HAN;
+    public MahjongYakuEnum getNormalYaku() {
+        return yakuEnum;
     }
 
     public boolean isMatch() {
         return false;
-    }
-
-    public MahjongYakuEnum getNormalYaku() {
-        return null;
     }
 
     public boolean isTanyao(int[] hands) {

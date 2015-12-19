@@ -30,11 +30,6 @@ public class HatsuResolverTest {
     }
 
     @Test
-    public void testGetHan() throws Exception {
-        assertEquals(1, resolver.getHan());
-    }
-
-    @Test
     public void testGetNormalYaku() throws Exception {
         assertEquals(MahjongYakuEnum.HATSU, resolver.getNormalYaku());
     }

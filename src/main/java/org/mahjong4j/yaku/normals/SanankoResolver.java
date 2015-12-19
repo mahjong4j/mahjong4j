@@ -4,6 +4,8 @@ package org.mahjong4j.yaku.normals;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SANANKO;
+
 /**
  * 三暗刻判定クラス
  * 暗刻が３つ存在する場合に成立
@@ -11,22 +13,18 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  */
 public class SanankoResolver implements NormalYakuResolver {
-    final int HAN = MahjongYakuEnum.SANANKO.getHan();
+    private MahjongYakuEnum yakuEnum = SANANKO;
 
     public SanankoResolver(MentsuComp hands) {
 
     }
 
-    public int getHan() {
-        return HAN;
+    public MahjongYakuEnum getNormalYaku() {
+        return yakuEnum;
     }
 
     public boolean isMatch() {
         return false;
-    }
-
-    public MahjongYakuEnum getNormalYaku() {
-        return null;
     }
 
     public boolean isSananko(MahjongTile[] kotsu) {
