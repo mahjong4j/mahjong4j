@@ -1,6 +1,5 @@
 package org.mahjong4j.yaku.yakuman;
 
-import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
@@ -12,9 +11,18 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.DAISUSHI;
  *         大四喜判定クラス
  */
 public class DaisushiResolver implements YakumanResolver {
+    private MahjongYakumanEnum yakuman = DAISUSHI;
 
     public DaisushiResolver(MentsuComp hands) {
 
+    }
+
+    public MahjongYakumanEnum getYakuman() {
+        return yakuman;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 
     public boolean isDaisushi(MahjongTile[] kotsu) {
@@ -27,13 +35,5 @@ public class DaisushiResolver implements YakumanResolver {
         }
 
         return sushiCount == 4;
-    }
-
-    public MahjongYakumanEnum getYakuman() {
-        return DAISUSHI;
-    }
-
-    public boolean isMatch() {
-        return false;
     }
 }

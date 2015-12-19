@@ -15,14 +15,16 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.DAISANGEN;
  * @author yu1ro
  */
 public class DaisangenResolver implements YakumanResolver {
-    List<Kotsu> kotsuList;
+    private MahjongYakumanEnum yakuman = DAISANGEN;
+
+    private List<Kotsu> kotsuList;
 
     public DaisangenResolver(MentsuComp comp) {
         kotsuList = comp.getKotsuKantsu();
     }
 
     public MahjongYakumanEnum getYakuman() {
-        return DAISANGEN;
+        return yakuman;
     }
 
     public boolean isMatch() {

@@ -15,6 +15,7 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.CHINROTO;
  * @author yu1ro
  */
 public class ChinrohtohResolver implements YakumanResolver {
+    private MahjongYakumanEnum yakuman = CHINROTO;
     private int totalKotsuKantsu;
     private List<Kotsu> kotsuList;
     private Toitsu janto;
@@ -26,7 +27,7 @@ public class ChinrohtohResolver implements YakumanResolver {
     }
 
     public MahjongYakumanEnum getYakuman() {
-        return CHINROTO;
+        return yakuman;
     }
 
     /**
