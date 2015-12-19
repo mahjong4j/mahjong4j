@@ -11,6 +11,7 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.CHURENPOHTO;
  *         九蓮宝燈判定クラス
  */
 public class ChurenpohtohResolver implements YakumanResolver {
+    private MahjongYakumanEnum yakuman = CHURENPOHTO;
 
     final int[] churenManzu = {
         3, 1, 1, 1, 1, 1, 1, 1, 3,
@@ -102,7 +103,7 @@ public class ChurenpohtohResolver implements YakumanResolver {
     }
 
     public MahjongYakumanEnum getYakuman() {
-        return CHURENPOHTO;
+        return yakuman;
     }
 
     public boolean isMatch() {

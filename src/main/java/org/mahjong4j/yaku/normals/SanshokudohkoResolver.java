@@ -5,6 +5,8 @@ import org.mahjong4j.tile.MahjongTile;
 
 import java.util.ArrayList;
 
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SANSHOKUDOHKO;
+
 /**
  * 三色同刻判定クラス
  * 萬子・索子・筒子それぞれの色で同じ数字の刻子（槓子も含む）を作ったときに成立
@@ -12,7 +14,7 @@ import java.util.ArrayList;
  * @author yu1ro
  */
 public class SanshokudohkoResolver implements NormalYakuResolver {
-    final int HAN = MahjongYakuEnum.SANSHOKUDOHKO.getKuisagari();
+    private MahjongYakuEnum yakuEnum = SANSHOKUDOHKO;
 
     boolean manzu;
     boolean pinzu;
@@ -22,13 +24,8 @@ public class SanshokudohkoResolver implements NormalYakuResolver {
 
     }
 
-    public int getHan() {
-        return HAN;
-    }
-
-
     public MahjongYakuEnum getNormalYaku() {
-        return null;
+        return yakuEnum;
     }
 
     public boolean isMatch() {

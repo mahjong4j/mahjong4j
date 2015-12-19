@@ -14,24 +14,20 @@ import java.util.List;
  * @author yu1ro
  */
 public class HatsuResolver implements NormalYakuResolver {
-    private final int HAN = MahjongYakuEnum.HATSU.getHan();
-    List<Kotsu> kotsuList;
+    private MahjongYakuEnum yakuEnum = MahjongYakuEnum.HATSU;
+    private List<Kotsu> kotsuList;
 
     public HatsuResolver(MentsuComp comp) {
         kotsuList = comp.getKotsuKantsu();
     }
 
-    public int getHan() {
-        return HAN;
-    }
-
     public MahjongYakuEnum getNormalYaku() {
-        return MahjongYakuEnum.HATSU;
+        return yakuEnum;
     }
 
     public boolean isMatch() {
         for (Kotsu kotsu : kotsuList) {
-            if (kotsu.getTile() == MahjongTile.HAT){
+            if (kotsu.getTile() == MahjongTile.HAT) {
                 return true;
             }
         }

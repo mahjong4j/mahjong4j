@@ -3,6 +3,8 @@ package org.mahjong4j.yaku.normals;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.JUNCHAN;
+
 /**
  * 純チャン判定クラス
  * 123の順子と789の順子、および111、999といった老頭牌の刻子もしくは槓子
@@ -11,9 +13,8 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  */
 public class JunchanResolver implements NormalYakuResolver {
+    private MahjongYakuEnum yakuEnum = JUNCHAN;
 
-    final int HAN = MahjongYakuEnum.JUNCHAN.getHan();
-    final int KUISAGARI = MahjongYakuEnum.JUNCHAN.getHan();
     int[] shuntsuHands = {
         0, 1, 0, 0, 0, 0, 0, 1, 0,
         0, 1, 0, 0, 0, 0, 0, 1, 0,
@@ -31,12 +32,8 @@ public class JunchanResolver implements NormalYakuResolver {
 
     }
 
-    public int getHan() {
-        return HAN;
-    }
-
     public MahjongYakuEnum getNormalYaku() {
-        return null;
+        return yakuEnum;
     }
 
     public boolean isMatch() {

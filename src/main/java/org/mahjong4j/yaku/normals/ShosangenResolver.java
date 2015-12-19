@@ -5,6 +5,8 @@ import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.tile.MahjongTileType;
 
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SHOSANGEN;
+
 /**
  * 小三元判定クラス
  * 三元牌のいずれかを雀頭とし、残り2つを刻子もしくは槓子にすることで成立
@@ -12,7 +14,7 @@ import org.mahjong4j.tile.MahjongTileType;
  * @author yu1ro
  */
 public class ShosangenResolver implements NormalYakuResolver {
-    final int HAN = MahjongYakuEnum.SHOSANGEN.getHan();
+    private MahjongYakuEnum yakuEnum = SHOSANGEN;
 
     boolean haku;
     boolean hatsu;
@@ -22,13 +24,8 @@ public class ShosangenResolver implements NormalYakuResolver {
 
     }
 
-    public int getHan() {
-        return HAN;
-    }
-
-
     public MahjongYakuEnum getNormalYaku() {
-        return null;
+        return yakuEnum;
     }
 
     public boolean isMatch() {

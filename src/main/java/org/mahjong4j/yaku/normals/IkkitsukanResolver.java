@@ -7,6 +7,8 @@ import org.mahjong4j.tile.MahjongTileType;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.IKKITSUKAN;
+
 /**
  * 一気通貫判定クラス
  * 同種の数牌で123・456・789と揃えると成立
@@ -14,7 +16,7 @@ import java.util.List;
  * @author yu1ro
  */
 public class IkkitsukanResolver implements NormalYakuResolver {
-    final int HAN = MahjongYakuEnum.IKKITSUKAN.getHan();
+    private MahjongYakuEnum yakuEnum = IKKITSUKAN;
 
     private List<Shuntsu> shuntsuList;
     private int shuntsuCount;
@@ -24,13 +26,8 @@ public class IkkitsukanResolver implements NormalYakuResolver {
         shuntsuCount = comp.getShuntsuCount();
     }
 
-    public int getHan() {
-        return HAN;
-    }
-
-
     public MahjongYakuEnum getNormalYaku() {
-        return MahjongYakuEnum.IKKITSUKAN;
+        return yakuEnum;
     }
 
     public boolean isMatch() {

@@ -4,6 +4,8 @@ package org.mahjong4j.yaku.normals;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.PINFU;
+
 /**
  * 平和判定クラス
  * 面子が全て順子で、雀頭が役牌でなく、待ちが両面待ちになっている場合に成立
@@ -11,9 +13,8 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  */
 public class PinfuResolver implements NormalYakuResolver {
+    private MahjongYakuEnum yakuEnum = PINFU;
 
-    final int KUISAGARI = MahjongYakuEnum.PINFU.getHan();
-    private final int HAN = MahjongYakuEnum.PINFU.getHan();
     private MahjongTile jikazeHai, bakazeHai;
     //boolean naki = false;
 
@@ -22,13 +23,8 @@ public class PinfuResolver implements NormalYakuResolver {
 
     }
 
-    public int getHan() {
-        return HAN;
-    }
-
-
     public MahjongYakuEnum getNormalYaku() {
-        return null;
+        return yakuEnum;
     }
 
     public boolean isMatch() {

@@ -1,20 +1,21 @@
 package org.mahjong4j.yaku.yakuman;
 
-import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.hands.MentsuComp;
+
+import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.KOKUSHIMUSO;
 
 /**
  * @author yu1ro
  *         国士無双判定クラス
  */
 public class KokushimusoResolver implements YakumanResolver {
+    private MahjongYakumanEnum yakuman = KOKUSHIMUSO;
     public static final int[] kokushi = {
         1, 0, 0, 0, 0, 0, 0, 0, 1,
         1, 0, 0, 0, 0, 0, 0, 0, 1,
         1, 0, 0, 0, 0, 0, 0, 0, 1,
         1, 1, 1, 1,
         1, 1, 1};
-    public final int HAN = 13;
     int[] hands = new int[34];
 
     public KokushimusoResolver(MentsuComp hands) {
@@ -64,7 +65,7 @@ public class KokushimusoResolver implements YakumanResolver {
     }
 
     public MahjongYakumanEnum getYakuman() {
-        return MahjongYakumanEnum.KOKUSHIMUSO;
+        return yakuman;
     }
 
     public boolean isMatch() {

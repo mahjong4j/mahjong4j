@@ -11,22 +11,18 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  */
 public class ChunResolver implements NormalYakuResolver {
-    private final int HAN = MahjongYakuEnum.CHUN.getHan();
+    private MahjongYakuEnum yakuEnum = MahjongYakuEnum.CHUN;
 
     public ChunResolver(MentsuComp hands) {
 
     }
 
-    public int getHan() {
-        return HAN;
+    public MahjongYakuEnum getNormalYaku() {
+        return yakuEnum;
     }
 
     public boolean isMatch() {
         return false;
-    }
-
-    public MahjongYakuEnum getNormalYaku() {
-        return null;
     }
 
     public boolean isChun(MahjongTile[] kotsu) {

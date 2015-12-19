@@ -3,6 +3,8 @@ package org.mahjong4j.yaku.normals;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.IPEIKO;
+
 /**
  * 一盃口判定クラス
  * 223344など、同種同数の順子が2組ある場合に成立
@@ -11,23 +13,18 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  */
 public class IpeikoResolver implements NormalYakuResolver {
-    final int HAN = MahjongYakuEnum.IPEIKO.getHan();
-    final int KUISAGARI = MahjongYakuEnum.IPEIKO.getKuisagari();
+    private MahjongYakuEnum yakuEnum = IPEIKO;
 
     public IpeikoResolver(MentsuComp hands) {
 
     }
 
-    public int getHan() {
-        return HAN;
+    public MahjongYakuEnum getNormalYaku() {
+        return yakuEnum;
     }
 
     public boolean isMatch() {
         return false;
-    }
-
-    public MahjongYakuEnum getNormalYaku() {
-        return null;
     }
 
 

@@ -4,6 +4,8 @@ package org.mahjong4j.yaku.normals;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.CHITOITSU;
+
 /**
  * 七対子判定クラス
  * 対子のみで構成された場合成立
@@ -15,11 +17,19 @@ public class ChitoitsuResolver implements NormalYakuResolver {
     /*
      * 七対子のクラス
      */
-    final int HAN = MahjongYakuEnum.CHITOITSU.getHan();
+    private MahjongYakuEnum yakuEnum = CHITOITSU;
     int[] hands = new int[34];
 
     public ChitoitsuResolver(MentsuComp hands) {
 
+    }
+
+    public MahjongYakuEnum getNormalYaku() {
+        return yakuEnum;
+    }
+
+    public boolean isMatch() {
+        return false;
     }
 
     /**
@@ -44,18 +54,6 @@ public class ChitoitsuResolver implements NormalYakuResolver {
 
     public MahjongTile[] getToitsu() {
         return toitsu;
-    }
-
-    public int getHan() {
-        return HAN;
-    }
-
-    public boolean isMatch() {
-        return false;
-    }
-
-    public MahjongYakuEnum getNormalYaku() {
-        return null;
     }
 
     public boolean isChitoi() {

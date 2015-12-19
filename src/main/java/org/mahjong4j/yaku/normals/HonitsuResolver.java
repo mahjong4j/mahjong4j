@@ -16,7 +16,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.HONITSU;
  * @author yu1ro
  */
 public class HonitsuResolver implements NormalYakuResolver {
-    final int HAN = HONITSU.getHan();
+    final MahjongYakuEnum yakuEnum = HONITSU;
 
     private List<MahjongMentsu> allMentsu;
 
@@ -27,12 +27,8 @@ public class HonitsuResolver implements NormalYakuResolver {
         allMentsu = comp.getAllMentsu();
     }
 
-    public int getHan() {
-        return HAN;
-    }
-
     public MahjongYakuEnum getNormalYaku() {
-        return HONITSU;
+        return yakuEnum;
     }
 
     public boolean isMatch() {

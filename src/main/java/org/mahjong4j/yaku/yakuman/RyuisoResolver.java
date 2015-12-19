@@ -19,6 +19,7 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.RYUISO;
  * @author yu1ro
  */
 public class RyuisoResolver implements YakumanResolver {
+    private MahjongYakumanEnum yakuman = RYUISO;
     private List<Toitsu> toitsuList;
     private List<Shuntsu> shuntsuList;
     private List<Kotsu> kotsuList;
@@ -30,7 +31,7 @@ public class RyuisoResolver implements YakumanResolver {
     }
 
     public MahjongYakumanEnum getYakuman() {
-        return RYUISO;
+        return yakuman;
     }
 
     public boolean isMatch() {

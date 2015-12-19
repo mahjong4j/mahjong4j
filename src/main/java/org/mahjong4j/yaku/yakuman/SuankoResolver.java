@@ -15,7 +15,7 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.SUANKO;
  * @author yu1ro
  */
 public class SuankoResolver implements YakumanResolver {
-
+    private MahjongYakumanEnum yakuman = SUANKO;
     private final int count;
     private final List<Kotsu> kotsuList;
 
@@ -25,7 +25,7 @@ public class SuankoResolver implements YakumanResolver {
     }
 
     public MahjongYakumanEnum getYakuman() {
-        return SUANKO;
+        return yakuman;
     }
 
     public boolean isMatch() {

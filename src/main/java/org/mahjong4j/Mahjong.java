@@ -33,6 +33,14 @@ public class Mahjong {
         this.hands = hands;
     }
 
+    public List<MahjongYakumanEnum> getYakumanList() {
+        return yakumanList;
+    }
+
+    public List<MahjongYakuEnum> getNormalYakuList() {
+        return normalYakuList;
+    }
+
     public void calculate() {
         //和了れない場合は即座に終了
         if (!hands.getCanWin()) return;
@@ -50,7 +58,6 @@ public class Mahjong {
     }
 
     /**
-     *
      * @return 役満が見つかったか
      */
     private boolean findYakuman() {
@@ -77,15 +84,9 @@ public class Mahjong {
         return yakumanList.size() > 0;
     }
 
-    public List<MahjongYakumanEnum> getYakumanList() {
-        return yakumanList;
-    }
-
-    public List<MahjongYakuEnum> getNormalYakuList() {
-        return normalYakuList;
-    }
-
-
+    /**
+     *
+     */
     public void findNormalYaku() {
         //役をストックしておく
         List<MahjongYakuEnum> yakuStock = new ArrayList<>(7);
@@ -98,14 +99,32 @@ public class Mahjong {
                     yakuStock.add(resolver.getNormalYaku());
                 }
             }
-            int hanSum = 0;
-            for (MahjongYakuEnum yaku : yakuStock) {
-                hanSum += yaku.getHan();
-            }
+
+            int hanSum = calcHanSum(yakuStock);
             if (hanSum > this.han) {
                 han = hanSum;
                 normalYakuList = yakuStock;
             }
         }
+    }
+
+    /**
+     * 手牌が食い下がる形かも判定し、翻の合計を計算し、返します
+     *
+     * @param yakuStock 役のストック
+     * @return 翻数の合計
+     */
+    private int calcHanSum(List<MahjongYakuEnum> yakuStock) {
+        int hanSum = 0;
+        if (hands.getIsKuisagari()) {
+            for (MahjongYakuEnum yaku : yakuStock) {
+                hanSum += yaku.getKuisagari();
+            }
+        } else {
+            for (MahjongYakuEnum yaku : yakuStock) {
+                hanSum += yaku.getHan();
+            }
+        }
+        return hanSum;
     }
 }
