@@ -3,15 +3,14 @@ package org.mahjong4j.yaku.normals;
 /**
  * 役一覧列挙
  * 翻数,食い下がり翻数,日本語
+ * 役満は別です
  * TODO:Add English
  *
  * @author yu1ro
+ * @see org.mahjong4j.yaku.yakuman.MahjongYakumanEnum
  */
 public enum MahjongYakuEnum {
-    /*
-     * 役の一覧です
-     * 役満は別です
-     */
+
     TANYAO(1, 1, "タンヤオ"),
     TSUMO(1, 0, "ツモ"),
     PINFU(1, 0, "平和"),

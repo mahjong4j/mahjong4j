@@ -35,6 +35,9 @@ public class MahjongHands {
     //あがれるか
     private boolean canWin = false;
 
+    //食い下がりかどうか
+    private boolean isKuisagari = false;
+
     // ------------------------ストック系----------------------
 
     // コンストラクタで入力された面子リスト
@@ -102,6 +105,11 @@ public class MahjongHands {
         System.arraycopy(otherTiles, 0, handsComp, 0, otherTiles.length);
         for (MahjongMentsu mentsu : mentsuList) {
             int code = mentsu.getTile().getCode();
+
+            if (mentsu.getIsOpen()) {
+                isKuisagari = true;
+            }
+
             if (mentsu instanceof Shuntsu) {
                 handsComp[code - 1] += 1;
                 handsComp[code] += 1;
@@ -214,7 +222,7 @@ public class MahjongHands {
      * 雀頭の分をストックから減らします
      *
      * @param winCandidate 面子の候補
-     * @param toitsu        この検索サイクルの雀頭候補
+     * @param toitsu       この検索サイクルの雀頭候補
      */
     private void init(List<MahjongMentsu> winCandidate, Toitsu toitsu) {
         // 操作変数を初期化
@@ -297,5 +305,9 @@ public class MahjongHands {
 
     public boolean getIsKokushimuso() {
         return isKokushimuso;
+    }
+
+    public boolean getIsKuisagari() {
+        return isKuisagari;
     }
 }
