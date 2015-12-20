@@ -2,7 +2,7 @@
 [![Stories in Ready](https://badge.waffle.io/yu1ro/mahjong4j.png?label=ready&title=Ready)](https://waffle.io/yu1ro/mahjong4j)
 [![Build Status](https://travis-ci.org/yu1ro/mahjong4j.svg?branch=master)](https://travis-ci.org/yu1ro/mahjong4j)
 [![codecov.io](https://codecov.io/github/yu1ro/mahjong4j/coverage.svg?branch=master)](https://codecov.io/github/yu1ro/mahjong4j?branch=master)
-[![overity Scan Build Status](https://scan.coverity.com/projects/7164/badge.svg)](https://scan.coverity.com/projects/yu1ro-mahjong4j)
+[![coverity Scan Build Status](https://scan.coverity.com/projects/7164/badge.svg)](https://scan.coverity.com/projects/yu1ro-mahjong4j)
 [![Join the chat at https://gitter.im/yu1ro/mahjong4j](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/yu1ro/mahjong4j?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 # mahjong4j
@@ -15,24 +15,9 @@ Androidで動いて欲しいのでJava7に対応させます
 - いくつかの役かどうかの判定ができます
 
 ## 使い方
-### MahjongHands(手牌)クラス
-1. MahjongHandsクラスに手牌を入れて下さい
-1. MahjongHandsでは手牌が和了の形かどうかを判定したり、
-1. 順子や刻子に振り分けます
+wikiをご覧ください
 
-### Mahjong(麻雀)クラス
-1. 先ほどのMahjongHandsのインスタンスを投げます
-1. 現状ではcalcYakuman()を実行すると役満かどうかを判定
-1. getYakumanList()で合致する役満のEnumを返します。（現在は清老頭・字一色・大三元のみ）
-1. getNormalYakuList()で合致する通常役のEnumを返します。（現在はチャンタ・清一色のみ）
-
-詳細はsrc/test/java/
-
-の
-
-org.mahjong4j.ChinrohtohTest
-
-を見て頂ければ確認頂けると思います
+テストもご覧ください
 
 # Contributing
 手が出せるOSSを目指します
