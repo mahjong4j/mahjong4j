@@ -169,7 +169,8 @@ public class MahjongHands {
 
         // 国士無双型の判定
         initStock();
-        if (KokushimusoResolver.isMatch(handStocks)) {
+        KokushimusoResolver kokushimuso = new KokushimusoResolver(handStocks);
+        if (kokushimuso.isMatch()) {
             isKokushimuso = true;
             canWin = true;
             return;

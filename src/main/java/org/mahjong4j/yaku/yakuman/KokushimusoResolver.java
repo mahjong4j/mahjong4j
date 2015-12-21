@@ -1,28 +1,33 @@
 package org.mahjong4j.yaku.yakuman;
 
-import org.mahjong4j.hands.MentsuComp;
-
-import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.KOKUSHIMUSO;
-
 /**
+ * 国士無双判定クラス
+ * 特殊な形で和了るため
+ * YakumanResolverはimplementsせず、
+ * 別のルートで判定します
+ * 具体的にはMahjongHandsクラスでこのクラスのisMatchで判定し
+ * 国士無双の形で和了ったことを保持しておき、
+ * Mahjongクラスでそのことを呼び出すことで
+ *
  * @author yu1ro
- *         国士無双判定クラス
+ * @see org.mahjong4j.hands.MahjongHands
+ * @see org.mahjong4j.Mahjong
  */
-public class KokushimusoResolver implements YakumanResolver {
-    private MahjongYakumanEnum yakuman = KOKUSHIMUSO;
+public class KokushimusoResolver {
     public static final int[] kokushi = {
         1, 0, 0, 0, 0, 0, 0, 0, 1,
         1, 0, 0, 0, 0, 0, 0, 0, 1,
         1, 0, 0, 0, 0, 0, 0, 0, 1,
         1, 1, 1, 1,
-        1, 1, 1};
-    int[] hands = new int[34];
+        1, 1, 1
+    };
+    private int[] hands;
 
-    public KokushimusoResolver(MentsuComp hands) {
-
+    public KokushimusoResolver(int[] hands) {
+        this.hands = hands;
     }
 
-    public static boolean isMatch(int[] hands) {
+    public boolean isMatch() {
         //国士の形一個ずつ減らす
         int count = 0;
         for (int i = 0; i < hands.length; i++) {
@@ -42,7 +47,6 @@ public class KokushimusoResolver implements YakumanResolver {
             }
         }
         if (count == 1) {
-
             //残ってるのが么九牌1つならtrue
             if (hands[0] == 1 ||
                 hands[8] == 1 ||
@@ -61,14 +65,6 @@ public class KokushimusoResolver implements YakumanResolver {
             }
         }
         //残ってるのが１個以外ならfalse
-        return false;
-    }
-
-    public MahjongYakumanEnum getYakuman() {
-        return yakuman;
-    }
-
-    public boolean isMatch() {
         return false;
     }
 }
