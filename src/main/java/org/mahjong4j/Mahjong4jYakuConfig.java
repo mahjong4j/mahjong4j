@@ -14,12 +14,12 @@ import java.util.List;
  */
 public class Mahjong4jYakuConfig {
     public static List<YakumanResolver> getYakumanResolverList(MentsuComp comp) {
+        //国士無双は特殊なので、ここでは扱いません
         List<YakumanResolver> yakumanResolverList = new ArrayList<>(9);
         yakumanResolverList.add(new ChinrohtohResolver(comp));
         yakumanResolverList.add(new ChurenpohtohResolver(comp));
         yakumanResolverList.add(new DaisangenResolver(comp));
         yakumanResolverList.add(new DaisushiResolver(comp));
-        yakumanResolverList.add(new KokushimusoResolver(comp));
         yakumanResolverList.add(new RyuisoResolver(comp));
         yakumanResolverList.add(new ShosushiResolver(comp));
         yakumanResolverList.add(new SuankoResolver(comp));
