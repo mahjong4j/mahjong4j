@@ -1,8 +1,13 @@
 package org.mahjong4j.yaku.normals;
 
 
+import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.hands.Toitsu;
+
+import java.util.List;
+
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.HONROHTOH;
 
 /**
  * 混老頭判定クラス
@@ -11,62 +16,38 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  */
 public class HonrohtohResolver implements NormalYakuResolver {
-    final MahjongYakuEnum yakuEnum = MahjongYakuEnum.HONROHTOH;
+    private final MahjongYakuEnum yakuEnum = HONROHTOH;
 
-    int[] honroHands = {
-        1, 0, 0, 0, 0, 0, 0, 0, 1,
-        1, 0, 0, 0, 0, 0, 0, 0, 1,
-        1, 0, 0, 0, 0, 0, 0, 0, 1,
-        1, 1, 1, 1,
-        1, 1, 1};
+    private List<Toitsu> toitsuList;
+    private List<Kotsu> kotsuList;
 
-    public HonrohtohResolver(MentsuComp hands) {
-
+    public HonrohtohResolver(MentsuComp comp) {
+        toitsuList = comp.getToitsuList();
+        kotsuList = comp.getKotsuKantsu();
     }
 
     public MahjongYakuEnum getNormalYaku() {
         return yakuEnum;
     }
 
+    /**
+     * 么九牌以外を見つけたらfalseを返す
+     * @return 混老頭かどうか
+     */
     public boolean isMatch() {
-        return false;
-    }
-
-    public boolean isHonrohtoh(MahjongTile[] kotsu, MahjongTile janto) {
-        /*
-         * 通常型用
-         * 七対子用は別
-         */
-        //全部刻子で無ければfalse
-        if (kotsu[3] == null) {
-            return false;
-        }
-
-        int count = 0;
-        for (int i = 0; i < 4; i++) {
-            if (honroHands[kotsu[i].getCode()] == 1) {
-                count++;
+        for (Toitsu toitsu : toitsuList) {
+            int num = toitsu.getTile().getNumber();
+            if (1 < num && num < 9) {
+                return false;
             }
         }
 
-        return count == 4 && honroHands[janto.getCode()] == 1;
-    }
-
-    public boolean isHonrohtoh(MahjongTile[] toitsu) {
-        /*
-         * 七対子用
-         * 字一色でもtrueになっちゃいます
-         */
-        if (toitsu[6] == null) {
-            return false;
-        }
-
-        int count = 0;
-        for (int i = 0; i < 7; i++) {
-            if (honroHands[toitsu[i].getCode()] == 1) {
-                count++;
+        for (Kotsu kotsu : kotsuList) {
+            int num = kotsu.getTile().getNumber();
+            if (1 < num && num < 9) {
+                return false;
             }
         }
-        return count == 7;
+        return true;
     }
 }
