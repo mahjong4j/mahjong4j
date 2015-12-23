@@ -1,7 +1,11 @@
 package org.mahjong4j.yaku.normals;
 
+import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.hands.Shuntsu;
+import org.mahjong4j.hands.Toitsu;
+
+import java.util.List;
 
 import static org.mahjong4j.yaku.normals.MahjongYakuEnum.JUNCHAN;
 
@@ -13,23 +17,15 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.JUNCHAN;
  * @author yu1ro
  */
 public class JunchanResolver implements NormalYakuResolver {
+    private final Toitsu janto;
+    private final List<Shuntsu> shuntsuList;
+    private final List<Kotsu> kotsuList;
     private MahjongYakuEnum yakuEnum = JUNCHAN;
 
-    int[] shuntsuHands = {
-        0, 1, 0, 0, 0, 0, 0, 1, 0,
-        0, 1, 0, 0, 0, 0, 0, 1, 0,
-        0, 1, 0, 0, 0, 0, 0, 1, 0,
-        0, 0, 0, 0,
-        0, 0, 0};
-    int[] kotsuHands = {
-        1, 0, 0, 0, 0, 0, 0, 0, 1,
-        1, 0, 0, 0, 0, 0, 0, 0, 1,
-        1, 0, 0, 0, 0, 0, 0, 0, 1,
-        0, 0, 0, 0,
-        0, 0, 0};
-
-    public JunchanResolver(MentsuComp hands) {
-
+    public JunchanResolver(MentsuComp comp) {
+        janto = comp.getJanto();
+        shuntsuList = comp.getShuntsuList();
+        kotsuList = comp.getKotsuKantsu();
     }
 
     public MahjongYakuEnum getNormalYaku() {
@@ -37,27 +33,23 @@ public class JunchanResolver implements NormalYakuResolver {
     }
 
     public boolean isMatch() {
-        return false;
-    }
-
-    public boolean isJunchan(MahjongTile[] shuntsu, MahjongTile[] kotsu, MahjongTile janto) {
-        int count = 0;//これが4になれば全部么九牌を含み、字牌は含まない
-
-        //まずは順子
-        for (int i = 0; i < shuntsu.length && shuntsu[i] != null; i++) {
-            if (shuntsuHands[shuntsu[i].getCode()] == 1) {
-                count++;
+        if (janto == null) {
+            return false;
+        }
+        for (Shuntsu shuntsu : shuntsuList) {
+            int num = shuntsu.getTile().getNumber();
+            if (num != 2 && num != 8) {
+                return false;
             }
         }
 
-        //次に刻子
-        for (int i = 0; i < kotsu.length && kotsu[i] != null; i++) {
-            if (kotsuHands[kotsu[i].getCode()] == 1) {
-                count++;
+        for (Kotsu kotsu : kotsuList) {
+            int num = kotsu.getTile().getNumber();
+            if (num != 1 && num != 9) {
+                return false;
             }
         }
 
-        //4になってるかと雀頭もチェック
-        return count == 4 && kotsuHands[janto.getCode()] == 1;
+        return true;
     }
 }
