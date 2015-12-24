@@ -48,6 +48,7 @@ public class Mahjong4jYakuConfig {
         normalYakuResolverList.add(new SanshokudohkoResolver(comp));
         normalYakuResolverList.add(new ShosangenResolver(comp));
         normalYakuResolverList.add(new TanyaoResolver(comp));
+        normalYakuResolverList.add(new ToitoihoResolver(comp));
 
         return normalYakuResolverList;
     }
