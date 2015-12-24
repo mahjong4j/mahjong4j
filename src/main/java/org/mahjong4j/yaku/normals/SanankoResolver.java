@@ -1,8 +1,10 @@
 package org.mahjong4j.yaku.normals;
 
 
+import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
-import org.mahjong4j.tile.MahjongTile;
+
+import java.util.List;
 
 import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SANANKO;
 
@@ -14,9 +16,12 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SANANKO;
  */
 public class SanankoResolver implements NormalYakuResolver {
     private MahjongYakuEnum yakuEnum = SANANKO;
+    private List<Kotsu> kotsuList;
+    private int kotsuCount;
 
-    public SanankoResolver(MentsuComp hands) {
-
+    public SanankoResolver(MentsuComp comp) {
+        kotsuList = comp.getKotsuKantsu();
+        kotsuCount = comp.getKotsuCount() + comp.getKantsuCount();
     }
 
     public MahjongYakuEnum getNormalYaku() {
@@ -24,10 +29,16 @@ public class SanankoResolver implements NormalYakuResolver {
     }
 
     public boolean isMatch() {
-        return false;
-    }
+        if (kotsuCount < 3) {
+            return false;
+        }
 
-    public boolean isSananko(MahjongTile[] kotsu) {
-        return kotsu[2] != null;
+        int ankoCount = 0;
+        for (Kotsu kotsu : kotsuList) {
+            if (!kotsu.getIsOpen()) {
+                ankoCount++;
+            }
+        }
+        return ankoCount == 3;
     }
 }
