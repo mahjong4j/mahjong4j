@@ -32,6 +32,11 @@ public class ShosangenResolver implements NormalYakuResolver {
     }
 
     public boolean isMatch() {
+        //七対子の場合はありえないのでfalse
+        if (janto == null) {
+            return false;
+        }
+
         if (janto.getTile().getType() != MahjongTileType.SANGEN) {
             return false;
         }
