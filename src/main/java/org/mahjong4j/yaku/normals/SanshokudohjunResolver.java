@@ -1,9 +1,10 @@
 package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.hands.MentsuComp;
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.hands.Shuntsu;
+import org.mahjong4j.tile.MahjongTileType;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SANSHOKUDOHJUN;
 
@@ -15,12 +16,12 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SANSHOKUDOHJUN;
  */
 public class SanshokudohjunResolver implements NormalYakuResolver {
     private MahjongYakuEnum yakuEnum = SANSHOKUDOHJUN;
-    boolean manzu;
-    boolean pinzu;
-    boolean sohzu;
+    private int shuntsuCount;
+    private List<Shuntsu> shuntsuList;
 
-    public SanshokudohjunResolver(MentsuComp hands) {
-
+    public SanshokudohjunResolver(MentsuComp comp) {
+        shuntsuCount = comp.getShuntsuCount();
+        shuntsuList = comp.getShuntsuList();
     }
 
     public MahjongYakuEnum getNormalYaku() {
@@ -28,72 +29,21 @@ public class SanshokudohjunResolver implements NormalYakuResolver {
     }
 
     public boolean isMatch() {
-        return false;
-    }
-
-    public boolean isSanshokudojun(MahjongTile[] shuntsu) {
-        //順子が3つ以上ないと三色はありえない
-        if (shuntsu[2] == null) {
+        if (shuntsuCount < 3) {
             return false;
         }
+        boolean manzu = false;
+        boolean pinzu = false;
+        boolean sohzu = false;
 
-        //初期化
-        manzu = false;
-        pinzu = false;
-        sohzu = false;
-
-        //処理用の変数
-        ArrayList<MahjongTile> categoryA = new ArrayList<MahjongTile>(0);
-        ArrayList<MahjongTile> categoryB = new ArrayList<MahjongTile>(0);
-
-        categoryA.add(shuntsu[0]);
-
-        for (int i = 1; i < shuntsu.length && shuntsu[i] != null; i++) {
-            if (categoryA.get(0).getNumber() == shuntsu[i].getNumber()) {
-                categoryA.add(shuntsu[i]);
-            } else if (categoryB.size() == 0) {
-                categoryB.add(shuntsu[i]);
-            } else if (categoryB.get(0).getNumber() == shuntsu[i].getNumber()) {
-                categoryB.add(shuntsu[i]);
-            } else {
-                return false;
-            }
-        }
-
-
-        if (categoryA.size() >= 3) {
-            for (MahjongTile aCategoryA : categoryA) {
-                switch (aCategoryA.getType()) {
-                    case MANZU:
-                        manzu = true;
-                        break;
-                    case PINZU:
-                        pinzu = true;
-                        break;
-                    case SOHZU:
-                        sohzu = true;
-                        break;
-
-                    default:
-                        break;
-                }
-            }
-        } else if (categoryB.size() >= 3) {
-            for (MahjongTile aCategoryB : categoryB) {
-                switch (aCategoryB.getType()) {
-                    case MANZU:
-                        manzu = true;
-                        break;
-                    case PINZU:
-                        pinzu = true;
-                        break;
-                    case SOHZU:
-                        sohzu = true;
-                        break;
-
-                    default:
-                        break;
-                }
+        for (Shuntsu shuntsu : shuntsuList) {
+            MahjongTileType shuntsuType = shuntsu.getTile().getType();
+            if (shuntsuType == MahjongTileType.MANZU) {
+                manzu = true;
+            } else if (shuntsuType == MahjongTileType.PINZU){
+                pinzu = true;
+            } else if (shuntsuType == MahjongTileType.SOHZU){
+                sohzu = true;
             }
         }
         return manzu && pinzu && sohzu;
