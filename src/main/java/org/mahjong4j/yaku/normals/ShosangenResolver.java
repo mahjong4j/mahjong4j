@@ -1,9 +1,12 @@
 package org.mahjong4j.yaku.normals;
 
 
+import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.hands.Toitsu;
 import org.mahjong4j.tile.MahjongTileType;
+
+import java.util.List;
 
 import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SHOSANGEN;
 
@@ -16,12 +19,12 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SHOSANGEN;
 public class ShosangenResolver implements NormalYakuResolver {
     private MahjongYakuEnum yakuEnum = SHOSANGEN;
 
-    boolean haku;
-    boolean hatsu;
-    boolean chun;
+    private Toitsu janto;
+    private List<Kotsu> kotsuList;
 
-    public ShosangenResolver(MentsuComp hands) {
-
+    public ShosangenResolver(MentsuComp comp) {
+        janto = comp.getJanto();
+        kotsuList = comp.getKotsuKantsu();
     }
 
     public MahjongYakuEnum getNormalYaku() {
@@ -29,41 +32,19 @@ public class ShosangenResolver implements NormalYakuResolver {
     }
 
     public boolean isMatch() {
-        return false;
-    }
-
-    public void switching(MahjongTile s) {
-        switch (s) {
-            case HAK:
-                haku = true;
-                break;
-            case HAT:
-                hatsu = true;
-                break;
-            case CHN:
-                chun = true;
-                break;
-
-            default:
-                break;
-        }
-    }
-
-    public boolean isShosangen(MahjongTile[] kohtsu, MahjongTile janto) {
-        if (janto.getType() != MahjongTileType.SANGEN) {
+        if (janto.getTile().getType() != MahjongTileType.SANGEN) {
             return false;
         }
-        //初期化
-        haku = false;
-        hatsu = false;
-        chun = false;
-
-        switching(janto);
-
-        for (int i = 0; i < kohtsu.length && kohtsu[i] != null; i++) {
-            switching(kohtsu[i]);
+        int count = 0;
+        for (Kotsu kotsu : kotsuList) {
+            if (kotsu.getTile().getType() == MahjongTileType.SANGEN) {
+                count++;
+            }
+            if (count == 2) {
+                return true;
+            }
         }
 
-        return haku && hatsu && chun;
+        return false;
     }
 }
