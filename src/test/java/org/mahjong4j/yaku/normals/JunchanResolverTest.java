@@ -26,7 +26,7 @@ public class JunchanResolverTest {
         list.add(new Shuntsu(false, P2));
         list.add(new Kantsu(false, P9));
         list.add(new Kotsu(true, P1));
-        MentsuComp comp = new MentsuComp(list);
+        MentsuComp comp = new MentsuComp(list, P1);
         resolver = new JunchanResolver(comp);
     }
 

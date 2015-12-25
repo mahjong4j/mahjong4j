@@ -25,7 +25,7 @@ public class TsuisoResolverNormalTest {
         normalList.add(new Kotsu(true, HAK));
         normalList.add(new Kotsu(false, HAT));
         normalList.add(new Kantsu(true, TON));
-        MentsuComp normal = new MentsuComp(normalList);
+        MentsuComp normal = new MentsuComp(normalList, SHA);
         resolver = new TsuisoResolver(normal);
     }
 

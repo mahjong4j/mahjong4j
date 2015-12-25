@@ -1,6 +1,7 @@
 package org.mahjong4j.hands;
 
 import org.mahjong4j.IllegalMentsuSizeException;
+import org.mahjong4j.tile.MahjongTile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,12 +17,15 @@ public class MentsuComp {
     private List<Shuntsu> shuntsuList = new ArrayList<>(4);
     private List<Kotsu> kotsuList = new ArrayList<>(4);
     private List<Kantsu> kantsuList = new ArrayList<>(4);
+    private MahjongTile last;
 
     /**
      * @param mentsuList 上がりとなった面子のリスト
+     * @param last
      * @throws IllegalMentsuSizeException 和了れる形になっていなければthrow
      */
-    public MentsuComp(List<MahjongMentsu> mentsuList) throws IllegalMentsuSizeException {
+    public MentsuComp(List<MahjongMentsu> mentsuList, MahjongTile last) throws IllegalMentsuSizeException {
+        this.last = last;
         for (MahjongMentsu mentsu : mentsuList) {
             setMentsu(mentsu);
         }
@@ -106,7 +110,7 @@ public class MentsuComp {
     public List<Kotsu> getKotsuKantsu() {
         List<Kotsu> kotsuList = new ArrayList<>(this.kotsuList);
         for (Kantsu kantsu : kantsuList) {
-            kotsuList.add(new Kotsu(kantsu.getIsOpen(),kantsu.getTile()));
+            kotsuList.add(new Kotsu(kantsu.getIsOpen(), kantsu.getTile()));
         }
         return kotsuList;
     }
@@ -164,6 +168,7 @@ public class MentsuComp {
 
         MentsuComp that = (MentsuComp) o;
 
+        if (last != that.last) return false;
         if (toitsuList.size() != that.toitsuList.size()) return false;
         if (shuntsuList.size() != that.shuntsuList.size()) return false;
         if (kotsuList.size() != that.kotsuList.size()) return false;
@@ -187,12 +192,16 @@ public class MentsuComp {
     @Override
     public int hashCode() {
         int tmp = 0;
-        int result = 0;
+        int result;
+
+        result = last.hashCode();
+
         if (toitsuList != null) {
             for (Toitsu toitsu : toitsuList) {
                 tmp += toitsu.hashCode();
             }
         }
+        result = 31 * result + tmp;
 
         tmp = 0;
         if (shuntsuList != null) {
@@ -220,5 +229,9 @@ public class MentsuComp {
         }
 
         return 31 * result + tmp;
+    }
+
+    public MahjongTile getLast() {
+        return last;
     }
 }

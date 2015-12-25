@@ -25,7 +25,7 @@ public class HonitsuResolverTest {
         mentsuList.add(new Shuntsu(true, M5));
         mentsuList.add(new Kotsu(false, TON));
         mentsuList.add(new Kantsu(false, HAT));
-        MentsuComp comp = new MentsuComp(mentsuList);
+        MentsuComp comp = new MentsuComp(mentsuList, TON);
         resolver = new HonitsuResolver(comp);
     }
 

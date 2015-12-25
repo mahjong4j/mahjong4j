@@ -27,7 +27,7 @@ public class HonrohtohResolverChitoitsuTest {
         list.add(new Toitsu(SHA));
         list.add(new Toitsu(TON));
         list.add(new Toitsu(CHN));
-        MentsuComp comp = new MentsuComp(list);
+        MentsuComp comp = new MentsuComp(list, CHN);
         resolver = new HonrohtohResolver(comp);
     }
 

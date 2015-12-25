@@ -42,7 +42,7 @@ public class MahjongHandsListTest {
         expectedMentsuList.add(new Shuntsu(false, P4));
         expectedMentsuList.add(new Kotsu(true, P4));
         expectedMentsuList.add(new Kantsu(true, CHN));
-        MentsuComp expected = new MentsuComp(expectedMentsuList);
+        MentsuComp expected = new MentsuComp(expectedMentsuList, TON);
 
         assertEquals(1, actualHands.getMentsuCompList().size());
         assertEquals(expected, actualHands.getMentsuCompList().get(0));

@@ -26,7 +26,7 @@ public class ChinitsuResolverTest {
         mentsuList.add(new Kotsu(false, S7));
         mentsuList.add(new Kantsu(true, S9));
 
-        MentsuComp comp = new MentsuComp(mentsuList);
+        MentsuComp comp = new MentsuComp(mentsuList, S2);
         chinitsuResolver = new ChinitsuResolver(comp);
     }
 

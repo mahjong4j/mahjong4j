@@ -25,7 +25,7 @@ public class DaisangenResolverTest {
         list.add(new Kotsu(true, CHN));
         list.add(new Kotsu(true, HAK));
         list.add(new Kantsu(false, HAT));
-        MentsuComp comp = new MentsuComp(list);
+        MentsuComp comp = new MentsuComp(list, HAK);
         resolver = new DaisangenResolver(comp);
     }
 

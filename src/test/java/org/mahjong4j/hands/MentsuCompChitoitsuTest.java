@@ -27,7 +27,7 @@ public class MentsuCompChitoitsuTest {
         toitsuList.add(new Toitsu(NAN));
         toitsuList.add(new Toitsu(PEI));
 
-        actual = new MentsuComp(toitsuList);
+        actual = new MentsuComp(toitsuList, PEI);
     }
 
     @Test
@@ -71,13 +71,13 @@ public class MentsuCompChitoitsuTest {
     @Test
     public void testGetAllMentsu() throws Exception {
         List<MahjongMentsu> actualAllMentsu = actual.getAllMentsu();
-        assertThat(actualAllMentsu, hasItems((MahjongMentsu)new Toitsu(M1)));
-        assertThat(actualAllMentsu, hasItems((MahjongMentsu)new Toitsu(CHN)));
-        assertThat(actualAllMentsu, hasItems((MahjongMentsu)new Toitsu(NAN)));
-        assertThat(actualAllMentsu, hasItems((MahjongMentsu)new Toitsu(P9)));
-        assertThat(actualAllMentsu, hasItems((MahjongMentsu)new Toitsu(P4)));
-        assertThat(actualAllMentsu, hasItems((MahjongMentsu)new Toitsu(P2)));
-        assertThat(actualAllMentsu, hasItems((MahjongMentsu)new Toitsu(PEI)));
+        assertThat(actualAllMentsu, hasItems((MahjongMentsu) new Toitsu(M1)));
+        assertThat(actualAllMentsu, hasItems((MahjongMentsu) new Toitsu(CHN)));
+        assertThat(actualAllMentsu, hasItems((MahjongMentsu) new Toitsu(NAN)));
+        assertThat(actualAllMentsu, hasItems((MahjongMentsu) new Toitsu(P9)));
+        assertThat(actualAllMentsu, hasItems((MahjongMentsu) new Toitsu(P4)));
+        assertThat(actualAllMentsu, hasItems((MahjongMentsu) new Toitsu(P2)));
+        assertThat(actualAllMentsu, hasItems((MahjongMentsu) new Toitsu(PEI)));
     }
 
     @Test
@@ -91,8 +91,7 @@ public class MentsuCompChitoitsuTest {
         expectedList.add(new Toitsu(P2));
         expectedList.add(new Toitsu(CHN));
 
-
-        MentsuComp expected = new MentsuComp(expectedList);
+        MentsuComp expected = new MentsuComp(expectedList, PEI);
         assertTrue(actual.equals(expected));
         assertEquals(actual.hashCode(), expected.hashCode());
     }

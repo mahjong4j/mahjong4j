@@ -25,7 +25,7 @@ public class MentsuCompNormalTest {
         mentsuList.add(new Kotsu(false, NAN));
         mentsuList.add(new Kantsu(false, CHN));
 
-        actual = new MentsuComp(mentsuList);
+        actual = new MentsuComp(mentsuList, NAN);
     }
 
     @Test
@@ -104,7 +104,7 @@ public class MentsuCompNormalTest {
         trList.add(new Shuntsu(false, P2));
 
 
-        MentsuComp tr = new MentsuComp(trList);
+        MentsuComp tr = new MentsuComp(trList, NAN);
         assertTrue(actual.equals(tr));
         assertEquals(actual.hashCode(), tr.hashCode());
     }
@@ -118,7 +118,7 @@ public class MentsuCompNormalTest {
         flsList.add(new Kantsu(true, CHN));
         flsList.add(new Shuntsu(true, S3));
 
-        MentsuComp fls = new MentsuComp(flsList);
+        MentsuComp fls = new MentsuComp(flsList, S4);
 
         assertFalse(actual.equals(fls));
         assertNotEquals(actual.hashCode(), fls.hashCode());

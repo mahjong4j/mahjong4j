@@ -26,7 +26,7 @@ public class ChantaResolverTest {
         matchList.add(new Kotsu(false, P1));
         matchList.add(new Kantsu(false, SHA));
 
-        MentsuComp match = new MentsuComp(matchList);
+        MentsuComp match = new MentsuComp(matchList, S3);
         chantaResolver = new ChantaResolver(match);
     }
 

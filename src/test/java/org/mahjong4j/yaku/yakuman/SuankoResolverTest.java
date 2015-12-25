@@ -28,7 +28,7 @@ public class SuankoResolverTest {
         mentsu.add(new Kotsu(false, S5));
         mentsu.add(new Kotsu(false, P9));
         mentsu.add(new Kotsu(false, SHA));
-        MentsuComp comp = new MentsuComp(mentsu);
+        MentsuComp comp = new MentsuComp(mentsu, P9);
         resolver = new SuankoResolver(comp);
     }
 
