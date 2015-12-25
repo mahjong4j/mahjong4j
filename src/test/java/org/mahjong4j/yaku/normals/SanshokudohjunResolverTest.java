@@ -26,7 +26,7 @@ public class SanshokudohjunResolverTest {
         list.add(new Shuntsu(false, M2));
         list.add(new Shuntsu(false, S2));
         list.add(new Kotsu(false, HAK));
-        MentsuComp comp = new MentsuComp(list);
+        MentsuComp comp = new MentsuComp(list, S1);
         resolver = new SanshokudohjunResolver(comp);
     }
 

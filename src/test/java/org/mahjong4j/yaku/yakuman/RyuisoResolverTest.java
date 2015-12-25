@@ -25,7 +25,7 @@ public class RyuisoResolverTest {
         mentsu.add(new Shuntsu(false, S3));
         mentsu.add(new Kotsu(false, S8));
         mentsu.add(new Kantsu(false, S6));
-        MentsuComp comp = new MentsuComp(mentsu);
+        MentsuComp comp = new MentsuComp(mentsu, S4);
         resolver = new RyuisoResolver(comp);
     }
 

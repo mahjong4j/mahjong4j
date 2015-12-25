@@ -26,7 +26,7 @@ public class ShosangenResolverTest {
         list.add(new Shuntsu(false, P2));
         list.add(new Kantsu(false, HAT));
         list.add(new Kotsu(true, HAK));
-        MentsuComp comp = new MentsuComp(list);
+        MentsuComp comp = new MentsuComp(list, HAT);
         resolver = new ShosangenResolver(comp);
     }
 

@@ -191,7 +191,7 @@ public class MahjongHands {
             canWin = true;
             List<MahjongMentsu> mentsuList = new ArrayList<>(7);
             mentsuList.addAll(toitsuList);
-            MentsuComp comp = new MentsuComp(mentsuList);
+            MentsuComp comp = new MentsuComp(mentsuList, last);
             mentsuCompList.add(comp);
         }
 
@@ -246,7 +246,7 @@ public class MahjongHands {
         if (isAllZero(handStocks)) {
             canWin = true;
             winCandidate.addAll(inputtedMentsuList);
-            MentsuComp mentsuComp = new MentsuComp(winCandidate);
+            MentsuComp mentsuComp = new MentsuComp(winCandidate, last);
             if (!mentsuCompList.contains(mentsuComp)) {
                 mentsuCompList.add(mentsuComp);
             }

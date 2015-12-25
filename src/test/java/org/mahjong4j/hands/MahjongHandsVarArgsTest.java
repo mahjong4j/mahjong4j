@@ -38,7 +38,7 @@ public class MahjongHandsVarArgsTest {
         expectedMentsuList.add(new Shuntsu(true, M7));
         expectedMentsuList.add(new Kotsu(false, S2));
         expectedMentsuList.add(new Kantsu(false, SHA));
-        MentsuComp expected = new MentsuComp(expectedMentsuList);
+        MentsuComp expected = new MentsuComp(expectedMentsuList, P7);
 
         assertEquals(1, actualHands.getMentsuCompList().size());
         assertEquals(expected, actualHands.getMentsuCompList().get(0));

@@ -25,7 +25,7 @@ public class HonrohtohResolverNormalTest {
         list.add(new Kotsu(false, SHA));
         list.add(new Kotsu(false, HAT));
         list.add(new Kantsu(true, TON));
-        MentsuComp comp = new MentsuComp(list);
+        MentsuComp comp = new MentsuComp(list, P9);
         resolver = new HonrohtohResolver(comp);
     }
 

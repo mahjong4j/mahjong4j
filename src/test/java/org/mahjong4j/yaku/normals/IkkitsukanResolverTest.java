@@ -28,7 +28,7 @@ public class IkkitsukanResolverTest {
         mentsu.add(new Shuntsu(false, P2));
         mentsu.add(new Shuntsu(false, P8));
         mentsu.add(new Shuntsu(true, P5));
-        MentsuComp comp = new MentsuComp(mentsu);
+        MentsuComp comp = new MentsuComp(mentsu, P3);
         resolver = new IkkitsukanResolver(comp);
     }
 

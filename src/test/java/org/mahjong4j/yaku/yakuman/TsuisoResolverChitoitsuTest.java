@@ -27,8 +27,8 @@ public class TsuisoResolverChitoitsuTest {
         normalList.add(new Toitsu(HAK));
         normalList.add(new Toitsu(HAT));
         normalList.add(new Toitsu(CHN));
-        
-        MentsuComp normal = new MentsuComp(normalList);
+
+        MentsuComp normal = new MentsuComp(normalList, SHA);
         resolver = new TsuisoResolver(normal);
     }
 

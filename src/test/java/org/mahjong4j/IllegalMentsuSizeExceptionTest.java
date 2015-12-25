@@ -40,7 +40,7 @@ public class IllegalMentsuSizeExceptionTest {
     @Test
     public void testSetLessMentsu() throws Exception {
         try {
-            new MentsuComp(less);
+            new MentsuComp(less, S3);
         } catch (IllegalMentsuSizeException e) {
             assertEquals("面子の組が和了の形になっていません", e.getMessage());
             assertEquals("面子の数は合計で5個もしくは七対子の場合のみ7個でなければなりませんが4個の面子が見つかりました", e.getAdvice());
@@ -56,7 +56,7 @@ public class IllegalMentsuSizeExceptionTest {
     @Test
     public void testSetMoreMentsu() throws Exception {
         try {
-            new MentsuComp(more);
+            new MentsuComp(more, S2);
         } catch (IllegalMentsuSizeException e) {
             assertEquals("面子の組が和了の形になっていません", e.getMessage());
             assertEquals("面子の数は合計で5個もしくは七対子の場合のみ7個でなければなりませんが7個の面子が見つかりました", e.getAdvice());

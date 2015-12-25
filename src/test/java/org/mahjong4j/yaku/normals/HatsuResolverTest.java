@@ -25,7 +25,7 @@ public class HatsuResolverTest {
         mentsuList.add(new Shuntsu(true, P3));
         mentsuList.add(new Shuntsu(true, M5));
         mentsuList.add(new Kotsu(false, HAT));
-        MentsuComp comp = new MentsuComp(mentsuList);
+        MentsuComp comp = new MentsuComp(mentsuList, HAT);
         resolver = new HatsuResolver(comp);
     }
 

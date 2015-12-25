@@ -26,7 +26,7 @@ public class ToitoihoResolverTest {
         list.add(new Kantsu(true, P3));
         list.add(new Kantsu(false, M3));
         list.add(new Kotsu(true, HAK));
-        MentsuComp comp = new MentsuComp(list);
+        MentsuComp comp = new MentsuComp(list, HAK);
         resolver = new ToitoihoResolver(comp);
     }
 

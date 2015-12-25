@@ -25,8 +25,8 @@ public class SanankoResolverTest {
         list.add(new Shuntsu(false, P2));
         list.add(new Kantsu(false, HAT));
         list.add(new Kotsu(false, HAK));
-        list.add(new Kotsu(false, HAK));
-        MentsuComp comp = new MentsuComp(list);
+        list.add(new Kotsu(false, SHA));
+        MentsuComp comp = new MentsuComp(list, P3);
         resolver = new SanankoResolver(comp);
     }
 

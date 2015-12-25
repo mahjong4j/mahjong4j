@@ -39,7 +39,7 @@ public class MahjongHandsChitoitsuTest {
         expectedList.add(new Toitsu(S3));
         expectedList.add(new Toitsu(M5));
 
-        MentsuComp expected = new MentsuComp(expectedList);
+        MentsuComp expected = new MentsuComp(expectedList, SHA);
 
         assertEquals(1, actual.getMentsuCompList().size());
         assertEquals(expected, actual.getMentsuCompList().get(0));
