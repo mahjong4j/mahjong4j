@@ -1,6 +1,10 @@
 package org.mahjong4j.yaku.normals;
 
+import org.mahjong4j.hands.MahjongMentsu;
 import org.mahjong4j.hands.MentsuComp;
+import org.mahjong4j.hands.Shuntsu;
+
+import java.util.List;
 
 import static org.mahjong4j.yaku.normals.MahjongYakuEnum.TANYAO;
 
@@ -12,16 +16,10 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.TANYAO;
  */
 public class TanyaoResolver implements NormalYakuResolver {
     private MahjongYakuEnum yakuEnum = TANYAO;
-    private final int[] tanyao = {
-        0, 1, 1, 1, 1, 1, 1, 1, 0,
-        0, 1, 1, 1, 1, 1, 1, 1, 0,
-        0, 1, 1, 1, 1, 1, 1, 1, 0,
-        0, 0, 0, 0,
-        0, 0, 0
-    };
+    private List<MahjongMentsu> allMentsu;
 
-    public TanyaoResolver(MentsuComp hands) {
-
+    public TanyaoResolver(MentsuComp comp) {
+        allMentsu = comp.getAllMentsu();
     }
 
     public MahjongYakuEnum getNormalYaku() {
@@ -29,20 +27,19 @@ public class TanyaoResolver implements NormalYakuResolver {
     }
 
     public boolean isMatch() {
-        return false;
-    }
+        for (MahjongMentsu mentsu : allMentsu) {
+            int number = mentsu.getTile().getNumber();
+            if (number == 0 || number == 1 || number == 9) {
+                return false;
+            }
 
-    public boolean isTanyao(int[] hands) {
-        /*
-         * 七対子と複合するが、
-         * 同じくこれで判定可能
-         */
-
-        for (int i = 0; i < hands.length; i++) {
-            if (tanyao[i] == 0 && hands[i] != 0) {
+            int shuntsuNum = mentsu.getTile().getNumber();
+            boolean isEdgeShuntsu = (shuntsuNum == 2 || shuntsuNum == 8);
+            if (mentsu instanceof Shuntsu && isEdgeShuntsu) {
                 return false;
             }
         }
+
         return true;
     }
 }
