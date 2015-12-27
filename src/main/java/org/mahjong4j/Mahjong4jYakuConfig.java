@@ -44,6 +44,7 @@ public class Mahjong4jYakuConfig {
         normalYakuResolverList.add(new PinfuResolver(comp));
         normalYakuResolverList.add(new RyanpeikoResolver(comp));
         normalYakuResolverList.add(new SanankoResolver(comp));
+        normalYakuResolverList.add(new SankantsuResolver(comp));
         normalYakuResolverList.add(new SanshokudohjunResolver(comp));
         normalYakuResolverList.add(new SanshokudohkoResolver(comp));
         normalYakuResolverList.add(new ShosangenResolver(comp));

@@ -27,6 +27,7 @@ public enum MahjongYakuEnum {
     TOITOIHO(2, 2, "対々和"),
     SANSHOKUDOHKO(2, 2, "三色同刻"),
     SANANKO(2, 2, "三暗刻"),
+    SANKANTSU(2, 2, "三槓子"),
     SHOSANGEN(2, 2, "小三元"),
     CHITOITSU(2, 0, "七対子"),
     RYANPEIKO(3, 0, "二盃口"),
