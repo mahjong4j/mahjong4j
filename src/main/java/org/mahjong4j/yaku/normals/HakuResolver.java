@@ -1,6 +1,9 @@
 package org.mahjong4j.yaku.normals;
 
 
+import java.util.List;
+
+import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 
@@ -31,13 +34,4 @@ public class HakuResolver implements NormalYakuResolver {
         return false;
     }
 
-    public boolean isHaku(MahjongTile[] kotsu) {
-        for (int i = 0; i < kotsu.length && kotsu[i] != null; i++) {
-            if (kotsu[i] == MahjongTile.HAK) {
-                return true;
-            }
-
-        }
-        return false;
-    }
 }
