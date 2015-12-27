@@ -6,6 +6,7 @@ import org.mahjong4j.tile.MahjongTileType;
 
 import java.util.List;
 
+import static org.mahjong4j.tile.MahjongTileType.*;
 import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SANSHOKUDOHJUN;
 
 /**
@@ -18,6 +19,11 @@ public class SanshokudohjunResolver implements NormalYakuResolver {
     private MahjongYakuEnum yakuEnum = SANSHOKUDOHJUN;
     private int shuntsuCount;
     private List<Shuntsu> shuntsuList;
+
+    private boolean manzu = false;
+    private boolean pinzu = false;
+    private boolean sohzu = false;
+
 
     public SanshokudohjunResolver(MentsuComp comp) {
         shuntsuCount = comp.getShuntsuCount();
@@ -32,20 +38,35 @@ public class SanshokudohjunResolver implements NormalYakuResolver {
         if (shuntsuCount < 3) {
             return false;
         }
-        boolean manzu = false;
-        boolean pinzu = false;
-        boolean sohzu = false;
+
+        Shuntsu candidate = null;
 
         for (Shuntsu shuntsu : shuntsuList) {
             MahjongTileType shuntsuType = shuntsu.getTile().getType();
-            if (shuntsuType == MahjongTileType.MANZU) {
-                manzu = true;
-            } else if (shuntsuType == MahjongTileType.PINZU){
-                pinzu = true;
-            } else if (shuntsuType == MahjongTileType.SOHZU){
-                sohzu = true;
+            int shuntsuNum = shuntsu.getTile().getNumber();
+
+            if (candidate == null) {
+                candidate = shuntsu;
+                continue;
+            }
+
+            if (candidate.getTile().getNumber() == shuntsuNum) {
+                detectType(shuntsuType);
+                detectType(candidate.getTile().getType());
+            } else {
+                candidate = shuntsu;
             }
         }
         return manzu && pinzu && sohzu;
+    }
+
+    private void detectType(MahjongTileType shuntsuType) {
+        if (shuntsuType == MANZU) {
+            manzu = true;
+        } else if (shuntsuType == PINZU) {
+            pinzu = true;
+        } else if (shuntsuType == SOHZU) {
+            sohzu = true;
+        }
     }
 }
