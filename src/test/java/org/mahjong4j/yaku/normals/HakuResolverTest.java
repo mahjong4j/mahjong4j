@@ -25,7 +25,7 @@ public class HakuResolverTest {
         mentsuList.add(new Shuntsu(true, P3));
         mentsuList.add(new Shuntsu(true, M5));
         mentsuList.add(new Kotsu(false, HAK));
-        MentsuComp comp = new MentsuComp(mentsuList);
+        MentsuComp comp = new MentsuComp(mentsuList, M5);
         resolver = new HakuResolver(comp);
     }
 
