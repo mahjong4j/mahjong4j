@@ -1,7 +1,9 @@
 package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.hands.MentsuComp;
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.hands.Shuntsu;
+
+import java.util.List;
 
 import static org.mahjong4j.yaku.normals.MahjongYakuEnum.IPEIKO;
 
@@ -14,9 +16,12 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.IPEIKO;
  */
 public class IpeikoResolver implements NormalYakuResolver {
     private MahjongYakuEnum yakuEnum = IPEIKO;
+    private int shuntsuCount;
+    private List<Shuntsu> shuntsuList;
 
-    public IpeikoResolver(MentsuComp hands) {
-
+    public IpeikoResolver(MentsuComp comp) {
+        shuntsuCount = comp.getShuntsuCount();
+        shuntsuList = comp.getShuntsuList();
     }
 
     public MahjongYakuEnum getNormalYaku() {
@@ -24,25 +29,43 @@ public class IpeikoResolver implements NormalYakuResolver {
     }
 
     public boolean isMatch() {
-        return false;
-    }
+        if (shuntsuCount < 2) {
+            return false;
+        }
 
+        Shuntsu stockOne = null;
+        Shuntsu stockTwo = null;
+        boolean ipeiko = false;
+        boolean ryanpeiko = false;
 
-    public boolean isIpeiko(MahjongTile[] shuntsu) {
+        for (Shuntsu shuntsu : shuntsuList) {
+            //鳴いている場合はfalse
+            if (shuntsu.getIsOpen()) {
+                return false;
+            }
 
-        /*
-         * 一盃口でかつ二盃口の時もtrueになります 呼び出し側で二盃口の時は減らしてから使って下さい。
-         */
+            if (stockOne == null) {
+                stockOne = shuntsu;
+                continue;
+            }
 
-        MahjongTile stock;
-        for (int i = 0; i < shuntsu.length - 1 && shuntsu[i] != null; i++) {
-            stock = shuntsu[i];
-            for (int k = i + 1; k < shuntsu.length && shuntsu[k] != null; k++) {
-                if (stock == shuntsu[k]) {
-                    return true;
-                }
+            //１つ目の盃口が見つかった
+            if (stockOne.equals(shuntsu) && !ipeiko) {
+                ipeiko = true;
+                continue;
+            }
+
+            if (stockTwo == null) {
+                stockTwo = shuntsu;
+                continue;
+            }
+
+            if (stockTwo.equals(shuntsu)) {
+                ryanpeiko = true;
             }
         }
-        return false;
+
+        //二盃口とは複合しない
+        return ipeiko && !ryanpeiko;
     }
 }
