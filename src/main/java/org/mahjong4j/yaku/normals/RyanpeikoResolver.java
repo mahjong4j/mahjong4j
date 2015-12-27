@@ -2,7 +2,8 @@ package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.hands.Shuntsu;
-import org.mahjong4j.tile.MahjongTile;
+
+import java.util.List;
 
 import static org.mahjong4j.yaku.normals.MahjongYakuEnum.RYANPEIKO;
 
@@ -16,11 +17,12 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.RYANPEIKO;
 public class RyanpeikoResolver implements NormalYakuResolver {
     private MahjongYakuEnum yakuEnum = RYANPEIKO;
 
-    private MahjongTile[] shuntsuRevised = new MahjongTile[4];
-    private MahjongTile jantoRevesed;
+    private List<Shuntsu> shuntsuList;
+    private int shuntsuCount;
 
-    public RyanpeikoResolver(MentsuComp hands) {
-
+    public RyanpeikoResolver(MentsuComp comp) {
+        shuntsuList = comp.getShuntsuList();
+        shuntsuCount = comp.getShuntsuCount();
     }
 
     public MahjongYakuEnum getNormalYaku() {
@@ -28,70 +30,42 @@ public class RyanpeikoResolver implements NormalYakuResolver {
     }
 
     public boolean isMatch() {
-        return false;
-    }
-
-
-    public MahjongTile getJantoRevised() {
-        return jantoRevesed;
-    }
-
-    public MahjongTile[] getShuntsuRevised() {
-        return shuntsuRevised;
-    }
-
-    /*
-     * 通常型用 七対子用と区別するため 不要ではあるが引数にjantoを加えた
-     */
-    public boolean isRyanpeiko(MahjongTile[] shuntsu, MahjongTile janto) {
-        int peikoCount = 0;
-
-        MahjongTile stock;
-        for (int i = 0; i < shuntsu.length - 1 && shuntsu[i] != null; i++) {
-            stock = shuntsu[i];
-            for (int k = i + 1; k < shuntsu.length && shuntsu[k] != null; k++) {
-                if (stock == shuntsu[k]) {
-                    peikoCount++;
-                    break;
-                }
-            }
+        if (shuntsuCount < 4) {
+            return false;
         }
 
-        return peikoCount == 2;
-    }
+        Shuntsu stockOne = null;
+        Shuntsu stockTwo = null;
+        boolean ipeiko = false;
+        boolean ryanpeiko = false;
 
-    /*
-     * 七対子の形用 ソートしてから使って下さい。
-     */
-    public boolean isRyanpeiko(MahjongTile[] toitsu) {
-        // 作業変数
-        int peikoCount = 0;
-        int[] head = {1, 1, 1, 1, 1, 1, 1};
-
-        for (int i = 1; i < toitsu.length - 1; i++) {
-            if (Shuntsu.check(toitsu[i - 1], toitsu[i], toitsu[i + 1])) {
-                // 順子に修正する
-                shuntsuRevised[peikoCount * 2] = toitsu[i];
-                shuntsuRevised[peikoCount * 2 + 1] = toitsu[i];
-
-                // 雀頭の候補から外す
-                head[i - 1] = 0;
-                head[i] = 0;
-                head[i + 1] = 0;
-
-                peikoCount++;
-                i += 2;
+        for (Shuntsu shuntsu : shuntsuList) {
+            //鳴いている場合はfalse
+            if (shuntsu.getIsOpen()) {
+                return false;
             }
-        }
-        if (peikoCount == 2) {
-            for (int i = 0; i < head.length; i++) {
-                if (head[i] == 1) {
-                    jantoRevesed = toitsu[i];
-                    break;
-                }
+
+            if (stockOne == null) {
+                stockOne = shuntsu;
+                continue;
             }
-            return true;
+
+            //１つ目の盃口が見つかった
+            if (stockOne.equals(shuntsu) && !ipeiko) {
+                ipeiko = true;
+                continue;
+            }
+
+            if (stockTwo == null) {
+                stockTwo = shuntsu;
+                continue;
+            }
+
+            if (stockTwo.equals(shuntsu)) {
+                ryanpeiko = true;
+            }
+
         }
-        return false;
+        return ipeiko && ryanpeiko;
     }
 }
