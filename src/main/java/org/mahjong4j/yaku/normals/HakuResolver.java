@@ -1,6 +1,9 @@
 package org.mahjong4j.yaku.normals;
 
 
+import java.util.List;
+
+import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 
@@ -12,9 +15,10 @@ import org.mahjong4j.tile.MahjongTile;
  */
 public class HakuResolver implements NormalYakuResolver {
     private MahjongYakuEnum yakuEnum = MahjongYakuEnum.HAKU;
-
-    public HakuResolver(MentsuComp hands) {
-
+    private List<Kotsu> kotsuList;
+    
+    public HakuResolver(MentsuComp comp) {
+    		kotsuList = comp.getKotsuKantsu();
     }
 
     public MahjongYakuEnum getNormalYaku() {
@@ -22,16 +26,12 @@ public class HakuResolver implements NormalYakuResolver {
     }
 
     public boolean isMatch() {
-        return false;
-    }
-
-    public boolean isHaku(MahjongTile[] kotsu) {
-        for (int i = 0; i < kotsu.length && kotsu[i] != null; i++) {
-            if (kotsu[i] == MahjongTile.HAK) {
-                return true;
-            }
-
+        for (Kotsu kotsu : kotsuList) {
+        	if (kotsu.getTile() == MahjongTile.HAK) {
+        		return true;
+        	}
         }
         return false;
     }
+
 }
