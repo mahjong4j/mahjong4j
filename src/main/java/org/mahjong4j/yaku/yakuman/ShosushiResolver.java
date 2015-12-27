@@ -36,7 +36,7 @@ public class ShosushiResolver implements YakumanResolver {
         if (janto == null) {
             return false;
         }
-        
+
         if (janto.getTile().getType() != FONPAI) {
             return false;
         }

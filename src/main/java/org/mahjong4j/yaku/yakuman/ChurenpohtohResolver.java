@@ -1,105 +1,33 @@
 package org.mahjong4j.yaku.yakuman;
 
+import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.hands.Shuntsu;
+import org.mahjong4j.hands.Toitsu;
 import org.mahjong4j.tile.MahjongTileType;
+
+import java.util.List;
 
 import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.CHURENPOHTO;
 
 /**
+ * 九蓮宝燈判定クラス
+ * 門前で「1112345678999+X」の形をあがった場合に成立
+ *
  * @author yu1ro
- *         九蓮宝燈判定クラス
  */
 public class ChurenpohtohResolver implements YakumanResolver {
+    private final int[] churenManzu = {3, 1, 1, 1, 1, 1, 1, 1, 3};
+
     private MahjongYakumanEnum yakuman = CHURENPOHTO;
+    private Toitsu janto;
+    private List<Shuntsu> shuntsuList;
+    private List<Kotsu> kotsuList;
 
-    final int[] churenManzu = {
-        3, 1, 1, 1, 1, 1, 1, 1, 3,
-        0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0,
-        0, 0, 0
-    };
-    final int[] churenPinzu = {
-        0, 0, 0, 0, 0, 0, 0, 0, 0,
-        3, 1, 1, 1, 1, 1, 1, 1, 3,
-        0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0,
-        0, 0, 0
-    };
-
-    final int[] churenSohzu = {
-        0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0,
-        3, 1, 1, 1, 1, 1, 1, 1, 3,
-        0, 0, 0, 0,
-        0, 0, 0
-    };
-
-
-    MahjongTileType churenType;
-    private int[] hands = new int[34];
-
-    public ChurenpohtohResolver(MentsuComp hands) {
-
-    }
-
-    public boolean isChuren() {
-
-        //どのタイプが含まれているか調べる
-        for (int i = 0; i < hands.length; i++) {
-            if (hands[i] > 0) {
-                churenType = MahjongTile.valueOf(i).getType();
-                break;
-            }
-        }
-
-        //タイプ毎に調べる
-        int count = 0;
-        switch (churenType) {
-            case MANZU:
-                for (int i = 0; i < hands.length; i++) {
-                    hands[i] -= churenManzu[i];
-
-                    if (hands[i] < 0 || hands[i] > 1) {
-                        return false;
-                    }
-                    if (i < 9 && hands[i] == 1) {
-                        count++;
-                    }
-
-                }
-                break;
-            case PINZU:
-                for (int i = 0; i < hands.length; i++) {
-                    hands[i] -= churenPinzu[i];
-
-                    if (hands[i] < 0 || hands[i] > 1) {
-                        return false;
-                    }
-                    if (i > 8 && i < 18 && hands[i] == 1) {
-                        count++;
-                    }
-
-                }
-                break;
-            case SOHZU:
-                for (int i = 0; i < hands.length; i++) {
-                    hands[i] -= churenSohzu[i];
-
-                    if (hands[i] < 0 || hands[i] > 1) {
-                        return false;
-                    }
-                    if (i > 17 && i < 27 && hands[i] == 1) {
-                        count++;
-                    }
-
-                }
-                break;
-            default:
-                return false;
-        }
-        return count == 1;
+    public ChurenpohtohResolver(MentsuComp comp) {
+        janto = comp.getJanto();
+        shuntsuList = comp.getShuntsuList();
+        kotsuList = comp.getKotsuList();
     }
 
     public MahjongYakumanEnum getYakuman() {
@@ -107,6 +35,49 @@ public class ChurenpohtohResolver implements YakumanResolver {
     }
 
     public boolean isMatch() {
-        return false;
+        if (janto == null) {
+            return false;
+        }
+        if (janto.getTile().getNumber() == 0) {
+            return false;
+        }
+        MahjongTileType type = janto.getTile().getType();
+
+        int[] churen = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+        churen[janto.getTile().getNumber() - 1] = 2;
+
+        for (Shuntsu shuntsu : shuntsuList) {
+            if (shuntsu.getTile().getType() != type) {
+                return false;
+            }
+            churen[shuntsu.getTile().getNumber() - 2]++;
+            churen[shuntsu.getTile().getNumber() - 1]++;
+            churen[shuntsu.getTile().getNumber()]++;
+        }
+
+        for (Kotsu kotsu : kotsuList) {
+            if (kotsu.getTile().getType() != type) {
+                return false;
+            }
+            churen[kotsu.getTile().getNumber() - 1] += 3;
+        }
+
+        boolean restOne = false;
+        for (int i = 0; i < churen.length; i++) {
+            int num = churen[i] - churenManzu[i];
+            if (num == 1 && !restOne) {
+                restOne = true;
+                continue;
+            }
+
+            if (num == 1) {
+                return false;
+            }
+
+            if (num < 0 || num > 1) {
+                return false;
+            }
+        }
+        return true;
     }
 }
