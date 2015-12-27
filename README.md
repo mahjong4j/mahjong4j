@@ -11,8 +11,14 @@
 Androidで動いて欲しいのでJava7に対応させます
 
 ## 現状
-- 手牌が和了の形かどうかを判定できます
-- いくつかの役かどうかの判定ができます
+手牌のみを見て判定出来る役が判定できます
+
+|判定可能(例)|判定不可能(例)|
+|----------:|:---------|
+|三暗刻|ツモ|
+|平和|ドラ|
+|中|自風牌|
+|白|場風牌|
 
 ## 使い方
 wikiをご覧ください
@@ -25,19 +31,12 @@ wikiをご覧ください
 Pull Request・Issueはいつでもお待ちしております
 
 ## プルリクチャンス！
-現在簡単にプルリク出せる状態です！！
+テストを書きましょう！
 
-それぞれの役判定クラスのisMatchメソッドが一番わかりやすいです
+役判定を実際に試したテストを追加していただくのが一番簡単です
 
-作成した役もあるので、参考にして頂ければと思います
-
-最初に作成した際の名残コード(is\[役名\])のメソッドがあるので
-
-そちらも参考にしてください。
-
-org.mahjong4j.yakuにあります
-
-もちろん他の場所を作って頂いても構いません
+"/src/test/java/org/mahjong4j/SanankoTanyaoToitoihoTest.java"など[複数の役の名前]+'Test'
+をコピーして作りなおすのがオススメです。
 
 ## Chat
 [![Join the chat at https://gitter.im/yu1ro/mahjong4j](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/yu1ro/mahjong4j?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
