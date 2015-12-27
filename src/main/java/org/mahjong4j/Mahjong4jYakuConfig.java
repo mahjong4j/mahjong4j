@@ -23,6 +23,7 @@ public class Mahjong4jYakuConfig {
         yakumanResolverList.add(new RyuisoResolver(comp));
         yakumanResolverList.add(new ShosushiResolver(comp));
         yakumanResolverList.add(new SuankoResolver(comp));
+        yakumanResolverList.add(new SukantsuResolver(comp));
         yakumanResolverList.add(new TsuisoResolver(comp));
 
         return yakumanResolverList;
