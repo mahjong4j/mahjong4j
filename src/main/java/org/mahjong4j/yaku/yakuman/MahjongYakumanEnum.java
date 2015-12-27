@@ -15,7 +15,8 @@ public enum MahjongYakumanEnum {
     SHOSUSHI("小四喜"),
     DAISUSHI("大四喜"),
     RYUISO("緑一色"),
-    CHINROTO("清老頭");
+    CHINROTO("清老頭"),
+    SUKANTSU("四槓子");
 
     private String japanese;
 
