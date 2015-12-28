@@ -1,5 +1,5 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.txt)
-[![Stories in Ready](https://badge.waffle.io/yu1ro/mahjong4j.png?label=ready&title=Ready&style=flat-square)](https://waffle.io/yu1ro/mahjong4j)
+[![Stories in Ready](https://img.shields.io/badge/tracker-waffle.io-blue.svg?style=flat-square)](https://waffle.io/yu1ro/mahjong4j)
 [![Build Status](https://img.shields.io/travis/yu1ro/mahjong4j/master.svg?style=flat-square)](https://travis-ci.org/yu1ro/mahjong4j)
 [![Codecov branch](https://img.shields.io/codecov/c/github/yu1ro/mahjong4j/master.svg?style=flat-square)](https://codecov.io/github/yu1ro/mahjong4j?branch=master)
 [![Coverity Scan](https://img.shields.io/coverity/scan/7164.svg?style=flat-square)](https://scan.coverity.com/projects/yu1ro-mahjong4j)
