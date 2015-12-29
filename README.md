@@ -1,9 +1,9 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.txt)
-[![Stories in Ready](https://img.shields.io/badge/tracker-waffle.io-blue.svg?style=flat-square)](https://waffle.io/yu1ro/mahjong4j)
-[![Build Status](https://img.shields.io/travis/yu1ro/mahjong4j/master.svg?style=flat-square)](https://travis-ci.org/yu1ro/mahjong4j)
+[![Stories in Ready](https://img.shields.io/badge/tracker-waffle.io-blue.svg?style=flat-square)](https://waffle.io/mahjong4j/mahjong4j)
+[![Build Status](https://img.shields.io/travis/yu1ro/mahjong4j/master.svg?style=flat-square)](https://travis-ci.org/mahjong4j/mahjong4j)
 [![Codecov branch](https://img.shields.io/codecov/c/github/yu1ro/mahjong4j/master.svg?style=flat-square)](https://codecov.io/github/yu1ro/mahjong4j?branch=master)
 [![Coverity Scan](https://img.shields.io/coverity/scan/7164.svg?style=flat-square)](https://scan.coverity.com/projects/yu1ro-mahjong4j)
-[![Gitter](https://img.shields.io/gitter/room/yu1ro/mahjong4j.svg?style=flat-square)](https://gitter.im/yu1ro/mahjong4j?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gitter](https://img.shields.io/gitter/room/mahjong4j/mahjong4j.svg?style=flat-square)](https://gitter.im/mahjong4j/mahjong4j?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 # Organizationになりました！
 これまでupstreamに設定して頂いていた場合、<br>
