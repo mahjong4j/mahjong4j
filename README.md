@@ -5,20 +5,10 @@
 [![Coverity Scan](https://img.shields.io/coverity/scan/7164.svg?style=flat-square)](https://scan.coverity.com/projects/yu1ro-mahjong4j)
 [![Gitter](https://img.shields.io/gitter/room/mahjong4j/mahjong4j.svg?style=flat-square)](https://gitter.im/mahjong4j/mahjong4j?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-# Organizationになりました！
-これまでupstreamに設定して頂いていた場合、<br>
-URIの変更をお願い致します<br>
-わからなければ聞いて下さいな！
-
-## Collaborator募集！
-せっかくなので、Collaboratorも募集中です！<br>
-条件は3点のみです（ゆるめに自己申告して下さい）
-
-1. 麻雀で１回でも和了ったことある
-1. gitでconflict起こした時に対処法がわかる
-1. ローカルでテストコードを動かせる
-
-もし出来なくてもお教えしますので、お声掛け下さい！
+# ドキュメントページが移動しました
+これまでGitHub pagesにありましたが、Readme.ioに移動しました<br>
+あたらしいドキュメントは[こちら](https://mahjong4j.readme.io/)です<br>
+ご要望ございましたらお知らせくださればそこから書きます
 
 # mahjong4j
 日本のルールにおける麻雀の役判定プログラムのJavaラッパーです
