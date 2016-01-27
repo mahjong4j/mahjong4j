@@ -5,10 +5,6 @@
 [![Coverity Scan](https://img.shields.io/coverity/scan/7164.svg?style=flat-square)](https://scan.coverity.com/projects/yu1ro-mahjong4j)
 [![Gitter](https://img.shields.io/gitter/room/mahjong4j/mahjong4j.svg?style=flat-square)](https://gitter.im/mahjong4j/mahjong4j?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-# ドキュメントページが移動しました
-これまでGitHub pagesにありましたが、Readme.ioに移動しました<br>
-あたらしいドキュメントは[こちら](https://mahjong4j.readme.io/)です<br>
-ご要望ございましたらお知らせくださればそこから書きます
 
 # mahjong4j
 日本のルールにおける麻雀の役判定プログラムのJavaラッパーです
@@ -19,14 +15,15 @@ Androidで動いて欲しいのでJava7に対応させます
 手牌のみを見て判定出来る役が判定できます
 
 |判定可能(例)|判定不可能(例)|
-|----------:|:---------|
+|:----------:|:---------:|
 |三暗刻|ツモ|
 |平和|ドラ|
 |中|自風牌|
 |白|場風牌|
 
-## 使い方
-wikiをご覧ください
+## 詳しい使い方
+[こちら](https://mahjong4j.readme.io/)をご覧下さい
+Powered by Readme.io
 
 テストもご覧ください
 
@@ -40,13 +37,13 @@ Pull Request・Issueはいつでもお待ちしております
 
 役判定を実際に試したテストを追加していただくのが一番簡単です
 
-"/src/test/java/org/mahjong4j/SanankoTanyaoToitoihoTest.java"など[複数の役の名前]+'Test'
+"/src/test/java/org/mahjong4j/SanankoTanyaoToitoihoTest.java"など[複数の役の名前]+'Test'<br>
 をコピーして作りなおすのがオススメです。
 
 ## Chat
 [![Join the chat at https://gitter.im/yu1ro/mahjong4j](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/yu1ro/mahjong4j?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-チャットオープンしました！
+チャットオープンしました！<br>
 どんな質問・雑談・なんでもOKです
 
 ## タスク管理
