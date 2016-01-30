@@ -1,7 +1,7 @@
 package org.mahjong4j.hands;
 
 import org.mahjong4j.HandsOverFlowException;
-import org.mahjong4j.Mahjong4jException;
+import org.mahjong4j.IllegalMentsuSizeException;
 import org.mahjong4j.MahjongTileOverFlowException;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.yakuman.KokushimusoResolver;
@@ -56,7 +56,7 @@ public class MahjongHands {
      * @param mentsuList
      * @throws MahjongTileOverFlowException
      */
-    public MahjongHands(int[] otherTiles, MahjongTile last, List<MahjongMentsu> mentsuList) throws Mahjong4jException {
+    public MahjongHands(int[] otherTiles, MahjongTile last, List<MahjongMentsu> mentsuList) throws MahjongTileOverFlowException, IllegalMentsuSizeException {
         inputtedTiles = otherTiles;
         this.last = last;
         inputtedMentsuList = mentsuList;
@@ -70,7 +70,7 @@ public class MahjongHands {
      * @param mentsu
      * @throws MahjongTileOverFlowException
      */
-    public MahjongHands(int[] otherTiles, MahjongTile last, MahjongMentsu... mentsu) throws Mahjong4jException {
+    public MahjongHands(int[] otherTiles, MahjongTile last, MahjongMentsu... mentsu) throws MahjongTileOverFlowException, IllegalMentsuSizeException {
         inputtedTiles = otherTiles;
         setHandsComp(otherTiles, Arrays.asList(mentsu));
         this.last = last;
@@ -82,7 +82,7 @@ public class MahjongHands {
      * @param allTiles lastの牌も含めて下さい合計14になるはずです
      * @param last     この牌もotherTilesに含めてください
      */
-    public MahjongHands(int[] allTiles, MahjongTile last) throws Mahjong4jException {
+    public MahjongHands(int[] allTiles, MahjongTile last) throws HandsOverFlowException, MahjongTileOverFlowException, IllegalMentsuSizeException {
         inputtedTiles = allTiles;
         this.last = last;
 
@@ -157,7 +157,7 @@ public class MahjongHands {
     /**
      * 槓子は見つけません
      */
-    public void findMentsu() throws Mahjong4jException {
+    public void findMentsu() throws MahjongTileOverFlowException, IllegalMentsuSizeException {
         // 同じ牌が5個以上有ったらfalse
         for (int i = 0; i < inputtedTiles.length; i++) {
             int hand = inputtedTiles[i];
@@ -241,7 +241,7 @@ public class MahjongHands {
      *
      * @param winCandidate mentsuCompに代入するかもしれない
      */
-    private void convertToMentsuComp(List<MahjongMentsu> winCandidate) throws Mahjong4jException {
+    private void convertToMentsuComp(List<MahjongMentsu> winCandidate) throws IllegalMentsuSizeException {
         //全て0かチェック
         if (isAllZero(handStocks)) {
             canWin = true;
