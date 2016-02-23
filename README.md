@@ -104,3 +104,7 @@ IDEのプロジェクトファイル(.projectなど)はコミットに含めな�
 作者もまだまだ未熟者ですので何かと至らぬ点があるかと存じますが
 
 よろしくお願い致します
+
+<a href="github.com/mahjong4j/mahjong4j">
+  <img src="https://ga-beacon.appspot.com/UA-35712220-2/github.com/mahjong4j/mahjong4j?flat-gif"/>
+</a>
