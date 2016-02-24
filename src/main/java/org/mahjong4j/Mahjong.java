@@ -88,10 +88,10 @@ public class Mahjong {
      *
      */
     public void findNormalYaku() {
-        //役をストックしておく
-        List<MahjongYakuEnum> yakuStock = new ArrayList<>(7);
         //それぞれの面子の完成形で判定する
         for (MentsuComp comp : hands.getMentsuCompList()) {
+            //役をストックしておく
+            List<MahjongYakuEnum> yakuStock = new ArrayList<>(7);
             List<NormalYakuResolver> resolverList
                 = Mahjong4jYakuConfig.getNormalYakuResolverList(comp);
             for (NormalYakuResolver resolver : resolverList) {
