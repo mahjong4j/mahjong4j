@@ -4,9 +4,9 @@ import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTileType;
 
-import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.DAISUSHI;
-
 import java.util.List;
+
+import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.DAISUSHI;
 
 /**
  * 大四喜判定クラス
@@ -15,26 +15,26 @@ import java.util.List;
  * @author knn
  */
 public class DaisushiResolver implements YakumanResolver {
-	private MahjongYakumanEnum yakuman = DAISUSHI;
-	
-	private List<Kotsu> kotsuList;
+    private MahjongYakumanEnum yakuman = DAISUSHI;
 
-	public DaisushiResolver(MentsuComp comp) {
-			kotsuList = comp.getKotsuKantsu();
-	}
+    private List<Kotsu> kotsuList;
 
-	public MahjongYakumanEnum getYakuman() {
-		return yakuman;
-	}
+    public DaisushiResolver(MentsuComp comp) {
+        kotsuList = comp.getKotsuKantsu();
+    }
 
-	public boolean isMatch() {
-		int fonpaiCount = 0;
-		for (Kotsu kotsu : kotsuList) {
-			if (kotsu.getTile().getType() == MahjongTileType.FONPAI) {
-				fonpaiCount++;
-			}
-		}
-		
-		return fonpaiCount == 4;
-	}
+    public MahjongYakumanEnum getYakuman() {
+        return yakuman;
+    }
+
+    public boolean isMatch() {
+        int fonpaiCount = 0;
+        for (Kotsu kotsu : kotsuList) {
+            if (kotsu.getTile().getType() == MahjongTileType.FONPAI) {
+                fonpaiCount++;
+            }
+        }
+
+        return fonpaiCount == 4;
+    }
 }

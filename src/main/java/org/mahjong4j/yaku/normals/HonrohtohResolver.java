@@ -32,6 +32,7 @@ public class HonrohtohResolver implements NormalYakuResolver {
 
     /**
      * 么九牌以外を見つけたらfalseを返す
+     *
      * @return 混老頭かどうか
      */
     public boolean isMatch() {

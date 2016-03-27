@@ -6,9 +6,7 @@ import org.mahjong4j.tile.MahjongTileType;
 
 import java.util.List;
 
-import static org.mahjong4j.tile.MahjongTileType.MANZU;
-import static org.mahjong4j.tile.MahjongTileType.PINZU;
-import static org.mahjong4j.tile.MahjongTileType.SOHZU;
+import static org.mahjong4j.tile.MahjongTileType.*;
 import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SANSHOKUDOHKO;
 
 /**

@@ -40,14 +40,6 @@ public class Shuntsu implements MahjongMentsu {
         this.isMentsu = true;
     }
 
-    private void setIdentifierTile(MahjongTile identifierTile) throws IllegalShuntsuIdentifierException {
-        int tileNum = identifierTile.getNumber();
-        if (tileNum == 0 || tileNum == 1 || tileNum == 9) {
-            throw new IllegalShuntsuIdentifierException(identifierTile);
-        }
-        this.identifierTile = identifierTile;
-    }
-
     /**
      * 順子であるかの判定も伴います
      *
@@ -122,6 +114,14 @@ public class Shuntsu implements MahjongMentsu {
 
         //判定
         return tile1.getNumber() + 1 == tile2.getNumber() && tile2.getNumber() + 1 == tile3.getNumber();
+    }
+
+    private void setIdentifierTile(MahjongTile identifierTile) throws IllegalShuntsuIdentifierException {
+        int tileNum = identifierTile.getNumber();
+        if (tileNum == 0 || tileNum == 1 || tileNum == 9) {
+            throw new IllegalShuntsuIdentifierException(identifierTile);
+        }
+        this.identifierTile = identifierTile;
     }
 
     /**

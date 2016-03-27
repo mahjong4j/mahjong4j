@@ -5,5 +5,6 @@ package org.mahjong4j.yaku.yakuman;
  */
 public interface YakumanResolver {
     MahjongYakumanEnum getYakuman();
+
     boolean isMatch();
 }

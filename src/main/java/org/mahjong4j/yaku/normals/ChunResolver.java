@@ -1,11 +1,11 @@
 package org.mahjong4j.yaku.normals;
 
 
-import java.util.List;
-
 import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
+
+import java.util.List;
 
 /**
  * 中判定クラス
@@ -16,9 +16,9 @@ import org.mahjong4j.tile.MahjongTile;
 public class ChunResolver implements NormalYakuResolver {
     private MahjongYakuEnum yakuEnum = MahjongYakuEnum.CHUN;
     private List<Kotsu> kotsuList;
-    
+
     public ChunResolver(MentsuComp comp) {
-    		kotsuList = comp.getKotsuKantsu();
+        kotsuList = comp.getKotsuKantsu();
     }
 
     public MahjongYakuEnum getNormalYaku() {
@@ -26,13 +26,11 @@ public class ChunResolver implements NormalYakuResolver {
     }
 
     public boolean isMatch() {
-    	for (Kotsu kotsu : kotsuList){
-    		if (kotsu.getTile() == MahjongTile.CHN){
-    			return true;
-    		}
-    	}
+        for (Kotsu kotsu : kotsuList) {
+            if (kotsu.getTile() == MahjongTile.CHN) {
+                return true;
+            }
+        }
         return false;
     }
 }
-
-  
