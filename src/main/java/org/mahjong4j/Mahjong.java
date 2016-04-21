@@ -19,19 +19,28 @@ import java.util.List;
 public class Mahjong {
 
     //付いた役満リスト
-    public List<MahjongYakumanEnum> yakumanList = new ArrayList<>(1);
+    private List<MahjongYakumanEnum> yakumanList = new ArrayList<>(1);
 
     //付いた通常役リスト
-    public List<MahjongYakuEnum> normalYakuList = new ArrayList<>(0);
+    private List<MahjongYakuEnum> normalYakuList = new ArrayList<>(0);
 
     //翻
     private int han;
 
     private MahjongHands hands;
+    private GeneralSituation generalSituation;
+    private PersonalSituation personalSituation;
 
     public Mahjong(MahjongHands hands) {
         this.hands = hands;
     }
+
+    public Mahjong(MahjongHands hands, GeneralSituation generalSituation, PersonalSituation personalSituation) {
+        this.hands = hands;
+        this.generalSituation = generalSituation;
+        this.personalSituation = personalSituation;
+    }
+
 
     public List<MahjongYakumanEnum> getYakumanList() {
         return yakumanList;
@@ -87,7 +96,7 @@ public class Mahjong {
     /**
      *
      */
-    public void findNormalYaku() {
+    private void findNormalYaku() {
         //それぞれの面子の完成形で判定する
         for (MentsuComp comp : hands.getMentsuCompList()) {
             //役をストックしておく
