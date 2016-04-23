@@ -13,7 +13,7 @@ import java.util.Set;
  * @author yu1ro
  */
 public class Mahjong4jYakuConfig {
-    public static Set<YakumanResolver> getYakumanResolverSet(MentsuComp comp) {
+    public static Set<YakumanResolver> getYakumanResolverSet(MentsuComp comp, GeneralSituation generalSituation, PersonalSituation personalSituation) {
         //国士無双は特殊なので、ここでは扱いません
         Set<YakumanResolver> yakumanResolverSet = new HashSet<>(9);
         yakumanResolverSet.add(new ChinrohtohResolver(comp));
@@ -25,6 +25,9 @@ public class Mahjong4jYakuConfig {
         yakumanResolverSet.add(new SuankoResolver(comp));
         yakumanResolverSet.add(new SukantsuResolver(comp));
         yakumanResolverSet.add(new TsuisoResolver(comp));
+        yakumanResolverSet.add(new RenhoResolver(comp, generalSituation, personalSituation));
+        yakumanResolverSet.add(new ChihoResolver(comp, generalSituation, personalSituation));
+        yakumanResolverSet.add(new TenhoResolver(comp, generalSituation, personalSituation));
 
         return yakumanResolverSet;
     }
