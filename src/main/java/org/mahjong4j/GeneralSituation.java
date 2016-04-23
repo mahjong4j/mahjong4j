@@ -10,14 +10,14 @@ import java.util.List;
 public class GeneralSituation {
     private boolean isFirstRound;
     private boolean isHoutei;
-    private MahjongTile jikaze;
+    private MahjongTile bakaze;
     private List<MahjongTile> dora;
     private List<MahjongTile> uradora;
 
-    public GeneralSituation(boolean isFirstRound, boolean isHoutei, MahjongTile jikaze, List<MahjongTile> dora, List<MahjongTile> uradora) {
+    public GeneralSituation(boolean isFirstRound, boolean isHoutei, MahjongTile bakaze, List<MahjongTile> dora, List<MahjongTile> uradora) {
         this.isFirstRound = isFirstRound;
         this.isHoutei = isHoutei;
-        this.jikaze = jikaze;
+        this.bakaze = bakaze;
         this.dora = dora;
         this.uradora = uradora;
     }
@@ -39,12 +39,12 @@ public class GeneralSituation {
         isHoutei = houtei;
     }
 
-    public MahjongTile getJikaze() {
-        return jikaze;
+    public MahjongTile getBakaze() {
+        return bakaze;
     }
 
-    public void setJikaze(MahjongTile jikaze) {
-        this.jikaze = jikaze;
+    public void setBakaze(MahjongTile bakaze) {
+        this.bakaze = bakaze;
     }
 
     public List<MahjongTile> getDora() {

@@ -77,7 +77,7 @@ public class Mahjong {
         //それぞれの面子の完成形で判定する
         for (MentsuComp comp : hands.getMentsuCompList()) {
             Set<YakumanResolver> yakumanResolverSet
-                = Mahjong4jYakuConfig.getYakumanResolverSet(comp);
+                = Mahjong4jYakuConfig.getYakumanResolverSet(comp, generalSituation, personalSituation);
 
             for (YakumanResolver resolver : yakumanResolverSet) {
                 if (resolver.isMatch()) {
