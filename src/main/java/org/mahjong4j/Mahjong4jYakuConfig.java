@@ -4,8 +4,8 @@ import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.yaku.normals.*;
 import org.mahjong4j.yaku.yakuman.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * TODO:このクラスで使う役のカスタマイズができそう
@@ -13,24 +13,24 @@ import java.util.List;
  * @author yu1ro
  */
 public class Mahjong4jYakuConfig {
-    public static List<YakumanResolver> getYakumanResolverList(MentsuComp comp) {
+    public static Set<YakumanResolver> getYakumanResolverSet(MentsuComp comp) {
         //国士無双は特殊なので、ここでは扱いません
-        List<YakumanResolver> yakumanResolverList = new ArrayList<>(9);
-        yakumanResolverList.add(new ChinrohtohResolver(comp));
-        yakumanResolverList.add(new ChurenpohtohResolver(comp));
-        yakumanResolverList.add(new DaisangenResolver(comp));
-        yakumanResolverList.add(new DaisushiResolver(comp));
-        yakumanResolverList.add(new RyuisoResolver(comp));
-        yakumanResolverList.add(new ShosushiResolver(comp));
-        yakumanResolverList.add(new SuankoResolver(comp));
-        yakumanResolverList.add(new SukantsuResolver(comp));
-        yakumanResolverList.add(new TsuisoResolver(comp));
+        Set<YakumanResolver> yakumanResolverSet = new HashSet<>(9);
+        yakumanResolverSet.add(new ChinrohtohResolver(comp));
+        yakumanResolverSet.add(new ChurenpohtohResolver(comp));
+        yakumanResolverSet.add(new DaisangenResolver(comp));
+        yakumanResolverSet.add(new DaisushiResolver(comp));
+        yakumanResolverSet.add(new RyuisoResolver(comp));
+        yakumanResolverSet.add(new ShosushiResolver(comp));
+        yakumanResolverSet.add(new SuankoResolver(comp));
+        yakumanResolverSet.add(new SukantsuResolver(comp));
+        yakumanResolverSet.add(new TsuisoResolver(comp));
 
-        return yakumanResolverList;
+        return yakumanResolverSet;
     }
 
-    public static List<NormalYakuResolver> getNormalYakuResolverList(MentsuComp comp) {
-        List<NormalYakuResolver> normalYakuResolverList = new ArrayList<>(20);
+    public static Set<NormalYakuResolver> getNormalYakuResolverSet(MentsuComp comp) {
+        Set<NormalYakuResolver> normalYakuResolverList = new HashSet<>(20);
         normalYakuResolverList.add(new ChantaResolver(comp));
         normalYakuResolverList.add(new ChunResolver(comp));
         normalYakuResolverList.add(new ChinitsuResolver(comp));

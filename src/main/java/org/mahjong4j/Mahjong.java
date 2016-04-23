@@ -9,6 +9,7 @@ import org.mahjong4j.yaku.yakuman.YakumanResolver;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * 和了判定に関するクラスです。
@@ -75,10 +76,10 @@ public class Mahjong {
 
         //それぞれの面子の完成形で判定する
         for (MentsuComp comp : hands.getMentsuCompList()) {
-            List<YakumanResolver> yakumanResolverList
-                = Mahjong4jYakuConfig.getYakumanResolverList(comp);
+            Set<YakumanResolver> yakumanResolverSet
+                = Mahjong4jYakuConfig.getYakumanResolverSet(comp);
 
-            for (YakumanResolver resolver : yakumanResolverList) {
+            for (YakumanResolver resolver : yakumanResolverSet) {
                 if (resolver.isMatch()) {
                     yakumanStock.add(resolver.getYakuman());
                 }
@@ -101,9 +102,9 @@ public class Mahjong {
         for (MentsuComp comp : hands.getMentsuCompList()) {
             //役をストックしておく
             List<MahjongYakuEnum> yakuStock = new ArrayList<>(7);
-            List<NormalYakuResolver> resolverList
-                = Mahjong4jYakuConfig.getNormalYakuResolverList(comp);
-            for (NormalYakuResolver resolver : resolverList) {
+            Set<NormalYakuResolver> resolverSet
+                = Mahjong4jYakuConfig.getNormalYakuResolverSet(comp);
+            for (NormalYakuResolver resolver : resolverSet) {
                 if (resolver.isMatch()) {
                     yakuStock.add(resolver.getNormalYaku());
                 }
