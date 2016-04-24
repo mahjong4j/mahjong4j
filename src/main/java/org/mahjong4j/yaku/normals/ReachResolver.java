@@ -7,7 +7,7 @@ import org.mahjong4j.hands.MentsuComp;
 /**
  * @author yu1ro
  */
-public class ReachResolver  implements NormalYakuResolver{
+public class ReachResolver implements NormalYakuResolver {
     private final MentsuComp comp;
     private final GeneralSituation generalSituation;
     private final PersonalSituation personalSituation;
@@ -21,11 +21,14 @@ public class ReachResolver  implements NormalYakuResolver{
 
     @Override
     public MahjongYakuEnum getNormalYaku() {
-        return null;
+        return MahjongYakuEnum.REACHE;
     }
 
     @Override
     public boolean isMatch() {
-        return false;
+        if (generalSituation == null || personalSituation == null) {
+            return false;
+        }
+        return personalSituation.isReach();
     }
 }

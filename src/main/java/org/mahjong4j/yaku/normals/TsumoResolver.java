@@ -13,7 +13,6 @@ public class TsumoResolver implements NormalYakuResolver {
     private final PersonalSituation personalSituation;
 
     public TsumoResolver(MentsuComp comp, GeneralSituation generalSituation, PersonalSituation personalSituation) {
-
         this.comp = comp;
         this.generalSituation = generalSituation;
         this.personalSituation = personalSituation;
@@ -21,11 +20,14 @@ public class TsumoResolver implements NormalYakuResolver {
 
     @Override
     public MahjongYakuEnum getNormalYaku() {
-        return null;
+        return MahjongYakuEnum.TSUMO;
     }
 
     @Override
     public boolean isMatch() {
-        return false;
+        if (generalSituation == null || personalSituation == null) {
+            return false;
+        }
+        return personalSituation.isTsumo() && personalSituation.isReach();
     }
 }

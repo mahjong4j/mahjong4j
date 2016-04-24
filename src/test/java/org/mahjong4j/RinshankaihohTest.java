@@ -39,7 +39,7 @@ public class RinshankaihohTest {
         GeneralSituation generalSituation;
         generalSituation = new GeneralSituation(false, false, MahjongTile.SHA, dora, uradora);
         PersonalSituation personalSituation;
-        personalSituation = new PersonalSituation(false, false, false, false, false, false, true, MahjongTile.NAN);
+        personalSituation = new PersonalSituation(false, true, false, true, true, false, true, MahjongTile.NAN);
 
         mahjong = new Mahjong(hands, generalSituation, personalSituation);
         mahjong.calculate();
@@ -49,7 +49,13 @@ public class RinshankaihohTest {
     public void testGetYakumanList() throws Exception {
         List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
 
-        assertEquals(2, actual.size());
-        assertThat(actual, hasItems(MahjongYakuEnum.RINSHANKAIHOH, MahjongYakuEnum.SANSHOKUDOHJUN));
+        assertEquals(5, actual.size());
+        assertThat(actual, hasItems(
+            MahjongYakuEnum.RINSHANKAIHOH,
+            MahjongYakuEnum.SANSHOKUDOHJUN,
+            MahjongYakuEnum.REACHE,
+            MahjongYakuEnum.DOUBLE_REACH,
+            MahjongYakuEnum.TSUMO
+        ));
     }
 }
