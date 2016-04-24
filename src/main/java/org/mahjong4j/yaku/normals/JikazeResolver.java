@@ -2,6 +2,7 @@ package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.GeneralSituation;
 import org.mahjong4j.PersonalSituation;
+import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
 
 /**
@@ -13,7 +14,6 @@ public class JikazeResolver implements NormalYakuResolver{
     private final PersonalSituation personalSituation;
 
     public JikazeResolver(MentsuComp comp, GeneralSituation generalSituation, PersonalSituation personalSituation) {
-
         this.comp = comp;
         this.generalSituation = generalSituation;
         this.personalSituation = personalSituation;
@@ -21,11 +21,19 @@ public class JikazeResolver implements NormalYakuResolver{
 
     @Override
     public MahjongYakuEnum getNormalYaku() {
-        return null;
+        return MahjongYakuEnum.JIKAZE;
     }
 
     @Override
     public boolean isMatch() {
+        if (generalSituation == null || personalSituation == null) {
+            return false;
+        }
+        for (Kotsu kotsu : comp.getKotsuKantsu()) {
+            if (kotsu.getTile() == personalSituation.getJikaze()) {
+                return true;
+            }
+        }
         return false;
     }
 }

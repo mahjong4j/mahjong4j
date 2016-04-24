@@ -28,7 +28,7 @@ public class PinfuResolverTest {
         mentsuList.add(new Shuntsu(false, M5));
 
         MentsuComp comp = new MentsuComp(mentsuList, S3);
-        resolver = new PinfuResolver(comp);
+        resolver = new PinfuResolver(comp, null, null);
     }
 
     @Test
