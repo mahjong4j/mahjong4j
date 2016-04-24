@@ -26,7 +26,7 @@ public enum MahjongYakuEnum {
     REACHE(1, 0, "リーチ"),
     RINSHANKAIHOH(1, 1, "嶺上開花"),
     CHANKAN(1, 1, "槍槓"),
-    DOUBLE_REACH(2, 0, "ダブルリーチ"),
+    DOUBLE_REACH(1, 0, "ダブルリーチ"),
     CHANTA(2, 1, "チャンタ"),
     HONROHTOH(2, 2, "混老頭"),
     SANSHOKUDOHJUN(2, 1, "三色同順"),
@@ -42,9 +42,9 @@ public enum MahjongYakuEnum {
     HONITSU(3, 2, "混一色"),
     CHINITSU(6, 5, "清一色"),;
 
-    private int han;
-    private int kuisagari;
-    private String japanese;
+    private final int han;
+    private final int kuisagari;
+    private final String japanese;
 
     MahjongYakuEnum(int han, int kuisagari, String japanese) {
         this.han = han;

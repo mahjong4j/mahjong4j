@@ -21,11 +21,14 @@ public class DoubleReachResolver implements NormalYakuResolver {
 
     @Override
     public MahjongYakuEnum getNormalYaku() {
-        return null;
+        return MahjongYakuEnum.DOUBLE_REACH;
     }
 
     @Override
     public boolean isMatch() {
-        return false;
+        if ((generalSituation == null || personalSituation == null)) {
+            return false;
+        }
+        return personalSituation.isDoubleReach() && personalSituation.isReach();
     }
 }

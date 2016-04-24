@@ -21,7 +21,7 @@ public enum MahjongYakumanEnum {
     CHIHO("地和"),
     TENHO("天和"),;
 
-    private String japanese;
+    private final String japanese;
 
     MahjongYakumanEnum(String japanese) {
         this.japanese = japanese;
