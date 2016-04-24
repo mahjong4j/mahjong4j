@@ -38,7 +38,7 @@ public class TenhoTest {
         GeneralSituation generalSituation;
         generalSituation = new GeneralSituation(true, false, MahjongTile.TON, dora, uradora);
         PersonalSituation personalSituation;
-        personalSituation = new PersonalSituation(true, true, true, false, false, false, MahjongTile.NAN);
+        personalSituation = new PersonalSituation(true, true, true, false, false, false, false, MahjongTile.NAN);
 
         mahjong = new Mahjong(hands, generalSituation, personalSituation);
         mahjong.calculate();

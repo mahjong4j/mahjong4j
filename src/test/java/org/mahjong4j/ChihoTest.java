@@ -38,7 +38,7 @@ public class ChihoTest {
         GeneralSituation generalSituation;
         generalSituation = new GeneralSituation(true, false, MahjongTile.PEI, dora, uradora);
         PersonalSituation personalSituation;
-        personalSituation = new PersonalSituation(false, true, false, false, false, false, MahjongTile.NAN);
+        personalSituation = new PersonalSituation(false, true, false, false, false, false, false, MahjongTile.NAN);
 
         mahjong = new Mahjong(hands, generalSituation, personalSituation);
         mahjong.calculate();
