@@ -17,7 +17,7 @@ import static org.junit.Assert.assertThat;
 /**
  * @author yu1ro
  */
-public class RinshankaihohTest {
+public class RinshankaihohSanshokuDoubleReachTsumoTest {
     private Mahjong mahjong;
 
     @Before
@@ -46,7 +46,7 @@ public class RinshankaihohTest {
     }
 
     @Test
-    public void testGetYakumanList() throws Exception {
+    public void testGetNormalYakuList() throws Exception {
         List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
 
         assertEquals(5, actual.size());

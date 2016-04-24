@@ -46,7 +46,6 @@ public class Mahjong4jYakuConfig {
         normalYakuResolverList.add(new IkkitsukanResolver(comp));
         normalYakuResolverList.add(new IpeikoResolver(comp));
         normalYakuResolverList.add(new JunchanResolver(comp));
-        normalYakuResolverList.add(new PinfuResolver(comp));
         normalYakuResolverList.add(new RyanpeikoResolver(comp));
         normalYakuResolverList.add(new SanankoResolver(comp));
         normalYakuResolverList.add(new SankantsuResolver(comp));
@@ -56,6 +55,7 @@ public class Mahjong4jYakuConfig {
         normalYakuResolverList.add(new TanyaoResolver(comp));
         normalYakuResolverList.add(new ToitoihoResolver(comp));
 
+        normalYakuResolverList.add(new PinfuResolver(comp, generalSituation, personalSituation));
         normalYakuResolverList.add(new TsumoResolver(comp, generalSituation, personalSituation));
         normalYakuResolverList.add(new JikazeResolver(comp, generalSituation, personalSituation));
         normalYakuResolverList.add(new BakazeResolver(comp, generalSituation, personalSituation));
