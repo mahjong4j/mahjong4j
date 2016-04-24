@@ -7,13 +7,12 @@ import org.mahjong4j.hands.MentsuComp;
 /**
  * @author yu1ro
  */
-public class RinchankaihohResolver implements NormalYakuResolver{
+public class RinshankaihohResolver implements NormalYakuResolver {
     private final MentsuComp comp;
     private final GeneralSituation generalSituation;
     private final PersonalSituation personalSituation;
 
-    public RinchankaihohResolver(MentsuComp comp, GeneralSituation generalSituation, PersonalSituation personalSituation) {
-
+    public RinshankaihohResolver(MentsuComp comp, GeneralSituation generalSituation, PersonalSituation personalSituation) {
         this.comp = comp;
         this.generalSituation = generalSituation;
         this.personalSituation = personalSituation;
@@ -21,11 +20,19 @@ public class RinchankaihohResolver implements NormalYakuResolver{
 
     @Override
     public MahjongYakuEnum getNormalYaku() {
-        return null;
+        return MahjongYakuEnum.RINSHANKAIHOH;
     }
 
     @Override
     public boolean isMatch() {
-        return false;
+        if (personalSituation == null) {
+            return false;
+        }
+
+        if (comp.getKantsuCount() == 0) {
+            return false;
+        }
+
+        return personalSituation.isRinshankaihoh();
     }
 }

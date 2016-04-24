@@ -63,7 +63,7 @@ public class Mahjong4jYakuConfig {
         normalYakuResolverList.add(new HouteiResolver(comp, generalSituation, personalSituation));
         normalYakuResolverList.add(new HaiteiResolver(comp, generalSituation, personalSituation));
         normalYakuResolverList.add(new ReachResolver(comp, generalSituation, personalSituation));
-        normalYakuResolverList.add(new RinchankaihohResolver(comp, generalSituation, personalSituation));
+        normalYakuResolverList.add(new RinshankaihohResolver(comp, generalSituation, personalSituation));
         normalYakuResolverList.add(new ChankanResolver(comp, generalSituation, personalSituation));
         normalYakuResolverList.add(new DoubleReachResolver(comp, generalSituation, personalSituation));
 
