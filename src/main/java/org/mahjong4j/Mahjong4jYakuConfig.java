@@ -8,13 +8,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * TODO:このクラスで使う役のカスタマイズができそう
+ * TODO: to be able to customize Yaku for use
  *
  * @author yu1ro
  */
 public class Mahjong4jYakuConfig {
     public static Set<YakumanResolver> getYakumanResolverSet(MentsuComp comp, GeneralSituation generalSituation, PersonalSituation personalSituation) {
-        //国士無双は特殊なので、ここでは扱いません
+        // KOKUSHIMUSO is not
         Set<YakumanResolver> yakumanResolverSet = new HashSet<>(9);
         yakumanResolverSet.add(new ChinrohtohResolver(comp));
         yakumanResolverSet.add(new ChurenpohtohResolver(comp));
@@ -25,6 +25,7 @@ public class Mahjong4jYakuConfig {
         yakumanResolverSet.add(new SuankoResolver(comp));
         yakumanResolverSet.add(new SukantsuResolver(comp));
         yakumanResolverSet.add(new TsuisoResolver(comp));
+
         yakumanResolverSet.add(new RenhoResolver(comp, generalSituation, personalSituation));
         yakumanResolverSet.add(new ChihoResolver(comp, generalSituation, personalSituation));
         yakumanResolverSet.add(new TenhoResolver(comp, generalSituation, personalSituation));
@@ -32,7 +33,7 @@ public class Mahjong4jYakuConfig {
         return yakumanResolverSet;
     }
 
-    public static Set<NormalYakuResolver> getNormalYakuResolverSet(MentsuComp comp) {
+    public static Set<NormalYakuResolver> getNormalYakuResolverSet(MentsuComp comp, GeneralSituation generalSituation, PersonalSituation personalSituation) {
         Set<NormalYakuResolver> normalYakuResolverList = new HashSet<>(20);
         normalYakuResolverList.add(new ChantaResolver(comp));
         normalYakuResolverList.add(new ChunResolver(comp));
@@ -54,6 +55,17 @@ public class Mahjong4jYakuConfig {
         normalYakuResolverList.add(new ShosangenResolver(comp));
         normalYakuResolverList.add(new TanyaoResolver(comp));
         normalYakuResolverList.add(new ToitoihoResolver(comp));
+
+        normalYakuResolverList.add(new TsumoResolver(comp, generalSituation, personalSituation));
+        normalYakuResolverList.add(new JikazeResolver(comp, generalSituation, personalSituation));
+        normalYakuResolverList.add(new BakazeResolver(comp, generalSituation, personalSituation));
+        normalYakuResolverList.add(new IppatsuResolver(comp, generalSituation, personalSituation));
+        normalYakuResolverList.add(new HouteiResolver(comp, generalSituation, personalSituation));
+        normalYakuResolverList.add(new HaiteiResolver(comp, generalSituation, personalSituation));
+        normalYakuResolverList.add(new ReachResolver(comp, generalSituation, personalSituation));
+        normalYakuResolverList.add(new RinchankaihohResolver(comp, generalSituation, personalSituation));
+        normalYakuResolverList.add(new ChankanResolver(comp, generalSituation, personalSituation));
+        normalYakuResolverList.add(new DoubleReachResolver(comp, generalSituation, personalSituation));
 
         return normalYakuResolverList;
     }

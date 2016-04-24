@@ -103,7 +103,7 @@ public class Mahjong {
             //役をストックしておく
             List<MahjongYakuEnum> yakuStock = new ArrayList<>(7);
             Set<NormalYakuResolver> resolverSet
-                = Mahjong4jYakuConfig.getNormalYakuResolverSet(comp);
+                = Mahjong4jYakuConfig.getNormalYakuResolverSet(comp, generalSituation, personalSituation);
             for (NormalYakuResolver resolver : resolverSet) {
                 if (resolver.isMatch()) {
                     yakuStock.add(resolver.getNormalYaku());
