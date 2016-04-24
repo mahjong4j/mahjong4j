@@ -5,6 +5,7 @@ import org.mahjong4j.PersonalSituation;
 import org.mahjong4j.hands.MentsuComp;
 
 /**
+ * 最後の牌でツモ和了した場合に成立
  * @author yu1ro
  */
 public class HaiteiResolver implements NormalYakuResolver{
@@ -13,7 +14,6 @@ public class HaiteiResolver implements NormalYakuResolver{
     private final PersonalSituation personalSituation;
 
     public HaiteiResolver(MentsuComp comp, GeneralSituation generalSituation, PersonalSituation personalSituation) {
-
         this.comp = comp;
         this.generalSituation = generalSituation;
         this.personalSituation = personalSituation;
@@ -21,11 +21,15 @@ public class HaiteiResolver implements NormalYakuResolver{
 
     @Override
     public MahjongYakuEnum getNormalYaku() {
-        return null;
+        return MahjongYakuEnum.HAITEI;
     }
 
     @Override
     public boolean isMatch() {
-        return false;
+        if (generalSituation == null || personalSituation ==null) {
+            return false;
+        }
+
+        return generalSituation.isHoutei() && personalSituation.isTsumo();
     }
 }

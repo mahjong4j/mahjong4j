@@ -5,27 +5,28 @@ import org.mahjong4j.PersonalSituation;
 import org.mahjong4j.hands.MentsuComp;
 
 /**
+ * 最後の牌でロン和了した場合に成立
  * @author yu1ro
  */
 public class HouteiResolver implements NormalYakuResolver{
-    private final MentsuComp comp;
     private final GeneralSituation generalSituation;
     private final PersonalSituation personalSituation;
 
     public HouteiResolver(MentsuComp comp, GeneralSituation generalSituation, PersonalSituation personalSituation) {
-
-        this.comp = comp;
         this.generalSituation = generalSituation;
         this.personalSituation = personalSituation;
     }
 
     @Override
     public MahjongYakuEnum getNormalYaku() {
-        return null;
+        return MahjongYakuEnum.HOUTEI;
     }
 
     @Override
     public boolean isMatch() {
-        return false;
+        if (generalSituation ==null || personalSituation == null) {
+            return false;
+        }
+        return generalSituation.isHoutei() && !personalSituation.isTsumo();
     }
 }
