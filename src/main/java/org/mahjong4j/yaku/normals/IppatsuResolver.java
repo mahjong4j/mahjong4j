@@ -21,11 +21,14 @@ public class IppatsuResolver implements NormalYakuResolver {
 
     @Override
     public MahjongYakuEnum getNormalYaku() {
-        return null;
+        return MahjongYakuEnum.IPPATSU;
     }
 
     @Override
     public boolean isMatch() {
-        return false;
+        if (generalSituation == null || personalSituation == null) {
+            return false;
+        }
+        return personalSituation.isIppatsu();
     }
 }

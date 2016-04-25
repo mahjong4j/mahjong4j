@@ -21,11 +21,14 @@ public class ChankanResolver implements NormalYakuResolver {
 
     @Override
     public MahjongYakuEnum getNormalYaku() {
-        return null;
+        return MahjongYakuEnum.CHANKAN;
     }
 
     @Override
     public boolean isMatch() {
-        return false;
+        if (personalSituation == null || generalSituation == null) {
+            return false;
+        }
+        return personalSituation.isChankan();
     }
 }
