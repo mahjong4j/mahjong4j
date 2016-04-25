@@ -16,7 +16,7 @@ import static org.junit.Assert.assertThat;
 /**
  * @author yu1ro
  */
-public class ReachTsumoHaiteiTest {
+public class ReachTsumoHaiteiUradoraTest {
     private Mahjong mahjong;
 
     @Before
@@ -34,7 +34,7 @@ public class ReachTsumoHaiteiTest {
         dora.add(MahjongTile.CHN);
 
         List<MahjongTile> uradora = new ArrayList<>(1);
-        uradora.add(MahjongTile.M2);
+        uradora.add(MahjongTile.M8);
         GeneralSituation generalSituation;
         generalSituation = new GeneralSituation(false, true, MahjongTile.NAN, dora, uradora);
         PersonalSituation personalSituation;
@@ -48,10 +48,11 @@ public class ReachTsumoHaiteiTest {
     public void testGetNormalYakuList() throws Exception {
         List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
 
-        assertEquals(3, actual.size());
+        assertEquals(4, actual.size());
         assertThat(actual, hasItems(
             MahjongYakuEnum.REACHE,
             MahjongYakuEnum.TSUMO,
+            MahjongYakuEnum.URADORA,
             MahjongYakuEnum.HAITEI
         ));
     }
