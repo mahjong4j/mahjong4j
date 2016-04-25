@@ -2,6 +2,7 @@ package org.mahjong4j.yaku.yakuman;
 
 import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
+import org.mahjong4j.hands.Shuntsu;
 import org.mahjong4j.hands.Toitsu;
 
 import java.util.List;
@@ -18,11 +19,13 @@ public class TsuisoResolver implements YakumanResolver {
     private MahjongYakumanEnum yakuman = TSUISO;
 
     private Toitsu janto;
+    private List<Shuntsu> shuntsuList;
     private List<Toitsu> toitsuList;
     private List<Kotsu> kotsuList;
 
     public TsuisoResolver(MentsuComp comp) {
         janto = comp.getJanto();
+        shuntsuList = comp.getShuntsuList();
         toitsuList = comp.getToitsuList();
         kotsuList = comp.getKotsuKantsu();
     }
@@ -32,6 +35,9 @@ public class TsuisoResolver implements YakumanResolver {
     }
 
     public boolean isMatch() {
+        if (shuntsuList.size() > 0) {
+            return false;
+        }
         if (janto == null) {
             for (Toitsu toitsu : toitsuList) {
                 if (toitsu.getTile().getNumber() != 0) {
