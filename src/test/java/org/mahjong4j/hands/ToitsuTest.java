@@ -72,8 +72,6 @@ public class ToitsuTest {
     }
 
 
-
-
     @Test(expected = MahjongTileOverFlowException.class)
     public void testThrow() throws Exception {
         int[] tiles = {

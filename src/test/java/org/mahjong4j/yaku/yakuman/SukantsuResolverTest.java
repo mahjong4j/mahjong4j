@@ -2,7 +2,10 @@ package org.mahjong4j.yaku.yakuman;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mahjong4j.hands.*;
+import org.mahjong4j.hands.Kantsu;
+import org.mahjong4j.hands.MahjongMentsu;
+import org.mahjong4j.hands.MentsuComp;
+import org.mahjong4j.hands.Toitsu;
 
 import java.util.ArrayList;
 import java.util.List;

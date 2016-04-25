@@ -16,7 +16,7 @@ import static org.junit.Assert.assertThat;
 /**
  * @author yu1ro
  */
-public class DoubleNanReachTest {
+public class DoubleNanReachIppatsuTest {
     private Mahjong mahjong;
 
     @Before
@@ -38,7 +38,7 @@ public class DoubleNanReachTest {
         GeneralSituation generalSituation;
         generalSituation = new GeneralSituation(false, false, MahjongTile.NAN, dora, uradora);
         PersonalSituation personalSituation;
-        personalSituation = new PersonalSituation(false, false, false, true, false, false, false, MahjongTile.NAN);
+        personalSituation = new PersonalSituation(false, false, true, true, false, false, false, MahjongTile.NAN);
 
         mahjong = new Mahjong(hands, generalSituation, personalSituation);
         mahjong.calculate();
@@ -48,11 +48,12 @@ public class DoubleNanReachTest {
     public void testGetNormalYakuList() throws Exception {
         List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
 
-        assertEquals(3, actual.size());
+        assertEquals(4, actual.size());
         assertThat(actual, hasItems(
             MahjongYakuEnum.JIKAZE,
             MahjongYakuEnum.BAKAZE,
-            MahjongYakuEnum.REACHE
+            MahjongYakuEnum.REACHE,
+            MahjongYakuEnum.IPPATSU
         ));
     }
 }

@@ -6,9 +6,10 @@ import org.mahjong4j.hands.MentsuComp;
 
 /**
  * 最後の牌でロン和了した場合に成立
+ *
  * @author yu1ro
  */
-public class HouteiResolver implements NormalYakuResolver{
+public class HouteiResolver implements NormalYakuResolver {
     private final GeneralSituation generalSituation;
     private final PersonalSituation personalSituation;
 
@@ -24,7 +25,7 @@ public class HouteiResolver implements NormalYakuResolver{
 
     @Override
     public boolean isMatch() {
-        if (generalSituation ==null || personalSituation == null) {
+        if (generalSituation == null || personalSituation == null) {
             return false;
         }
         return generalSituation.isHoutei() && !personalSituation.isTsumo();

@@ -7,7 +7,7 @@ import org.mahjong4j.hands.MentsuComp;
 /**
  * @author yu1ro
  */
-public class ChankanResolver implements NormalYakuResolver{
+public class ChankanResolver implements NormalYakuResolver {
     private final MentsuComp comp;
     private final GeneralSituation generalSituation;
     private final PersonalSituation personalSituation;
@@ -21,11 +21,14 @@ public class ChankanResolver implements NormalYakuResolver{
 
     @Override
     public MahjongYakuEnum getNormalYaku() {
-        return null;
+        return MahjongYakuEnum.CHANKAN;
     }
 
     @Override
     public boolean isMatch() {
-        return false;
+        if (personalSituation == null || generalSituation == null) {
+            return false;
+        }
+        return personalSituation.isChankan();
     }
 }

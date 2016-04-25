@@ -22,7 +22,7 @@ public class MahjongHandsKokushimusoTest {
             1, 1, 1,
         };
 
-        actual = new MahjongHands(tiles , CHN);
+        actual = new MahjongHands(tiles, CHN);
     }
 
     @Test

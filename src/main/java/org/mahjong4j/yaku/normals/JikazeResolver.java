@@ -8,7 +8,7 @@ import org.mahjong4j.hands.MentsuComp;
 /**
  * @author yu1ro
  */
-public class JikazeResolver implements NormalYakuResolver{
+public class JikazeResolver implements NormalYakuResolver {
     private final MentsuComp comp;
     private final GeneralSituation generalSituation;
     private final PersonalSituation personalSituation;
