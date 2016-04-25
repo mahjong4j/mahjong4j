@@ -21,8 +21,8 @@ public class IkkitsukanResolverTest {
     private IkkitsukanResolver resolver;
 
     @Before
-    public void setUp() throws Exception{
-        List<MahjongMentsu> mentsu =new ArrayList<>(5);
+    public void setUp() throws Exception {
+        List<MahjongMentsu> mentsu = new ArrayList<>(5);
         mentsu.add(new Toitsu(M3));
         mentsu.add(new Shuntsu(true, S4));
         mentsu.add(new Shuntsu(false, P2));

@@ -27,7 +27,7 @@ public class BakazeResolver implements NormalYakuResolver {
 
     @Override
     public boolean isMatch() {
-        if ((generalSituation == null || personalSituation ==null)) {
+        if ((generalSituation == null || personalSituation == null)) {
             return false;
         }
         for (Kotsu kotsu : comp.getKotsuKantsu()) {

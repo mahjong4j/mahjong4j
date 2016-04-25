@@ -14,9 +14,7 @@ import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
 import static org.mahjong4j.tile.MahjongTile.P7;
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SANANKO;
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.TANYAO;
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.TOITOIHO;
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
 
 /**
  * @author yu1ro

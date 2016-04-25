@@ -7,7 +7,7 @@ import org.mahjong4j.hands.MentsuComp;
 /**
  * @author yu1ro
  */
-public class ChankanResolver implements NormalYakuResolver{
+public class ChankanResolver implements NormalYakuResolver {
     private final MentsuComp comp;
     private final GeneralSituation generalSituation;
     private final PersonalSituation personalSituation;
