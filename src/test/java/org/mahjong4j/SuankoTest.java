@@ -11,6 +11,7 @@ import java.util.List;
 import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
+import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.SUANKO;
 
 /**
  * @author yu1ro
@@ -35,10 +36,16 @@ public class SuankoTest {
     }
 
     @Test
-    public void testGetYakumanList() throws Exception {
+    public void testGetYakumanListSize() throws Exception {
         List<MahjongYakumanEnum> actual = mahjong.getYakumanList();
 
         assertEquals(1, actual.size());
-        assertThat(actual, hasItems(MahjongYakumanEnum.SUANKO));
+    }
+
+    @Test
+    public void testGetYakumanListItem() throws Exception {
+        List<MahjongYakumanEnum> actual = mahjong.getYakumanList();
+
+        assertThat(actual, hasItems(SUANKO));
     }
 }

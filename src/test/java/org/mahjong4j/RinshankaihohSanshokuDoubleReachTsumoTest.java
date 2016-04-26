@@ -13,6 +13,9 @@ import java.util.List;
 import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
+import static org.mahjong4j.tile.MahjongTile.*;
+import static org.mahjong4j.tile.MahjongTile.M9;
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
 
 /**
  * @author yu1ro
@@ -29,33 +32,33 @@ public class RinshankaihohSanshokuDoubleReachTsumoTest {
             0, 0, 0, 0,
             0, 0, 0
         };
-        MahjongTile last = MahjongTile.M9;
-        MahjongHands hands = new MahjongHands(tiles, last, new Kantsu(true, MahjongTile.TON));
+        MahjongTile last = M9;
+        MahjongHands hands = new MahjongHands(tiles, last, new Kantsu(true, TON));
         List<MahjongTile> dora = new ArrayList<>(1);
-        dora.add(MahjongTile.CHN);
+        dora.add(CHN);
 
         List<MahjongTile> uradora = new ArrayList<>(1);
-        uradora.add(MahjongTile.M2);
-        GeneralSituation generalSituation;
-        generalSituation = new GeneralSituation(false, false, MahjongTile.SHA, dora, uradora);
-        PersonalSituation personalSituation;
-        personalSituation = new PersonalSituation(false, true, false, true, true, false, true, MahjongTile.NAN);
+        uradora.add(M2);
+        GeneralSituation general;
+        general = new GeneralSituation(false, false, SHA, dora, uradora);
+        PersonalSituation personal;
+        personal = new PersonalSituation(false, true, false, true, true, false, true, NAN);
 
-        mahjong = new Mahjong(hands, generalSituation, personalSituation);
+        mahjong = new Mahjong(hands, general, personal);
         mahjong.calculate();
     }
 
     @Test
-    public void testGetNormalYakuList() throws Exception {
+    public void testGetNormalYakuListSize() throws Exception {
         List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
 
         assertEquals(5, actual.size());
-        assertThat(actual, hasItems(
-            MahjongYakuEnum.RINSHANKAIHOH,
-            MahjongYakuEnum.SANSHOKUDOHJUN,
-            MahjongYakuEnum.REACHE,
-            MahjongYakuEnum.DOUBLE_REACH,
-            MahjongYakuEnum.TSUMO
-        ));
+    }
+
+    @Test
+    public void testGetNormalYakuListItem() throws Exception {
+        List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
+
+        assertThat(actual, hasItems(RINSHANKAIHOH, SANSHOKUDOHJUN, REACHE, DOUBLE_REACH, TSUMO));
     }
 }

@@ -13,6 +13,7 @@ import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.junit.Assert.assertThat;
 import static org.mahjong4j.tile.MahjongTile.M8;
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
 
 /**
  * @author yu1ro
@@ -44,12 +45,16 @@ public class RyanpeikoTanyaoPinfuTest {
     }
 
     @Test
-    public void testGetNormalYakuList() throws Exception {
+    public void testGetNormalYakuListSize() throws Exception {
         List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
 
         assertEquals(3, actual.size());
-        assertThat(actual, hasItems(MahjongYakuEnum.RYANPEIKO));
-        assertThat(actual, hasItems(MahjongYakuEnum.TANYAO));
-        assertThat(actual, hasItems(MahjongYakuEnum.PINFU));
+    }
+
+    @Test
+    public void testGetNormalYakuListItem() throws Exception {
+        List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
+
+        assertThat(actual, hasItems(RYANPEIKO, TANYAO, PINFU));
     }
 }

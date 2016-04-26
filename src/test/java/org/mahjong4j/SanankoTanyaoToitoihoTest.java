@@ -13,6 +13,7 @@ import java.util.List;
 import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
+import static org.mahjong4j.tile.MahjongTile.M4;
 import static org.mahjong4j.tile.MahjongTile.P7;
 import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
 
@@ -20,7 +21,6 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
  * @author yu1ro
  */
 public class SanankoTanyaoToitoihoTest {
-    private MahjongHands hands;
     private Mahjong mahjong;
 
     @Before
@@ -32,8 +32,8 @@ public class SanankoTanyaoToitoihoTest {
             0, 0, 0, 0,
             0, 0, 0
         };
-        MahjongTile last = MahjongTile.M4;
-        hands = new MahjongHands(tiles, last, new Kotsu(true, P7));
+        MahjongTile last = M4;
+        MahjongHands hands = new MahjongHands(tiles, last, new Kotsu(true, P7));
         mahjong = new Mahjong(hands);
         mahjong.calculate();
     }
@@ -55,8 +55,7 @@ public class SanankoTanyaoToitoihoTest {
     @Test
     public void testGetNormalYakuListHasSanshokudohko() throws Exception {
         List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
-        assertThat(actual, hasItems(SANANKO));
-        assertThat(actual, hasItems(TANYAO));
-        assertThat(actual, hasItems(TOITOIHO));
+
+        assertThat(actual, hasItems(SANANKO, TANYAO, TOITOIHO));
     }
 }

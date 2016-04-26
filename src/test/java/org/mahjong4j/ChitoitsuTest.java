@@ -13,6 +13,7 @@ import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.junit.Assert.assertThat;
 import static org.mahjong4j.tile.MahjongTile.M8;
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.CHITOITSU;
 
 /**
  * @author yu1ro
@@ -48,6 +49,6 @@ public class ChitoitsuTest {
         List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
 
         assertEquals(1, actual.size());
-        assertThat(actual, hasItems(MahjongYakuEnum.CHITOITSU));
+        assertThat(actual, hasItems(CHITOITSU));
     }
 }
