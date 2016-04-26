@@ -2,6 +2,7 @@ package org.mahjong4j;
 
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.hands.MentsuComp;
+import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.normals.MahjongYakuEnum;
 import org.mahjong4j.yaku.normals.NormalYakuResolver;
 import org.mahjong4j.yaku.yakuman.MahjongYakumanEnum;
@@ -26,7 +27,7 @@ public class Mahjong {
     private List<MahjongYakuEnum> normalYakuList = new ArrayList<>(0);
 
     //翻
-    private int han;
+    private int han = 0;
 
     private MahjongHands hands;
     private GeneralSituation generalSituation;
@@ -114,6 +115,34 @@ public class Mahjong {
             if (hanSum > this.han) {
                 han = hanSum;
                 normalYakuList = yakuStock;
+            }
+        }
+
+        if (han > 0) {
+            calcDora(hands.getHandsComp(), generalSituation, normalYakuList.contains(MahjongYakuEnum.REACHE));
+        }
+
+    }
+
+    private void calcDora(int[] handsComp, GeneralSituation generalSituation, boolean isReach) {
+        if (generalSituation == null) {
+            return;
+        }
+        int dora = 0;
+        for (MahjongTile tile : generalSituation.getDora()) {
+            dora += handsComp[tile.getCode()];
+        }
+        for (int i = 0; i < dora; i++) {
+            normalYakuList.add(MahjongYakuEnum.DORA);
+        }
+
+        if (isReach) {
+            int uradora = 0;
+            for (MahjongTile tile : generalSituation.getUradora()) {
+                uradora += handsComp[tile.getCode()];
+            }
+            for (int i = 0; i < uradora; i++) {
+                normalYakuList.add(MahjongYakuEnum.URADORA);
             }
         }
     }

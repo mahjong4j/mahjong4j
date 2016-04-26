@@ -9,6 +9,7 @@ import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.normals.MahjongYakuEnum;
 import org.mahjong4j.yaku.yakuman.MahjongYakumanEnum;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
@@ -32,8 +33,15 @@ public class NoYakuTest {
             0, 0, 0
         };
         MahjongTile last = MahjongTile.M6;
+        List<MahjongTile> dora = new ArrayList<>(1);
+        dora.add(MahjongTile.PEI);
+        List<MahjongTile> uradora = new ArrayList<>(2);
+        uradora.add(MahjongTile.M9);
+        uradora.add(MahjongTile.P4);
+        GeneralSituation generalSituation = new GeneralSituation(false, false, MahjongTile.TON, dora, uradora);
+        PersonalSituation personalSituation = new PersonalSituation(false, false, false, true, false, false, false, MahjongTile.NAN);
         hands = new MahjongHands(tiles, last, new Kotsu(true, PEI), new Shuntsu(true, P4));
-        mahjong = new Mahjong(hands);
+        mahjong = new Mahjong(hands, generalSituation, personalSituation);
         mahjong.calculate();
     }
 

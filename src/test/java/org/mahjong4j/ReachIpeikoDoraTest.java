@@ -17,7 +17,7 @@ import static org.junit.Assert.assertThat;
 /**
  * @author yu1ro
  */
-public class ReachIpeikoTest {
+public class ReachIpeikoDoraTest {
     MahjongHands hands;
     Mahjong mahjong;
 
@@ -54,7 +54,7 @@ public class ReachIpeikoTest {
     public void testGetNormalYakuList() throws Exception {
         List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
 
-        assertEquals(2, actual.size());
+        assertEquals(4, actual.size());
         assertThat(actual, hasItems(MahjongYakuEnum.REACHE));
         assertThat(actual, hasItems(MahjongYakuEnum.IPEIKO));
     }
