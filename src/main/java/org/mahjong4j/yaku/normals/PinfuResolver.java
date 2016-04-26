@@ -7,10 +7,10 @@ import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.hands.Shuntsu;
 import org.mahjong4j.hands.Toitsu;
 import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.tile.MahjongTileType;
 
 import java.util.List;
 
+import static org.mahjong4j.tile.MahjongTileType.SANGEN;
 import static org.mahjong4j.yaku.normals.MahjongYakuEnum.PINFU;
 
 /**
@@ -19,9 +19,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.PINFU;
  *
  * @author yu1ro
  */
-public class PinfuResolver implements NormalYakuResolver {
-    private final GeneralSituation generalSituation;
-    private final PersonalSituation personalSituation;
+public class PinfuResolver extends SituationResolver implements NormalYakuResolver {
     private final MahjongYakuEnum yakuEnum = PINFU;
 
     private final Toitsu janto;
@@ -31,8 +29,7 @@ public class PinfuResolver implements NormalYakuResolver {
 
 
     public PinfuResolver(MentsuComp comp, GeneralSituation generalSituation, PersonalSituation personalSituation) {
-        this.generalSituation = generalSituation;
-        this.personalSituation = personalSituation;
+        super(generalSituation, personalSituation);
         janto = comp.getJanto();
         shuntsuCount = comp.getShuntsuCount();
         shuntsuList = comp.getShuntsuList();
@@ -49,11 +46,11 @@ public class PinfuResolver implements NormalYakuResolver {
         }
         //雀頭が三元牌の場合はfalse
         MahjongTile janto = this.janto.getTile();
-        if (janto.getType() == MahjongTileType.SANGEN) {
+        if (janto.getType() == SANGEN) {
             return false;
         }
 
-        if (generalSituation != null && personalSituation != null) {
+        if (!isSituationsNull()) {
             if (janto == generalSituation.getBakaze()) {
                 return false;
             }

@@ -6,13 +6,10 @@ import org.mahjong4j.PersonalSituation;
 /**
  * @author yu1ro
  */
-public class ReachResolver implements NormalYakuResolver {
-    private final GeneralSituation generalSituation;
-    private final PersonalSituation personalSituation;
+public class ReachResolver extends SituationResolver implements NormalYakuResolver {
 
     public ReachResolver(GeneralSituation generalSituation, PersonalSituation personalSituation) {
-        this.generalSituation = generalSituation;
-        this.personalSituation = personalSituation;
+        super(generalSituation, personalSituation);
     }
 
     @Override
@@ -22,7 +19,7 @@ public class ReachResolver implements NormalYakuResolver {
 
     @Override
     public boolean isMatch() {
-        if (generalSituation == null || personalSituation == null) {
+        if (isSituationsNull()) {
             return false;
         }
         return personalSituation.isReach();

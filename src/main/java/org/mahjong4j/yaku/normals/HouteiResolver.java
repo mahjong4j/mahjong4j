@@ -8,13 +8,10 @@ import org.mahjong4j.PersonalSituation;
  *
  * @author yu1ro
  */
-public class HouteiResolver implements NormalYakuResolver {
-    private final GeneralSituation generalSituation;
-    private final PersonalSituation personalSituation;
+public class HouteiResolver extends SituationResolver implements NormalYakuResolver {
 
     public HouteiResolver(GeneralSituation generalSituation, PersonalSituation personalSituation) {
-        this.generalSituation = generalSituation;
-        this.personalSituation = personalSituation;
+        super(generalSituation, personalSituation);
     }
 
     @Override
@@ -24,7 +21,7 @@ public class HouteiResolver implements NormalYakuResolver {
 
     @Override
     public boolean isMatch() {
-        if (generalSituation == null || personalSituation == null) {
+        if (isSituationsNull()) {
             return false;
         }
         return generalSituation.isHoutei() && !personalSituation.isTsumo();

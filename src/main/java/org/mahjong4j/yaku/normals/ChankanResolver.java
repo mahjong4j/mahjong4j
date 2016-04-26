@@ -8,13 +8,10 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.CHANKAN;
 /**
  * @author yu1ro
  */
-public class ChankanResolver implements NormalYakuResolver {
-    private final GeneralSituation generalSituation;
-    private final PersonalSituation personalSituation;
+public class ChankanResolver extends SituationResolver implements NormalYakuResolver {
 
     public ChankanResolver(GeneralSituation generalSituation, PersonalSituation personalSituation) {
-        this.generalSituation = generalSituation;
-        this.personalSituation = personalSituation;
+        super(generalSituation, personalSituation);
     }
 
     @Override
@@ -24,7 +21,7 @@ public class ChankanResolver implements NormalYakuResolver {
 
     @Override
     public boolean isMatch() {
-        if (personalSituation == null || generalSituation == null) {
+        if (isSituationsNull()) {
             return false;
         }
         return personalSituation.isChankan();

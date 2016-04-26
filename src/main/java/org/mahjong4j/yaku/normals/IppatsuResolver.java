@@ -6,13 +6,10 @@ import org.mahjong4j.PersonalSituation;
 /**
  * @author yu1ro
  */
-public class IppatsuResolver implements NormalYakuResolver {
-    private final GeneralSituation generalSituation;
-    private final PersonalSituation personalSituation;
+public class IppatsuResolver extends SituationResolver implements NormalYakuResolver {
 
     public IppatsuResolver(GeneralSituation generalSituation, PersonalSituation personalSituation) {
-        this.generalSituation = generalSituation;
-        this.personalSituation = personalSituation;
+        super(generalSituation, personalSituation);
     }
 
     @Override
@@ -22,7 +19,7 @@ public class IppatsuResolver implements NormalYakuResolver {
 
     @Override
     public boolean isMatch() {
-        if (generalSituation == null || personalSituation == null) {
+        if (isSituationsNull()) {
             return false;
         }
         return personalSituation.isIppatsu();
