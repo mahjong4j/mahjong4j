@@ -22,12 +22,12 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.PINFU;
 public class PinfuResolver implements NormalYakuResolver {
     private final GeneralSituation generalSituation;
     private final PersonalSituation personalSituation;
-    private MahjongYakuEnum yakuEnum = PINFU;
+    private final MahjongYakuEnum yakuEnum = PINFU;
 
-    private Toitsu janto;
-    private int shuntsuCount;
-    private List<Shuntsu> shuntsuList;
-    private MahjongTile last;
+    private final Toitsu janto;
+    private final int shuntsuCount;
+    private final List<Shuntsu> shuntsuList;
+    private final MahjongTile last;
 
 
     public PinfuResolver(MentsuComp comp, GeneralSituation generalSituation, PersonalSituation personalSituation) {

@@ -14,8 +14,8 @@ import java.util.List;
  * @author yu1ro
  */
 public class ChunResolver implements NormalYakuResolver {
-    private MahjongYakuEnum yakuEnum = MahjongYakuEnum.CHUN;
-    private List<Kotsu> kotsuList;
+    private final MahjongYakuEnum yakuEnum = MahjongYakuEnum.CHUN;
+    private final List<Kotsu> kotsuList;
 
     public ChunResolver(MentsuComp comp) {
         kotsuList = comp.getKotsuKantsu();

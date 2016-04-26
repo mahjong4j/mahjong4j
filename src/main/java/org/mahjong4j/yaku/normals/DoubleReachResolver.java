@@ -11,7 +11,6 @@ public class DoubleReachResolver implements NormalYakuResolver {
     private final PersonalSituation personalSituation;
 
     public DoubleReachResolver(GeneralSituation generalSituation, PersonalSituation personalSituation) {
-
         this.generalSituation = generalSituation;
         this.personalSituation = personalSituation;
     }

@@ -15,8 +15,8 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.TANYAO;
  * @author yu1ro
  */
 public class TanyaoResolver implements NormalYakuResolver {
-    private MahjongYakuEnum yakuEnum = TANYAO;
-    private List<MahjongMentsu> allMentsu;
+    private final MahjongYakuEnum yakuEnum = TANYAO;
+    private final List<MahjongMentsu> allMentsu;
 
     public TanyaoResolver(MentsuComp comp) {
         allMentsu = comp.getAllMentsu();

@@ -13,7 +13,7 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.SUKANTSU;
  */
 public class SukantsuResolver implements YakumanResolver {
     private final int kantsuCount;
-    private MahjongYakumanEnum yakuman = SUKANTSU;
+    private final MahjongYakumanEnum yakuman = SUKANTSU;
 
     public SukantsuResolver(MentsuComp comp) {
         kantsuCount = comp.getKantsuCount();

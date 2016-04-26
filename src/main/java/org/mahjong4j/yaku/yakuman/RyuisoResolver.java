@@ -19,10 +19,10 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.RYUISO;
  * @author yu1ro
  */
 public class RyuisoResolver implements YakumanResolver {
-    private MahjongYakumanEnum yakuman = RYUISO;
-    private List<Toitsu> toitsuList;
-    private List<Shuntsu> shuntsuList;
-    private List<Kotsu> kotsuList;
+    private final MahjongYakumanEnum yakuman = RYUISO;
+    private final List<Toitsu> toitsuList;
+    private final List<Shuntsu> shuntsuList;
+    private final List<Kotsu> kotsuList;
 
     public RyuisoResolver(MentsuComp hands) {
         toitsuList = hands.getToitsuList();

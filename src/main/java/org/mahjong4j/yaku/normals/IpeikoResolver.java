@@ -15,9 +15,9 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.IPEIKO;
  * @author yu1ro
  */
 public class IpeikoResolver implements NormalYakuResolver {
-    private MahjongYakuEnum yakuEnum = IPEIKO;
-    private int shuntsuCount;
-    private List<Shuntsu> shuntsuList;
+    private final MahjongYakuEnum yakuEnum = IPEIKO;
+    private final int shuntsuCount;
+    private final List<Shuntsu> shuntsuList;
 
     public IpeikoResolver(MentsuComp comp) {
         shuntsuCount = comp.getShuntsuCount();

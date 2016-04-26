@@ -15,9 +15,9 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.DAISUSHI;
  * @author knn
  */
 public class DaisushiResolver implements YakumanResolver {
-    private MahjongYakumanEnum yakuman = DAISUSHI;
+    private final MahjongYakumanEnum yakuman = DAISUSHI;
 
-    private List<Kotsu> kotsuList;
+    private final List<Kotsu> kotsuList;
 
     public DaisushiResolver(MentsuComp comp) {
         kotsuList = comp.getKotsuKantsu();

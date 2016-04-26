@@ -21,7 +21,7 @@ public class KokushimusoResolver {
         1, 1, 1, 1,
         1, 1, 1
     };
-    private int[] hands;
+    private final int[] hands;
 
     public KokushimusoResolver(int[] hands) {
         this.hands = hands;

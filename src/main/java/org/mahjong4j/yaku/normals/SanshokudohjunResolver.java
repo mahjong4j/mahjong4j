@@ -16,9 +16,9 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SANSHOKUDOHJUN;
  * @author yu1ro
  */
 public class SanshokudohjunResolver implements NormalYakuResolver {
-    private MahjongYakuEnum yakuEnum = SANSHOKUDOHJUN;
-    private int shuntsuCount;
-    private List<Shuntsu> shuntsuList;
+    private final MahjongYakuEnum yakuEnum = SANSHOKUDOHJUN;
+    private final int shuntsuCount;
+    private final List<Shuntsu> shuntsuList;
 
     private boolean manzu = false;
     private boolean pinzu = false;

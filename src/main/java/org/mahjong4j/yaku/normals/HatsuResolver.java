@@ -16,8 +16,8 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.HATSU;
  * @author yu1ro
  */
 public class HatsuResolver implements NormalYakuResolver {
-    private MahjongYakuEnum yakuEnum = HATSU;
-    private List<Kotsu> kotsuList;
+    private final MahjongYakuEnum yakuEnum = HATSU;
+    private final List<Kotsu> kotsuList;
 
     public HatsuResolver(MentsuComp comp) {
         kotsuList = comp.getKotsuKantsu();

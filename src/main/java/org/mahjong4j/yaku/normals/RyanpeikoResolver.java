@@ -15,10 +15,10 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.RYANPEIKO;
  * @author yu1ro
  */
 public class RyanpeikoResolver implements NormalYakuResolver {
-    private MahjongYakuEnum yakuEnum = RYANPEIKO;
+    private final MahjongYakuEnum yakuEnum = RYANPEIKO;
 
-    private List<Shuntsu> shuntsuList;
-    private int shuntsuCount;
+    private final List<Shuntsu> shuntsuList;
+    private final int shuntsuCount;
 
     public RyanpeikoResolver(MentsuComp comp) {
         shuntsuList = comp.getShuntsuList();

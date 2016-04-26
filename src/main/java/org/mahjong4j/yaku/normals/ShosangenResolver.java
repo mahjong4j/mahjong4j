@@ -17,10 +17,10 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SHOSANGEN;
  * @author yu1ro
  */
 public class ShosangenResolver implements NormalYakuResolver {
-    private MahjongYakuEnum yakuEnum = SHOSANGEN;
+    private final MahjongYakuEnum yakuEnum = SHOSANGEN;
 
-    private Toitsu janto;
-    private List<Kotsu> kotsuList;
+    private final Toitsu janto;
+    private final List<Kotsu> kotsuList;
 
     public ShosangenResolver(MentsuComp comp) {
         janto = comp.getJanto();

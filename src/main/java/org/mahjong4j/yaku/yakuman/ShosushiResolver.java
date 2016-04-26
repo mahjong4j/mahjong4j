@@ -17,10 +17,10 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.SHOSUSHI;
  * @author yu1ro
  */
 public class ShosushiResolver implements YakumanResolver {
-    private MahjongYakumanEnum yakuman = SHOSUSHI;
-    private Toitsu janto;
-    private List<Kotsu> kotsuList;
-    private int kotsuCount;
+    private final MahjongYakumanEnum yakuman = SHOSUSHI;
+    private final Toitsu janto;
+    private final List<Kotsu> kotsuList;
+    private final int kotsuCount;
 
     public ShosushiResolver(MentsuComp comp) {
         janto = comp.getJanto();

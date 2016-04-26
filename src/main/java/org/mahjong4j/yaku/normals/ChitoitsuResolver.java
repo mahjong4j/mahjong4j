@@ -11,8 +11,8 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.CHITOITSU;
  * @author yu1ro
  */
 public class ChitoitsuResolver implements NormalYakuResolver {
-    private MahjongYakuEnum yakuEnum = CHITOITSU;
-    private int toitsuCount;
+    private final MahjongYakuEnum yakuEnum = CHITOITSU;
+    private final int toitsuCount;
 
     public ChitoitsuResolver(MentsuComp comp) {
         toitsuCount = comp.getToitsuCount();

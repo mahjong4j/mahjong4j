@@ -16,12 +16,12 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.TSUISO;
  * @author yu1ro
  */
 public class TsuisoResolver implements YakumanResolver {
-    private MahjongYakumanEnum yakuman = TSUISO;
+    private final MahjongYakumanEnum yakuman = TSUISO;
 
-    private Toitsu janto;
-    private List<Shuntsu> shuntsuList;
-    private List<Toitsu> toitsuList;
-    private List<Kotsu> kotsuList;
+    private final Toitsu janto;
+    private final List<Shuntsu> shuntsuList;
+    private final List<Toitsu> toitsuList;
+    private final List<Kotsu> kotsuList;
 
     public TsuisoResolver(MentsuComp comp) {
         janto = comp.getJanto();
