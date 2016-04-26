@@ -2,19 +2,16 @@ package org.mahjong4j.yaku.yakuman;
 
 import org.mahjong4j.GeneralSituation;
 import org.mahjong4j.PersonalSituation;
-import org.mahjong4j.hands.MentsuComp;
 
 /**
  * @author yu1ro
  */
 public class ChihoResolver implements YakumanResolver {
-    private final MentsuComp comp;
     private final GeneralSituation generalSituation;
     private final PersonalSituation personalSituation;
 
-    public ChihoResolver(MentsuComp comp, GeneralSituation generalSituation, PersonalSituation personalSituation) {
+    public ChihoResolver(GeneralSituation generalSituation, PersonalSituation personalSituation) {
 
-        this.comp = comp;
         this.generalSituation = generalSituation;
         this.personalSituation = personalSituation;
     }

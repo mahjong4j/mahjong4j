@@ -2,19 +2,16 @@ package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.GeneralSituation;
 import org.mahjong4j.PersonalSituation;
-import org.mahjong4j.hands.MentsuComp;
 
 /**
  * @author yu1ro
  */
 public class DoubleReachResolver implements NormalYakuResolver {
-    private final MentsuComp comp;
     private final GeneralSituation generalSituation;
     private final PersonalSituation personalSituation;
 
-    public DoubleReachResolver(MentsuComp comp, GeneralSituation generalSituation, PersonalSituation personalSituation) {
+    public DoubleReachResolver(GeneralSituation generalSituation, PersonalSituation personalSituation) {
 
-        this.comp = comp;
         this.generalSituation = generalSituation;
         this.personalSituation = personalSituation;
     }

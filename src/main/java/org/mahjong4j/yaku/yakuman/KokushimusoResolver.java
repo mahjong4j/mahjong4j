@@ -14,7 +14,7 @@ package org.mahjong4j.yaku.yakuman;
  * @see org.mahjong4j.Mahjong
  */
 public class KokushimusoResolver {
-    public static final int[] kokushi = {
+    private static final int[] kokushi = {
         1, 0, 0, 0, 0, 0, 0, 0, 1,
         1, 0, 0, 0, 0, 0, 0, 0, 1,
         1, 0, 0, 0, 0, 0, 0, 0, 1,
