@@ -27,7 +27,7 @@ public class MahjongHandsKokushimusoTest {
 
     @Test
     public void testGetMentsuCompList() throws Exception {
-        assertEquals(0, actual.getMentsuCompList().size());
+        assertEquals(0, actual.getMentsuCompSet().size());
     }
 
     @Test

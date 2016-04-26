@@ -76,7 +76,7 @@ public class Mahjong {
         List<MahjongYakumanEnum> yakumanStock = new ArrayList<>(4);
 
         //それぞれの面子の完成形で判定する
-        for (MentsuComp comp : hands.getMentsuCompList()) {
+        for (MentsuComp comp : hands.getMentsuCompSet()) {
             Set<YakumanResolver> yakumanResolverSet
                 = Mahjong4jYakuConfig.getYakumanResolverSet(comp, generalSituation, personalSituation);
 
@@ -100,7 +100,7 @@ public class Mahjong {
      */
     private void findNormalYaku() {
         //それぞれの面子の完成形で判定する
-        for (MentsuComp comp : hands.getMentsuCompList()) {
+        for (MentsuComp comp : hands.getMentsuCompSet()) {
             //役をストックしておく
             List<MahjongYakuEnum> yakuStock = new ArrayList<>(7);
             Set<NormalYakuResolver> resolverSet
