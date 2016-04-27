@@ -19,10 +19,10 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.CHURENPOHTO;
 public class ChurenpohtohResolver implements YakumanResolver {
     private final int[] churenManzu = {3, 1, 1, 1, 1, 1, 1, 1, 3};
 
-    private MahjongYakumanEnum yakuman = CHURENPOHTO;
-    private Toitsu janto;
-    private List<Shuntsu> shuntsuList;
-    private List<Kotsu> kotsuList;
+    private final MahjongYakumanEnum yakuman = CHURENPOHTO;
+    private final Toitsu janto;
+    private final List<Shuntsu> shuntsuList;
+    private final List<Kotsu> kotsuList;
 
     public ChurenpohtohResolver(MentsuComp comp) {
         janto = comp.getJanto();

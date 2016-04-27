@@ -2,31 +2,26 @@ package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.GeneralSituation;
 import org.mahjong4j.PersonalSituation;
-import org.mahjong4j.hands.MentsuComp;
+
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.CHANKAN;
 
 /**
  * @author yu1ro
  */
-public class ChankanResolver implements NormalYakuResolver {
-    private final MentsuComp comp;
-    private final GeneralSituation generalSituation;
-    private final PersonalSituation personalSituation;
+public class ChankanResolver extends SituationResolver implements NormalYakuResolver {
 
-    public ChankanResolver(MentsuComp comp, GeneralSituation generalSituation, PersonalSituation personalSituation) {
-
-        this.comp = comp;
-        this.generalSituation = generalSituation;
-        this.personalSituation = personalSituation;
+    public ChankanResolver(GeneralSituation generalSituation, PersonalSituation personalSituation) {
+        super(generalSituation, personalSituation);
     }
 
     @Override
     public MahjongYakuEnum getNormalYaku() {
-        return MahjongYakuEnum.CHANKAN;
+        return CHANKAN;
     }
 
     @Override
     public boolean isMatch() {
-        if (personalSituation == null || generalSituation == null) {
+        if (isSituationsNull()) {
             return false;
         }
         return personalSituation.isChankan();

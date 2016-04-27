@@ -14,13 +14,11 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.IPEIKO;
  *
  * @author yu1ro
  */
-public class IpeikoResolver implements NormalYakuResolver {
-    private MahjongYakuEnum yakuEnum = IPEIKO;
-    private int shuntsuCount;
-    private List<Shuntsu> shuntsuList;
+public class IpeikoResolver extends PeikoResolver implements NormalYakuResolver {
+    private final MahjongYakuEnum yakuEnum = IPEIKO;
+    private final List<Shuntsu> shuntsuList;
 
     public IpeikoResolver(MentsuComp comp) {
-        shuntsuCount = comp.getShuntsuCount();
         shuntsuList = comp.getShuntsuList();
     }
 
@@ -29,43 +27,7 @@ public class IpeikoResolver implements NormalYakuResolver {
     }
 
     public boolean isMatch() {
-        if (shuntsuCount < 2) {
-            return false;
-        }
-
-        Shuntsu stockOne = null;
-        Shuntsu stockTwo = null;
-        boolean ipeiko = false;
-        boolean ryanpeiko = false;
-
-        for (Shuntsu shuntsu : shuntsuList) {
-            //鳴いている場合はfalse
-            if (shuntsu.getIsOpen()) {
-                return false;
-            }
-
-            if (stockOne == null) {
-                stockOne = shuntsu;
-                continue;
-            }
-
-            //１つ目の盃口が見つかった
-            if (stockOne.equals(shuntsu) && !ipeiko) {
-                ipeiko = true;
-                continue;
-            }
-
-            if (stockTwo == null) {
-                stockTwo = shuntsu;
-                continue;
-            }
-
-            if (stockTwo.equals(shuntsu)) {
-                ryanpeiko = true;
-            }
-        }
-
         //二盃口とは複合しない
-        return ipeiko && !ryanpeiko;
+        return peiko(shuntsuList) == 1;
     }
 }

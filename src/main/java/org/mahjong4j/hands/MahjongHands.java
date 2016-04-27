@@ -6,10 +6,7 @@ import org.mahjong4j.MahjongTileOverFlowException;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.yakuman.KokushimusoResolver;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * 手牌に関する操作全般を扱います
@@ -22,9 +19,8 @@ import java.util.List;
 public class MahjongHands {
     // -------------------------確定系-----------------------
 
-    // TODO: 14をありうる最大の数にしたい
     //確定した上がりの形のリスト
-    private List<MentsuComp> mentsuCompList = new ArrayList<>(14);
+    private Set<MentsuComp> mentsuCompSet = new HashSet<>();
 
     //確定した各牌の数一覧
     private int[] handsComp = new int[34];
@@ -124,8 +120,8 @@ public class MahjongHands {
         }
     }
 
-    public List<MentsuComp> getMentsuCompList() {
-        return mentsuCompList;
+    public Set<MentsuComp> getMentsuCompSet() {
+        return mentsuCompSet;
     }
 
     public boolean getCanWin() {
@@ -192,7 +188,7 @@ public class MahjongHands {
             List<MahjongMentsu> mentsuList = new ArrayList<>(7);
             mentsuList.addAll(toitsuList);
             MentsuComp comp = new MentsuComp(mentsuList, last);
-            mentsuCompList.add(comp);
+            mentsuCompSet.add(comp);
         }
 
         // その他の判定
@@ -247,8 +243,8 @@ public class MahjongHands {
             canWin = true;
             winCandidate.addAll(inputtedMentsuList);
             MentsuComp mentsuComp = new MentsuComp(winCandidate, last);
-            if (!mentsuCompList.contains(mentsuComp)) {
-                mentsuCompList.add(mentsuComp);
+            if (!mentsuCompSet.contains(mentsuComp)) {
+                mentsuCompSet.add(mentsuComp);
             }
         }
     }

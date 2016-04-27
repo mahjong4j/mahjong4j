@@ -7,6 +7,7 @@ import org.mahjong4j.tile.MahjongTile;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.hasItems;
 import static org.junit.Assert.*;
 import static org.mahjong4j.tile.MahjongTile.*;
 
@@ -42,8 +43,8 @@ public class MahjongHandsListTest {
         expectedMentsuList.add(new Kantsu(true, CHN));
         MentsuComp expected = new MentsuComp(expectedMentsuList, TON);
 
-        assertEquals(1, actualHands.getMentsuCompList().size());
-        assertEquals(expected, actualHands.getMentsuCompList().get(0));
+        assertEquals(1, actualHands.getMentsuCompSet().size());
+        assertThat(actualHands.getMentsuCompSet(), hasItems(expected));
     }
 
     @Test

@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mahjong4j.tile.MahjongTile;
 
-import java.util.List;
+import java.util.Set;
 
 import static org.junit.Assert.*;
 import static org.mahjong4j.tile.MahjongTile.M6;
@@ -30,13 +30,13 @@ public class MahjongHandsNumOnlyTest {
 
     @Test
     public void testFindMentsu() throws Exception {
-        List<MentsuComp> winSetList = hands.getMentsuCompList();
+        Set<MentsuComp> winSetList = hands.getMentsuCompSet();
         assertEquals(1, winSetList.size());
     }
 
     @Test
     public void testWinMentsuList() throws Exception {
-        List<MentsuComp> winSetList = hands.getMentsuCompList();
+        Set<MentsuComp> winSetList = hands.getMentsuCompSet();
         for (MentsuComp winMentsuSet : winSetList) {
             assertEquals(0, winMentsuSet.getKantsuCount());
             assertEquals(0, winMentsuSet.getKotsuCount());

@@ -7,6 +7,8 @@ import org.mahjong4j.tile.MahjongTile;
 
 import java.util.List;
 
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.HATSU;
+
 /**
  * 發判定クラス
  * 發の刻子もしくは槓子が含まれる場合成立
@@ -14,8 +16,8 @@ import java.util.List;
  * @author yu1ro
  */
 public class HatsuResolver implements NormalYakuResolver {
-    private MahjongYakuEnum yakuEnum = MahjongYakuEnum.HATSU;
-    private List<Kotsu> kotsuList;
+    private final MahjongYakuEnum yakuEnum = HATSU;
+    private final List<Kotsu> kotsuList;
 
     public HatsuResolver(MentsuComp comp) {
         kotsuList = comp.getKotsuKantsu();

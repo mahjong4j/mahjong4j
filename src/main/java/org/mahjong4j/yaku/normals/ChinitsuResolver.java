@@ -18,8 +18,8 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.CHINITSU;
  * @author yu1ro
  */
 public class ChinitsuResolver implements NormalYakuResolver {
-    private MahjongYakuEnum yakuEnum = CHINITSU;
-    private MentsuComp comp;
+    private final MahjongYakuEnum yakuEnum = CHINITSU;
+    private final MentsuComp comp;
 
     public ChinitsuResolver(MentsuComp comp) {
         this.comp = comp;

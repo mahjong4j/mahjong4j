@@ -13,6 +13,10 @@ import java.util.List;
 import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
+import static org.mahjong4j.tile.MahjongTile.*;
+import static org.mahjong4j.tile.MahjongTile.TON;
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.REACHE;
 
 /**
  * @author yu1ro
@@ -30,16 +34,16 @@ public class ReachIpeikoDoraTest {
             2, 0, 0, 0,
             0, 0, 0
         };
-        MahjongTile last = MahjongTile.M4;
+        MahjongTile last = M4;
         hands = new MahjongHands(tiles, last);
 
         List<MahjongTile> dora = new ArrayList<>(1);
-        dora.add(MahjongTile.TON);
+        dora.add(TON);
         List<MahjongTile> uradora = new ArrayList<>(1);
-        uradora.add(MahjongTile.M9);
-        GeneralSituation generalSituation = new GeneralSituation(false, false, MahjongTile.TON, dora, uradora);
-        PersonalSituation personalSituation = new PersonalSituation(false, false, false, true, false, false, false, MahjongTile.NAN);
-        mahjong = new Mahjong(hands, generalSituation, personalSituation);
+        uradora.add(M9);
+        GeneralSituation general = new GeneralSituation(false, false, TON, dora, uradora);
+        PersonalSituation personal = new PersonalSituation(false, false, false, true, false, false, false, NAN);
+        mahjong = new Mahjong(hands, general, personal);
         mahjong.calculate();
     }
 
@@ -51,11 +55,16 @@ public class ReachIpeikoDoraTest {
     }
 
     @Test
-    public void testGetNormalYakuList() throws Exception {
+    public void testGetNormalYakuListSize() throws Exception {
         List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
 
         assertEquals(4, actual.size());
-        assertThat(actual, hasItems(MahjongYakuEnum.REACHE));
-        assertThat(actual, hasItems(MahjongYakuEnum.IPEIKO));
+    }
+
+    @Test
+    public void testGetNormalYakuListItem() throws Exception {
+        List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
+
+        assertThat(actual, hasItems(REACHE, IPEIKO));
     }
 }

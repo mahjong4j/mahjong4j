@@ -3,9 +3,11 @@ package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
-import org.mahjong4j.tile.MahjongTile;
 
 import java.util.List;
+
+import static org.mahjong4j.tile.MahjongTile.HAK;
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.HAKU;
 
 /**
  * 白判定クラス
@@ -14,8 +16,8 @@ import java.util.List;
  * @author yu1ro
  */
 public class HakuResolver implements NormalYakuResolver {
-    private MahjongYakuEnum yakuEnum = MahjongYakuEnum.HAKU;
-    private List<Kotsu> kotsuList;
+    private final MahjongYakuEnum yakuEnum = HAKU;
+    private final List<Kotsu> kotsuList;
 
     public HakuResolver(MentsuComp comp) {
         kotsuList = comp.getKotsuKantsu();
@@ -27,7 +29,7 @@ public class HakuResolver implements NormalYakuResolver {
 
     public boolean isMatch() {
         for (Kotsu kotsu : kotsuList) {
-            if (kotsu.getTile() == MahjongTile.HAK) {
+            if (kotsu.getTile() == HAK) {
                 return true;
             }
         }

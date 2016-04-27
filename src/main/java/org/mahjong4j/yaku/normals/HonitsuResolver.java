@@ -16,7 +16,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.HONITSU;
  * @author yu1ro
  */
 public class HonitsuResolver implements NormalYakuResolver {
-    final MahjongYakuEnum yakuEnum = HONITSU;
+    private final MahjongYakuEnum yakuEnum = HONITSU;
 
     private List<MahjongMentsu> allMentsu;
 
@@ -32,7 +32,6 @@ public class HonitsuResolver implements NormalYakuResolver {
     }
 
     public boolean isMatch() {
-
         for (MahjongMentsu mentsu : allMentsu) {
             if (!hasOnlyOneType(mentsu)) {
                 return false;

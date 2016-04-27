@@ -6,7 +6,6 @@ import org.mahjong4j.tile.MahjongTileType;
 
 import java.util.List;
 
-import static org.mahjong4j.tile.MahjongTileType.*;
 import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SANSHOKUDOHKO;
 
 /**
@@ -15,14 +14,10 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SANSHOKUDOHKO;
  *
  * @author yu1ro
  */
-public class SanshokudohkoResolver implements NormalYakuResolver {
-    private MahjongYakuEnum yakuEnum = SANSHOKUDOHKO;
-    private int kotsuCount;
-    private List<Kotsu> kotsuList;
-
-    private boolean manzu = false;
-    private boolean pinzu = false;
-    private boolean sohzu = false;
+public class SanshokudohkoResolver extends SanshokuResolver implements NormalYakuResolver {
+    private final MahjongYakuEnum yakuEnum = SANSHOKUDOHKO;
+    private final int kotsuCount;
+    private final List<Kotsu> kotsuList;
 
     public SanshokudohkoResolver(MentsuComp comp) {
         kotsuCount = comp.getKotsuCount() + comp.getKantsuCount();
@@ -56,15 +51,5 @@ public class SanshokudohkoResolver implements NormalYakuResolver {
             }
         }
         return manzu && pinzu && sohzu;
-    }
-
-    private void detectType(MahjongTileType shuntsuType) {
-        if (shuntsuType == MANZU) {
-            manzu = true;
-        } else if (shuntsuType == PINZU) {
-            pinzu = true;
-        } else if (shuntsuType == SOHZU) {
-            sohzu = true;
-        }
     }
 }

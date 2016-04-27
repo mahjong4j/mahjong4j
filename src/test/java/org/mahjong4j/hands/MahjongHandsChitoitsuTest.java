@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.hasItems;
 import static org.junit.Assert.*;
 import static org.mahjong4j.tile.MahjongTile.*;
 
@@ -41,8 +42,8 @@ public class MahjongHandsChitoitsuTest {
 
         MentsuComp expected = new MentsuComp(expectedList, SHA);
 
-        assertEquals(1, actual.getMentsuCompList().size());
-        assertEquals(expected, actual.getMentsuCompList().get(0));
+        assertEquals(1, actual.getMentsuCompSet().size());
+        assertThat(actual.getMentsuCompSet(), hasItems(expected));
     }
 
     @Test

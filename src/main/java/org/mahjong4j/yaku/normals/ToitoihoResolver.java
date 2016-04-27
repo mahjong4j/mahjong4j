@@ -11,8 +11,8 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.TOITOIHO;
  * @author yu1ro
  */
 public class ToitoihoResolver implements NormalYakuResolver {
-    private MahjongYakuEnum yakuEnum = TOITOIHO;
-    private int kotsuCount;
+    private final MahjongYakuEnum yakuEnum = TOITOIHO;
+    private final int kotsuCount;
 
     public ToitoihoResolver(MentsuComp comp) {
         kotsuCount = comp.getKantsuCount() + comp.getKotsuCount();

@@ -12,8 +12,8 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SANKANTSU;
  * @author yu1ro
  */
 public class SankantsuResolver implements NormalYakuResolver {
-    private MahjongYakuEnum yakuEnum = SANKANTSU;
-    private int kantsuCount;
+    private final MahjongYakuEnum yakuEnum = SANKANTSU;
+    private final int kantsuCount;
 
     public SankantsuResolver(MentsuComp comp) {
         kantsuCount = comp.getKantsuCount();

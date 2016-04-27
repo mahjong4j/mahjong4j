@@ -16,7 +16,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.IKKITSUKAN;
  * @author yu1ro
  */
 public class IkkitsukanResolver implements NormalYakuResolver {
-    private MahjongYakuEnum yakuEnum = IKKITSUKAN;
+    private final MahjongYakuEnum yakuEnum = IKKITSUKAN;
 
     private List<Shuntsu> shuntsuList;
     private int shuntsuCount;

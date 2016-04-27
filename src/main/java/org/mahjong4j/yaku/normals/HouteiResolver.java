@@ -2,20 +2,16 @@ package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.GeneralSituation;
 import org.mahjong4j.PersonalSituation;
-import org.mahjong4j.hands.MentsuComp;
 
 /**
  * 最後の牌でロン和了した場合に成立
  *
  * @author yu1ro
  */
-public class HouteiResolver implements NormalYakuResolver {
-    private final GeneralSituation generalSituation;
-    private final PersonalSituation personalSituation;
+public class HouteiResolver extends SituationResolver implements NormalYakuResolver {
 
-    public HouteiResolver(MentsuComp comp, GeneralSituation generalSituation, PersonalSituation personalSituation) {
-        this.generalSituation = generalSituation;
-        this.personalSituation = personalSituation;
+    public HouteiResolver(GeneralSituation generalSituation, PersonalSituation personalSituation) {
+        super(generalSituation, personalSituation);
     }
 
     @Override
@@ -25,7 +21,7 @@ public class HouteiResolver implements NormalYakuResolver {
 
     @Override
     public boolean isMatch() {
-        if (generalSituation == null || personalSituation == null) {
+        if (isSituationsNull()) {
             return false;
         }
         return generalSituation.isHoutei() && !personalSituation.isTsumo();

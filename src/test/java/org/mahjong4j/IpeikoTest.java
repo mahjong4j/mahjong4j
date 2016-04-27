@@ -12,6 +12,7 @@ import java.util.List;
 import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
 
 /**
  * @author yu1ro
@@ -43,10 +44,16 @@ public class IpeikoTest {
     }
 
     @Test
-    public void testGetNotmalYakuList() throws Exception {
+    public void testGetNormalYakuListSize() throws Exception {
         List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
 
         assertEquals(1, actual.size());
-        assertThat(actual, hasItems(MahjongYakuEnum.IPEIKO));
+    }
+
+    @Test
+    public void testGetNormalYakuListItem() throws Exception {
+        List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
+
+        assertThat(actual, hasItems(IPEIKO));
     }
 }

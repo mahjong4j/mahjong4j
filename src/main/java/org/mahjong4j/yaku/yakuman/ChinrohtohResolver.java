@@ -15,10 +15,10 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.CHINROTO;
  * @author yu1ro
  */
 public class ChinrohtohResolver implements YakumanResolver {
-    private MahjongYakumanEnum yakuman = CHINROTO;
-    private int totalKotsuKantsu;
-    private List<Kotsu> kotsuList;
-    private Toitsu janto;
+    private final MahjongYakumanEnum yakuman = CHINROTO;
+    private final int totalKotsuKantsu;
+    private final List<Kotsu> kotsuList;
+    private final Toitsu janto;
 
     public ChinrohtohResolver(MentsuComp comp) {
         totalKotsuKantsu = comp.getKotsuCount() + comp.getKantsuCount();
