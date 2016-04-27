@@ -14,15 +14,13 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.RYANPEIKO;
  *
  * @author yu1ro
  */
-public class RyanpeikoResolver implements NormalYakuResolver {
+public class RyanpeikoResolver extends PeikoResolver implements NormalYakuResolver {
     private final MahjongYakuEnum yakuEnum = RYANPEIKO;
 
     private final List<Shuntsu> shuntsuList;
-    private final int shuntsuCount;
 
     public RyanpeikoResolver(MentsuComp comp) {
         shuntsuList = comp.getShuntsuList();
-        shuntsuCount = comp.getShuntsuCount();
     }
 
     public MahjongYakuEnum getNormalYaku() {
@@ -30,42 +28,6 @@ public class RyanpeikoResolver implements NormalYakuResolver {
     }
 
     public boolean isMatch() {
-        if (shuntsuCount < 4) {
-            return false;
-        }
-
-        Shuntsu stockOne = null;
-        Shuntsu stockTwo = null;
-        boolean ipeiko = false;
-        boolean ryanpeiko = false;
-
-        for (Shuntsu shuntsu : shuntsuList) {
-            //鳴いている場合はfalse
-            if (shuntsu.getIsOpen()) {
-                return false;
-            }
-
-            if (stockOne == null) {
-                stockOne = shuntsu;
-                continue;
-            }
-
-            //１つ目の盃口が見つかった
-            if (stockOne.equals(shuntsu) && !ipeiko) {
-                ipeiko = true;
-                continue;
-            }
-
-            if (stockTwo == null) {
-                stockTwo = shuntsu;
-                continue;
-            }
-
-            if (stockTwo.equals(shuntsu)) {
-                ryanpeiko = true;
-            }
-
-        }
-        return ipeiko && ryanpeiko;
+        return peiko(shuntsuList) == 2;
     }
 }

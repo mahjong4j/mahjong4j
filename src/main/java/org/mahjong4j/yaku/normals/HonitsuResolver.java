@@ -32,7 +32,6 @@ public class HonitsuResolver implements NormalYakuResolver {
     }
 
     public boolean isMatch() {
-
         for (MahjongMentsu mentsu : allMentsu) {
             if (!hasOnlyOneType(mentsu)) {
                 return false;
