@@ -11,15 +11,8 @@
 
 Androidで動いて欲しいのでJava7に対応させます
 
-## 現状
-手牌のみを見て判定出来る役が判定できます
-
-|判定可能(例)|判定不可能(例)|
-|:----------:|:---------:|
-|三暗刻|ツモ|
-|平和|ドラ|
-|中|自風牌|
-|白|場風牌|
+## NEWS!
+全ての役をサポートしました！
 
 ## 詳しい使い方
 [こちら](https://mahjong4j.readme.io/)をご覧下さい
@@ -41,7 +34,7 @@ Pull Request・Issueはいつでもお待ちしております
 をコピーして作りなおすのがオススメです。
 
 ## Chat
-[![Join the chat at https://gitter.im/yu1ro/mahjong4j](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/yu1ro/mahjong4j?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gitter](https://img.shields.io/gitter/room/mahjong4j/mahjong4j.svg?style=flat-square)](https://gitter.im/mahjong4j/mahjong4j?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 チャットオープンしました！<br>
 どんな質問・雑談・なんでもOKです
@@ -85,15 +78,6 @@ Issueは報告・質問・雑談なんでもどうぞ
 作者の母国語は日本語です
 
 将来は国際化も考えているので英語だとうれしいです
-
-### 文字コード
-文字コードはutf-8
-
-改行文字はLFのみでお願いします
-
-そうなってなければ修正・指摘していただけると助かります
-
-最近.editorconfigに記載しました
 
 ### プロジェクトファイル
 IDEのプロジェクトファイル(.projectなど)はコミットに含めないで下さい
