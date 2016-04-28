@@ -6,7 +6,7 @@
 
     <groupId>com.github.mahjong4j</groupId>
     <artifactId>mahjong4j</artifactId>
-    <version>0.2.0</version>
+    <version>0.3.0-SNAPSHOT</version>
     <name>mahjong4j</name>
 
     <distributionManagement>
