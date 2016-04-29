@@ -20,7 +20,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
  * @author yu1ro
  */
 public class DoubleNanReachIppatsuTest {
-    private Mahjong mahjong;
+    private MahjongPlayer mahjongPlayer;
 
     @Before
     public void setUp() throws Exception {
@@ -43,27 +43,27 @@ public class DoubleNanReachIppatsuTest {
         PersonalSituation personal;
         personal = new PersonalSituation(false, false, true, true, false, false, false, NAN);
 
-        mahjong = new Mahjong(hands, general, personal);
-        mahjong.calculate();
+        mahjongPlayer = new MahjongPlayer(hands, general, personal);
+        mahjongPlayer.calculate();
     }
 
     @Test
     public void testGetYakumanListSize() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjong.getYakumanList();
+        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
 
         assertEquals(0, actual.size());
     }
 
     @Test
     public void testGetNormalYakuListSize() throws Exception {
-        List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
+        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
 
         assertEquals(4, actual.size());
     }
 
     @Test
     public void testGetNormalYakuListItem() throws Exception {
-        List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
+        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
 
         assertThat(actual, hasItems(JIKAZE, BAKAZE, REACHE, IPPATSU));
     }

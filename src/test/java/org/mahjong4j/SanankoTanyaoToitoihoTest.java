@@ -21,7 +21,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
  * @author yu1ro
  */
 public class SanankoTanyaoToitoihoTest {
-    private Mahjong mahjong;
+    private MahjongPlayer mahjongPlayer;
 
     @Before
     public void setUp() throws Exception {
@@ -34,27 +34,27 @@ public class SanankoTanyaoToitoihoTest {
         };
         MahjongTile last = M4;
         MahjongHands hands = new MahjongHands(tiles, last, new Kotsu(true, P7));
-        mahjong = new Mahjong(hands);
-        mahjong.calculate();
+        mahjongPlayer = new MahjongPlayer(hands);
+        mahjongPlayer.calculate();
     }
 
     @Test
     public void testGetYakumanList() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjong.getYakumanList();
+        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
 
         assertEquals(0, actual.size());
     }
 
     @Test
     public void testGetNormalYakuListSize() throws Exception {
-        int actualSize = mahjong.getNormalYakuList().size();
+        int actualSize = mahjongPlayer.getNormalYakuList().size();
 
         assertEquals(3, actualSize);
     }
 
     @Test
     public void testGetNormalYakuListHasSanshokudohko() throws Exception {
-        List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
+        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
 
         assertThat(actual, hasItems(SANANKO, TANYAO, TOITOIHO));
     }

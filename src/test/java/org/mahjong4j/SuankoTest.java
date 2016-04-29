@@ -18,7 +18,7 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.SUANKO;
  */
 public class SuankoTest {
     MahjongHands hands;
-    Mahjong mahjong;
+    MahjongPlayer mahjongPlayer;
 
     @Before
     public void setUp() throws Exception {
@@ -31,20 +31,20 @@ public class SuankoTest {
         };
         MahjongTile last = MahjongTile.M6;
         hands = new MahjongHands(tiles, last);
-        mahjong = new Mahjong(hands);
-        mahjong.calculate();
+        mahjongPlayer = new MahjongPlayer(hands);
+        mahjongPlayer.calculate();
     }
 
     @Test
     public void testGetYakumanListSize() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjong.getYakumanList();
+        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
 
         assertEquals(1, actual.size());
     }
 
     @Test
     public void testGetYakumanListItem() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjong.getYakumanList();
+        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
 
         assertThat(actual, hasItems(SUANKO));
     }

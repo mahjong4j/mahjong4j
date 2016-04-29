@@ -1,5 +1,7 @@
 package org.mahjong4j.yaku.yakuman;
 
+import org.mahjong4j.MahjongPlayer;
+
 /**
  * 国士無双判定クラス
  * 特殊な形で和了るため
@@ -11,7 +13,7 @@ package org.mahjong4j.yaku.yakuman;
  *
  * @author yu1ro
  * @see org.mahjong4j.hands.MahjongHands
- * @see org.mahjong4j.Mahjong
+ * @see MahjongPlayer
  */
 public class KokushimusoResolver {
     private static final int[] kokushi = {

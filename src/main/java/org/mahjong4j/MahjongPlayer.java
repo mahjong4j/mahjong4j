@@ -18,7 +18,7 @@ import java.util.Set;
  *
  * @author yu1ro
  */
-public class Mahjong {
+public class MahjongPlayer {
 
     //付いた役満リスト
     private List<MahjongYakumanEnum> yakumanList = new ArrayList<>(1);
@@ -33,11 +33,11 @@ public class Mahjong {
     private GeneralSituation generalSituation;
     private PersonalSituation personalSituation;
 
-    public Mahjong(MahjongHands hands) {
+    public MahjongPlayer(MahjongHands hands) {
         this.hands = hands;
     }
 
-    public Mahjong(MahjongHands hands, GeneralSituation generalSituation, PersonalSituation personalSituation) {
+    public MahjongPlayer(MahjongHands hands, GeneralSituation generalSituation, PersonalSituation personalSituation) {
         this.hands = hands;
         this.generalSituation = generalSituation;
         this.personalSituation = personalSituation;

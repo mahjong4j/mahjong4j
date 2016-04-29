@@ -15,7 +15,7 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.KOKUSHIMUSO;
  * @author yu1ro
  */
 public class KokushimusoTest {
-    Mahjong mahjong;
+    MahjongPlayer mahjongPlayer;
 
     @Before
     public void setUp() throws Exception {
@@ -27,13 +27,13 @@ public class KokushimusoTest {
             1, 2, 1
         };
         MahjongHands hands = new MahjongHands(match, M1);
-        mahjong = new Mahjong(hands);
-        mahjong.calculate();
+        mahjongPlayer = new MahjongPlayer(hands);
+        mahjongPlayer.calculate();
     }
 
     @Test
     public void testChinrohtoh() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjong.getYakumanList();
+        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
 
         assertEquals(1, actual.size());
         assertEquals(KOKUSHIMUSO, actual.get(0));

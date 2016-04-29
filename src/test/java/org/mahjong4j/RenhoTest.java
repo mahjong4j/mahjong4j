@@ -20,7 +20,7 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.RENHO;
  * @author yu1ro
  */
 public class RenhoTest {
-    private Mahjong mahjong;
+    private MahjongPlayer mahjongPlayer;
 
     @Before
     public void setUp() throws Exception {
@@ -43,27 +43,27 @@ public class RenhoTest {
         PersonalSituation personal;
         personal = new PersonalSituation(false, false, false, false, false, false, false, NAN);
 
-        mahjong = new Mahjong(hands, general, personal);
-        mahjong.calculate();
+        mahjongPlayer = new MahjongPlayer(hands, general, personal);
+        mahjongPlayer.calculate();
     }
 
     @Test
     public void testGetYakumanListSize() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjong.getYakumanList();
+        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
 
         assertEquals(1, actual.size());
     }
 
     @Test
     public void testGetYakumanListItem() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjong.getYakumanList();
+        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
 
         assertThat(actual, hasItems(RENHO));
     }
 
     @Test
     public void testGetNormalYakuListSize() throws Exception {
-        List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
+        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
 
         assertEquals(0, actual.size());
     }

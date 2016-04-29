@@ -20,7 +20,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.CHITOITSU;
  */
 public class ChitoitsuTest {
     MahjongHands hands;
-    Mahjong mahjong;
+    MahjongPlayer mahjongPlayer;
 
     @Before
     public void setUp() throws Exception {
@@ -33,20 +33,20 @@ public class ChitoitsuTest {
         };
         MahjongTile last = M8;
         hands = new MahjongHands(tiles, last);
-        mahjong = new Mahjong(hands);
-        mahjong.calculate();
+        mahjongPlayer = new MahjongPlayer(hands);
+        mahjongPlayer.calculate();
     }
 
     @Test
     public void testGetYakumanList() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjong.getYakumanList();
+        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
 
         assertEquals(0, actual.size());
     }
 
     @Test
     public void testGetNormalYakuList() throws Exception {
-        List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
+        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
 
         assertEquals(1, actual.size());
         assertThat(actual, hasItems(CHITOITSU));
