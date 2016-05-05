@@ -1,7 +1,6 @@
 package org.mahjong4j;
 
-import org.mahjong4j.hands.MahjongHands;
-import org.mahjong4j.hands.MentsuComp;
+import org.mahjong4j.hands.*;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.normals.MahjongYakuEnum;
 import org.mahjong4j.yaku.normals.NormalYakuResolver;
@@ -11,6 +10,10 @@ import org.mahjong4j.yaku.yakuman.YakumanResolver;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+
+import static org.mahjong4j.tile.MahjongTileType.SANGEN;
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
+import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.KOKUSHIMUSO;
 
 /**
  * 和了判定に関するクラスです。
@@ -26,12 +29,18 @@ public class MahjongPlayer {
     //付いた通常役リスト
     private List<MahjongYakuEnum> normalYakuList = new ArrayList<>(0);
 
+    //その時の面子の組
+    private MentsuComp comp;
+
     //翻
     private int han = 0;
+    //符
+    private int fu = 20;
 
     private MahjongHands hands;
     private GeneralSituation generalSituation;
     private PersonalSituation personalSituation;
+
 
     public MahjongPlayer(MahjongHands hands) {
         this.hands = hands;
@@ -58,7 +67,7 @@ public class MahjongPlayer {
 
         //国士無双の場合はそれ以外ありえないので保存して即座に終了
         if (hands.getIsKokushimuso()) {
-            yakumanList.add(MahjongYakumanEnum.KOKUSHIMUSO);
+            yakumanList.add(KOKUSHIMUSO);
             return;
         }
 
@@ -89,6 +98,7 @@ public class MahjongPlayer {
             //ストックと保存する役満リストと比較し大きい方を保存する
             if (yakumanList.size() < yakumanStock.size()) {
                 yakumanList = yakumanStock;
+                this.comp = comp;
             }
         }
 
@@ -115,13 +125,95 @@ public class MahjongPlayer {
             if (hanSum > this.han) {
                 han = hanSum;
                 normalYakuList = yakuStock;
+                this.comp = comp;
             }
         }
 
         if (han > 0) {
-            calcDora(hands.getHandsComp(), generalSituation, normalYakuList.contains(MahjongYakuEnum.REACHE));
+            calcDora(hands.getHandsComp(), generalSituation, normalYakuList.contains(REACHE));
+        }
+        calcScore();
+    }
+
+    private void calcScore() {
+        fu = calcFu();
+
+        // TODO: ここで点数計算
+    }
+
+    /**
+     * 符計算をします
+     * 役満以外は計算しちゃいます
+     */
+    private int calcFu() {
+        if (personalSituation == null || generalSituation == null || comp == null) {
+            return 0;
+        }
+        int tmpFu = 20;
+        // 特例の平和ツモと七対子の符
+        if (normalYakuList.contains(PINFU) && normalYakuList.contains(TSUMO)) {
+            return 20;
+        }
+        if (normalYakuList.contains(CHITOITSU)) {
+            return 25;
         }
 
+        // 門前ロンなら+10
+        if (!hands.isOpen() && !personalSituation.isTsumo()) {
+            tmpFu += 10;
+        } else if (personalSituation.isTsumo()) { // ツモアガリなら+2
+            tmpFu += 2;
+        }
+
+        // 各メンツの種類による加符
+        for (MahjongMentsu mentsu : comp.getAllMentsu()) {
+            if (mentsu instanceof Shuntsu) continue;
+            if (mentsu instanceof Toitsu) continue;
+
+            int mentsuFu = 2;
+            if (!mentsu.isOpen()) {
+                mentsuFu *= 2;
+            }
+            if (mentsu.getTile().isYaochu()) {
+                mentsuFu *= 2;
+            }
+            if (mentsu instanceof Kantsu) {
+                mentsuFu *= 4;
+            }
+            tmpFu += mentsuFu;
+        }
+
+        // 待ちの種類による可符
+        tmpFu += calcFuByWait(comp, hands.getLast());
+
+        // 雀頭の種類による加符
+        // 連風牌の場合は+4とします
+        MahjongTile jantoTile = comp.getJanto().getTile();
+        if (jantoTile == generalSituation.getBakaze()) {
+            tmpFu += 2;
+        }
+        if (jantoTile == personalSituation.getJikaze()) {
+            tmpFu += 2;
+        }
+        if (jantoTile.getType() == SANGEN) {
+            tmpFu += 2;
+        }
+
+        return tmpFu;
+    }
+
+    private int calcFuByWait(MentsuComp comp, MahjongTile last) {
+        if (comp.isRyanmen(last)) {
+            if (comp.isNobetan(last)) {
+                return 2;
+            }
+        } else {
+            if (comp.isKanchan(last) || comp.isPenchan(last) || comp.isTanki(last)) {
+                return 2;
+            }
+        }
+
+        return 0;
     }
 
     private void calcDora(int[] handsComp, GeneralSituation generalSituation, boolean isReach) {
@@ -133,7 +225,7 @@ public class MahjongPlayer {
             dora += handsComp[tile.getCode()];
         }
         for (int i = 0; i < dora; i++) {
-            normalYakuList.add(MahjongYakuEnum.DORA);
+            normalYakuList.add(DORA);
         }
 
         if (isReach) {
@@ -142,7 +234,7 @@ public class MahjongPlayer {
                 uradora += handsComp[tile.getCode()];
             }
             for (int i = 0; i < uradora; i++) {
-                normalYakuList.add(MahjongYakuEnum.URADORA);
+                normalYakuList.add(URADORA);
             }
         }
     }
@@ -155,7 +247,7 @@ public class MahjongPlayer {
      */
     private int calcHanSum(List<MahjongYakuEnum> yakuStock) {
         int hanSum = 0;
-        if (hands.getIsKuisagari()) {
+        if (hands.isOpen()) {
             for (MahjongYakuEnum yaku : yakuStock) {
                 hanSum += yaku.getKuisagari();
             }

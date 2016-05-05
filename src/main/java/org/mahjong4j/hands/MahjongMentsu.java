@@ -24,7 +24,7 @@ public interface MahjongMentsu {
      *
      * @return 面子として成立しているか
      */
-    boolean getIsMentsu();
+    boolean isMentsu();
 
     /**
      * 食い下がり判定用です
@@ -33,5 +33,5 @@ public interface MahjongMentsu {
      *
      * @return 鳴いているか
      */
-    boolean getIsOpen();
+    boolean isOpen();
 }

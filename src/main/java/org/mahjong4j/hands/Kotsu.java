@@ -78,7 +78,7 @@ public class Kotsu implements MahjongMentsu {
      *
      * @return 面子として成立していればtrue
      */
-    public boolean getIsMentsu() {
+    public boolean isMentsu() {
         return isMentsu;
     }
 
@@ -87,7 +87,7 @@ public class Kotsu implements MahjongMentsu {
      *
      * @return 明刻であればtrue 暗刻であればfalse
      */
-    public boolean getIsOpen() {
+    public boolean isOpen() {
         return isOpen;
     }
 

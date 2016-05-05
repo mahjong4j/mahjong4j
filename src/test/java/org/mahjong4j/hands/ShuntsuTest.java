@@ -47,20 +47,20 @@ public class ShuntsuTest {
 
     @Test
     public void testGetIsMentsu() throws Exception {
-        assertTrue(open.getIsMentsu());
-        assertTrue(close.getIsMentsu());
-        assertTrue(openTrue.getIsMentsu());
+        assertTrue(open.isMentsu());
+        assertTrue(close.isMentsu());
+        assertTrue(openTrue.isMentsu());
     }
 
     @Test
     public void testGetIsOpenT() throws Exception {
-        assertTrue(open.getIsOpen());
-        assertTrue(openTrue.getIsOpen());
+        assertTrue(open.isOpen());
+        assertTrue(openTrue.isOpen());
     }
 
     @Test
     public void testGetIsOpenF() throws Exception {
-        assertFalse(close.getIsOpen());
+        assertFalse(close.isOpen());
     }
 
     @Test

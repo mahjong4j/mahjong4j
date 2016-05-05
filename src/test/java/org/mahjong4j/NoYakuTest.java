@@ -14,8 +14,6 @@ import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.mahjong4j.tile.MahjongTile.*;
-import static org.mahjong4j.tile.MahjongTile.P4;
-import static org.mahjong4j.tile.MahjongTile.PEI;
 
 /**
  * @author yu1ro
