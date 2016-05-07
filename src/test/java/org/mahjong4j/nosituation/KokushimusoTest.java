@@ -3,7 +3,7 @@ package org.mahjong4j.nosituation;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.mahjong4j.MahjongPlayer;
+import org.mahjong4j.Player;
 import org.mahjong4j.Score;
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.yaku.yakuman.MahjongYakumanEnum;
@@ -18,7 +18,7 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.KOKUSHIMUSO;
  * @author yu1ro
  */
 public class KokushimusoTest {
-    MahjongPlayer mahjongPlayer;
+    Player player;
 
     @Before
     public void setUp() throws Exception {
@@ -30,13 +30,13 @@ public class KokushimusoTest {
             1, 2, 1
         };
         MahjongHands hands = new MahjongHands(match, M1);
-        mahjongPlayer = new MahjongPlayer(hands);
-        mahjongPlayer.calculate();
+        player = new Player(hands);
+        player.calculate();
     }
 
     @Test
     public void testChinrohtoh() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
+        List<MahjongYakumanEnum> actual = player.getYakumanList();
 
         assertEquals(1, actual.size());
         assertEquals(KOKUSHIMUSO, actual.get(0));
@@ -44,11 +44,11 @@ public class KokushimusoTest {
 
     @Test
     public void testGetFu() throws Exception {
-        assertEquals(0, mahjongPlayer.getFu());
+        assertEquals(0, player.getFu());
     }
 
     @Test
     public void testGetScore() throws Exception {
-        Assert.assertEquals(Score.SCORE0, mahjongPlayer.getScore());
+        Assert.assertEquals(Score.SCORE0, player.getScore());
     }
 }

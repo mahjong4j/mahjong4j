@@ -3,7 +3,7 @@ package org.mahjong4j.nosituation;
 import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
-import org.mahjong4j.MahjongPlayer;
+import org.mahjong4j.Player;
 import org.mahjong4j.Score;
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
@@ -23,7 +23,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
  */
 public class PinfuTanyaoIpeikoTest {
     MahjongHands hands;
-    MahjongPlayer mahjongPlayer;
+    Player player;
 
     @Before
     public void setUp() throws Exception {
@@ -36,38 +36,38 @@ public class PinfuTanyaoIpeikoTest {
         };
         MahjongTile last = M4;
         hands = new MahjongHands(tiles, last);
-        mahjongPlayer = new MahjongPlayer(hands);
-        mahjongPlayer.calculate();
+        player = new Player(hands);
+        player.calculate();
     }
 
     @Test
     public void testGetYakumanList() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
+        List<MahjongYakumanEnum> actual = player.getYakumanList();
 
         assertEquals(0, actual.size());
     }
 
     @Test
     public void testGetNormalYakuListSize() throws Exception {
-        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
+        List<MahjongYakuEnum> actual = player.getNormalYakuList();
 
         assertEquals(3, actual.size());
     }
 
     @Test
     public void testGetNormalYakuListItem() throws Exception {
-        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
+        List<MahjongYakuEnum> actual = player.getNormalYakuList();
 
         assertThat(actual, hasItems(PINFU, TANYAO, IPEIKO));
     }
 
     @Test
     public void testGetFu() throws Exception {
-        assertEquals(20, mahjongPlayer.getFu());
+        assertEquals(20, player.getFu());
     }
 
     @Test
     public void testGetScore() throws Exception {
-        TestCase.assertEquals(Score.SCORE0, mahjongPlayer.getScore());
+        TestCase.assertEquals(Score.SCORE0, player.getScore());
     }
 }

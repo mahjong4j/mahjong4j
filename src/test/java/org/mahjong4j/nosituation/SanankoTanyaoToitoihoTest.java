@@ -2,7 +2,7 @@ package org.mahjong4j.nosituation;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mahjong4j.MahjongPlayer;
+import org.mahjong4j.Player;
 import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
@@ -23,7 +23,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
  * @author yu1ro
  */
 public class SanankoTanyaoToitoihoTest {
-    private MahjongPlayer mahjongPlayer;
+    private Player player;
 
     @Before
     public void setUp() throws Exception {
@@ -36,38 +36,38 @@ public class SanankoTanyaoToitoihoTest {
         };
         MahjongTile last = M4;
         MahjongHands hands = new MahjongHands(tiles, last, new Kotsu(true, P7));
-        mahjongPlayer = new MahjongPlayer(hands);
-        mahjongPlayer.calculate();
+        player = new Player(hands);
+        player.calculate();
     }
 
     @Test
     public void testGetYakumanList() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
+        List<MahjongYakumanEnum> actual = player.getYakumanList();
 
         assertEquals(0, actual.size());
     }
 
     @Test
     public void testGetNormalYakuListSize() throws Exception {
-        int actualSize = mahjongPlayer.getNormalYakuList().size();
+        int actualSize = player.getNormalYakuList().size();
 
         assertEquals(3, actualSize);
     }
 
     @Test
     public void testGetNormalYakuListHasSanshokudohko() throws Exception {
-        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
+        List<MahjongYakuEnum> actual = player.getNormalYakuList();
 
         assertThat(actual, hasItems(SANANKO, TANYAO, TOITOIHO));
     }
 
     @Test
     public void testGetFu() throws Exception {
-        assertEquals(20, mahjongPlayer.getFu());
+        assertEquals(20, player.getFu());
     }
 
     @Test
     public void testGetScore() throws Exception {
-        assertEquals(SCORE0, mahjongPlayer.getScore());
+        assertEquals(SCORE0, player.getScore());
     }
 }

@@ -2,7 +2,7 @@ package org.mahjong4j.nosituation;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mahjong4j.MahjongPlayer;
+import org.mahjong4j.Player;
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.normals.MahjongYakuEnum;
@@ -22,7 +22,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.CHITOITSU;
  */
 public class ChitoitsuTest {
     MahjongHands hands;
-    MahjongPlayer mahjongPlayer;
+    Player player;
 
     @Before
     public void setUp() throws Exception {
@@ -35,20 +35,20 @@ public class ChitoitsuTest {
         };
         MahjongTile last = M8;
         hands = new MahjongHands(tiles, last);
-        mahjongPlayer = new MahjongPlayer(hands);
-        mahjongPlayer.calculate();
+        player = new Player(hands);
+        player.calculate();
     }
 
     @Test
     public void testGetYakumanList() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
+        List<MahjongYakumanEnum> actual = player.getYakumanList();
 
         assertEquals(0, actual.size());
     }
 
     @Test
     public void testGetNormalYakuList() throws Exception {
-        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
+        List<MahjongYakuEnum> actual = player.getNormalYakuList();
 
         assertEquals(1, actual.size());
         assertThat(actual, hasItems(CHITOITSU));
@@ -61,11 +61,11 @@ public class ChitoitsuTest {
      */
     @Test
     public void testGetFu() throws Exception {
-        assertEquals(20, mahjongPlayer.getFu());
+        assertEquals(20, player.getFu());
     }
 
     @Test
     public void testGetScore() throws Exception {
-        assertEquals(SCORE0, mahjongPlayer.getScore());
+        assertEquals(SCORE0, player.getScore());
     }
 }

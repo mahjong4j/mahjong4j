@@ -3,7 +3,7 @@ package org.mahjong4j.withsituation;
 import org.junit.Before;
 import org.junit.Test;
 import org.mahjong4j.GeneralSituation;
-import org.mahjong4j.MahjongPlayer;
+import org.mahjong4j.Player;
 import org.mahjong4j.PersonalSituation;
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
@@ -24,7 +24,7 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.RENHO;
  * @author yu1ro
  */
 public class RenhoTest {
-    private MahjongPlayer mahjongPlayer;
+    private Player player;
 
     @Before
     public void setUp() throws Exception {
@@ -47,38 +47,38 @@ public class RenhoTest {
         PersonalSituation personal;
         personal = new PersonalSituation(false, false, false, false, false, false, false, NAN);
 
-        mahjongPlayer = new MahjongPlayer(hands, general, personal);
-        mahjongPlayer.calculate();
+        player = new Player(hands, general, personal);
+        player.calculate();
     }
 
     @Test
     public void testGetYakumanListSize() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
+        List<MahjongYakumanEnum> actual = player.getYakumanList();
 
         assertEquals(1, actual.size());
     }
 
     @Test
     public void testGetYakumanListItem() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
+        List<MahjongYakumanEnum> actual = player.getYakumanList();
 
         assertThat(actual, hasItems(RENHO));
     }
 
     @Test
     public void testGetNormalYakuListSize() throws Exception {
-        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
+        List<MahjongYakuEnum> actual = player.getNormalYakuList();
 
         assertEquals(0, actual.size());
     }
 
     @Test
     public void testGetFu() throws Exception {
-        assertEquals(0, mahjongPlayer.getFu());
+        assertEquals(0, player.getFu());
     }
 
     @Test
     public void testGetScore() throws Exception {
-        assertEquals(SCORE32000, mahjongPlayer.getScore());
+        assertEquals(SCORE32000, player.getScore());
     }
 }

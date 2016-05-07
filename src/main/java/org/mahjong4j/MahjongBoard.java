@@ -5,8 +5,8 @@ package org.mahjong4j;
  */
 public class MahjongBoard {
     private GeneralSituation generalSituation;
-    private MahjongPlayer playerA;
-    private MahjongPlayer playerB;
-    private MahjongPlayer playerC;
-    private MahjongPlayer playerD;
+    private Player playerA;
+    private Player playerB;
+    private Player playerC;
+    private Player playerD;
 }

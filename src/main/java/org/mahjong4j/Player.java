@@ -24,7 +24,7 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.KOKUSHIMUSO;
  *
  * @author yu1ro
  */
-public class MahjongPlayer {
+public class Player {
 
     //付いた役満リスト
     private List<MahjongYakumanEnum> yakumanList = new ArrayList<>(1);
@@ -47,11 +47,11 @@ public class MahjongPlayer {
     private PersonalSituation personalSituation;
 
 
-    public MahjongPlayer(MahjongHands hands) {
+    public Player(MahjongHands hands) {
         this.hands = hands;
     }
 
-    public MahjongPlayer(MahjongHands hands, GeneralSituation generalSituation, PersonalSituation personalSituation) {
+    public Player(MahjongHands hands, GeneralSituation generalSituation, PersonalSituation personalSituation) {
         this.hands = hands;
         this.generalSituation = generalSituation;
         this.personalSituation = personalSituation;

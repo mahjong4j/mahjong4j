@@ -3,7 +3,7 @@ package org.mahjong4j.withsituation;
 import org.junit.Before;
 import org.junit.Test;
 import org.mahjong4j.GeneralSituation;
-import org.mahjong4j.MahjongPlayer;
+import org.mahjong4j.Player;
 import org.mahjong4j.PersonalSituation;
 import org.mahjong4j.hands.Kantsu;
 import org.mahjong4j.hands.MahjongHands;
@@ -24,7 +24,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
  * @author yu1ro
  */
 public class RinshankaihohSanshokuDoubleReachTsumoTest {
-    private MahjongPlayer mahjongPlayer;
+    private Player player;
 
     @Before
     public void setUp() throws Exception {
@@ -47,36 +47,36 @@ public class RinshankaihohSanshokuDoubleReachTsumoTest {
         PersonalSituation personal;
         personal = new PersonalSituation(false, true, false, true, true, false, true, NAN);
 
-        mahjongPlayer = new MahjongPlayer(hands, general, personal);
-        mahjongPlayer.calculate();
+        player = new Player(hands, general, personal);
+        player.calculate();
     }
 
     @Test
     public void testGetNormalYakuListSize() throws Exception {
-        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
+        List<MahjongYakuEnum> actual = player.getNormalYakuList();
 
         assertEquals(5, actual.size());
     }
 
     @Test
     public void testGetNormalYakuListItem() throws Exception {
-        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
+        List<MahjongYakuEnum> actual = player.getNormalYakuList();
 
         assertThat(actual, hasItems(RINSHANKAIHOH, SANSHOKUDOHJUN, REACHE, DOUBLE_REACH, TSUMO));
     }
 
     @Test
     public void testGetHan() throws Exception {
-        assertEquals(6, mahjongPlayer.getHan());
+        assertEquals(6, player.getHan());
     }
 
     @Test
     public void testGetFu() throws Exception {
-        assertEquals(54, mahjongPlayer.getFu());
+        assertEquals(54, player.getFu());
     }
 
     @Test
     public void testGetScore() throws Exception {
-        assertEquals(SCORE12000, mahjongPlayer.getScore());
+        assertEquals(SCORE12000, player.getScore());
     }
 }
