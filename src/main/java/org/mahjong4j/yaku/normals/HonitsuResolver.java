@@ -1,7 +1,7 @@
 package org.mahjong4j.yaku.normals;
 
 
-import org.mahjong4j.hands.MahjongMentsu;
+import org.mahjong4j.hands.Mentsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTileType;
 
@@ -18,7 +18,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.HONITSU;
 public class HonitsuResolver implements NormalYakuResolver {
     private final MahjongYakuEnum yakuEnum = HONITSU;
 
-    private List<MahjongMentsu> allMentsu;
+    private List<Mentsu> allMentsu;
 
     private boolean hasJihai = false;
     private MahjongTileType type = null;
@@ -32,7 +32,7 @@ public class HonitsuResolver implements NormalYakuResolver {
     }
 
     public boolean isMatch() {
-        for (MahjongMentsu mentsu : allMentsu) {
+        for (Mentsu mentsu : allMentsu) {
             if (!hasOnlyOneType(mentsu)) {
                 return false;
             }
@@ -41,7 +41,7 @@ public class HonitsuResolver implements NormalYakuResolver {
         return hasJihai;
     }
 
-    private boolean hasOnlyOneType(MahjongMentsu mentsu) {
+    private boolean hasOnlyOneType(Mentsu mentsu) {
         if (mentsu.getTile().getNumber() == 0) {
             hasJihai = true;
         } else if (type == null) {

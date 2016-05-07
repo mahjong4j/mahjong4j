@@ -8,7 +8,7 @@ import org.mahjong4j.tile.MahjongTile;
  *
  * @author yu1ro
  */
-public class Kotsu extends MahjongMentsu {
+public class Kotsu extends Mentsu {
 
     /**
      * 刻子であることがわかっている場合に利用します

@@ -8,7 +8,7 @@ import org.mahjong4j.tile.MahjongTile;
  *
  * @author yu1ro
  */
-public abstract class MahjongMentsu {
+public abstract class Mentsu {
     protected MahjongTile identifierTile;
 
     /**

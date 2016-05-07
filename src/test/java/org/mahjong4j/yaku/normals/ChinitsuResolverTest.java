@@ -19,7 +19,7 @@ public class ChinitsuResolverTest {
 
     @Before
     public void setUp() throws Exception {
-        List<MahjongMentsu> mentsuList = new ArrayList<>(5);
+        List<Mentsu> mentsuList = new ArrayList<>(5);
         mentsuList.add(new Toitsu(S3));
         mentsuList.add(new Shuntsu(true, S2));
         mentsuList.add(new Shuntsu(false, S3));

@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * @author yu1ro
  */
-public class Toitsu extends MahjongMentsu {
+public class Toitsu extends Mentsu {
 
     /**
      * 対子であることがわかっている場合に使います

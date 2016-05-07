@@ -20,7 +20,7 @@ public class JunchanResolverTest {
 
     @Before
     public void setUp() throws Exception {
-        List<MahjongMentsu> list = new ArrayList<>(5);
+        List<Mentsu> list = new ArrayList<>(5);
         list.add(new Toitsu(M1));
         list.add(new Shuntsu(true, S2));
         list.add(new Shuntsu(false, P2));

@@ -37,7 +37,7 @@ public class MahjongHands {
     // ------------------------ストック系----------------------
 
     // コンストラクタで入力された面子リスト
-    private List<MahjongMentsu> inputtedMentsuList = new ArrayList<>();
+    private List<Mentsu> inputtedMentsuList = new ArrayList<>();
 
     // 操作する用のストック
     private int[] handStocks = new int[34];
@@ -52,7 +52,7 @@ public class MahjongHands {
      * @param mentsuList
      * @throws MahjongTileOverFlowException
      */
-    public MahjongHands(int[] otherTiles, MahjongTile last, List<MahjongMentsu> mentsuList) throws MahjongTileOverFlowException, IllegalMentsuSizeException {
+    public MahjongHands(int[] otherTiles, MahjongTile last, List<Mentsu> mentsuList) throws MahjongTileOverFlowException, IllegalMentsuSizeException {
         inputtedTiles = otherTiles;
         this.last = last;
         inputtedMentsuList = mentsuList;
@@ -66,7 +66,7 @@ public class MahjongHands {
      * @param mentsu
      * @throws MahjongTileOverFlowException
      */
-    public MahjongHands(int[] otherTiles, MahjongTile last, MahjongMentsu... mentsu) throws MahjongTileOverFlowException, IllegalMentsuSizeException {
+    public MahjongHands(int[] otherTiles, MahjongTile last, Mentsu... mentsu) throws MahjongTileOverFlowException, IllegalMentsuSizeException {
         inputtedTiles = otherTiles;
         setHandsComp(otherTiles, Arrays.asList(mentsu));
         this.last = last;
@@ -97,9 +97,9 @@ public class MahjongHands {
      * @param otherTiles 各牌の数
      * @param mentsuList 面子のリスト
      */
-    private void setHandsComp(int[] otherTiles, List<MahjongMentsu> mentsuList) {
+    private void setHandsComp(int[] otherTiles, List<Mentsu> mentsuList) {
         System.arraycopy(otherTiles, 0, handsComp, 0, otherTiles.length);
-        for (MahjongMentsu mentsu : mentsuList) {
+        for (Mentsu mentsu : mentsuList) {
             int code = mentsu.getTile().getCode();
 
             if (mentsu.isOpen()) {
@@ -178,7 +178,7 @@ public class MahjongHands {
         //七対子なら保存しておく
         if (toitsuList.size() == 7) {
             canWin = true;
-            List<MahjongMentsu> mentsuList = new ArrayList<>(7);
+            List<Mentsu> mentsuList = new ArrayList<>(7);
             mentsuList.addAll(toitsuList);
             MentsuComp comp = new MentsuComp(mentsuList, last);
             mentsuCompSet.add(comp);
@@ -186,7 +186,7 @@ public class MahjongHands {
 
         // その他の判定
         //雀頭候補から探す
-        List<MahjongMentsu> winCandidate = new ArrayList<>(4);
+        List<Mentsu> winCandidate = new ArrayList<>(4);
         for (Toitsu toitsu : toitsuList) {
             // 操作変数を初期化
             init(winCandidate, toitsu);
@@ -230,7 +230,7 @@ public class MahjongHands {
      * @param winCandidate 面子の候補
      * @param toitsu       この検索サイクルの雀頭候補
      */
-    private void init(List<MahjongMentsu> winCandidate, Toitsu toitsu) {
+    private void init(List<Mentsu> winCandidate, Toitsu toitsu) {
         // 操作変数を初期化
         initStock();
         winCandidate.clear();
@@ -246,7 +246,7 @@ public class MahjongHands {
      *
      * @param winCandidate mentsuCompに代入するかもしれない
      */
-    private void convertToMentsuComp(List<MahjongMentsu> winCandidate) throws IllegalMentsuSizeException {
+    private void convertToMentsuComp(List<Mentsu> winCandidate) throws IllegalMentsuSizeException {
         //全て0かチェック
         if (isAllZero(handStocks)) {
             canWin = true;
@@ -273,8 +273,8 @@ public class MahjongHands {
         return true;
     }
 
-    private List<MahjongMentsu> findShuntsuCandidate() {
-        List<MahjongMentsu> resultList = new ArrayList<>(4);
+    private List<Mentsu> findShuntsuCandidate() {
+        List<Mentsu> resultList = new ArrayList<>(4);
         //字牌などはチェックしないので26まで
         for (int j = 1; j < 26; j++) {
             // whileにしたのは一盃口などがあるから
@@ -298,8 +298,8 @@ public class MahjongHands {
         return resultList;
     }
 
-    private List<MahjongMentsu> findKotsuCandidate() {
-        List<MahjongMentsu> resultList = new ArrayList<>(4);
+    private List<Mentsu> findKotsuCandidate() {
+        List<Mentsu> resultList = new ArrayList<>(4);
         for (int i = 0; i < handStocks.length; i++) {
             if (handStocks[i] >= 3) {
                 resultList.add(new Kotsu(false, MahjongTile.valueOf(i)));

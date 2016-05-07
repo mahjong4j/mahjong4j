@@ -1,6 +1,6 @@
 package org.mahjong4j;
 
-import org.mahjong4j.hands.MahjongMentsu;
+import org.mahjong4j.hands.Mentsu;
 
 import java.util.List;
 
@@ -10,9 +10,9 @@ import java.util.List;
  * @author yu1ro
  */
 public class IllegalMentsuSizeException extends Mahjong4jException {
-    private List<MahjongMentsu> mentsuList;
+    private List<Mentsu> mentsuList;
 
-    public IllegalMentsuSizeException(List<MahjongMentsu> mentsuList) {
+    public IllegalMentsuSizeException(List<Mentsu> mentsuList) {
         super("面子の組が和了の形になっていません");
         this.mentsuList = mentsuList;
     }
@@ -24,7 +24,7 @@ public class IllegalMentsuSizeException extends Mahjong4jException {
     /**
      * @return 誤っていると判定されている面子の組を返します
      */
-    public List<MahjongMentsu> getMentsuList() {
+    public List<Mentsu> getMentsuList() {
         return mentsuList;
     }
 }

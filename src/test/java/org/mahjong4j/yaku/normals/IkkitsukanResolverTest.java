@@ -2,7 +2,7 @@ package org.mahjong4j.yaku.normals;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mahjong4j.hands.MahjongMentsu;
+import org.mahjong4j.hands.Mentsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.hands.Shuntsu;
 import org.mahjong4j.hands.Toitsu;
@@ -22,7 +22,7 @@ public class IkkitsukanResolverTest {
 
     @Before
     public void setUp() throws Exception {
-        List<MahjongMentsu> mentsu = new ArrayList<>(5);
+        List<Mentsu> mentsu = new ArrayList<>(5);
         mentsu.add(new Toitsu(M3));
         mentsu.add(new Shuntsu(true, S4));
         mentsu.add(new Shuntsu(false, P2));

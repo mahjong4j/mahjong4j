@@ -19,7 +19,7 @@ public class RyuisoResolverTest {
 
     @Before
     public void setUp() throws Exception {
-        List<MahjongMentsu> mentsu = new ArrayList<>(5);
+        List<Mentsu> mentsu = new ArrayList<>(5);
         mentsu.add(new Toitsu(HAT));
         mentsu.add(new Shuntsu(false, S3));
         mentsu.add(new Shuntsu(false, S3));

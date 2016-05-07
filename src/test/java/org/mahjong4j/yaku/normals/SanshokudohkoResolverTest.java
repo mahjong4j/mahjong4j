@@ -20,7 +20,7 @@ public class SanshokudohkoResolverTest {
 
     @Before
     public void setUp() throws Exception {
-        List<MahjongMentsu> list = new ArrayList<>(5);
+        List<Mentsu> list = new ArrayList<>(5);
         list.add(new Toitsu(CHN));
         list.add(new Kantsu(false, M3));
         list.add(new Kantsu(false, S3));

@@ -20,7 +20,7 @@ public class TanyaoResolverTest {
 
     @Before
     public void setUp() throws Exception {
-        List<MahjongMentsu> list = new ArrayList<>(5);
+        List<Mentsu> list = new ArrayList<>(5);
         list.add(new Toitsu(M3));
         list.add(new Kantsu(false, S4));
         list.add(new Shuntsu(true, P7));

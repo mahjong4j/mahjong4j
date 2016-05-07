@@ -1,7 +1,7 @@
 package org.mahjong4j;
 
 import org.mahjong4j.hands.MahjongHands;
-import org.mahjong4j.hands.MahjongMentsu;
+import org.mahjong4j.hands.Mentsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.normals.MahjongYakuEnum;
@@ -180,7 +180,7 @@ public class MahjongPlayer {
         tmpFu += calcFuByAgari();
 
         // 各メンツの種類による加符
-        for (MahjongMentsu mentsu : comp.getAllMentsu()) {
+        for (Mentsu mentsu : comp.getAllMentsu()) {
             tmpFu += mentsu.getFu();
         }
 

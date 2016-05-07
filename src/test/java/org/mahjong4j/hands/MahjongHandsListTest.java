@@ -26,7 +26,7 @@ public class MahjongHandsListTest {
             2, 0, 0, 0,
             0, 0, 0
         };
-        List<MahjongMentsu> mentsuList = new ArrayList<>(2);
+        List<Mentsu> mentsuList = new ArrayList<>(2);
         mentsuList.add(new Kotsu(true, P4));
         mentsuList.add(new Kantsu(true, CHN));
 
@@ -35,7 +35,7 @@ public class MahjongHandsListTest {
 
     @Test
     public void testGetMentsuCompList() throws Exception {
-        List<MahjongMentsu> expectedMentsuList = new ArrayList<>(5);
+        List<Mentsu> expectedMentsuList = new ArrayList<>(5);
         expectedMentsuList.add(new Toitsu(TON));
         expectedMentsuList.add(new Shuntsu(false, M4));
         expectedMentsuList.add(new Shuntsu(false, P4));

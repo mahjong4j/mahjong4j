@@ -2,7 +2,7 @@ package org.mahjong4j.yaku.normals;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mahjong4j.hands.MahjongMentsu;
+import org.mahjong4j.hands.Mentsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.hands.Shuntsu;
 import org.mahjong4j.hands.Toitsu;
@@ -23,7 +23,7 @@ public class PinfuResolverTest {
 
     @Before
     public void setUp() throws Exception {
-        List<MahjongMentsu> mentsuList = new ArrayList<>(5);
+        List<Mentsu> mentsuList = new ArrayList<>(5);
         mentsuList.add(new Toitsu(M9));
         mentsuList.add(new Shuntsu(false, S2));
         mentsuList.add(new Shuntsu(false, S3));

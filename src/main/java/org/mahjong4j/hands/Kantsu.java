@@ -8,7 +8,7 @@ import org.mahjong4j.tile.MahjongTile;
  *
  * @author yu1ro
  */
-public class Kantsu extends MahjongMentsu {
+public class Kantsu extends Mentsu {
 
     /**
      * 槓子が完成していることを前提にしているため

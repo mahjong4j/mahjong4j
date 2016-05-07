@@ -3,7 +3,7 @@ package org.mahjong4j.yaku.yakuman;
 import org.junit.Before;
 import org.junit.Test;
 import org.mahjong4j.hands.Kotsu;
-import org.mahjong4j.hands.MahjongMentsu;
+import org.mahjong4j.hands.Mentsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.hands.Toitsu;
 
@@ -22,7 +22,7 @@ public class SuankoResolverTest {
 
     @Before
     public void setUp() throws Exception {
-        List<MahjongMentsu> mentsu = new ArrayList<>(5);
+        List<Mentsu> mentsu = new ArrayList<>(5);
         mentsu.add(new Toitsu(M3));
         mentsu.add(new Kotsu(false, M2));
         mentsu.add(new Kotsu(false, S5));

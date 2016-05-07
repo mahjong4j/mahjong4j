@@ -24,9 +24,9 @@ public class MentsuComp {
      * @param last
      * @throws IllegalMentsuSizeException 和了れる形になっていなければthrow
      */
-    public MentsuComp(List<MahjongMentsu> mentsuList, MahjongTile last) throws IllegalMentsuSizeException {
+    public MentsuComp(List<Mentsu> mentsuList, MahjongTile last) throws IllegalMentsuSizeException {
         this.last = last;
-        for (MahjongMentsu mentsu : mentsuList) {
+        for (Mentsu mentsu : mentsuList) {
             setMentsu(mentsu);
         }
 
@@ -44,7 +44,7 @@ public class MentsuComp {
      *
      * @param mentsu 入力したい面子
      */
-    private void setMentsu(MahjongMentsu mentsu) {
+    private void setMentsu(Mentsu mentsu) {
         if (mentsu instanceof Toitsu) {
             toitsuList.add((Toitsu) mentsu);
         } else if (mentsu instanceof Shuntsu) {
@@ -144,8 +144,8 @@ public class MentsuComp {
      *
      * @return 構成する全ての面子のリスト
      */
-    public List<MahjongMentsu> getAllMentsu() {
-        List<MahjongMentsu> allMentsu = new ArrayList<>(7);
+    public List<Mentsu> getAllMentsu() {
+        List<Mentsu> allMentsu = new ArrayList<>(7);
         allMentsu.addAll(getToitsuList());
         allMentsu.addAll(getShuntsuList());
         allMentsu.addAll(getKotsuList());

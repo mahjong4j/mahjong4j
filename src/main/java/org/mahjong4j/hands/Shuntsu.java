@@ -9,7 +9,7 @@ import org.mahjong4j.tile.MahjongTile;
  *
  * @author yu1ro
  */
-public class Shuntsu extends MahjongMentsu {
+public class Shuntsu extends Mentsu {
 
     /**
      * 順子であることがわかっている場合に利用します
