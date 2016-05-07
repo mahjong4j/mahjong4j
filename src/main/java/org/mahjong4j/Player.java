@@ -240,14 +240,8 @@ public class Player {
      * @return
      */
     private int calcFuByWait(MentsuComp comp, MahjongTile last) {
-        if (comp.isRyanmen(last)) {
-            if (comp.isNobetan(last)) {
-                return 2;
-            }
-        } else {
-            if (comp.isKanchan(last) || comp.isPenchan(last) || comp.isTanki(last)) {
-                return 2;
-            }
+        if (comp.isKanchan(last) || comp.isPenchan(last) || comp.isTanki(last)) {
+            return 2;
         }
 
         return 0;

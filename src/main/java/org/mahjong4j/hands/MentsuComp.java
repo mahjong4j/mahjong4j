@@ -184,23 +184,6 @@ public class MentsuComp {
         return getJanto().getTile() == last;
     }
 
-    public boolean isNobetan(MahjongTile last) {
-        if (getJanto().getTile() != last) {
-            return false;
-        }
-        for (Shuntsu shuntsu : shuntsuList) {
-            if (shuntsu.isOpen() || shuntsu.getTile().getType() != last.getType()) {
-                continue;
-            }
-            int shuntsuNum = shuntsu.getTile().getNumber();
-            int lastNum = last.getNumber();
-            if (shuntsuNum + 2 == lastNum || shuntsuNum - 2 == lastNum) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public boolean isKanchan(MahjongTile last) {
         if (isRyanmen(last)) {
             return false;
