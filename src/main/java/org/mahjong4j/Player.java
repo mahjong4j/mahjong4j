@@ -193,16 +193,18 @@ public class Player {
             tmpFu += mentsu.getFu();
         }
 
-        // 待ちの種類による可符
         tmpFu += calcFuByWait(comp, hands.getLast());
-
-        // 雀頭の種類による加符
-        // 連風牌の場合は+4とします
         tmpFu += calcFuByJanto();
 
         return tmpFu;
     }
 
+    /**
+     * 雀頭の種類による加符
+     * 連風牌の場合は+4とします
+     *
+     * @return
+     */
     private int calcFuByJanto() {
         MahjongTile jantoTile = comp.getJanto().getTile();
         int tmp = 0;
@@ -219,26 +221,27 @@ public class Player {
     }
 
     private int calcFuByAgari() {
-        // 門前ロン
-        if (!hands.isOpen() && !personalSituation.isTsumo()) {
-            return 10;
-        }
         // ツモ
         if (personalSituation.isTsumo()) {
             return 2;
         }
+        // 門前ロン
+        if (!hands.isOpen()) {
+            return 10;
+        }
         return 0;
     }
 
+    /**
+     * 待ちの種類による可符
+     *
+     * @param comp
+     * @param last
+     * @return
+     */
     private int calcFuByWait(MentsuComp comp, MahjongTile last) {
-        if (comp.isRyanmen(last)) {
-            if (comp.isNobetan(last)) {
-                return 2;
-            }
-        } else {
-            if (comp.isKanchan(last) || comp.isPenchan(last) || comp.isTanki(last)) {
-                return 2;
-            }
+        if (comp.isKanchan(last) || comp.isPenchan(last) || comp.isTanki(last)) {
+            return 2;
         }
 
         return 0;

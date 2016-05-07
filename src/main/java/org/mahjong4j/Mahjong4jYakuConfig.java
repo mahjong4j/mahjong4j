@@ -56,7 +56,7 @@ public class Mahjong4jYakuConfig {
         normalYakuResolverSet.add(new ToitoihoResolver(comp));
 
         normalYakuResolverSet.add(new PinfuResolver(comp, generalSituation, personalSituation));
-        normalYakuResolverSet.add(new TsumoResolver(generalSituation, personalSituation));
+        normalYakuResolverSet.add(new TsumoResolver(comp, generalSituation, personalSituation));
         normalYakuResolverSet.add(new JikazeResolver(comp, generalSituation, personalSituation));
         normalYakuResolverSet.add(new BakazeResolver(comp, generalSituation, personalSituation));
         normalYakuResolverSet.add(new IppatsuResolver(generalSituation, personalSituation));

@@ -40,7 +40,6 @@ public enum Score {
     SCORE32000(32000, 0, 16000, 8000),
     SCORE36000(36000, 12000, 0, 0),
     SCORE48000(48000, 16000, 0, 0),;
-
     private final int ron;
     private final int parentTsumo;
     private final int parent;
@@ -54,168 +53,99 @@ public enum Score {
     }
 
     public static Score calculateYakumanScore(boolean isParent, int yakumanSize) {
-        if (isParent) {
-            switch (yakumanSize) {
-                case 1:
-                    return SCORE48000;
-            }
-        } else {
-            switch (yakumanSize) {
-                case 1:
-                    return SCORE32000;
-            }
+        switch (yakumanSize) {
+            case 1:
+                return isParent ? SCORE48000 : SCORE32000;
+            // TODO: ダブル役満, トリプル役満, etc...
         }
         return SCORE0;
     }
 
     public static Score calculateScore(boolean isParent, int han, int fu) {
-        if (isParent) {
-            return parentScore(han, fu);
-        }
-        return childScore(han, fu);
-    }
-
-    private static Score childScore(int han, int fu) {
         if (han >= 13) {
-            return SCORE32000;
+            return isParent ? SCORE48000 : SCORE32000;
         }
         switch (han) {
             case 12:
             case 11:
-                return SCORE24000;
+                return isParent ? SCORE36000 : SCORE24000;
             case 10:
             case 9:
             case 8:
-                return SCORE16000;
+                return isParent ? SCORE24000 : SCORE16000;
             case 7:
             case 6:
-                return SCORE12000;
+                return isParent ? SCORE18000 : SCORE12000;
             case 5:
-                return SCORE8000;
+                return isParent ? SCORE12000 : SCORE8000;
             case 4:
-                return calcChild4(fu);
+                return calc4Han(isParent, fu);
             case 3:
-                return calcChild3(fu);
+                return calc3Han(isParent, fu);
             case 2:
-                return calcChild2(fu);
+                return calc2Han(isParent, fu);
             case 1:
-                return calcChild1(fu);
+                return calc1Han(isParent, fu);
         }
         return SCORE0;
     }
 
-    private static Score calcChild4(int fu) {
-        if (fu == 25) return SCORE6400;
-        if (fu > 30) return SCORE8000;
-        if (fu > 20) return SCORE7700;
-        return SCORE5200;
+    private static Score calc4Han(boolean isParent, int fu) {
+        if (fu == 25) return isParent ? SCORE9600 : SCORE6400;
+        if (fu > 30) return isParent ? SCORE12000 : SCORE8000;
+        if (fu > 20) return isParent ? SCORE11600 : SCORE7700;
+        return isParent ? SCORE7700 : SCORE5200;
     }
 
-    private static Score calcChild3(int fu) {
-        if (fu == 25) return SCORE3200;
-        if (fu > 60) return SCORE8000;
-        if (fu > 50) return SCORE7700;
-        if (fu > 40) return SCORE6400;
-        if (fu > 30) return SCORE5200;
-        if (fu > 20) return SCORE3900;
-        return SCORE2600;
+    private static Score calc3Han(boolean isParent, int fu) {
+        if (fu == 25) return isParent ? SCORE4800 : SCORE3200;
+        if (fu > 60) return isParent ? SCORE12000 : SCORE8000;
+        if (fu > 50) return isParent ? SCORE11600 : SCORE7700;
+        if (fu > 40) return isParent ? SCORE9600 : SCORE6400;
+        if (fu > 30) return isParent ? SCORE7700 : SCORE5200;
+        if (fu > 20) return isParent ? SCORE5800 : SCORE3900;
+        return isParent ? SCORE3900 : SCORE2600;
     }
 
-    private static Score calcChild2(int fu) {
-        if (fu == 25) return SCORE1600;
-        if (fu > 100) return SCORE7100;
-        if (fu > 90) return SCORE6400;
-        if (fu > 80) return SCORE5800;
-        if (fu > 70) return SCORE5200;
-        if (fu > 60) return SCORE4500;
-        if (fu > 50) return SCORE3900;
-        if (fu > 40) return SCORE3200;
-        if (fu > 30) return SCORE2600;
-        if (fu > 20) return SCORE2000;
-        return SCORE1300;
+    private static Score calc2Han(boolean isParent, int fu) {
+        if (fu == 25) return isParent ? SCORE2400 : SCORE1600;
+        if (fu > 100) return isParent ? SCORE10600 : SCORE7100;
+        if (fu > 90) return isParent ? SCORE9600 : SCORE6400;
+        if (fu > 80) return isParent ? SCORE8700 : SCORE5800;
+        if (fu > 70) return isParent ? SCORE7700 : SCORE5200;
+        if (fu > 60) return isParent ? SCORE6800 : SCORE4500;
+        if (fu > 50) return isParent ? SCORE5800 : SCORE3900;
+        if (fu > 40) return isParent ? SCORE4800 : SCORE3200;
+        if (fu > 30) return isParent ? SCORE3900 : SCORE2600;
+        if (fu > 20) return isParent ? SCORE2900 : SCORE2000;
+        return isParent ? SCORE2000 : SCORE1300;
     }
 
-    private static Score calcChild1(int fu) {
-        if (fu > 100) return SCORE3600;
-        if (fu > 90) return SCORE3200;
-        if (fu > 80) return SCORE2900;
-        if (fu > 70) return SCORE2600;
-        if (fu > 60) return SCORE2300;
-        if (fu > 50) return SCORE2000;
-        if (fu > 40) return SCORE1600;
-        if (fu > 30) return SCORE1300;
-        return SCORE1000;
+    private static Score calc1Han(boolean isParent, int fu) {
+        if (fu > 100) return isParent ? SCORE5300 : SCORE3600;
+        if (fu > 90) return isParent ? SCORE4800 : SCORE3200;
+        if (fu > 80) return isParent ? SCORE4400 : SCORE2900;
+        if (fu > 70) return isParent ? SCORE3900 : SCORE2600;
+        if (fu > 60) return isParent ? SCORE3400 : SCORE2300;
+        if (fu > 50) return isParent ? SCORE2900 : SCORE2000;
+        if (fu > 40) return isParent ? SCORE2400 : SCORE1600;
+        if (fu > 30) return isParent ? SCORE2000 : SCORE1300;
+        return isParent ? SCORE1500 : SCORE1000;
     }
 
-    private static Score parentScore(int han, int fu) {
-        if (han >= 13) {
-            return SCORE48000;
-        }
-        switch (han) {
-            case 12:
-            case 11:
-                return SCORE36000;
-            case 10:
-            case 9:
-            case 8:
-                return SCORE24000;
-            case 7:
-            case 6:
-                return SCORE18000;
-            case 5:
-                return SCORE12000;
-            case 4:
-                return calcParent4(fu);
-            case 3:
-                return calcParent3(fu);
-            case 2:
-                return calcParent2(fu);
-            case 1:
-                return calcParent1(fu);
-        }
-        return SCORE0;
+    public int getRon() {
+        return ron;
     }
 
-    private static Score calcParent4(int fu) {
-        if (fu == 25) return SCORE9600;
-        if (fu > 30) return SCORE12000;
-        if (fu > 20) return SCORE11600;
-        return SCORE7700;
+    public int getParentTsumo() {
+        return parentTsumo;
     }
 
-    private static Score calcParent3(int fu) {
-        if (fu == 25) return SCORE4800;
-        if (fu > 60) return SCORE12000;
-        if (fu > 50) return SCORE11600;
-        if (fu > 40) return SCORE9600;
-        if (fu > 30) return SCORE7700;
-        if (fu > 20) return SCORE5800;
-        return SCORE3900;
+    public int getParent() {
+        return parent;
     }
 
-    private static Score calcParent2(int fu) {
-        if (fu == 25) return SCORE2400;
-        if (fu > 100) return SCORE10600;
-        if (fu > 90) return SCORE9600;
-        if (fu > 80) return SCORE8700;
-        if (fu > 70) return SCORE7700;
-        if (fu > 60) return SCORE6800;
-        if (fu > 50) return SCORE5800;
-        if (fu > 40) return SCORE4800;
-        if (fu > 30) return SCORE3900;
-        if (fu > 20) return SCORE2900;
-        return SCORE2000;
-    }
-
-    private static Score calcParent1(int fu) {
-        if (fu > 100) return SCORE5300;
-        if (fu > 90) return SCORE4800;
-        if (fu > 80) return SCORE4400;
-        if (fu > 70) return SCORE3900;
-        if (fu > 60) return SCORE3400;
-        if (fu > 50) return SCORE2900;
-        if (fu > 40) return SCORE2400;
-        if (fu > 30) return SCORE2000;
-        return SCORE1500;
+    public int getChild() {
+        return child;
     }
 }

@@ -136,6 +136,14 @@ public class MahjongHands {
         return handsComp;
     }
 
+    public boolean getIsKokushimuso() {
+        return isKokushimuso;
+    }
+
+    public boolean isOpen() {
+        return isOpen;
+    }
+
     private void checkTiles(int[] allTiles) throws HandsOverFlowException {
         int num = 0;
         for (int tileNum : allTiles) {
@@ -307,13 +315,5 @@ public class MahjongHands {
             }
         }
         return resultList;
-    }
-
-    public boolean getIsKokushimuso() {
-        return isKokushimuso;
-    }
-
-    public boolean isOpen() {
-        return isOpen;
     }
 }
