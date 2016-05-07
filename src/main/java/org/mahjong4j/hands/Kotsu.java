@@ -8,20 +8,7 @@ import org.mahjong4j.tile.MahjongTile;
  *
  * @author yu1ro
  */
-public class Kotsu implements MahjongMentsu {
-    private MahjongTile identifierTile;
-
-    /**
-     * 面子として成立している場合true
-     * 面子として成立していない場合false
-     */
-    private boolean isMentsu;
-
-    /**
-     * 明順子の場合はtrue
-     * 暗順子の場合はfalse
-     */
-    private boolean isOpen;
+public class Kotsu extends MahjongMentsu {
 
     /**
      * 刻子であることがわかっている場合に利用します
@@ -61,34 +48,6 @@ public class Kotsu implements MahjongMentsu {
      */
     public static boolean check(MahjongTile tile1, MahjongTile tile2, MahjongTile tile3) {
         return tile1 == tile2 && tile2 == tile3;
-    }
-
-    /**
-     * 刻子の牌の種類
-     * 面子として成立してなければnullをかえします
-     *
-     * @return 刻子の牌の種類
-     */
-    public MahjongTile getTile() {
-        return identifierTile;
-    }
-
-    /**
-     * 刻子として成立しているか
-     *
-     * @return 面子として成立していればtrue
-     */
-    public boolean isMentsu() {
-        return isMentsu;
-    }
-
-    /**
-     * 食い下がりが適用されるか
-     *
-     * @return 明刻であればtrue 暗刻であればfalse
-     */
-    public boolean isOpen() {
-        return isOpen;
     }
 
     @Override

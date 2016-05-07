@@ -9,24 +9,7 @@ import org.mahjong4j.tile.MahjongTile;
  *
  * @author yu1ro
  */
-public class Shuntsu implements MahjongMentsu {
-
-    /**
-     * 3つの牌のうち2番めの牌
-     */
-    private MahjongTile identifierTile;
-
-    /**
-     * 面子として成立している場合true
-     * 面子として成立していない場合false
-     */
-    private boolean isMentsu;
-
-    /**
-     * 明順子の場合はtrue
-     * 暗順子の場合はfalse
-     */
-    private boolean isOpen;
+public class Shuntsu extends MahjongMentsu {
 
     /**
      * 順子であることがわかっている場合に利用します
@@ -122,35 +105,6 @@ public class Shuntsu implements MahjongMentsu {
             throw new IllegalShuntsuIdentifierException(identifierTile);
         }
         this.identifierTile = identifierTile;
-    }
-
-    /**
-     * 順子の牌の2番目を返します
-     * 例：345の順子の場合は4の牌を返します
-     * 面子として成立してなければnullを返します
-     *
-     * @return 順子の牌の2番目の牌を返します
-     */
-    public MahjongTile getTile() {
-        return identifierTile;
-    }
-
-    /**
-     * 順子として成立しているか
-     *
-     * @return 面子として成立していればtrue
-     */
-    public boolean isMentsu() {
-        return isMentsu;
-    }
-
-    /**
-     * 食い下がりが適用されるか
-     *
-     * @return 明順子であればtrue 暗順子であればfalse
-     */
-    public boolean isOpen() {
-        return isOpen;
     }
 
     @Override

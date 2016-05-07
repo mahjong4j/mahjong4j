@@ -8,20 +8,7 @@ import org.mahjong4j.tile.MahjongTile;
  *
  * @author yu1ro
  */
-public class Kantsu implements MahjongMentsu {
-    private MahjongTile identifierTile;
-
-    /**
-     * 面子として成立している場合true
-     * 面子として成立していない場合false
-     */
-    private boolean isMentsu;
-
-    /**
-     * 明槓の場合はtrue
-     * 暗槓の場合はfalse
-     */
-    private boolean isOpen;
+public class Kantsu extends MahjongMentsu {
 
     /**
      * 槓子が完成していることを前提にしているため
@@ -64,34 +51,6 @@ public class Kantsu implements MahjongMentsu {
      */
     public static boolean check(MahjongTile tile1, MahjongTile tile2, MahjongTile tile3, MahjongTile tile4) {
         return tile1 == tile2 && tile2 == tile3 && tile3 == tile4;
-    }
-
-    /**
-     * 槓子の牌の種類
-     * 面子として成立してなければnullをかえします
-     *
-     * @return 槓子の牌の種類
-     */
-    public MahjongTile getTile() {
-        return identifierTile;
-    }
-
-    /**
-     * 槓子として成立しているか
-     *
-     * @return 面子として成立していればtrue
-     */
-    public boolean isMentsu() {
-        return isMentsu;
-    }
-
-    /**
-     * 食い下がりが適用されるか
-     *
-     * @return 明槓ならtrue 暗槓ならfalse
-     */
-    public boolean isOpen() {
-        return isOpen;
     }
 
     @Override
