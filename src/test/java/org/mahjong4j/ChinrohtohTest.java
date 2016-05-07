@@ -9,6 +9,7 @@ import org.mahjong4j.yaku.yakuman.MahjongYakumanEnum;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.mahjong4j.Score.SCORE0;
 import static org.mahjong4j.tile.MahjongTile.M1;
 import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.CHINROTO;
 
@@ -43,5 +44,10 @@ public class ChinrohtohTest {
     @Test
     public void testGetFu() throws Exception {
         assertEquals(0, mahjongPlayer.getFu());
+    }
+
+    @Test
+    public void testGetScore() throws Exception {
+        assertEquals(SCORE0, mahjongPlayer.getScore());
     }
 }

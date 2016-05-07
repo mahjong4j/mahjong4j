@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
+import static org.mahjong4j.Score.SCORE0;
 import static org.mahjong4j.tile.MahjongTile.*;
 
 /**
@@ -63,5 +64,10 @@ public class NoYakuTest {
     @Test
     public void testGetFu() throws Exception {
         assertEquals(0, mahjongPlayer.getFu());
+    }
+
+    @Test
+    public void testGetScore() throws Exception {
+        assertEquals(SCORE0, mahjongPlayer.getScore());
     }
 }

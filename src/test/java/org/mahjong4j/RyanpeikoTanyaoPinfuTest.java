@@ -12,6 +12,7 @@ import java.util.List;
 import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.junit.Assert.assertThat;
+import static org.mahjong4j.Score.SCORE0;
 import static org.mahjong4j.tile.MahjongTile.M8;
 import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
 
@@ -61,5 +62,10 @@ public class RyanpeikoTanyaoPinfuTest {
     @Test
     public void testGetFu() throws Exception {
         assertEquals(20, mahjongPlayer.getFu());
+    }
+
+    @Test
+    public void testGetScore() throws Exception {
+        assertEquals(SCORE0, mahjongPlayer.getScore());
     }
 }

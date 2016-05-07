@@ -13,6 +13,7 @@ import java.util.List;
 import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
+import static org.mahjong4j.Score.SCORE48000;
 import static org.mahjong4j.tile.MahjongTile.*;
 import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.TENHO;
 
@@ -71,5 +72,10 @@ public class TenhoTest {
     @Test
     public void testGetFu() throws Exception {
         assertEquals(0, mahjongPlayer.getFu());
+    }
+
+    @Test
+    public void testGetScore() throws Exception {
+        assertEquals(SCORE48000, mahjongPlayer.getScore());
     }
 }

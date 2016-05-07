@@ -25,6 +25,6 @@ public class ChihoResolver implements YakumanResolver {
     public boolean isMatch() {
         // avoid NullPointerException
         if (generalSituation == null || personalSituation == null) return false;
-        return generalSituation.isFirstRound() && personalSituation.isTsumo() && !personalSituation.isDealer();
+        return generalSituation.isFirstRound() && personalSituation.isTsumo() && !personalSituation.isParent();
     }
 }
