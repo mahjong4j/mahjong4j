@@ -70,4 +70,8 @@ public enum MahjongTile {
     public int getNumber() {
         return number;
     }
+
+    public boolean isYaochu() {
+        return number == 0 || number == 1 || number == 9;
+    }
 }

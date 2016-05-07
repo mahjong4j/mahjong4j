@@ -2,9 +2,7 @@ package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.tile.MahjongTileType;
 
-import static org.mahjong4j.tile.MahjongTileType.MANZU;
-import static org.mahjong4j.tile.MahjongTileType.PINZU;
-import static org.mahjong4j.tile.MahjongTileType.SOHZU;
+import static org.mahjong4j.tile.MahjongTileType.*;
 
 /**
  * @author yu1ro

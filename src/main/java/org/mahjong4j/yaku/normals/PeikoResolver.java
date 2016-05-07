@@ -19,7 +19,7 @@ public abstract class PeikoResolver implements NormalYakuResolver {
         int peiko = 0;
         for (Shuntsu shuntsu : shuntsuList) {
             //鳴いている場合はfalse
-            if (shuntsu.getIsOpen()) {
+            if (shuntsu.isOpen()) {
                 return 0;
             }
 

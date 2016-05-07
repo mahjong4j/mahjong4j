@@ -21,7 +21,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.DORA;
  * @author yu1ro
  */
 public class JikazeBakazeDora3Test {
-    private Mahjong mahjong;
+    private MahjongPlayer mahjongPlayer;
 
     @Before
     public void setUp() throws Exception {
@@ -32,7 +32,7 @@ public class JikazeBakazeDora3Test {
             0, 3, 0, 0,
             0, 0, 0
         };
-        MahjongTile last = M9;
+        MahjongTile last = S7;
         MahjongHands hands = new MahjongHands(tiles, last);
         List<MahjongTile> dora = new ArrayList<>(1);
         dora.add(NAN);
@@ -44,28 +44,33 @@ public class JikazeBakazeDora3Test {
         PersonalSituation personal;
         personal = new PersonalSituation(false, false, false, false, false, false, false, SHA);
 
-        mahjong = new Mahjong(hands, general, personal);
-        mahjong.calculate();
+        mahjongPlayer = new MahjongPlayer(hands, general, personal);
+        mahjongPlayer.calculate();
     }
 
     @Test
     public void testGetYakumanListSize() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjong.getYakumanList();
+        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
 
         assertEquals(0, actual.size());
     }
 
     @Test
     public void testGetNormalYakuListSize() throws Exception {
-        List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
+        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
 
         assertEquals(4, actual.size());
     }
 
     @Test
     public void testGetNormalYakuListItem() throws Exception {
-        List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
+        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
 
         assertThat(actual, hasItems(BAKAZE, DORA, DORA, DORA));
+    }
+
+    @Test
+    public void testGetFu() throws Exception {
+        assertEquals(40, mahjongPlayer.getFu());
     }
 }

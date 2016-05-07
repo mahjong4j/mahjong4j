@@ -32,7 +32,7 @@ public class MahjongHands {
     private boolean canWin = false;
 
     //食い下がりかどうか
-    private boolean isKuisagari = false;
+    private boolean isOpen = false;
 
     // ------------------------ストック系----------------------
 
@@ -102,8 +102,8 @@ public class MahjongHands {
         for (MahjongMentsu mentsu : mentsuList) {
             int code = mentsu.getTile().getCode();
 
-            if (mentsu.getIsOpen()) {
-                isKuisagari = true;
+            if (mentsu.isOpen()) {
+                isOpen = true;
             }
 
             if (mentsu instanceof Shuntsu) {
@@ -154,14 +154,7 @@ public class MahjongHands {
      * 槓子は見つけません
      */
     public void findMentsu() throws MahjongTileOverFlowException, IllegalMentsuSizeException {
-        // 同じ牌が5個以上有ったらfalse
-        for (int i = 0; i < inputtedTiles.length; i++) {
-            int hand = inputtedTiles[i];
-            if (hand > 4) {
-                canWin = false;
-                throw new MahjongTileOverFlowException(i, hand);
-            }
-        }
+        checkTileOverFlow();
 
         // 国士無双型の判定
         initStock();
@@ -212,6 +205,22 @@ public class MahjongHands {
             convertToMentsuComp(winCandidate);
         }
 
+    }
+
+    /**
+     * 同じ牌が5個以上はありえないので、Exception をthrow
+     *
+     * @throws MahjongTileOverFlowException
+     */
+    private void checkTileOverFlow() throws MahjongTileOverFlowException {
+        //
+        for (int i = 0; i < inputtedTiles.length; i++) {
+            int hand = inputtedTiles[i];
+            if (hand > 4) {
+                canWin = false;
+                throw new MahjongTileOverFlowException(i, hand);
+            }
+        }
     }
 
     /**
@@ -278,7 +287,7 @@ public class MahjongHands {
                 );
 
                 //3つ並んでいても順子であるとは限らないので調べる
-                if (shuntsu.getIsMentsu()) {
+                if (shuntsu.isMentsu()) {
                     resultList.add(shuntsu);
                     handStocks[j - 1]--;
                     handStocks[j]--;
@@ -304,7 +313,7 @@ public class MahjongHands {
         return isKokushimuso;
     }
 
-    public boolean getIsKuisagari() {
-        return isKuisagari;
+    public boolean isOpen() {
+        return isOpen;
     }
 }

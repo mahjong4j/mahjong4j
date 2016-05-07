@@ -75,7 +75,7 @@ public class Toitsu implements MahjongMentsu {
     /**
      * @return 面子(対子)として成立していればtrue
      */
-    public boolean getIsMentsu() {
+    public boolean isMentsu() {
         return isMentsu;
     }
 
@@ -84,7 +84,7 @@ public class Toitsu implements MahjongMentsu {
      *
      * @return false
      */
-    public boolean getIsOpen() {
+    public boolean isOpen() {
         return false;
     }
 

@@ -110,7 +110,7 @@ public class MentsuComp {
     public List<Kotsu> getKotsuKantsu() {
         List<Kotsu> kotsuList = new ArrayList<>(this.kotsuList);
         for (Kantsu kantsu : kantsuList) {
-            kotsuList.add(new Kotsu(kantsu.getIsOpen(), kantsu.getTile()));
+            kotsuList.add(new Kotsu(kantsu.isOpen(), kantsu.getTile()));
         }
         return kotsuList;
     }
@@ -152,6 +152,87 @@ public class MentsuComp {
         allMentsu.addAll(getKantsuList());
 
         return allMentsu;
+    }
+
+    public MahjongTile getLast() {
+        return last;
+    }
+
+    public boolean isRyanmen(MahjongTile last) {
+        for (Shuntsu shuntsu : shuntsuList) {
+            if (shuntsu.isOpen()) {
+                continue;
+            }
+            if (shuntsu.getTile().getType() != last.getType()) {
+                continue;
+            }
+
+            int number = shuntsu.getTile().getNumber();
+            if (number == 8 || number == 2) {
+                continue;
+            }
+
+            if (number - 1 == last.getNumber() || number + 1 == last.getNumber()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean isTanki(MahjongTile last) {
+        return getJanto().getTile() == last;
+    }
+
+    public boolean isNobetan(MahjongTile last) {
+        if (getJanto().getTile() != last) {
+            return false;
+        }
+        for (Shuntsu shuntsu : shuntsuList) {
+            if (shuntsu.isOpen() || shuntsu.getTile().getType() != last.getType()) {
+                continue;
+            }
+            int shuntsuNum = shuntsu.getTile().getNumber();
+            int lastNum = last.getNumber();
+            if (shuntsuNum + 2 == lastNum || shuntsuNum - 2 == lastNum) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isKanchan(MahjongTile last) {
+        if (isRyanmen(last)) {
+            return false;
+        }
+        for (Shuntsu shuntsu : shuntsuList) {
+            if (shuntsu.isOpen() || shuntsu.getTile().getType() != last.getType()) {
+                continue;
+            }
+            if (shuntsu.getTile().getNumber() == last.getNumber()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isPenchan(MahjongTile last) {
+        if (isRyanmen(last)) {
+            return false;
+        }
+        for (Shuntsu shuntsu : shuntsuList) {
+            if (shuntsu.isOpen() || shuntsu.getTile().getType() != last.getType()) {
+                continue;
+            }
+            int number = shuntsu.getTile().getNumber();
+            if (number == 8 && last.getNumber() == 7) {
+                return true;
+            }
+            if (number == 2 && last.getNumber() == 3) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -229,9 +310,5 @@ public class MentsuComp {
         }
 
         return 31 * result + tmp;
-    }
-
-    public MahjongTile getLast() {
-        return last;
     }
 }

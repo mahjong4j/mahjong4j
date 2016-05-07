@@ -41,16 +41,16 @@ public class ToitsuTest {
 
     @Test
     public void testGetIsMentsu() throws Exception {
-        assertTrue(toitsu1.getIsMentsu());
-        assertTrue(toitsu2.getIsMentsu());
-        assertFalse(toitsuF.getIsMentsu());
+        assertTrue(toitsu1.isMentsu());
+        assertTrue(toitsu2.isMentsu());
+        assertFalse(toitsuF.isMentsu());
     }
 
     @Test
     public void testGetIsOpen() throws Exception {
-        assertFalse(toitsu1.getIsOpen());
-        assertFalse(toitsu2.getIsOpen());
-        assertFalse(toitsuF.getIsOpen());
+        assertFalse(toitsu1.isOpen());
+        assertFalse(toitsu2.isOpen());
+        assertFalse(toitsuF.isOpen());
     }
 
     @Test

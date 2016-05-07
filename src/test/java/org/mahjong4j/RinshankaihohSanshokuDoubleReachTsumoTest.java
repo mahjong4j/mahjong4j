@@ -14,14 +14,13 @@ import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
 import static org.mahjong4j.tile.MahjongTile.*;
-import static org.mahjong4j.tile.MahjongTile.M9;
 import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
 
 /**
  * @author yu1ro
  */
 public class RinshankaihohSanshokuDoubleReachTsumoTest {
-    private Mahjong mahjong;
+    private MahjongPlayer mahjongPlayer;
 
     @Before
     public void setUp() throws Exception {
@@ -44,21 +43,26 @@ public class RinshankaihohSanshokuDoubleReachTsumoTest {
         PersonalSituation personal;
         personal = new PersonalSituation(false, true, false, true, true, false, true, NAN);
 
-        mahjong = new Mahjong(hands, general, personal);
-        mahjong.calculate();
+        mahjongPlayer = new MahjongPlayer(hands, general, personal);
+        mahjongPlayer.calculate();
     }
 
     @Test
     public void testGetNormalYakuListSize() throws Exception {
-        List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
+        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
 
         assertEquals(5, actual.size());
     }
 
     @Test
     public void testGetNormalYakuListItem() throws Exception {
-        List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
+        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
 
         assertThat(actual, hasItems(RINSHANKAIHOH, SANSHOKUDOHJUN, REACHE, DOUBLE_REACH, TSUMO));
+    }
+
+    @Test
+    public void testGetFu() throws Exception {
+        assertEquals(38, mahjongPlayer.getFu());
     }
 }

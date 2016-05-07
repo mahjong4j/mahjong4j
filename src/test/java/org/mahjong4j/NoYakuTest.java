@@ -14,15 +14,13 @@ import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.mahjong4j.tile.MahjongTile.*;
-import static org.mahjong4j.tile.MahjongTile.P4;
-import static org.mahjong4j.tile.MahjongTile.PEI;
 
 /**
  * @author yu1ro
  */
 public class NoYakuTest {
     MahjongHands hands;
-    Mahjong mahjong;
+    MahjongPlayer mahjongPlayer;
 
     @Before
     public void setUp() throws Exception {
@@ -44,21 +42,26 @@ public class NoYakuTest {
         PersonalSituation personal = new PersonalSituation(false, false, false, true, false, false, false, NAN);
         hands = new MahjongHands(tiles, last, new Kotsu(true, PEI), new Shuntsu(true, P4));
 
-        mahjong = new Mahjong(hands, general, personal);
-        mahjong.calculate();
+        mahjongPlayer = new MahjongPlayer(hands, general, personal);
+        mahjongPlayer.calculate();
     }
 
     @Test
     public void testGetYakumanList() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjong.getYakumanList();
+        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
 
         assertEquals(0, actual.size());
     }
 
     @Test
     public void testGetNormalYakuList() throws Exception {
-        List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
+        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
 
         assertEquals(0, actual.size());
+    }
+
+    @Test
+    public void testGetFu() throws Exception {
+        assertEquals(0, mahjongPlayer.getFu());
     }
 }

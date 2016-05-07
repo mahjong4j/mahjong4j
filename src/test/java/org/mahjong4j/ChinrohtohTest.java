@@ -16,7 +16,7 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.CHINROTO;
  * @author yu1ro
  */
 public class ChinrohtohTest {
-    Mahjong mahjong;
+    MahjongPlayer mahjongPlayer;
 
     @Before
     public void setUp() throws Exception {
@@ -28,15 +28,20 @@ public class ChinrohtohTest {
             0, 0, 0
         };
         MahjongHands hands = new MahjongHands(match, M1, new Kantsu(true, M1));
-        mahjong = new Mahjong(hands);
-        mahjong.calculate();
+        mahjongPlayer = new MahjongPlayer(hands);
+        mahjongPlayer.calculate();
     }
 
     @Test
     public void testChinrohtoh() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjong.getYakumanList();
+        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
 
         assertEquals(1, actual.size());
         assertEquals(CHINROTO, actual.get(0));
+    }
+
+    @Test
+    public void testGetFu() throws Exception {
+        assertEquals(0, mahjongPlayer.getFu());
     }
 }

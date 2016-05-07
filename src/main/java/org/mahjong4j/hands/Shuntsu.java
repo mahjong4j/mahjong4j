@@ -140,7 +140,7 @@ public class Shuntsu implements MahjongMentsu {
      *
      * @return 面子として成立していればtrue
      */
-    public boolean getIsMentsu() {
+    public boolean isMentsu() {
         return isMentsu;
     }
 
@@ -149,7 +149,7 @@ public class Shuntsu implements MahjongMentsu {
      *
      * @return 明順子であればtrue 暗順子であればfalse
      */
-    public boolean getIsOpen() {
+    public boolean isOpen() {
         return isOpen;
     }
 

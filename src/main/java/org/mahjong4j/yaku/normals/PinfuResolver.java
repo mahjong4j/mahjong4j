@@ -62,7 +62,7 @@ public class PinfuResolver extends SituationResolver implements NormalYakuResolv
         boolean isRyanmen = false;
         for (Shuntsu shuntsu : shuntsuList) {
             //鳴いていた場合もfalse
-            if (shuntsu.getIsOpen()) {
+            if (shuntsu.isOpen()) {
                 return false;
             }
 

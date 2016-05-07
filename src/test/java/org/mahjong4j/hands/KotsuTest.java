@@ -46,16 +46,16 @@ public class KotsuTest {
 
     @Test
     public void testGetIsMentsu() throws Exception {
-        assertTrue(open.getIsMentsu());
-        assertTrue(close.getIsMentsu());
-        assertFalse(closeFls.getIsMentsu());
+        assertTrue(open.isMentsu());
+        assertTrue(close.isMentsu());
+        assertFalse(closeFls.isMentsu());
     }
 
     @Test
     public void testGetIsOpen() throws Exception {
-        assertTrue(open.getIsOpen());
-        assertFalse(close.getIsOpen());
-        assertFalse(closeFls.getIsOpen());
+        assertTrue(open.isOpen());
+        assertFalse(close.isOpen());
+        assertFalse(closeFls.isOpen());
     }
 
     @Test

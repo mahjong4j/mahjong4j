@@ -81,7 +81,7 @@ public class Kantsu implements MahjongMentsu {
      *
      * @return 面子として成立していればtrue
      */
-    public boolean getIsMentsu() {
+    public boolean isMentsu() {
         return isMentsu;
     }
 
@@ -90,7 +90,7 @@ public class Kantsu implements MahjongMentsu {
      *
      * @return 明槓ならtrue 暗槓ならfalse
      */
-    public boolean getIsOpen() {
+    public boolean isOpen() {
         return isOpen;
     }
 

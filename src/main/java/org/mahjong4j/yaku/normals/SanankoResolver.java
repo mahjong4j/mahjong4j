@@ -35,7 +35,7 @@ public class SanankoResolver implements NormalYakuResolver {
 
         int ankoCount = 0;
         for (Kotsu kotsu : kotsuList) {
-            if (!kotsu.getIsOpen()) {
+            if (!kotsu.isOpen()) {
                 ankoCount++;
             }
         }

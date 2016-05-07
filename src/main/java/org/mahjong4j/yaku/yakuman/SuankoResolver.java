@@ -33,7 +33,7 @@ public class SuankoResolver implements YakumanResolver {
             return false;
         }
         for (Kotsu kotsu : kotsuList) {
-            if (kotsu.getIsOpen()) {
+            if (kotsu.isOpen()) {
                 return false;
             }
         }

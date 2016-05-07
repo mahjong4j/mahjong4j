@@ -12,14 +12,14 @@ import java.util.List;
 import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.IPEIKO;
 
 /**
  * @author yu1ro
  */
 public class IpeikoTest {
     MahjongHands hands;
-    Mahjong mahjong;
+    MahjongPlayer mahjongPlayer;
 
     @Before
     public void setUp() throws Exception {
@@ -32,28 +32,33 @@ public class IpeikoTest {
         };
         MahjongTile last = MahjongTile.M4;
         hands = new MahjongHands(tiles, last);
-        mahjong = new Mahjong(hands);
-        mahjong.calculate();
+        mahjongPlayer = new MahjongPlayer(hands);
+        mahjongPlayer.calculate();
     }
 
     @Test
     public void testGetYakumanList() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjong.getYakumanList();
+        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
 
         assertEquals(0, actual.size());
     }
 
     @Test
     public void testGetNormalYakuListSize() throws Exception {
-        List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
+        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
 
         assertEquals(1, actual.size());
     }
 
     @Test
     public void testGetNormalYakuListItem() throws Exception {
-        List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
+        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
 
         assertThat(actual, hasItems(IPEIKO));
+    }
+
+    @Test
+    public void testGetFu() throws Exception {
+        assertEquals(20, mahjongPlayer.getFu());
     }
 }

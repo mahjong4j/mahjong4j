@@ -15,13 +15,12 @@ import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
 import static org.mahjong4j.tile.MahjongTile.*;
 import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.REACHE;
 
 /**
  * @author yu1ro
  */
 public class ReachTsumoHaiteiUradoraTest {
-    private Mahjong mahjong;
+    private MahjongPlayer mahjongPlayer;
 
     @Before
     public void setUp() throws Exception {
@@ -32,7 +31,7 @@ public class ReachTsumoHaiteiUradoraTest {
             0, 0, 3, 0,
             0, 0, 0
         };
-        MahjongTile last = M9;
+        MahjongTile last = M7;
         MahjongHands hands = new MahjongHands(tiles, last);
         List<MahjongTile> dora = new ArrayList<>(1);
         dora.add(CHN);
@@ -44,28 +43,33 @@ public class ReachTsumoHaiteiUradoraTest {
         PersonalSituation personal;
         personal = new PersonalSituation(false, true, false, true, false, false, false, NAN);
 
-        mahjong = new Mahjong(hands, general, personal);
-        mahjong.calculate();
+        mahjongPlayer = new MahjongPlayer(hands, general, personal);
+        mahjongPlayer.calculate();
     }
 
     @Test
     public void testGetYakumanListSize() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjong.getYakumanList();
+        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
 
         assertEquals(0, actual.size());
     }
 
     @Test
     public void testGetNormalYakuListSize() throws Exception {
-        List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
+        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
 
         assertEquals(4, actual.size());
     }
 
     @Test
     public void testGetNormalYakuListItem() throws Exception {
-        List<MahjongYakuEnum> actual = mahjong.getNormalYakuList();
+        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
 
         assertThat(actual, hasItems(REACHE, TSUMO, URADORA, HAITEI));
+    }
+
+    @Test
+    public void testGetFu() throws Exception {
+        assertEquals(32, mahjongPlayer.getFu());
     }
 }
