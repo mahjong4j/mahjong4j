@@ -1,0 +1,18 @@
+comment:
+  layout: header, changes, diff, sunburst
+  behavior: default
+coverage:
+  notify:
+    gitter:
+      default:
+        branches:
+        - master
+        threshold: 0
+        url: https://gitter.im/yu1ro/mahjong4j
+  status:
+    patch:
+      default:
+        target: '80'
+    project:
+      default:
+        target: auto
