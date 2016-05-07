@@ -95,6 +95,18 @@ public class Kantsu implements MahjongMentsu {
     }
 
     @Override
+    public int getFu() {
+        int mentsuFu = 8;
+        if (!isOpen) {
+            mentsuFu *= 2;
+        }
+        if (identifierTile.isYaochu()) {
+            mentsuFu *= 2;
+        }
+        return mentsuFu;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Kantsu)) return false;

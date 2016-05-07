@@ -154,6 +154,11 @@ public class Shuntsu implements MahjongMentsu {
     }
 
     @Override
+    public int getFu() {
+        return 0;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Shuntsu)) return false;

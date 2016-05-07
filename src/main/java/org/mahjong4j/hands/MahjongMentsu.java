@@ -9,8 +9,6 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  */
 public interface MahjongMentsu {
-    // TODO: 符計算用に符をかえすようにしたい
-
     /**
      * 順子の場合は2番目の牌です
      *
@@ -34,4 +32,11 @@ public interface MahjongMentsu {
      * @return 鳴いているか
      */
     boolean isOpen();
+
+    /**
+     * 符計算用
+     *
+     * @return 各面子での加算符
+     */
+    int getFu();
 }

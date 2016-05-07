@@ -1,6 +1,8 @@
 package org.mahjong4j;
 
-import org.mahjong4j.hands.*;
+import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.MahjongMentsu;
+import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.normals.MahjongYakuEnum;
 import org.mahjong4j.yaku.normals.NormalYakuResolver;
@@ -175,28 +177,11 @@ public class MahjongPlayer {
 
         int tmpFu = 20;
         // 門前ロンなら+10
-        if (!hands.isOpen() && !personalSituation.isTsumo()) {
-            tmpFu += 10;
-        } else if (personalSituation.isTsumo()) { // ツモアガリなら+2
-            tmpFu += 2;
-        }
+        tmpFu += calcFuByAgari();
 
         // 各メンツの種類による加符
         for (MahjongMentsu mentsu : comp.getAllMentsu()) {
-            if (mentsu instanceof Shuntsu) continue;
-            if (mentsu instanceof Toitsu) continue;
-
-            int mentsuFu = 2;
-            if (!mentsu.isOpen()) {
-                mentsuFu *= 2;
-            }
-            if (mentsu.getTile().isYaochu()) {
-                mentsuFu *= 2;
-            }
-            if (mentsu instanceof Kantsu) {
-                mentsuFu *= 4;
-            }
-            tmpFu += mentsuFu;
+            tmpFu += mentsu.getFu();
         }
 
         // 待ちの種類による可符
@@ -204,18 +189,36 @@ public class MahjongPlayer {
 
         // 雀頭の種類による加符
         // 連風牌の場合は+4とします
-        MahjongTile jantoTile = comp.getJanto().getTile();
-        if (jantoTile == generalSituation.getBakaze()) {
-            tmpFu += 2;
-        }
-        if (jantoTile == personalSituation.getJikaze()) {
-            tmpFu += 2;
-        }
-        if (jantoTile.getType() == SANGEN) {
-            tmpFu += 2;
-        }
+        tmpFu += calcFuByJanto();
 
         return tmpFu;
+    }
+
+    private int calcFuByJanto() {
+        MahjongTile jantoTile = comp.getJanto().getTile();
+        int tmp = 0;
+        if (jantoTile == generalSituation.getBakaze()) {
+            tmp += 2;
+        }
+        if (jantoTile == personalSituation.getJikaze()) {
+            tmp += 2;
+        }
+        if (jantoTile.getType() == SANGEN) {
+            tmp += 2;
+        }
+        return tmp;
+    }
+
+    private int calcFuByAgari() {
+        // 門前ロン
+        if (!hands.isOpen() && !personalSituation.isTsumo()) {
+            return 10;
+        }
+        // ツモ
+        if (personalSituation.isTsumo()) {
+            return 2;
+        }
+        return 0;
     }
 
     private int calcFuByWait(MentsuComp comp, MahjongTile last) {
