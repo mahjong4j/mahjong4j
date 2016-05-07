@@ -3,7 +3,7 @@ package org.mahjong4j.hands;
 import org.mahjong4j.HandsOverFlowException;
 import org.mahjong4j.IllegalMentsuSizeException;
 import org.mahjong4j.MahjongTileOverFlowException;
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.tile.Tile;
 import org.mahjong4j.yaku.yakuman.KokushimusoResolver;
 
 import java.util.*;
@@ -16,7 +16,7 @@ import java.util.*;
  *
  * @author yu1ro
  */
-public class MahjongHands {
+public class Hands {
     // -------------------------確定系-----------------------
 
     //確定した上がりの形のリスト
@@ -26,7 +26,7 @@ public class MahjongHands {
     private int[] handsComp = new int[34];
 
     //最後の牌
-    private MahjongTile last;
+    private Tile last;
 
     //あがれるか
     private boolean canWin = false;
@@ -52,7 +52,7 @@ public class MahjongHands {
      * @param mentsuList
      * @throws MahjongTileOverFlowException
      */
-    public MahjongHands(int[] otherTiles, MahjongTile last, List<Mentsu> mentsuList) throws MahjongTileOverFlowException, IllegalMentsuSizeException {
+    public Hands(int[] otherTiles, Tile last, List<Mentsu> mentsuList) throws MahjongTileOverFlowException, IllegalMentsuSizeException {
         inputtedTiles = otherTiles;
         this.last = last;
         inputtedMentsuList = mentsuList;
@@ -66,7 +66,7 @@ public class MahjongHands {
      * @param mentsu
      * @throws MahjongTileOverFlowException
      */
-    public MahjongHands(int[] otherTiles, MahjongTile last, Mentsu... mentsu) throws MahjongTileOverFlowException, IllegalMentsuSizeException {
+    public Hands(int[] otherTiles, Tile last, Mentsu... mentsu) throws MahjongTileOverFlowException, IllegalMentsuSizeException {
         inputtedTiles = otherTiles;
         setHandsComp(otherTiles, Arrays.asList(mentsu));
         this.last = last;
@@ -78,7 +78,7 @@ public class MahjongHands {
      * @param allTiles lastの牌も含めて下さい合計14になるはずです
      * @param last     この牌もotherTilesに含めてください
      */
-    public MahjongHands(int[] allTiles, MahjongTile last) throws HandsOverFlowException, MahjongTileOverFlowException, IllegalMentsuSizeException {
+    public Hands(int[] allTiles, Tile last) throws HandsOverFlowException, MahjongTileOverFlowException, IllegalMentsuSizeException {
         inputtedTiles = allTiles;
         this.last = last;
 
@@ -128,7 +128,7 @@ public class MahjongHands {
         return canWin;
     }
 
-    public MahjongTile getLast() {
+    public Tile getLast() {
         return last;
     }
 
@@ -289,9 +289,9 @@ public class MahjongHands {
             while (handStocks[j - 1] > 0 && handStocks[j] > 0 && handStocks[j + 1] > 0) {
                 Shuntsu shuntsu = new Shuntsu(
                     false,
-                    MahjongTile.valueOf(j - 1),
-                    MahjongTile.valueOf(j),
-                    MahjongTile.valueOf(j + 1)
+                    Tile.valueOf(j - 1),
+                    Tile.valueOf(j),
+                    Tile.valueOf(j + 1)
                 );
 
                 //3つ並んでいても順子であるとは限らないので調べる
@@ -310,7 +310,7 @@ public class MahjongHands {
         List<Mentsu> resultList = new ArrayList<>(4);
         for (int i = 0; i < handStocks.length; i++) {
             if (handStocks[i] >= 3) {
-                resultList.add(new Kotsu(false, MahjongTile.valueOf(i)));
+                resultList.add(new Kotsu(false, Tile.valueOf(i)));
                 handStocks[i] -= 3;
             }
         }

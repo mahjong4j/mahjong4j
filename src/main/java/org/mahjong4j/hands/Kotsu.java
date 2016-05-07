@@ -1,6 +1,6 @@
 package org.mahjong4j.hands;
 
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.tile.Tile;
 
 /**
  * 刻子に関するクラスです
@@ -16,7 +16,7 @@ public class Kotsu extends Mentsu {
      * @param isOpen         暗刻ならばfalse 明刻ならばtrue
      * @param identifierTile どの牌の刻子なのか
      */
-    public Kotsu(boolean isOpen, MahjongTile identifierTile) {
+    public Kotsu(boolean isOpen, Tile identifierTile) {
         this.identifierTile = identifierTile;
         this.isOpen = isOpen;
         this.isMentsu = true;
@@ -31,7 +31,7 @@ public class Kotsu extends Mentsu {
      * @param tile2  2枚目
      * @param tile3  3枚目
      */
-    public Kotsu(boolean isOpen, MahjongTile tile1, MahjongTile tile2, MahjongTile tile3) {
+    public Kotsu(boolean isOpen, Tile tile1, Tile tile2, Tile tile3) {
         this.isOpen = isOpen;
         if (this.isMentsu = check(tile1, tile2, tile3)) {
             identifierTile = tile1;
@@ -46,7 +46,7 @@ public class Kotsu extends Mentsu {
      * @param tile3 3枚目
      * @return 刻子であればtrue 刻子でなければfalse
      */
-    public static boolean check(MahjongTile tile1, MahjongTile tile2, MahjongTile tile3) {
+    public static boolean check(Tile tile1, Tile tile2, Tile tile3) {
         return tile1 == tile2 && tile2 == tile3;
     }
 

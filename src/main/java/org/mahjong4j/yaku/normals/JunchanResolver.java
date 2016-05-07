@@ -7,7 +7,7 @@ import org.mahjong4j.hands.Toitsu;
 
 import java.util.List;
 
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.JUNCHAN;
+import static org.mahjong4j.yaku.normals.NormalYaku.JUNCHAN;
 
 /**
  * 純チャン判定クラス
@@ -20,7 +20,7 @@ public class JunchanResolver implements NormalYakuResolver {
     private final Toitsu janto;
     private final List<Shuntsu> shuntsuList;
     private final List<Kotsu> kotsuList;
-    private MahjongYakuEnum yakuEnum = JUNCHAN;
+    private NormalYaku yakuEnum = JUNCHAN;
 
     public JunchanResolver(MentsuComp comp) {
         janto = comp.getJanto();
@@ -28,7 +28,7 @@ public class JunchanResolver implements NormalYakuResolver {
         kotsuList = comp.getKotsuKantsu();
     }
 
-    public MahjongYakuEnum getNormalYaku() {
+    public NormalYaku getNormalYaku() {
         return yakuEnum;
     }
 

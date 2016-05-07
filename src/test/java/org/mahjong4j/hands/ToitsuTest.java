@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mahjong4j.MahjongTileOverFlowException;
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.tile.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,21 +21,21 @@ public class ToitsuTest {
 
     @Before
     public void setUp() throws Exception {
-        toitsu1 = new Toitsu(MahjongTile.M1);
-        toitsu2 = new Toitsu(MahjongTile.M1, MahjongTile.M1);
-        toitsuF = new Toitsu(MahjongTile.M1, MahjongTile.M2);
+        toitsu1 = new Toitsu(Tile.M1);
+        toitsu2 = new Toitsu(Tile.M1, Tile.M1);
+        toitsuF = new Toitsu(Tile.M1, Tile.M2);
     }
 
     @Test
     public void testCheck() throws Exception {
-        assertTrue(Toitsu.check(MahjongTile.P1, MahjongTile.P1));
-        assertFalse(Toitsu.check(MahjongTile.P1, MahjongTile.P4));
+        assertTrue(Toitsu.check(Tile.P1, Tile.P1));
+        assertFalse(Toitsu.check(Tile.P1, Tile.P4));
     }
 
     @Test
     public void testGetTile() throws Exception {
-        assertEquals(MahjongTile.M1, toitsu1.getTile());
-        assertEquals(MahjongTile.M1, toitsu2.getTile());
+        assertEquals(Tile.M1, toitsu1.getTile());
+        assertEquals(Tile.M1, toitsu2.getTile());
         assertEquals(null, toitsuF.getTile());
     }
 
@@ -67,8 +67,8 @@ public class ToitsuTest {
         assertEquals(1, actual.size());
 
         expected = new ArrayList<>(7);
-        expected.add(new Toitsu(MahjongTile.HAK));
-        assertEquals(MahjongTile.HAK, expected.get(0).getTile());
+        expected.add(new Toitsu(Tile.HAK));
+        assertEquals(Tile.HAK, expected.get(0).getTile());
     }
 
 

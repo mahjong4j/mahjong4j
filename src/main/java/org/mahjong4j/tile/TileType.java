@@ -3,7 +3,7 @@ package org.mahjong4j.tile;
 /**
  * @author yu1ro
  */
-public enum MahjongTileType {
+public enum TileType {
     MANZU,//萬子
     PINZU,//筒子
     SOHZU,//索子

@@ -7,7 +7,7 @@ import org.mahjong4j.hands.Toitsu;
 
 import java.util.List;
 
-import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.TSUISO;
+import static org.mahjong4j.yaku.yakuman.Yakuman.TSUISO;
 
 /**
  * 字一色判定クラス
@@ -16,7 +16,7 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.TSUISO;
  * @author yu1ro
  */
 public class TsuisoResolver implements YakumanResolver {
-    private final MahjongYakumanEnum yakuman = TSUISO;
+    private final Yakuman yakuman = TSUISO;
 
     private final Toitsu janto;
     private final List<Shuntsu> shuntsuList;
@@ -30,7 +30,7 @@ public class TsuisoResolver implements YakumanResolver {
         kotsuList = comp.getKotsuKantsu();
     }
 
-    public MahjongYakumanEnum getYakuman() {
+    public Yakuman getYakuman() {
         return yakuman;
     }
 

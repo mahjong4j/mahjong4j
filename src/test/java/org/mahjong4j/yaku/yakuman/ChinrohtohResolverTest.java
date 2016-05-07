@@ -2,12 +2,12 @@ package org.mahjong4j.yaku.yakuman;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.Hands;
 import org.mahjong4j.hands.MentsuComp;
 
 import static org.junit.Assert.*;
-import static org.mahjong4j.tile.MahjongTile.M1;
-import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.CHINROTO;
+import static org.mahjong4j.tile.Tile.M1;
+import static org.mahjong4j.yaku.yakuman.Yakuman.CHINROTO;
 
 /**
  * @author yu1ro
@@ -33,11 +33,11 @@ public class ChinrohtohResolverTest {
             0, 0, 0, 0,
             0, 0, 0
         };
-        MahjongHands hands = new MahjongHands(match, M1);
+        Hands hands = new Hands(match, M1);
         for (MentsuComp comp : hands.getMentsuCompSet()) {
             chinrohtoh = new ChinrohtohResolver(comp);
         }
-        hands = new MahjongHands(notMatch, M1);
+        hands = new Hands(notMatch, M1);
         for (MentsuComp comp : hands.getMentsuCompSet()) {
             notchin = new ChinrohtohResolver(comp);
         }

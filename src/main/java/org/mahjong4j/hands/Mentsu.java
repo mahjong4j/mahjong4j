@@ -1,6 +1,6 @@
 package org.mahjong4j.hands;
 
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.tile.Tile;
 
 /**
  * 面子に関するインターフェイスです
@@ -9,7 +9,7 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  */
 public abstract class Mentsu {
-    protected MahjongTile identifierTile;
+    protected Tile identifierTile;
 
     /**
      * 面子として成立している場合true
@@ -28,7 +28,7 @@ public abstract class Mentsu {
      *
      * @return どの牌で面子となっているか
      */
-    public MahjongTile getTile(){
+    public Tile getTile() {
         return identifierTile;
     }
 
@@ -38,7 +38,7 @@ public abstract class Mentsu {
      *
      * @return 面子として成立しているか
      */
-    public boolean isMentsu(){
+    public boolean isMentsu() {
         return isMentsu;
     }
 

@@ -5,7 +5,7 @@ import org.mahjong4j.hands.MentsuComp;
 
 import java.util.List;
 
-import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.SUANKO;
+import static org.mahjong4j.yaku.yakuman.Yakuman.SUANKO;
 
 /**
  * 四暗刻判定クラス
@@ -17,14 +17,14 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.SUANKO;
 public class SuankoResolver implements YakumanResolver {
     private final int count;
     private final List<Kotsu> kotsuList;
-    private final MahjongYakumanEnum yakuman = SUANKO;
+    private final Yakuman yakuman = SUANKO;
 
     public SuankoResolver(MentsuComp comp) {
         kotsuList = comp.getKotsuKantsu();
         count = comp.getKotsuCount() + comp.getKantsuCount();
     }
 
-    public MahjongYakumanEnum getYakuman() {
+    public Yakuman getYakuman() {
         return yakuman;
     }
 

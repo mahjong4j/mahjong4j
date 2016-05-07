@@ -4,11 +4,11 @@ package org.mahjong4j.yaku.normals;
 import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.hands.Toitsu;
-import org.mahjong4j.tile.MahjongTileType;
+import org.mahjong4j.tile.TileType;
 
 import java.util.List;
 
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SHOSANGEN;
+import static org.mahjong4j.yaku.normals.NormalYaku.SHOSANGEN;
 
 /**
  * 小三元判定クラス
@@ -17,7 +17,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SHOSANGEN;
  * @author yu1ro
  */
 public class ShosangenResolver implements NormalYakuResolver {
-    private final MahjongYakuEnum yakuEnum = SHOSANGEN;
+    private final NormalYaku yakuEnum = SHOSANGEN;
 
     private final Toitsu janto;
     private final List<Kotsu> kotsuList;
@@ -27,7 +27,7 @@ public class ShosangenResolver implements NormalYakuResolver {
         kotsuList = comp.getKotsuKantsu();
     }
 
-    public MahjongYakuEnum getNormalYaku() {
+    public NormalYaku getNormalYaku() {
         return yakuEnum;
     }
 
@@ -37,12 +37,12 @@ public class ShosangenResolver implements NormalYakuResolver {
             return false;
         }
 
-        if (janto.getTile().getType() != MahjongTileType.SANGEN) {
+        if (janto.getTile().getType() != TileType.SANGEN) {
             return false;
         }
         int count = 0;
         for (Kotsu kotsu : kotsuList) {
-            if (kotsu.getTile().getType() == MahjongTileType.SANGEN) {
+            if (kotsu.getTile().getType() == TileType.SANGEN) {
                 count++;
             }
             if (count == 2) {

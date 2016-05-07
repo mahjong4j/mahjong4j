@@ -3,7 +3,7 @@ package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.hands.MentsuComp;
 
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SANKANTSU;
+import static org.mahjong4j.yaku.normals.NormalYaku.SANKANTSU;
 
 /**
  * 三槓子判定クラス
@@ -12,14 +12,14 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SANKANTSU;
  * @author yu1ro
  */
 public class SankantsuResolver implements NormalYakuResolver {
-    private final MahjongYakuEnum yakuEnum = SANKANTSU;
+    private final NormalYaku yakuEnum = SANKANTSU;
     private final int kantsuCount;
 
     public SankantsuResolver(MentsuComp comp) {
         kantsuCount = comp.getKantsuCount();
     }
 
-    public MahjongYakuEnum getNormalYaku() {
+    public NormalYaku getNormalYaku() {
         return yakuEnum;
     }
 

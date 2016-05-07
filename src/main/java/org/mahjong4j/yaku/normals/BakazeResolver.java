@@ -17,8 +17,8 @@ public class BakazeResolver extends SituationResolver implements NormalYakuResol
     }
 
     @Override
-    public MahjongYakuEnum getNormalYaku() {
-        return MahjongYakuEnum.BAKAZE;
+    public NormalYaku getNormalYaku() {
+        return NormalYaku.BAKAZE;
     }
 
     @Override

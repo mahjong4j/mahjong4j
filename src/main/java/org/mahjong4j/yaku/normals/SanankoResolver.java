@@ -6,7 +6,7 @@ import org.mahjong4j.hands.MentsuComp;
 
 import java.util.List;
 
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SANANKO;
+import static org.mahjong4j.yaku.normals.NormalYaku.SANANKO;
 
 /**
  * 三暗刻判定クラス
@@ -15,7 +15,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SANANKO;
  * @author yu1ro
  */
 public class SanankoResolver implements NormalYakuResolver {
-    private final MahjongYakuEnum yakuEnum = SANANKO;
+    private final NormalYaku yakuEnum = SANANKO;
     private final List<Kotsu> kotsuList;
     private final int kotsuCount;
 
@@ -24,7 +24,7 @@ public class SanankoResolver implements NormalYakuResolver {
         kotsuCount = comp.getKotsuCount() + comp.getKantsuCount();
     }
 
-    public MahjongYakuEnum getNormalYaku() {
+    public NormalYaku getNormalYaku() {
         return yakuEnum;
     }
 

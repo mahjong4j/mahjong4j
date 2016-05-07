@@ -16,8 +16,8 @@ public class TenhoResolver implements YakumanResolver {
     }
 
     @Override
-    public MahjongYakumanEnum getYakuman() {
-        return MahjongYakumanEnum.TENHO;
+    public Yakuman getYakuman() {
+        return Yakuman.TENHO;
     }
 
     @Override

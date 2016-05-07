@@ -2,11 +2,11 @@ package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
-import org.mahjong4j.tile.MahjongTileType;
+import org.mahjong4j.tile.TileType;
 
 import java.util.List;
 
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SANSHOKUDOHKO;
+import static org.mahjong4j.yaku.normals.NormalYaku.SANSHOKUDOHKO;
 
 /**
  * 三色同刻判定クラス
@@ -15,7 +15,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.SANSHOKUDOHKO;
  * @author yu1ro
  */
 public class SanshokudohkoResolver extends SanshokuResolver implements NormalYakuResolver {
-    private final MahjongYakuEnum yakuEnum = SANSHOKUDOHKO;
+    private final NormalYaku yakuEnum = SANSHOKUDOHKO;
     private final int kotsuCount;
     private final List<Kotsu> kotsuList;
 
@@ -24,7 +24,7 @@ public class SanshokudohkoResolver extends SanshokuResolver implements NormalYak
         kotsuList = comp.getKotsuKantsu();
     }
 
-    public MahjongYakuEnum getNormalYaku() {
+    public NormalYaku getNormalYaku() {
         return yakuEnum;
     }
 
@@ -35,7 +35,7 @@ public class SanshokudohkoResolver extends SanshokuResolver implements NormalYak
 
         Kotsu candidate = null;
         for (Kotsu kotsu : kotsuList) {
-            MahjongTileType shuntsuType = kotsu.getTile().getType();
+            TileType shuntsuType = kotsu.getTile().getType();
             int shuntsuNum = kotsu.getTile().getNumber();
 
             if (candidate == null) {

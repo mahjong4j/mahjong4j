@@ -5,7 +5,7 @@ import org.mahjong4j.hands.Shuntsu;
 
 import java.util.List;
 
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.IPEIKO;
+import static org.mahjong4j.yaku.normals.NormalYaku.IPEIKO;
 
 /**
  * 一盃口判定クラス
@@ -15,14 +15,14 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.IPEIKO;
  * @author yu1ro
  */
 public class IpeikoResolver extends PeikoResolver implements NormalYakuResolver {
-    private final MahjongYakuEnum yakuEnum = IPEIKO;
+    private final NormalYaku yakuEnum = IPEIKO;
     private final List<Shuntsu> shuntsuList;
 
     public IpeikoResolver(MentsuComp comp) {
         shuntsuList = comp.getShuntsuList();
     }
 
-    public MahjongYakuEnum getNormalYaku() {
+    public NormalYaku getNormalYaku() {
         return yakuEnum;
     }
 

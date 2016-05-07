@@ -8,13 +8,13 @@ import java.util.List;
 
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.junit.Assert.*;
-import static org.mahjong4j.tile.MahjongTile.*;
+import static org.mahjong4j.tile.Tile.*;
 
 /**
  * @author yu1ro
  */
-public class MahjongHandsChitoitsuTest {
-    private MahjongHands actual;
+public class HandsChitoitsuTest {
+    private Hands actual;
 
     @Before
     public void setUp() throws Exception {
@@ -26,7 +26,7 @@ public class MahjongHandsChitoitsuTest {
             0, 0, 0
         };
 
-        actual = new MahjongHands(tiles, SHA);
+        actual = new Hands(tiles, SHA);
     }
 
     @Test

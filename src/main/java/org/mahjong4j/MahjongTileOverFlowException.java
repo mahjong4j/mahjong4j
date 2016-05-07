@@ -1,12 +1,12 @@
 package org.mahjong4j;
 
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.tile.Tile;
 
 /**
  * @author yu1ro
  */
 public class MahjongTileOverFlowException extends Mahjong4jException {
-    //MahjongTile.code
+    //Tile.code
     private int code;
     //何枚見つかり不正なのか
     private int num;
@@ -18,6 +18,6 @@ public class MahjongTileOverFlowException extends Mahjong4jException {
     }
 
     public String getAdvice() {
-        return MahjongTile.valueOf(code).name() + "(code = " + code + ")が" + num + "枚見つかりました";
+        return Tile.valueOf(code).name() + "(code = " + code + ")が" + num + "枚見つかりました";
     }
 }

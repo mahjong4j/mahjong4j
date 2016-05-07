@@ -6,10 +6,10 @@ import org.junit.Test;
 import org.mahjong4j.GeneralSituation;
 import org.mahjong4j.PersonalSituation;
 import org.mahjong4j.Player;
-import org.mahjong4j.hands.MahjongHands;
-import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.yaku.normals.MahjongYakuEnum;
-import org.mahjong4j.yaku.yakuman.MahjongYakumanEnum;
+import org.mahjong4j.hands.Hands;
+import org.mahjong4j.tile.Tile;
+import org.mahjong4j.yaku.normals.NormalYaku;
+import org.mahjong4j.yaku.yakuman.Yakuman;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,15 +18,15 @@ import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
 import static org.mahjong4j.Score.SCORE2000;
-import static org.mahjong4j.tile.MahjongTile.*;
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.PINFU;
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.TSUMO;
+import static org.mahjong4j.tile.Tile.*;
+import static org.mahjong4j.yaku.normals.NormalYaku.PINFU;
+import static org.mahjong4j.yaku.normals.NormalYaku.TSUMO;
 
 /**
  * @author yu1ro
  */
 public class PinfuTsumoTest {
-    MahjongHands hands;
+    Hands hands;
     Player player;
 
     @Before
@@ -38,12 +38,12 @@ public class PinfuTsumoTest {
             0, 0, 0, 0,
             0, 0, 0
         };
-        MahjongTile last = M3;
-        hands = new MahjongHands(tiles, last);
-        List<MahjongTile> dora = new ArrayList<>(1);
+        Tile last = M3;
+        hands = new Hands(tiles, last);
+        List<Tile> dora = new ArrayList<>(1);
         dora.add(NAN);
 
-        List<MahjongTile> uradora = new ArrayList<>(1);
+        List<Tile> uradora = new ArrayList<>(1);
         uradora.add(M9);
         GeneralSituation general;
         general = new GeneralSituation(false, false, NAN, dora, uradora);
@@ -56,21 +56,21 @@ public class PinfuTsumoTest {
 
     @Test
     public void testGetYakumanList() throws Exception {
-        List<MahjongYakumanEnum> actual = player.getYakumanList();
+        List<Yakuman> actual = player.getYakumanList();
 
         assertEquals(0, actual.size());
     }
 
     @Test
     public void testGetNormalYakuListSize() throws Exception {
-        List<MahjongYakuEnum> actual = player.getNormalYakuList();
+        List<NormalYaku> actual = player.getNormalYakuList();
 
         assertEquals(2, actual.size());
     }
 
     @Test
     public void testGetNormalYakuListItem() throws Exception {
-        List<MahjongYakuEnum> actual = player.getNormalYakuList();
+        List<NormalYaku> actual = player.getNormalYakuList();
 
         assertThat(actual, hasItems(PINFU, TSUMO));
     }

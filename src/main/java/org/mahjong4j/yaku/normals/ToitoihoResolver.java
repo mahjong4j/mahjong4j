@@ -2,7 +2,7 @@ package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.hands.MentsuComp;
 
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.TOITOIHO;
+import static org.mahjong4j.yaku.normals.NormalYaku.TOITOIHO;
 
 /**
  * 対々和判定クラス
@@ -11,14 +11,14 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.TOITOIHO;
  * @author yu1ro
  */
 public class ToitoihoResolver implements NormalYakuResolver {
-    private final MahjongYakuEnum yakuEnum = TOITOIHO;
+    private final NormalYaku yakuEnum = TOITOIHO;
     private final int kotsuCount;
 
     public ToitoihoResolver(MentsuComp comp) {
         kotsuCount = comp.getKantsuCount() + comp.getKotsuCount();
     }
 
-    public MahjongYakuEnum getNormalYaku() {
+    public NormalYaku getNormalYaku() {
         return yakuEnum;
     }
 

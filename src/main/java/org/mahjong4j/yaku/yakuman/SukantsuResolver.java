@@ -2,7 +2,7 @@ package org.mahjong4j.yaku.yakuman;
 
 import org.mahjong4j.hands.MentsuComp;
 
-import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.SUKANTSU;
+import static org.mahjong4j.yaku.yakuman.Yakuman.SUKANTSU;
 
 /**
  * 四暗刻判定クラス
@@ -13,13 +13,13 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.SUKANTSU;
  */
 public class SukantsuResolver implements YakumanResolver {
     private final int kantsuCount;
-    private final MahjongYakumanEnum yakuman = SUKANTSU;
+    private final Yakuman yakuman = SUKANTSU;
 
     public SukantsuResolver(MentsuComp comp) {
         kantsuCount = comp.getKantsuCount();
     }
 
-    public MahjongYakumanEnum getYakuman() {
+    public Yakuman getYakuman() {
         return yakuman;
     }
 

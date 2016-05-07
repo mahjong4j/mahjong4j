@@ -6,7 +6,7 @@ import org.mahjong4j.hands.Toitsu;
 
 import java.util.List;
 
-import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.CHINROTO;
+import static org.mahjong4j.yaku.yakuman.Yakuman.CHINROTO;
 
 /**
  * 清老頭判定クラス
@@ -15,7 +15,7 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.CHINROTO;
  * @author yu1ro
  */
 public class ChinrohtohResolver implements YakumanResolver {
-    private final MahjongYakumanEnum yakuman = CHINROTO;
+    private final Yakuman yakuman = CHINROTO;
     private final int totalKotsuKantsu;
     private final List<Kotsu> kotsuList;
     private final Toitsu janto;
@@ -26,7 +26,7 @@ public class ChinrohtohResolver implements YakumanResolver {
         janto = comp.getJanto();
     }
 
-    public MahjongYakumanEnum getYakuman() {
+    public Yakuman getYakuman() {
         return yakuman;
     }
 

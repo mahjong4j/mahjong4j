@@ -1,14 +1,14 @@
 package org.mahjong4j;
 
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.tile.Tile;
 
 /**
  * @author yu1ro
  */
 public class IllegalShuntsuIdentifierException extends Mahjong4jException {
-    private MahjongTile tile;
+    private Tile tile;
 
-    public IllegalShuntsuIdentifierException(MahjongTile tile) {
+    public IllegalShuntsuIdentifierException(Tile tile) {
         super("順子識別牌としてありえない牌を検出しました");
         this.tile = tile;
     }

@@ -2,7 +2,7 @@ package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.hands.MentsuComp;
 
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.CHITOITSU;
+import static org.mahjong4j.yaku.normals.NormalYaku.CHITOITSU;
 
 /**
  * 七対子判定クラス
@@ -11,14 +11,14 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.CHITOITSU;
  * @author yu1ro
  */
 public class ChitoitsuResolver implements NormalYakuResolver {
-    private final MahjongYakuEnum yakuEnum = CHITOITSU;
+    private final NormalYaku yakuEnum = CHITOITSU;
     private final int toitsuCount;
 
     public ChitoitsuResolver(MentsuComp comp) {
         toitsuCount = comp.getToitsuCount();
     }
 
-    public MahjongYakuEnum getNormalYaku() {
+    public NormalYaku getNormalYaku() {
         return yakuEnum;
     }
 

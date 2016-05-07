@@ -6,12 +6,12 @@ import org.mahjong4j.PersonalSituation;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.hands.Shuntsu;
 import org.mahjong4j.hands.Toitsu;
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.tile.Tile;
 
 import java.util.List;
 
-import static org.mahjong4j.tile.MahjongTileType.SANGEN;
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.PINFU;
+import static org.mahjong4j.tile.TileType.SANGEN;
+import static org.mahjong4j.yaku.normals.NormalYaku.PINFU;
 
 /**
  * 平和判定クラス
@@ -20,12 +20,12 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.PINFU;
  * @author yu1ro
  */
 public class PinfuResolver extends SituationResolver implements NormalYakuResolver {
-    private final MahjongYakuEnum yakuEnum = PINFU;
+    private final NormalYaku yakuEnum = PINFU;
 
     private final Toitsu janto;
     private final int shuntsuCount;
     private final List<Shuntsu> shuntsuList;
-    private final MahjongTile last;
+    private final Tile last;
 
 
     public PinfuResolver(MentsuComp comp, GeneralSituation generalSituation, PersonalSituation personalSituation) {
@@ -36,7 +36,7 @@ public class PinfuResolver extends SituationResolver implements NormalYakuResolv
         last = comp.getLast();
     }
 
-    public MahjongYakuEnum getNormalYaku() {
+    public NormalYaku getNormalYaku() {
         return yakuEnum;
     }
 
@@ -45,7 +45,7 @@ public class PinfuResolver extends SituationResolver implements NormalYakuResolv
             return false;
         }
         //雀頭が三元牌の場合はfalse
-        MahjongTile janto = this.janto.getTile();
+        Tile janto = this.janto.getTile();
         if (janto.getType() == SANGEN) {
             return false;
         }
@@ -83,7 +83,7 @@ public class PinfuResolver extends SituationResolver implements NormalYakuResolv
      * @param last    最後の牌
      * @return 両面待ちだったか
      */
-    private boolean isRyanmen(Shuntsu shuntsu, MahjongTile last) {
+    private boolean isRyanmen(Shuntsu shuntsu, Tile last) {
         //ラスト牌と判定したい順子のtypeが違う場合はfalse
         if (shuntsu.getTile().getType() != last.getType()) {
             return false;

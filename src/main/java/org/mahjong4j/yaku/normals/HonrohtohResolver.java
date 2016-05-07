@@ -8,7 +8,7 @@ import org.mahjong4j.hands.Toitsu;
 
 import java.util.List;
 
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.HONROHTOH;
+import static org.mahjong4j.yaku.normals.NormalYaku.HONROHTOH;
 
 /**
  * 混老頭判定クラス
@@ -17,7 +17,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.HONROHTOH;
  * @author yu1ro
  */
 public class HonrohtohResolver implements NormalYakuResolver {
-    private final MahjongYakuEnum yakuEnum = HONROHTOH;
+    private final NormalYaku yakuEnum = HONROHTOH;
 
     private List<Shuntsu> shuntsuList;
     private List<Toitsu> toitsuList;
@@ -29,7 +29,7 @@ public class HonrohtohResolver implements NormalYakuResolver {
         kotsuList = comp.getKotsuKantsu();
     }
 
-    public MahjongYakuEnum getNormalYaku() {
+    public NormalYaku getNormalYaku() {
         return yakuEnum;
     }
 

@@ -1,7 +1,7 @@
 package org.mahjong4j.hands;
 
 import org.mahjong4j.IllegalShuntsuIdentifierException;
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.tile.Tile;
 
 /**
  * 順子に関するクラスです
@@ -17,7 +17,7 @@ public class Shuntsu extends Mentsu {
      * @param isOpen         明順子ならばtrue 暗順子ならばfalse
      * @param identifierTile 順子の組の二番目
      */
-    public Shuntsu(boolean isOpen, MahjongTile identifierTile) throws IllegalShuntsuIdentifierException {
+    public Shuntsu(boolean isOpen, Tile identifierTile) throws IllegalShuntsuIdentifierException {
         setIdentifierTile(identifierTile);
         this.isOpen = isOpen;
         this.isMentsu = true;
@@ -31,12 +31,12 @@ public class Shuntsu extends Mentsu {
      * @param tile2  2枚目
      * @param tile3  3枚目
      */
-    public Shuntsu(boolean isOpen, MahjongTile tile1, MahjongTile tile2, MahjongTile tile3) {
+    public Shuntsu(boolean isOpen, Tile tile1, Tile tile2, Tile tile3) {
         this.isOpen = isOpen;
 
         // TODO: 共通化
         //ソートする
-        MahjongTile s;
+        Tile s;
         if (tile1.getNumber() > tile2.getNumber()) {
             s = tile1;
             tile1 = tile2;
@@ -65,7 +65,7 @@ public class Shuntsu extends Mentsu {
      * @param tile3 3枚目
      * @return 順子であればtrue 順子でなければfalse
      */
-    public static boolean check(MahjongTile tile1, MahjongTile tile2, MahjongTile tile3) {
+    public static boolean check(Tile tile1, Tile tile2, Tile tile3) {
 
         //Typeが違う場合false
         if (tile1.getType() != tile2.getType() || tile2.getType() != tile3.getType()) {
@@ -78,7 +78,7 @@ public class Shuntsu extends Mentsu {
         }
 
         //ソートする
-        MahjongTile s;
+        Tile s;
         if (tile1.getNumber() > tile2.getNumber()) {
             s = tile1;
             tile1 = tile2;
@@ -99,7 +99,7 @@ public class Shuntsu extends Mentsu {
         return tile1.getNumber() + 1 == tile2.getNumber() && tile2.getNumber() + 1 == tile3.getNumber();
     }
 
-    private void setIdentifierTile(MahjongTile identifierTile) throws IllegalShuntsuIdentifierException {
+    private void setIdentifierTile(Tile identifierTile) throws IllegalShuntsuIdentifierException {
         int tileNum = identifierTile.getNumber();
         if (tileNum == 0 || tileNum == 1 || tileNum == 9) {
             throw new IllegalShuntsuIdentifierException(identifierTile);

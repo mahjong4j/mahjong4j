@@ -1,7 +1,7 @@
 package org.mahjong4j.hands;
 
 import org.mahjong4j.MahjongTileOverFlowException;
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.tile.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ public class Toitsu extends Mentsu {
      *
      * @param identifierTile 対子の種類
      */
-    public Toitsu(MahjongTile identifierTile) {
+    public Toitsu(Tile identifierTile) {
         this.identifierTile = identifierTile;
         this.isMentsu = true;
     }
@@ -27,7 +27,7 @@ public class Toitsu extends Mentsu {
      * @param tile1 1枚目
      * @param tile2 2枚目
      */
-    public Toitsu(MahjongTile tile1, MahjongTile tile2) {
+    public Toitsu(Tile tile1, Tile tile2) {
         if (this.isMentsu = Toitsu.check(tile1, tile2)) {
             this.identifierTile = tile1;
         }
@@ -38,7 +38,7 @@ public class Toitsu extends Mentsu {
      * @param tile2 2枚目
      * @return 2枚が一致すればtrue
      */
-    public static boolean check(MahjongTile tile1, MahjongTile tile2) {
+    public static boolean check(Tile tile1, Tile tile2) {
         return tile1 == tile2;
     }
 
@@ -55,7 +55,7 @@ public class Toitsu extends Mentsu {
                 throw new MahjongTileOverFlowException(i, tiles[i]);
             }
             if (tiles[i] >= 2) {
-                result.add(new Toitsu(MahjongTile.valueOf(i)));
+                result.add(new Toitsu(Tile.valueOf(i)));
             }
         }
         return result;

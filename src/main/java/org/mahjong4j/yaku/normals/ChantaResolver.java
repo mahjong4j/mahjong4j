@@ -5,7 +5,7 @@ import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.hands.Shuntsu;
 
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.CHANTA;
+import static org.mahjong4j.yaku.normals.NormalYaku.CHANTA;
 
 /**
  * チャンタ判定クラス
@@ -15,7 +15,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.CHANTA;
  * @author yu1ro
  */
 public class ChantaResolver implements NormalYakuResolver {
-    private final MahjongYakuEnum yakuEnum = CHANTA;
+    private final NormalYaku yakuEnum = CHANTA;
 
     private MentsuComp comp;
 
@@ -23,7 +23,7 @@ public class ChantaResolver implements NormalYakuResolver {
         this.comp = comp;
     }
 
-    public MahjongYakuEnum getNormalYaku() {
+    public NormalYaku getNormalYaku() {
         return yakuEnum;
     }
 

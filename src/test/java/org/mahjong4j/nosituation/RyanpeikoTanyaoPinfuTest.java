@@ -3,10 +3,10 @@ package org.mahjong4j.nosituation;
 import org.junit.Before;
 import org.junit.Test;
 import org.mahjong4j.Player;
-import org.mahjong4j.hands.MahjongHands;
-import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.yaku.normals.MahjongYakuEnum;
-import org.mahjong4j.yaku.yakuman.MahjongYakumanEnum;
+import org.mahjong4j.hands.Hands;
+import org.mahjong4j.tile.Tile;
+import org.mahjong4j.yaku.normals.NormalYaku;
+import org.mahjong4j.yaku.yakuman.Yakuman;
 
 import java.util.List;
 
@@ -14,14 +14,14 @@ import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.junit.Assert.assertThat;
 import static org.mahjong4j.Score.SCORE0;
-import static org.mahjong4j.tile.MahjongTile.M8;
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
+import static org.mahjong4j.tile.Tile.M8;
+import static org.mahjong4j.yaku.normals.NormalYaku.*;
 
 /**
  * @author yu1ro
  */
 public class RyanpeikoTanyaoPinfuTest {
-    MahjongHands hands;
+    Hands hands;
     Player player;
 
     @Before
@@ -33,29 +33,29 @@ public class RyanpeikoTanyaoPinfuTest {
             0, 0, 0, 0,
             0, 0, 0
         };
-        MahjongTile last = M8;
-        hands = new MahjongHands(tiles, last);
+        Tile last = M8;
+        hands = new Hands(tiles, last);
         player = new Player(hands);
         player.calculate();
     }
 
     @Test
     public void testGetYakumanList() throws Exception {
-        List<MahjongYakumanEnum> actual = player.getYakumanList();
+        List<Yakuman> actual = player.getYakumanList();
 
         assertEquals(0, actual.size());
     }
 
     @Test
     public void testGetNormalYakuListSize() throws Exception {
-        List<MahjongYakuEnum> actual = player.getNormalYakuList();
+        List<NormalYaku> actual = player.getNormalYakuList();
 
         assertEquals(3, actual.size());
     }
 
     @Test
     public void testGetNormalYakuListItem() throws Exception {
-        List<MahjongYakuEnum> actual = player.getNormalYakuList();
+        List<NormalYaku> actual = player.getNormalYakuList();
 
         assertThat(actual, hasItems(RYANPEIKO, TANYAO, PINFU));
     }

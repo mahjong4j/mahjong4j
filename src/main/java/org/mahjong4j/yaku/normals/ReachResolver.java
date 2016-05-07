@@ -13,8 +13,8 @@ public class ReachResolver extends SituationResolver implements NormalYakuResolv
     }
 
     @Override
-    public MahjongYakuEnum getNormalYaku() {
-        return MahjongYakuEnum.REACH;
+    public NormalYaku getNormalYaku() {
+        return NormalYaku.REACH;
     }
 
     @Override

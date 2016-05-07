@@ -16,8 +16,8 @@ public class RinshankaihohResolver implements NormalYakuResolver {
     }
 
     @Override
-    public MahjongYakuEnum getNormalYaku() {
-        return MahjongYakuEnum.RINSHANKAIHOH;
+    public NormalYaku getNormalYaku() {
+        return NormalYaku.RINSHANKAIHOH;
     }
 
     @Override

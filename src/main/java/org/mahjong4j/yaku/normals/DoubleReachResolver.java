@@ -13,8 +13,8 @@ public class DoubleReachResolver extends SituationResolver implements NormalYaku
     }
 
     @Override
-    public MahjongYakuEnum getNormalYaku() {
-        return MahjongYakuEnum.DOUBLE_REACH;
+    public NormalYaku getNormalYaku() {
+        return NormalYaku.DOUBLE_REACH;
     }
 
     @Override

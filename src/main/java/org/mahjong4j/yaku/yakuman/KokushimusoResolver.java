@@ -1,6 +1,7 @@
 package org.mahjong4j.yaku.yakuman;
 
 import org.mahjong4j.Player;
+import org.mahjong4j.hands.Hands;
 
 /**
  * 国士無双判定クラス
@@ -12,7 +13,7 @@ import org.mahjong4j.Player;
  * Mahjongクラスでそのことを呼び出すことで
  *
  * @author yu1ro
- * @see org.mahjong4j.hands.MahjongHands
+ * @see Hands
  * @see Player
  */
 public class KokushimusoResolver {

@@ -4,12 +4,12 @@ import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.hands.Shuntsu;
 import org.mahjong4j.hands.Toitsu;
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.tile.Tile;
 
 import java.util.List;
 
-import static org.mahjong4j.tile.MahjongTile.*;
-import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.RYUISO;
+import static org.mahjong4j.tile.Tile.*;
+import static org.mahjong4j.yaku.yakuman.Yakuman.RYUISO;
 
 /**
  * 緑一色判定クラス
@@ -19,7 +19,7 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.RYUISO;
  * @author yu1ro
  */
 public class RyuisoResolver implements YakumanResolver {
-    private final MahjongYakumanEnum yakuman = RYUISO;
+    private final Yakuman yakuman = RYUISO;
     private final List<Toitsu> toitsuList;
     private final List<Shuntsu> shuntsuList;
     private final List<Kotsu> kotsuList;
@@ -30,7 +30,7 @@ public class RyuisoResolver implements YakumanResolver {
         kotsuList = hands.getKotsuKantsu();
     }
 
-    public MahjongYakumanEnum getYakuman() {
+    public Yakuman getYakuman() {
         return yakuman;
     }
 
@@ -59,7 +59,7 @@ public class RyuisoResolver implements YakumanResolver {
      * @param tile 評価する牌
      * @return 緑の牌かどうか
      */
-    private boolean isGreen(MahjongTile tile) {
+    private boolean isGreen(Tile tile) {
         return tile == HAT
             || tile == S2
             || tile == S3

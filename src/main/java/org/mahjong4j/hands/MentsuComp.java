@@ -1,7 +1,7 @@
 package org.mahjong4j.hands;
 
 import org.mahjong4j.IllegalMentsuSizeException;
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.tile.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,14 +17,14 @@ public class MentsuComp {
     private List<Shuntsu> shuntsuList = new ArrayList<>(4);
     private List<Kotsu> kotsuList = new ArrayList<>(4);
     private List<Kantsu> kantsuList = new ArrayList<>(4);
-    private MahjongTile last;
+    private Tile last;
 
     /**
      * @param mentsuList 上がりとなった面子のリスト
      * @param last
      * @throws IllegalMentsuSizeException 和了れる形になっていなければthrow
      */
-    public MentsuComp(List<Mentsu> mentsuList, MahjongTile last) throws IllegalMentsuSizeException {
+    public MentsuComp(List<Mentsu> mentsuList, Tile last) throws IllegalMentsuSizeException {
         this.last = last;
         for (Mentsu mentsu : mentsuList) {
             setMentsu(mentsu);
@@ -154,11 +154,11 @@ public class MentsuComp {
         return allMentsu;
     }
 
-    public MahjongTile getLast() {
+    public Tile getLast() {
         return last;
     }
 
-    public boolean isRyanmen(MahjongTile last) {
+    public boolean isRyanmen(Tile last) {
         for (Shuntsu shuntsu : shuntsuList) {
             if (shuntsu.isOpen()) {
                 continue;
@@ -180,11 +180,11 @@ public class MentsuComp {
         return false;
     }
 
-    public boolean isTanki(MahjongTile last) {
+    public boolean isTanki(Tile last) {
         return getJanto().getTile() == last;
     }
 
-    public boolean isKanchan(MahjongTile last) {
+    public boolean isKanchan(Tile last) {
         if (isRyanmen(last)) {
             return false;
         }
@@ -199,7 +199,7 @@ public class MentsuComp {
         return false;
     }
 
-    public boolean isPenchan(MahjongTile last) {
+    public boolean isPenchan(Tile last) {
         if (isRyanmen(last)) {
             return false;
         }

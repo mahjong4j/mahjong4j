@@ -4,16 +4,16 @@ import org.junit.Test;
 import org.mahjong4j.HandsOverFlowException;
 import org.mahjong4j.IllegalShuntsuIdentifierException;
 import org.mahjong4j.MahjongTileOverFlowException;
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.tile.Tile;
 
 import static org.junit.Assert.assertEquals;
-import static org.mahjong4j.tile.MahjongTile.M1;
-import static org.mahjong4j.tile.MahjongTile.TON;
+import static org.mahjong4j.tile.Tile.M1;
+import static org.mahjong4j.tile.Tile.TON;
 
 /**
  * @author yu1ro
  */
-public class MahjongHandsThrowsTest {
+public class HandsThrowsTest {
 
     @Test(expected = HandsOverFlowException.class)
     public void testTahai() throws Exception {
@@ -24,7 +24,7 @@ public class MahjongHandsThrowsTest {
             0, 0, 0, 0,
             0, 2, 0
         };
-        new MahjongHands(tiles, M1);
+        new Hands(tiles, M1);
     }
 
     @Test
@@ -38,7 +38,7 @@ public class MahjongHandsThrowsTest {
         };
 
         try {
-            new MahjongHands(tiles, MahjongTile.M6);
+            new Hands(tiles, Tile.M6);
         } catch (MahjongTileOverFlowException e) {//messageもテストするためにcatch
             assertEquals("麻雀の牌は4枚までしかありません", e.getMessage());
             assertEquals("M2(code = 1)が5枚見つかりました", e.getAdvice());
@@ -59,7 +59,7 @@ public class MahjongHandsThrowsTest {
         shuntsuCheck(TON, advice);
     }
 
-    private void shuntsuCheck(MahjongTile a, String expected) {
+    private void shuntsuCheck(Tile a, String expected) {
         try {
             new Shuntsu(true, a);
         } catch (IllegalShuntsuIdentifierException e) {

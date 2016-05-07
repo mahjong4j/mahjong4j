@@ -1,6 +1,6 @@
 package org.mahjong4j.hands;
 
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.tile.Tile;
 
 /**
  * 槓子に関するクラスです
@@ -17,7 +17,7 @@ public class Kantsu extends Mentsu {
      * @param isOpen         暗槓の場合false, 明槓の場合はtrueを入れて下さい
      * @param identifierTile どの牌の槓子なのか
      */
-    public Kantsu(boolean isOpen, MahjongTile identifierTile) {
+    public Kantsu(boolean isOpen, Tile identifierTile) {
         this.isOpen = isOpen;
         this.identifierTile = identifierTile;
         this.isMentsu = true;
@@ -33,7 +33,7 @@ public class Kantsu extends Mentsu {
      * @param tile3  3枚目
      * @param tile4  4枚目
      */
-    public Kantsu(boolean isOpen, MahjongTile tile1, MahjongTile tile2, MahjongTile tile3, MahjongTile tile4) {
+    public Kantsu(boolean isOpen, Tile tile1, Tile tile2, Tile tile3, Tile tile4) {
         this.isOpen = isOpen;
         if (this.isMentsu = check(tile1, tile2, tile3, tile4)) {
             identifierTile = tile1;
@@ -49,7 +49,7 @@ public class Kantsu extends Mentsu {
      * @param tile4 4枚目
      * @return 槓子の場合true 槓子でない場合false
      */
-    public static boolean check(MahjongTile tile1, MahjongTile tile2, MahjongTile tile3, MahjongTile tile4) {
+    public static boolean check(Tile tile1, Tile tile2, Tile tile3, Tile tile4) {
         return tile1 == tile2 && tile2 == tile3 && tile3 == tile4;
     }
 

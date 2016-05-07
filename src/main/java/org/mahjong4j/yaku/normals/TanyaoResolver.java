@@ -6,7 +6,7 @@ import org.mahjong4j.hands.Shuntsu;
 
 import java.util.List;
 
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.TANYAO;
+import static org.mahjong4j.yaku.normals.NormalYaku.TANYAO;
 
 /**
  * 断么九判定クラス
@@ -15,14 +15,14 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.TANYAO;
  * @author yu1ro
  */
 public class TanyaoResolver implements NormalYakuResolver {
-    private final MahjongYakuEnum yakuEnum = TANYAO;
+    private final NormalYaku yakuEnum = TANYAO;
     private final List<Mentsu> allMentsu;
 
     public TanyaoResolver(MentsuComp comp) {
         allMentsu = comp.getAllMentsu();
     }
 
-    public MahjongYakuEnum getNormalYaku() {
+    public NormalYaku getNormalYaku() {
         return yakuEnum;
     }
 

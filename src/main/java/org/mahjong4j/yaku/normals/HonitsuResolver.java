@@ -3,11 +3,11 @@ package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.hands.Mentsu;
 import org.mahjong4j.hands.MentsuComp;
-import org.mahjong4j.tile.MahjongTileType;
+import org.mahjong4j.tile.TileType;
 
 import java.util.List;
 
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.HONITSU;
+import static org.mahjong4j.yaku.normals.NormalYaku.HONITSU;
 
 /**
  * 混一色判定クラス
@@ -16,18 +16,18 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.HONITSU;
  * @author yu1ro
  */
 public class HonitsuResolver implements NormalYakuResolver {
-    private final MahjongYakuEnum yakuEnum = HONITSU;
+    private final NormalYaku yakuEnum = HONITSU;
 
     private List<Mentsu> allMentsu;
 
     private boolean hasJihai = false;
-    private MahjongTileType type = null;
+    private TileType type = null;
 
     public HonitsuResolver(MentsuComp comp) {
         allMentsu = comp.getAllMentsu();
     }
 
-    public MahjongYakuEnum getNormalYaku() {
+    public NormalYaku getNormalYaku() {
         return yakuEnum;
     }
 

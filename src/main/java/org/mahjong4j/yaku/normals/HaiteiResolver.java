@@ -15,8 +15,8 @@ public class HaiteiResolver extends SituationResolver implements NormalYakuResol
     }
 
     @Override
-    public MahjongYakuEnum getNormalYaku() {
-        return MahjongYakuEnum.HAITEI;
+    public NormalYaku getNormalYaku() {
+        return NormalYaku.HAITEI;
     }
 
     @Override

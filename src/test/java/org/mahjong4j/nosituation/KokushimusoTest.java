@@ -5,14 +5,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mahjong4j.Player;
 import org.mahjong4j.Score;
-import org.mahjong4j.hands.MahjongHands;
-import org.mahjong4j.yaku.yakuman.MahjongYakumanEnum;
+import org.mahjong4j.hands.Hands;
+import org.mahjong4j.yaku.yakuman.Yakuman;
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.mahjong4j.tile.MahjongTile.M1;
-import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.KOKUSHIMUSO;
+import static org.mahjong4j.tile.Tile.M1;
+import static org.mahjong4j.yaku.yakuman.Yakuman.KOKUSHIMUSO;
 
 /**
  * @author yu1ro
@@ -29,14 +29,14 @@ public class KokushimusoTest {
             1, 1, 1, 1,
             1, 2, 1
         };
-        MahjongHands hands = new MahjongHands(match, M1);
+        Hands hands = new Hands(match, M1);
         player = new Player(hands);
         player.calculate();
     }
 
     @Test
     public void testChinrohtoh() throws Exception {
-        List<MahjongYakumanEnum> actual = player.getYakumanList();
+        List<Yakuman> actual = player.getYakumanList();
 
         assertEquals(1, actual.size());
         assertEquals(KOKUSHIMUSO, actual.get(0));

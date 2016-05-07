@@ -1,11 +1,11 @@
 package org.mahjong4j.tile;
 
-import static org.mahjong4j.tile.MahjongTileType.*;
+import static org.mahjong4j.tile.TileType.*;
 
 /**
  * @author yu1ro
  */
-public enum MahjongTile {
+public enum Tile {
     M1(0, MANZU, 1),
     M2(1, MANZU, 2),
     M3(2, MANZU, 3),
@@ -46,24 +46,24 @@ public enum MahjongTile {
     CHN(33, SANGEN, 0);//中
 
     private int code;
-    private MahjongTileType type;
+    private TileType type;
     private int number;
 
-    MahjongTile(int code, MahjongTileType type, int number) {
+    Tile(int code, TileType type, int number) {
         this.code = code;
         this.type = type;
         this.number = number;
     }
 
-    public static MahjongTile valueOf(int c) {
-        return MahjongTile.values()[c];
+    public static Tile valueOf(int c) {
+        return Tile.values()[c];
     }
 
     public int getCode() {
         return code;
     }
 
-    public MahjongTileType getType() {
+    public TileType getType() {
         return type;
     }
 

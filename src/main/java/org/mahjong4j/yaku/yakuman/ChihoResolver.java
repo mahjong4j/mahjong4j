@@ -17,8 +17,8 @@ public class ChihoResolver implements YakumanResolver {
     }
 
     @Override
-    public MahjongYakumanEnum getYakuman() {
-        return MahjongYakumanEnum.CHIHO;
+    public Yakuman getYakuman() {
+        return Yakuman.CHIHO;
     }
 
     @Override

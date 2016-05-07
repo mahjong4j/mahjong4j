@@ -1,6 +1,6 @@
 package org.mahjong4j;
 
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.tile.Tile;
 
 import java.util.List;
 
@@ -10,11 +10,11 @@ import java.util.List;
 public class GeneralSituation {
     private boolean isFirstRound;
     private boolean isHoutei;
-    private MahjongTile bakaze;
-    private List<MahjongTile> dora;
-    private List<MahjongTile> uradora;
+    private Tile bakaze;
+    private List<Tile> dora;
+    private List<Tile> uradora;
 
-    public GeneralSituation(boolean isFirstRound, boolean isHoutei, MahjongTile bakaze, List<MahjongTile> dora, List<MahjongTile> uradora) {
+    public GeneralSituation(boolean isFirstRound, boolean isHoutei, Tile bakaze, List<Tile> dora, List<Tile> uradora) {
         this.isFirstRound = isFirstRound;
         this.isHoutei = isHoutei;
         this.bakaze = bakaze;
@@ -39,27 +39,27 @@ public class GeneralSituation {
         isHoutei = houtei;
     }
 
-    public MahjongTile getBakaze() {
+    public Tile getBakaze() {
         return bakaze;
     }
 
-    public void setBakaze(MahjongTile bakaze) {
+    public void setBakaze(Tile bakaze) {
         this.bakaze = bakaze;
     }
 
-    public List<MahjongTile> getDora() {
+    public List<Tile> getDora() {
         return dora;
     }
 
-    public void setDora(List<MahjongTile> dora) {
+    public void setDora(List<Tile> dora) {
         this.dora = dora;
     }
 
-    public List<MahjongTile> getUradora() {
+    public List<Tile> getUradora() {
         return uradora;
     }
 
-    public void setUradora(List<MahjongTile> uradora) {
+    public void setUradora(List<Tile> uradora) {
         this.uradora = uradora;
     }
 }

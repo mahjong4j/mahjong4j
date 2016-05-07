@@ -3,9 +3,9 @@ package org.mahjong4j.nosituation;
 import org.junit.Before;
 import org.junit.Test;
 import org.mahjong4j.Player;
-import org.mahjong4j.hands.MahjongHands;
-import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.yaku.yakuman.MahjongYakumanEnum;
+import org.mahjong4j.hands.Hands;
+import org.mahjong4j.tile.Tile;
+import org.mahjong4j.yaku.yakuman.Yakuman;
 
 import java.util.List;
 
@@ -13,13 +13,13 @@ import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
 import static org.mahjong4j.Score.SCORE0;
-import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.SUANKO;
+import static org.mahjong4j.yaku.yakuman.Yakuman.SUANKO;
 
 /**
  * @author yu1ro
  */
 public class SuankoTest {
-    MahjongHands hands;
+    Hands hands;
     Player player;
 
     @Before
@@ -31,22 +31,22 @@ public class SuankoTest {
             0, 0, 0, 0,
             0, 0, 0
         };
-        MahjongTile last = MahjongTile.M6;
-        hands = new MahjongHands(tiles, last);
+        Tile last = Tile.M6;
+        hands = new Hands(tiles, last);
         player = new Player(hands);
         player.calculate();
     }
 
     @Test
     public void testGetYakumanListSize() throws Exception {
-        List<MahjongYakumanEnum> actual = player.getYakumanList();
+        List<Yakuman> actual = player.getYakumanList();
 
         assertEquals(1, actual.size());
     }
 
     @Test
     public void testGetYakumanListItem() throws Exception {
-        List<MahjongYakumanEnum> actual = player.getYakumanList();
+        List<Yakuman> actual = player.getYakumanList();
 
         assertThat(actual, hasItems(SUANKO));
     }

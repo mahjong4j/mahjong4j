@@ -1,5 +1,7 @@
 package org.mahjong4j.yaku.normals;
 
+import org.mahjong4j.yaku.yakuman.Yakuman;
+
 /**
  * 役一覧列挙
  * 翻数,食い下がり翻数,日本語
@@ -7,9 +9,9 @@ package org.mahjong4j.yaku.normals;
  * TODO:Add English
  *
  * @author yu1ro
- * @see org.mahjong4j.yaku.yakuman.MahjongYakumanEnum
+ * @see Yakuman
  */
-public enum MahjongYakuEnum {
+public enum NormalYaku {
 
     TANYAO(1, 1, "タンヤオ"),
     TSUMO(1, 0, "ツモ"),
@@ -48,7 +50,7 @@ public enum MahjongYakuEnum {
     private final int kuisagari;
     private final String japanese;
 
-    MahjongYakuEnum(int han, int kuisagari, String japanese) {
+    NormalYaku(int han, int kuisagari, String japanese) {
         this.han = han;
         this.kuisagari = kuisagari;
         this.japanese = japanese;

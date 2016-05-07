@@ -1,6 +1,6 @@
 package org.mahjong4j;
 
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.tile.Tile;
 
 /**
  * @author yu1ro
@@ -13,9 +13,9 @@ public class PersonalSituation {
     private boolean isDoubleReach;
     private boolean isChankan;
     private boolean isRinshankaihoh;
-    private MahjongTile jikaze;
+    private Tile jikaze;
 
-    public PersonalSituation(boolean isParent, boolean isTsumo, boolean isIppatsu, boolean isReach, boolean isDoubleReach, boolean isChankan, boolean isRinshankaihoh, MahjongTile jikaze) {
+    public PersonalSituation(boolean isParent, boolean isTsumo, boolean isIppatsu, boolean isReach, boolean isDoubleReach, boolean isChankan, boolean isRinshankaihoh, Tile jikaze) {
         this.isParent = isParent;
         this.isTsumo = isTsumo;
         this.isIppatsu = isIppatsu;
@@ -82,11 +82,11 @@ public class PersonalSituation {
         isRinshankaihoh = rinshankaihoh;
     }
 
-    public MahjongTile getJikaze() {
+    public Tile getJikaze() {
         return jikaze;
     }
 
-    public void setJikaze(MahjongTile jikaze) {
+    public void setJikaze(Tile jikaze) {
         this.jikaze = jikaze;
     }
 }

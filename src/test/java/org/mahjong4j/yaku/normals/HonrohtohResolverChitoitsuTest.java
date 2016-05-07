@@ -11,7 +11,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.mahjong4j.tile.MahjongTile.*;
+import static org.mahjong4j.tile.Tile.*;
 
 /**
  * @author yu1ro
@@ -35,7 +35,7 @@ public class HonrohtohResolverChitoitsuTest {
 
     @Test
     public void testGetNormalYaku() throws Exception {
-        assertEquals(MahjongYakuEnum.HONROHTOH, resolver.getNormalYaku());
+        assertEquals(NormalYaku.HONROHTOH, resolver.getNormalYaku());
     }
 
     @Test

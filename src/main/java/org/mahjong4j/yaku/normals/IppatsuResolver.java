@@ -13,8 +13,8 @@ public class IppatsuResolver extends SituationResolver implements NormalYakuReso
     }
 
     @Override
-    public MahjongYakuEnum getNormalYaku() {
-        return MahjongYakuEnum.IPPATSU;
+    public NormalYaku getNormalYaku() {
+        return NormalYaku.IPPATSU;
     }
 
     @Override

@@ -15,7 +15,7 @@ public interface NormalYakuResolver {
      *
      * @return それぞれの役のEnum
      */
-    MahjongYakuEnum getNormalYaku();
+    NormalYaku getNormalYaku();
 
     /**
      * 実際に役判定をおこないます

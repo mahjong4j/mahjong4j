@@ -3,7 +3,7 @@ package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.tile.Tile;
 
 import java.util.List;
 
@@ -14,20 +14,20 @@ import java.util.List;
  * @author yu1ro
  */
 public class ChunResolver implements NormalYakuResolver {
-    private final MahjongYakuEnum yakuEnum = MahjongYakuEnum.CHUN;
+    private final NormalYaku yakuEnum = NormalYaku.CHUN;
     private final List<Kotsu> kotsuList;
 
     public ChunResolver(MentsuComp comp) {
         kotsuList = comp.getKotsuKantsu();
     }
 
-    public MahjongYakuEnum getNormalYaku() {
+    public NormalYaku getNormalYaku() {
         return yakuEnum;
     }
 
     public boolean isMatch() {
         for (Kotsu kotsu : kotsuList) {
-            if (kotsu.getTile() == MahjongTile.CHN) {
+            if (kotsu.getTile() == Tile.CHN) {
                 return true;
             }
         }

@@ -3,11 +3,11 @@ package org.mahjong4j.nosituation;
 import org.junit.Before;
 import org.junit.Test;
 import org.mahjong4j.Player;
+import org.mahjong4j.hands.Hands;
 import org.mahjong4j.hands.Kotsu;
-import org.mahjong4j.hands.MahjongHands;
-import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.yaku.normals.MahjongYakuEnum;
-import org.mahjong4j.yaku.yakuman.MahjongYakumanEnum;
+import org.mahjong4j.tile.Tile;
+import org.mahjong4j.yaku.normals.NormalYaku;
+import org.mahjong4j.yaku.yakuman.Yakuman;
 
 import java.util.List;
 
@@ -15,9 +15,9 @@ import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
 import static org.mahjong4j.Score.SCORE0;
-import static org.mahjong4j.tile.MahjongTile.M4;
-import static org.mahjong4j.tile.MahjongTile.P7;
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
+import static org.mahjong4j.tile.Tile.M4;
+import static org.mahjong4j.tile.Tile.P7;
+import static org.mahjong4j.yaku.normals.NormalYaku.*;
 
 /**
  * @author yu1ro
@@ -34,15 +34,15 @@ public class SanankoTanyaoToitoihoTest {
             0, 0, 0, 0,
             0, 0, 0
         };
-        MahjongTile last = M4;
-        MahjongHands hands = new MahjongHands(tiles, last, new Kotsu(true, P7));
+        Tile last = M4;
+        Hands hands = new Hands(tiles, last, new Kotsu(true, P7));
         player = new Player(hands);
         player.calculate();
     }
 
     @Test
     public void testGetYakumanList() throws Exception {
-        List<MahjongYakumanEnum> actual = player.getYakumanList();
+        List<Yakuman> actual = player.getYakumanList();
 
         assertEquals(0, actual.size());
     }
@@ -56,7 +56,7 @@ public class SanankoTanyaoToitoihoTest {
 
     @Test
     public void testGetNormalYakuListHasSanshokudohko() throws Exception {
-        List<MahjongYakuEnum> actual = player.getNormalYakuList();
+        List<NormalYaku> actual = player.getNormalYakuList();
 
         assertThat(actual, hasItems(SANANKO, TANYAO, TOITOIHO));
     }

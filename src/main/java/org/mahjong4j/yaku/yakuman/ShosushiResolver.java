@@ -6,8 +6,8 @@ import org.mahjong4j.hands.Toitsu;
 
 import java.util.List;
 
-import static org.mahjong4j.tile.MahjongTileType.FONPAI;
-import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.SHOSUSHI;
+import static org.mahjong4j.tile.TileType.FONPAI;
+import static org.mahjong4j.yaku.yakuman.Yakuman.SHOSUSHI;
 
 /**
  * 小四喜判定クラス
@@ -17,7 +17,7 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.SHOSUSHI;
  * @author yu1ro
  */
 public class ShosushiResolver implements YakumanResolver {
-    private final MahjongYakumanEnum yakuman = SHOSUSHI;
+    private final Yakuman yakuman = SHOSUSHI;
     private final Toitsu janto;
     private final List<Kotsu> kotsuList;
     private final int kotsuCount;
@@ -28,7 +28,7 @@ public class ShosushiResolver implements YakumanResolver {
         kotsuCount = comp.getKotsuCount() + comp.getKantsuCount();
     }
 
-    public MahjongYakumanEnum getYakuman() {
+    public Yakuman getYakuman() {
         return yakuman;
     }
 

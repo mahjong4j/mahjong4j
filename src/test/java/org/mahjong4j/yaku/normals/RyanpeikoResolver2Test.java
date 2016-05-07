@@ -12,9 +12,9 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.mahjong4j.tile.MahjongTile.CHN;
-import static org.mahjong4j.tile.MahjongTile.M3;
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.RYANPEIKO;
+import static org.mahjong4j.tile.Tile.CHN;
+import static org.mahjong4j.tile.Tile.M3;
+import static org.mahjong4j.yaku.normals.NormalYaku.RYANPEIKO;
 
 /**
  * @author yu1ro

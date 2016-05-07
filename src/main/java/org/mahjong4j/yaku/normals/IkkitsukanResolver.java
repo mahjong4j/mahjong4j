@@ -2,12 +2,12 @@ package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.hands.Shuntsu;
-import org.mahjong4j.tile.MahjongTileType;
+import org.mahjong4j.tile.TileType;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.IKKITSUKAN;
+import static org.mahjong4j.yaku.normals.NormalYaku.IKKITSUKAN;
 
 /**
  * 一気通貫判定クラス
@@ -16,7 +16,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.IKKITSUKAN;
  * @author yu1ro
  */
 public class IkkitsukanResolver implements NormalYakuResolver {
-    private final MahjongYakuEnum yakuEnum = IKKITSUKAN;
+    private final NormalYaku yakuEnum = IKKITSUKAN;
 
     private List<Shuntsu> shuntsuList;
     private int shuntsuCount;
@@ -26,7 +26,7 @@ public class IkkitsukanResolver implements NormalYakuResolver {
         shuntsuCount = comp.getShuntsuCount();
     }
 
-    public MahjongYakuEnum getNormalYaku() {
+    public NormalYaku getNormalYaku() {
         return yakuEnum;
     }
 
@@ -41,12 +41,12 @@ public class IkkitsukanResolver implements NormalYakuResolver {
 
         //各タイプに振り分ける
         for (Shuntsu shuntsu : shuntsuList) {
-            MahjongTileType type = shuntsu.getTile().getType();
-            if (type == MahjongTileType.MANZU) {
+            TileType type = shuntsu.getTile().getType();
+            if (type == TileType.MANZU) {
                 manzu.add(shuntsu);
-            } else if (type == MahjongTileType.SOHZU) {
+            } else if (type == TileType.SOHZU) {
                 sohzu.add(shuntsu);
-            } else if (type == MahjongTileType.PINZU) {
+            } else if (type == TileType.PINZU) {
                 pinzu.add(shuntsu);
             }
         }

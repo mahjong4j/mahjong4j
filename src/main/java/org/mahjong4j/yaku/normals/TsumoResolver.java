@@ -20,8 +20,8 @@ public class TsumoResolver implements NormalYakuResolver {
     }
 
     @Override
-    public MahjongYakuEnum getNormalYaku() {
-        return MahjongYakuEnum.TSUMO;
+    public NormalYaku getNormalYaku() {
+        return NormalYaku.TSUMO;
     }
 
     @Override

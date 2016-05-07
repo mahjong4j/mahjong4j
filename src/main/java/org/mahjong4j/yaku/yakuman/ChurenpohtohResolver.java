@@ -4,11 +4,11 @@ import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.hands.Shuntsu;
 import org.mahjong4j.hands.Toitsu;
-import org.mahjong4j.tile.MahjongTileType;
+import org.mahjong4j.tile.TileType;
 
 import java.util.List;
 
-import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.CHURENPOHTO;
+import static org.mahjong4j.yaku.yakuman.Yakuman.CHURENPOHTO;
 
 /**
  * 九蓮宝燈判定クラス
@@ -19,7 +19,7 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.CHURENPOHTO;
 public class ChurenpohtohResolver implements YakumanResolver {
     private final int[] churenManzu = {3, 1, 1, 1, 1, 1, 1, 1, 3};
 
-    private final MahjongYakumanEnum yakuman = CHURENPOHTO;
+    private final Yakuman yakuman = CHURENPOHTO;
     private final Toitsu janto;
     private final List<Shuntsu> shuntsuList;
     private final List<Kotsu> kotsuList;
@@ -30,7 +30,7 @@ public class ChurenpohtohResolver implements YakumanResolver {
         kotsuList = comp.getKotsuList();
     }
 
-    public MahjongYakumanEnum getYakuman() {
+    public Yakuman getYakuman() {
         return yakuman;
     }
 
@@ -41,7 +41,7 @@ public class ChurenpohtohResolver implements YakumanResolver {
         if (janto.getTile().getNumber() == 0) {
             return false;
         }
-        MahjongTileType type = janto.getTile().getType();
+        TileType type = janto.getTile().getType();
 
         int[] churen = {0, 0, 0, 0, 0, 0, 0, 0, 0};
         churen[janto.getTile().getNumber() - 1] = 2;

@@ -2,18 +2,18 @@ package org.mahjong4j.hands;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.tile.Tile;
 
 import java.util.Set;
 
 import static org.junit.Assert.*;
-import static org.mahjong4j.tile.MahjongTile.M6;
+import static org.mahjong4j.tile.Tile.M6;
 
 /**
  * @author yu1ro
  */
-public class MahjongHandsNumOnlyTest {
-    MahjongHands hands;
+public class HandsNumOnlyTest {
+    Hands hands;
 
     @Before
     public void setUp() throws Exception {
@@ -24,8 +24,8 @@ public class MahjongHandsNumOnlyTest {
             0, 0, 0, 0,
             0, 2, 0
         };
-        MahjongTile last = M6;
-        hands = new MahjongHands(tiles, last);
+        Tile last = M6;
+        hands = new Hands(tiles, last);
     }
 
     @Test
@@ -41,7 +41,7 @@ public class MahjongHandsNumOnlyTest {
             assertEquals(0, winMentsuSet.getKantsuCount());
             assertEquals(0, winMentsuSet.getKotsuCount());
             assertEquals(4, winMentsuSet.getShuntsuCount());
-            assertEquals(MahjongTile.HAT, winMentsuSet.getToitsuList().get(0).getTile());
+            assertEquals(Tile.HAT, winMentsuSet.getToitsuList().get(0).getTile());
         }
     }
 

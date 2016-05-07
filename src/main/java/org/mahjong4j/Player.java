@@ -1,12 +1,12 @@
 package org.mahjong4j;
 
-import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.Hands;
 import org.mahjong4j.hands.Mentsu;
 import org.mahjong4j.hands.MentsuComp;
-import org.mahjong4j.tile.MahjongTile;
-import org.mahjong4j.yaku.normals.MahjongYakuEnum;
+import org.mahjong4j.tile.Tile;
+import org.mahjong4j.yaku.normals.NormalYaku;
 import org.mahjong4j.yaku.normals.NormalYakuResolver;
-import org.mahjong4j.yaku.yakuman.MahjongYakumanEnum;
+import org.mahjong4j.yaku.yakuman.Yakuman;
 import org.mahjong4j.yaku.yakuman.YakumanResolver;
 
 import java.util.ArrayList;
@@ -14,9 +14,9 @@ import java.util.List;
 import java.util.Set;
 
 import static org.mahjong4j.Score.SCORE0;
-import static org.mahjong4j.tile.MahjongTileType.SANGEN;
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
-import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.KOKUSHIMUSO;
+import static org.mahjong4j.tile.TileType.SANGEN;
+import static org.mahjong4j.yaku.normals.NormalYaku.*;
+import static org.mahjong4j.yaku.yakuman.Yakuman.KOKUSHIMUSO;
 
 /**
  * 和了判定に関するクラスです。
@@ -27,10 +27,10 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.KOKUSHIMUSO;
 public class Player {
 
     //付いた役満リスト
-    private List<MahjongYakumanEnum> yakumanList = new ArrayList<>(1);
+    private List<Yakuman> yakumanList = new ArrayList<>(1);
 
     //付いた通常役リスト
-    private List<MahjongYakuEnum> normalYakuList = new ArrayList<>(0);
+    private List<NormalYaku> normalYakuList = new ArrayList<>(0);
 
     //その時の面子の組
     private MentsuComp comp;
@@ -42,27 +42,27 @@ public class Player {
     // 点数
     private Score score = SCORE0;
 
-    private MahjongHands hands;
+    private Hands hands;
     private GeneralSituation generalSituation;
     private PersonalSituation personalSituation;
 
 
-    public Player(MahjongHands hands) {
+    public Player(Hands hands) {
         this.hands = hands;
     }
 
-    public Player(MahjongHands hands, GeneralSituation generalSituation, PersonalSituation personalSituation) {
+    public Player(Hands hands, GeneralSituation generalSituation, PersonalSituation personalSituation) {
         this.hands = hands;
         this.generalSituation = generalSituation;
         this.personalSituation = personalSituation;
     }
 
 
-    public List<MahjongYakumanEnum> getYakumanList() {
+    public List<Yakuman> getYakumanList() {
         return yakumanList;
     }
 
-    public List<MahjongYakuEnum> getNormalYakuList() {
+    public List<NormalYaku> getNormalYakuList() {
         return normalYakuList;
     }
 
@@ -106,7 +106,7 @@ public class Player {
      */
     private boolean findYakuman() {
         //役満をストックしておき、見つかったら先にこちらに保存する
-        List<MahjongYakumanEnum> yakumanStock = new ArrayList<>(4);
+        List<Yakuman> yakumanStock = new ArrayList<>(4);
 
         //それぞれの面子の完成形で判定する
         for (MentsuComp comp : hands.getMentsuCompSet()) {
@@ -133,7 +133,7 @@ public class Player {
         //それぞれの面子の完成形で判定する
         for (MentsuComp comp : hands.getMentsuCompSet()) {
             //役をストックしておく
-            List<MahjongYakuEnum> yakuStock = new ArrayList<>(7);
+            List<NormalYaku> yakuStock = new ArrayList<>(7);
             Set<NormalYakuResolver> resolverSet
                 = Mahjong4jYakuConfig.getNormalYakuResolverSet(comp, generalSituation, personalSituation);
             for (NormalYakuResolver resolver : resolverSet) {
@@ -206,7 +206,7 @@ public class Player {
      * @return
      */
     private int calcFuByJanto() {
-        MahjongTile jantoTile = comp.getJanto().getTile();
+        Tile jantoTile = comp.getJanto().getTile();
         int tmp = 0;
         if (jantoTile == generalSituation.getBakaze()) {
             tmp += 2;
@@ -239,7 +239,7 @@ public class Player {
      * @param last
      * @return
      */
-    private int calcFuByWait(MentsuComp comp, MahjongTile last) {
+    private int calcFuByWait(MentsuComp comp, Tile last) {
         if (comp.isKanchan(last) || comp.isPenchan(last) || comp.isTanki(last)) {
             return 2;
         }
@@ -252,7 +252,7 @@ public class Player {
             return;
         }
         int dora = 0;
-        for (MahjongTile tile : generalSituation.getDora()) {
+        for (Tile tile : generalSituation.getDora()) {
             dora += handsComp[tile.getCode()];
         }
         for (int i = 0; i < dora; i++) {
@@ -262,7 +262,7 @@ public class Player {
 
         if (isReach) {
             int uradora = 0;
-            for (MahjongTile tile : generalSituation.getUradora()) {
+            for (Tile tile : generalSituation.getUradora()) {
                 uradora += handsComp[tile.getCode()];
             }
             for (int i = 0; i < uradora; i++) {
@@ -278,14 +278,14 @@ public class Player {
      * @param yakuStock 役のストック
      * @return 翻数の合計
      */
-    private int calcHanSum(List<MahjongYakuEnum> yakuStock) {
+    private int calcHanSum(List<NormalYaku> yakuStock) {
         int hanSum = 0;
         if (hands.isOpen()) {
-            for (MahjongYakuEnum yaku : yakuStock) {
+            for (NormalYaku yaku : yakuStock) {
                 hanSum += yaku.getKuisagari();
             }
         } else {
-            for (MahjongYakuEnum yaku : yakuStock) {
+            for (NormalYaku yaku : yakuStock) {
                 hanSum += yaku.getHan();
             }
         }

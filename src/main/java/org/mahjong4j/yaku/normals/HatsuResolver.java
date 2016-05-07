@@ -3,11 +3,11 @@ package org.mahjong4j.yaku.normals;
 
 import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MentsuComp;
-import org.mahjong4j.tile.MahjongTile;
+import org.mahjong4j.tile.Tile;
 
 import java.util.List;
 
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.HATSU;
+import static org.mahjong4j.yaku.normals.NormalYaku.HATSU;
 
 /**
  * 發判定クラス
@@ -16,20 +16,20 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.HATSU;
  * @author yu1ro
  */
 public class HatsuResolver implements NormalYakuResolver {
-    private final MahjongYakuEnum yakuEnum = HATSU;
+    private final NormalYaku yakuEnum = HATSU;
     private final List<Kotsu> kotsuList;
 
     public HatsuResolver(MentsuComp comp) {
         kotsuList = comp.getKotsuKantsu();
     }
 
-    public MahjongYakuEnum getNormalYaku() {
+    public NormalYaku getNormalYaku() {
         return yakuEnum;
     }
 
     public boolean isMatch() {
         for (Kotsu kotsu : kotsuList) {
-            if (kotsu.getTile() == MahjongTile.HAT) {
+            if (kotsu.getTile() == Tile.HAT) {
                 return true;
             }
         }

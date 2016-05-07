@@ -12,8 +12,8 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.mahjong4j.tile.MahjongTile.*;
-import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.SUKANTSU;
+import static org.mahjong4j.tile.Tile.*;
+import static org.mahjong4j.yaku.yakuman.Yakuman.SUKANTSU;
 
 /**
  * @author yu1ro

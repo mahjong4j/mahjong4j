@@ -6,8 +6,8 @@ import org.mahjong4j.hands.MentsuComp;
 
 import java.util.List;
 
-import static org.mahjong4j.tile.MahjongTile.HAK;
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.HAKU;
+import static org.mahjong4j.tile.Tile.HAK;
+import static org.mahjong4j.yaku.normals.NormalYaku.HAKU;
 
 /**
  * 白判定クラス
@@ -16,14 +16,14 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.HAKU;
  * @author yu1ro
  */
 public class HakuResolver implements NormalYakuResolver {
-    private final MahjongYakuEnum yakuEnum = HAKU;
+    private final NormalYaku yakuEnum = HAKU;
     private final List<Kotsu> kotsuList;
 
     public HakuResolver(MentsuComp comp) {
         kotsuList = comp.getKotsuKantsu();
     }
 
-    public MahjongYakuEnum getNormalYaku() {
+    public NormalYaku getNormalYaku() {
         return yakuEnum;
     }
 

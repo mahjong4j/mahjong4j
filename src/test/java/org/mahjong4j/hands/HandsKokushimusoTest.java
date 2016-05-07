@@ -4,13 +4,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import static org.mahjong4j.tile.MahjongTile.CHN;
+import static org.mahjong4j.tile.Tile.CHN;
 
 /**
  * @author yu1ro
  */
-public class MahjongHandsKokushimusoTest {
-    private MahjongHands actual;
+public class HandsKokushimusoTest {
+    private Hands actual;
 
     @Before
     public void setUp() throws Exception {
@@ -22,7 +22,7 @@ public class MahjongHandsKokushimusoTest {
             1, 1, 1,
         };
 
-        actual = new MahjongHands(tiles, CHN);
+        actual = new Hands(tiles, CHN);
     }
 
     @Test
