@@ -43,4 +43,9 @@ public class KokushimusoTest {
     public void testGetFu() throws Exception {
         assertEquals(0, mahjongPlayer.getFu());
     }
+
+    @Test
+    public void testGetScore() throws Exception {
+        assertEquals(Score.SCORE0, mahjongPlayer.getScore());
+    }
 }

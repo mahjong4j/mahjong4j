@@ -25,6 +25,6 @@ public class TenhoResolver implements YakumanResolver {
         // avoid NullPointerException
         if (generalSituation == null || personalSituation == null) return false;
 
-        return generalSituation.isFirstRound() && personalSituation.isDealer() && personalSituation.isTsumo();
+        return generalSituation.isFirstRound() && personalSituation.isParent() && personalSituation.isTsumo();
     }
 }

@@ -6,7 +6,7 @@ import org.mahjong4j.tile.MahjongTile;
  * @author yu1ro
  */
 public class PersonalSituation {
-    private boolean isDealer;
+    private boolean isParent;
     private boolean isTsumo;
     private boolean isIppatsu;
     private boolean isReache;
@@ -15,8 +15,8 @@ public class PersonalSituation {
     private boolean isRinshankaihoh;
     private MahjongTile jikaze;
 
-    public PersonalSituation(boolean isDealer, boolean isTsumo, boolean isIppatsu, boolean isReache, boolean isDoubleReach, boolean isChankan, boolean isRinshankaihoh, MahjongTile jikaze) {
-        this.isDealer = isDealer;
+    public PersonalSituation(boolean isParent, boolean isTsumo, boolean isIppatsu, boolean isReache, boolean isDoubleReach, boolean isChankan, boolean isRinshankaihoh, MahjongTile jikaze) {
+        this.isParent = isParent;
         this.isTsumo = isTsumo;
         this.isIppatsu = isIppatsu;
         this.isReache = isReache;
@@ -26,12 +26,12 @@ public class PersonalSituation {
         this.jikaze = jikaze;
     }
 
-    public boolean isDealer() {
-        return isDealer;
+    public boolean isParent() {
+        return isParent;
     }
 
-    public void setDealer(boolean dealer) {
-        isDealer = dealer;
+    public void setParent(boolean parent) {
+        isParent = parent;
     }
 
     public boolean isTsumo() {

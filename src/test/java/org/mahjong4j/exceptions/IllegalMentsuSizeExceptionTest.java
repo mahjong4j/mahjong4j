@@ -1,7 +1,8 @@
-package org.mahjong4j;
+package org.mahjong4j.exceptions;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mahjong4j.IllegalMentsuSizeException;
 import org.mahjong4j.hands.*;
 
 import java.util.ArrayList;

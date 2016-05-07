@@ -13,6 +13,7 @@ import java.util.List;
 import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
+import static org.mahjong4j.Score.SCORE12000;
 import static org.mahjong4j.tile.MahjongTile.*;
 import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
 
@@ -32,7 +33,7 @@ public class RinshankaihohSanshokuDoubleReachTsumoTest {
             0, 0, 0
         };
         MahjongTile last = M9;
-        MahjongHands hands = new MahjongHands(tiles, last, new Kantsu(true, TON));
+        MahjongHands hands = new MahjongHands(tiles, last, new Kantsu(false, TON));
         List<MahjongTile> dora = new ArrayList<>(1);
         dora.add(CHN);
 
@@ -62,7 +63,17 @@ public class RinshankaihohSanshokuDoubleReachTsumoTest {
     }
 
     @Test
+    public void testGetHan() throws Exception {
+        assertEquals(6, mahjongPlayer.getHan());
+    }
+
+    @Test
     public void testGetFu() throws Exception {
-        assertEquals(38, mahjongPlayer.getFu());
+        assertEquals(54, mahjongPlayer.getFu());
+    }
+
+    @Test
+    public void testGetScore() throws Exception {
+        assertEquals(SCORE12000, mahjongPlayer.getScore());
     }
 }

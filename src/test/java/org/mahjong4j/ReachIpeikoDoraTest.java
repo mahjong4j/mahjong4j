@@ -14,8 +14,7 @@ import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
 import static org.mahjong4j.tile.MahjongTile.*;
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.IPEIKO;
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.REACHE;
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
 
 /**
  * @author yu1ro
@@ -64,11 +63,16 @@ public class ReachIpeikoDoraTest {
     public void testGetNormalYakuListItem() throws Exception {
         List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
 
-        assertThat(actual, hasItems(REACHE, IPEIKO));
+        assertThat(actual, hasItems(REACHE, IPEIKO, DORA));
     }
 
     @Test
     public void testGetFu() throws Exception {
         assertEquals(32, mahjongPlayer.getFu());
+    }
+
+    @Test
+    public void testGetScore() throws Exception {
+        assertEquals(Score.SCORE8000, mahjongPlayer.getScore());
     }
 }

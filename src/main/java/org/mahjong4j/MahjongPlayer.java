@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import static org.mahjong4j.Score.SCORE0;
 import static org.mahjong4j.tile.MahjongTileType.SANGEN;
 import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
 import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.KOKUSHIMUSO;
@@ -32,10 +33,12 @@ public class MahjongPlayer {
     //その時の面子の組
     private MentsuComp comp;
 
-    //翻
+    // 翻
     private int han = 0;
-    //符
+    // 符
     private int fu = 0;
+    // 点数
+    private Score score = SCORE0;
 
     private MahjongHands hands;
     private GeneralSituation generalSituation;
@@ -72,7 +75,14 @@ public class MahjongPlayer {
         }
 
         //役満を探し見つかれば通常役は調べずに終了
-        if (findYakuman()) return;
+        if (findYakuman()) {
+            if (personalSituation == null) {
+                score = SCORE0;
+                return;
+            }
+            score = Score.calculateYakumanScore(personalSituation.isParent(), yakumanList.size());
+            return;
+        }
 
         findNormalYaku();
     }
@@ -137,8 +147,10 @@ public class MahjongPlayer {
 
     private void calcScore() {
         fu = calcFu();
-
-        // TODO: ここで点数計算
+        if (personalSituation == null) {
+            return;
+        }
+        score = Score.calculateScore(personalSituation.isParent(), han, fu);
     }
 
     /**
@@ -230,6 +242,7 @@ public class MahjongPlayer {
         }
         for (int i = 0; i < dora; i++) {
             normalYakuList.add(DORA);
+            han += DORA.getHan();
         }
 
         if (isReach) {
@@ -239,6 +252,7 @@ public class MahjongPlayer {
             }
             for (int i = 0; i < uradora; i++) {
                 normalYakuList.add(URADORA);
+                han += URADORA.getHan();
             }
         }
     }
@@ -265,5 +279,13 @@ public class MahjongPlayer {
 
     public int getFu() {
         return fu;
+    }
+
+    public Score getScore() {
+        return score;
+    }
+
+    public int getHan() {
+        return han;
     }
 }
