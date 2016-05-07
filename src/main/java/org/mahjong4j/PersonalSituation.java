@@ -9,17 +9,17 @@ public class PersonalSituation {
     private boolean isParent;
     private boolean isTsumo;
     private boolean isIppatsu;
-    private boolean isReache;
+    private boolean isReach;
     private boolean isDoubleReach;
     private boolean isChankan;
     private boolean isRinshankaihoh;
     private MahjongTile jikaze;
 
-    public PersonalSituation(boolean isParent, boolean isTsumo, boolean isIppatsu, boolean isReache, boolean isDoubleReach, boolean isChankan, boolean isRinshankaihoh, MahjongTile jikaze) {
+    public PersonalSituation(boolean isParent, boolean isTsumo, boolean isIppatsu, boolean isReach, boolean isDoubleReach, boolean isChankan, boolean isRinshankaihoh, MahjongTile jikaze) {
         this.isParent = isParent;
         this.isTsumo = isTsumo;
         this.isIppatsu = isIppatsu;
-        this.isReache = isReache;
+        this.isReach = isReach;
         this.isDoubleReach = isDoubleReach;
         this.isChankan = isChankan;
         this.isRinshankaihoh = isRinshankaihoh;
@@ -51,11 +51,11 @@ public class PersonalSituation {
     }
 
     public boolean isReach() {
-        return isReache;
+        return isReach;
     }
 
     public void setReach(boolean reach) {
-        this.isReache = reach;
+        this.isReach = reach;
     }
 
     public boolean isDoubleReach() {

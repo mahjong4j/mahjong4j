@@ -68,7 +68,7 @@ public class ReachIpeikoDoraTest {
     public void testGetNormalYakuListItem() throws Exception {
         List<MahjongYakuEnum> actual = player.getNormalYakuList();
 
-        assertThat(actual, hasItems(REACHE, IPEIKO, DORA));
+        assertThat(actual, hasItems(REACH, IPEIKO, DORA));
     }
 
     @Test

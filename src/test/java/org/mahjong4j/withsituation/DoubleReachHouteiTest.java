@@ -69,7 +69,7 @@ public class DoubleReachHouteiTest {
     public void testGetNormalYakuListItem() throws Exception {
         List<MahjongYakuEnum> actual = player.getNormalYakuList();
 
-        assertThat(actual, hasItems(REACHE, DOUBLE_REACH, HOUTEI));
+        assertThat(actual, hasItems(REACH, DOUBLE_REACH, HOUTEI));
     }
 
     @Test

@@ -23,7 +23,7 @@ public enum MahjongYakuEnum {
     IPPATSU(1, 0, "一発"),
     HOUTEI(1, 1, "河底撈魚"),
     HAITEI(1, 1, "海底摸月"),
-    REACHE(1, 0, "リーチ"),
+    REACH(1, 0, "リーチ"),
     DORA(1, 1, "ドラ"),
     URADORA(1, 1, "裏ドラ"),
     RINSHANKAIHOH(1, 1, "嶺上開花"),

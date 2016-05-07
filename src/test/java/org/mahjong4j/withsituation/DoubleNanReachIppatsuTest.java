@@ -69,7 +69,7 @@ public class DoubleNanReachIppatsuTest {
     public void testGetNormalYakuListItem() throws Exception {
         List<MahjongYakuEnum> actual = player.getNormalYakuList();
 
-        assertThat(actual, hasItems(JIKAZE, BAKAZE, REACHE, IPPATSU));
+        assertThat(actual, hasItems(JIKAZE, BAKAZE, REACH, IPPATSU));
     }
 
     @Test

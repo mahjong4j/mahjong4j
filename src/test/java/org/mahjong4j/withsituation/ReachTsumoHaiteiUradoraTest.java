@@ -69,7 +69,7 @@ public class ReachTsumoHaiteiUradoraTest {
     public void testGetNormalYakuListItem() throws Exception {
         List<MahjongYakuEnum> actual = player.getNormalYakuList();
 
-        assertThat(actual, hasItems(REACHE, TSUMO, URADORA, HAITEI));
+        assertThat(actual, hasItems(REACH, TSUMO, URADORA, HAITEI));
     }
 
     @Test

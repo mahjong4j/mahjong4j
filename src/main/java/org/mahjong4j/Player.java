@@ -66,6 +66,18 @@ public class Player {
         return normalYakuList;
     }
 
+    public int getFu() {
+        return fu;
+    }
+
+    public Score getScore() {
+        return score;
+    }
+
+    public int getHan() {
+        return han;
+    }
+
     public void calculate() {
         //和了れない場合は即座に終了
         if (!hands.getCanWin()) return;
@@ -117,9 +129,6 @@ public class Player {
         return yakumanList.size() > 0;
     }
 
-    /**
-     *
-     */
     private void findNormalYaku() {
         //それぞれの面子の完成形で判定する
         for (MentsuComp comp : hands.getMentsuCompSet()) {
@@ -142,7 +151,7 @@ public class Player {
         }
 
         if (han > 0) {
-            calcDora(hands.getHandsComp(), generalSituation, normalYakuList.contains(REACHE));
+            calcDora(hands.getHandsComp(), generalSituation, normalYakuList.contains(REACH));
         }
         calcScore();
     }
@@ -278,17 +287,5 @@ public class Player {
             }
         }
         return hanSum;
-    }
-
-    public int getFu() {
-        return fu;
-    }
-
-    public Score getScore() {
-        return score;
-    }
-
-    public int getHan() {
-        return han;
     }
 }

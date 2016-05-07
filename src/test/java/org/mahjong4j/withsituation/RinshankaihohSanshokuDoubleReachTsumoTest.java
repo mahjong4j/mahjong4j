@@ -62,7 +62,7 @@ public class RinshankaihohSanshokuDoubleReachTsumoTest {
     public void testGetNormalYakuListItem() throws Exception {
         List<MahjongYakuEnum> actual = player.getNormalYakuList();
 
-        assertThat(actual, hasItems(RINSHANKAIHOH, SANSHOKUDOHJUN, REACHE, DOUBLE_REACH, TSUMO));
+        assertThat(actual, hasItems(RINSHANKAIHOH, SANSHOKUDOHJUN, REACH, DOUBLE_REACH, TSUMO));
     }
 
     @Test
