@@ -1,7 +1,10 @@
-package org.mahjong4j;
+package org.mahjong4j.nosituation;
 
+import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
+import org.mahjong4j.MahjongPlayer;
+import org.mahjong4j.Score;
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.normals.MahjongYakuEnum;
@@ -65,6 +68,6 @@ public class PinfuTanyaoIpeikoTest {
 
     @Test
     public void testGetScore() throws Exception {
-        assertEquals(Score.SCORE0, mahjongPlayer.getScore());
+        TestCase.assertEquals(Score.SCORE0, mahjongPlayer.getScore());
     }
 }

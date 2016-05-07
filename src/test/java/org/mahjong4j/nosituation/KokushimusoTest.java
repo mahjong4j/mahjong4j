@@ -1,7 +1,10 @@
-package org.mahjong4j;
+package org.mahjong4j.nosituation;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.mahjong4j.MahjongPlayer;
+import org.mahjong4j.Score;
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.yaku.yakuman.MahjongYakumanEnum;
 
@@ -46,6 +49,6 @@ public class KokushimusoTest {
 
     @Test
     public void testGetScore() throws Exception {
-        assertEquals(Score.SCORE0, mahjongPlayer.getScore());
+        Assert.assertEquals(Score.SCORE0, mahjongPlayer.getScore());
     }
 }

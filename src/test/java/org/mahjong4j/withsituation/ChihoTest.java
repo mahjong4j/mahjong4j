@@ -1,7 +1,10 @@
-package org.mahjong4j;
+package org.mahjong4j.withsituation;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mahjong4j.GeneralSituation;
+import org.mahjong4j.MahjongPlayer;
+import org.mahjong4j.PersonalSituation;
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.normals.MahjongYakuEnum;
@@ -15,24 +18,24 @@ import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
 import static org.mahjong4j.Score.SCORE32000;
 import static org.mahjong4j.tile.MahjongTile.*;
-import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.RENHO;
+import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.CHIHO;
 
 /**
  * @author yu1ro
  */
-public class RenhoTest {
+public class ChihoTest {
     private MahjongPlayer mahjongPlayer;
 
     @Before
     public void setUp() throws Exception {
         int[] tiles = {
-            3, 0, 0, 0, 0, 0, 1, 1, 1,
+            1, 1, 1, 0, 0, 0, 0, 0, 3,
             0, 0, 0, 0, 0, 0, 1, 1, 1,
             0, 0, 2, 0, 0, 0, 0, 0, 3,
             0, 0, 0, 0,
             0, 0, 0
         };
-        MahjongTile last = M9;
+        MahjongTile last = M1;
         MahjongHands hands = new MahjongHands(tiles, last);
         List<MahjongTile> dora = new ArrayList<>(1);
         dora.add(CHN);
@@ -40,12 +43,18 @@ public class RenhoTest {
         List<MahjongTile> uradora = new ArrayList<>(1);
         uradora.add(M2);
         GeneralSituation general;
-        general = new GeneralSituation(true, false, SHA, dora, uradora);
+        general = new GeneralSituation(true, false, PEI, dora, uradora);
         PersonalSituation personal;
-        personal = new PersonalSituation(false, false, false, false, false, false, false, NAN);
+        personal = new PersonalSituation(false, true, false, false, false, false, false, NAN);
 
         mahjongPlayer = new MahjongPlayer(hands, general, personal);
         mahjongPlayer.calculate();
+    }
+
+    @Test
+    public void testGetNormalYaku() throws Exception {
+        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
+        assertEquals(0, actual.size());
     }
 
     @Test
@@ -59,14 +68,7 @@ public class RenhoTest {
     public void testGetYakumanListItem() throws Exception {
         List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
 
-        assertThat(actual, hasItems(RENHO));
-    }
-
-    @Test
-    public void testGetNormalYakuListSize() throws Exception {
-        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
-
-        assertEquals(0, actual.size());
+        assertThat(actual, hasItems(CHIHO));
     }
 
     @Test
@@ -77,5 +79,6 @@ public class RenhoTest {
     @Test
     public void testGetScore() throws Exception {
         assertEquals(SCORE32000, mahjongPlayer.getScore());
+
     }
 }

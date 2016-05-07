@@ -1,7 +1,10 @@
-package org.mahjong4j;
+package org.mahjong4j.withsituation;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mahjong4j.GeneralSituation;
+import org.mahjong4j.MahjongPlayer;
+import org.mahjong4j.PersonalSituation;
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.normals.MahjongYakuEnum;
@@ -13,26 +16,26 @@ import java.util.List;
 import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
-import static org.mahjong4j.Score.SCORE5200;
+import static org.mahjong4j.Score.SCORE32000;
 import static org.mahjong4j.tile.MahjongTile.*;
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
+import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.RENHO;
 
 /**
  * @author yu1ro
  */
-public class DoubleReachHouteiTest {
+public class RenhoTest {
     private MahjongPlayer mahjongPlayer;
 
     @Before
     public void setUp() throws Exception {
         int[] tiles = {
+            3, 0, 0, 0, 0, 0, 1, 1, 1,
             0, 0, 0, 0, 0, 0, 1, 1, 1,
-            0, 0, 0, 0, 0, 1, 1, 1, 0,
-            0, 0, 2, 0, 0, 0, 1, 1, 1,
-            0, 0, 3, 0,
+            0, 0, 2, 0, 0, 0, 0, 0, 3,
+            0, 0, 0, 0,
             0, 0, 0
         };
-        MahjongTile last = M8;
+        MahjongTile last = M9;
         MahjongHands hands = new MahjongHands(tiles, last);
         List<MahjongTile> dora = new ArrayList<>(1);
         dora.add(CHN);
@@ -40,9 +43,9 @@ public class DoubleReachHouteiTest {
         List<MahjongTile> uradora = new ArrayList<>(1);
         uradora.add(M2);
         GeneralSituation general;
-        general = new GeneralSituation(false, true, NAN, dora, uradora);
+        general = new GeneralSituation(true, false, SHA, dora, uradora);
         PersonalSituation personal;
-        personal = new PersonalSituation(false, false, false, true, true, false, false, NAN);
+        personal = new PersonalSituation(false, false, false, false, false, false, false, NAN);
 
         mahjongPlayer = new MahjongPlayer(hands, general, personal);
         mahjongPlayer.calculate();
@@ -52,30 +55,30 @@ public class DoubleReachHouteiTest {
     public void testGetYakumanListSize() throws Exception {
         List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
 
-        assertEquals(0, actual.size());
+        assertEquals(1, actual.size());
+    }
+
+    @Test
+    public void testGetYakumanListItem() throws Exception {
+        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
+
+        assertThat(actual, hasItems(RENHO));
     }
 
     @Test
     public void testGetNormalYakuListSize() throws Exception {
         List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
 
-        assertEquals(3, actual.size());
-    }
-
-    @Test
-    public void testGetNormalYakuListItem() throws Exception {
-        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
-
-        assertThat(actual, hasItems(REACHE, DOUBLE_REACH, HOUTEI));
+        assertEquals(0, actual.size());
     }
 
     @Test
     public void testGetFu() throws Exception {
-        assertEquals(40, mahjongPlayer.getFu());
+        assertEquals(0, mahjongPlayer.getFu());
     }
 
     @Test
     public void testGetScore() throws Exception {
-        assertEquals(SCORE5200, mahjongPlayer.getScore());
+        assertEquals(SCORE32000, mahjongPlayer.getScore());
     }
 }

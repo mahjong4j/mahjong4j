@@ -1,7 +1,8 @@
-package org.mahjong4j;
+package org.mahjong4j.nosituation;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mahjong4j.MahjongPlayer;
 import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;

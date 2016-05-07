@@ -1,7 +1,10 @@
-package org.mahjong4j;
+package org.mahjong4j.withsituation;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mahjong4j.GeneralSituation;
+import org.mahjong4j.MahjongPlayer;
+import org.mahjong4j.PersonalSituation;
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.normals.MahjongYakuEnum;
@@ -15,35 +18,34 @@ import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
 import static org.mahjong4j.Score.SCORE8000;
 import static org.mahjong4j.tile.MahjongTile.*;
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.BAKAZE;
-import static org.mahjong4j.yaku.normals.MahjongYakuEnum.DORA;
+import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
 
 /**
  * @author yu1ro
  */
-public class JikazeBakazeDora3Test {
+public class ReachTsumoHaiteiUradoraTest {
     private MahjongPlayer mahjongPlayer;
 
     @Before
     public void setUp() throws Exception {
         int[] tiles = {
             0, 0, 0, 0, 0, 0, 1, 1, 1,
-            0, 0, 0, 0, 1, 1, 1, 0, 0,
+            0, 0, 0, 0, 0, 1, 1, 1, 0,
             0, 0, 2, 0, 0, 0, 1, 1, 1,
-            0, 3, 0, 0,
+            0, 0, 3, 0,
             0, 0, 0
         };
-        MahjongTile last = S7;
+        MahjongTile last = M7;
         MahjongHands hands = new MahjongHands(tiles, last);
         List<MahjongTile> dora = new ArrayList<>(1);
-        dora.add(NAN);
+        dora.add(CHN);
 
         List<MahjongTile> uradora = new ArrayList<>(1);
-        uradora.add(M9);
+        uradora.add(M8);
         GeneralSituation general;
-        general = new GeneralSituation(false, false, NAN, dora, uradora);
+        general = new GeneralSituation(false, true, NAN, dora, uradora);
         PersonalSituation personal;
-        personal = new PersonalSituation(false, false, false, false, false, false, false, SHA);
+        personal = new PersonalSituation(false, true, false, true, false, false, false, NAN);
 
         mahjongPlayer = new MahjongPlayer(hands, general, personal);
         mahjongPlayer.calculate();
@@ -67,18 +69,12 @@ public class JikazeBakazeDora3Test {
     public void testGetNormalYakuListItem() throws Exception {
         List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
 
-        assertThat(actual, hasItems(BAKAZE, DORA, DORA, DORA));
-    }
-
-    @Test
-    public void testGetHan() throws Exception {
-        assertEquals(4, mahjongPlayer.getHan());
-
+        assertThat(actual, hasItems(REACHE, TSUMO, URADORA, HAITEI));
     }
 
     @Test
     public void testGetFu() throws Exception {
-        assertEquals(40, mahjongPlayer.getFu());
+        assertEquals(32, mahjongPlayer.getFu());
     }
 
     @Test

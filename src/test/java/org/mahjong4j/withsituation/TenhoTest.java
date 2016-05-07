@@ -1,7 +1,10 @@
-package org.mahjong4j;
+package org.mahjong4j.withsituation;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mahjong4j.GeneralSituation;
+import org.mahjong4j.MahjongPlayer;
+import org.mahjong4j.PersonalSituation;
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.normals.MahjongYakuEnum;
