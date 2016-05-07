@@ -32,9 +32,9 @@ public class JikazeBakazeDora3Test {
         int[] tiles = {
             0, 0, 0, 0, 0, 0, 1, 1, 1,
             0, 0, 0, 0, 1, 1, 1, 0, 0,
-            0, 0, 2, 0, 0, 0, 1, 1, 1,
+            0, 0, 0, 0, 0, 0, 1, 1, 1,
             0, 3, 0, 0,
-            0, 0, 0
+            0, 0, 2
         };
         MahjongTile last = S7;
         MahjongHands hands = new MahjongHands(tiles, last);
@@ -81,7 +81,7 @@ public class JikazeBakazeDora3Test {
 
     @Test
     public void testGetFu() throws Exception {
-        assertEquals(40, player.getFu());
+        assertEquals(42, player.getFu());
     }
 
     @Test
