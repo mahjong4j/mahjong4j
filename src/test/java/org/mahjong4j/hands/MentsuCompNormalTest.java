@@ -18,7 +18,7 @@ public class MentsuCompNormalTest {
 
     @Before
     public void setUp() throws Exception {
-        List<MahjongMentsu> mentsuList = new ArrayList<>(5);
+        List<Mentsu> mentsuList = new ArrayList<>(5);
         mentsuList.add(new Toitsu(P5));
         mentsuList.add(new Shuntsu(false, P2));
         mentsuList.add(new Shuntsu(true, S3));
@@ -70,12 +70,12 @@ public class MentsuCompNormalTest {
 
     @Test
     public void testGetAllMentsu() throws Exception {
-        List<MahjongMentsu> actualAllMentsu = actual.getAllMentsu();
-        assertThat(actualAllMentsu, hasItems((MahjongMentsu) new Kotsu(false, NAN)));
-        assertThat(actualAllMentsu, hasItems((MahjongMentsu) new Shuntsu(true, S3)));
-        assertThat(actualAllMentsu, hasItems((MahjongMentsu) new Kantsu(false, CHN)));
-        assertThat(actualAllMentsu, hasItems((MahjongMentsu) new Shuntsu(false, P2)));
-        assertThat(actualAllMentsu, hasItems((MahjongMentsu) new Toitsu(P5)));
+        List<Mentsu> actualAllMentsu = actual.getAllMentsu();
+        assertThat(actualAllMentsu, hasItems((Mentsu) new Kotsu(false, NAN)));
+        assertThat(actualAllMentsu, hasItems((Mentsu) new Shuntsu(true, S3)));
+        assertThat(actualAllMentsu, hasItems((Mentsu) new Kantsu(false, CHN)));
+        assertThat(actualAllMentsu, hasItems((Mentsu) new Shuntsu(false, P2)));
+        assertThat(actualAllMentsu, hasItems((Mentsu) new Toitsu(P5)));
 
     }
 
@@ -96,7 +96,7 @@ public class MentsuCompNormalTest {
 
     @Test
     public void testEquals() throws Exception {
-        List<MahjongMentsu> trList = new ArrayList<>(5);
+        List<Mentsu> trList = new ArrayList<>(5);
         trList.add(new Toitsu(P5));
         trList.add(new Shuntsu(true, S3));
         trList.add(new Kotsu(false, NAN));
@@ -111,7 +111,7 @@ public class MentsuCompNormalTest {
 
     @Test
     public void testNotEquals() throws Exception {
-        List<MahjongMentsu> flsList = new ArrayList<>(5);
+        List<Mentsu> flsList = new ArrayList<>(5);
         flsList.add(new Toitsu(P5));
         flsList.add(new Kotsu(false, NAN));
         flsList.add(new Shuntsu(false, P2));

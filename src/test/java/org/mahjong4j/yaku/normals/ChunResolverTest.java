@@ -19,7 +19,7 @@ public class ChunResolverTest {
 
     @Before
     public void setUp() throws Exception {
-        List<MahjongMentsu> mentsuList = new ArrayList<>(5);
+        List<Mentsu> mentsuList = new ArrayList<>(5);
         mentsuList.add(new Toitsu(HAK));
         mentsuList.add(new Shuntsu(true, S3));
         mentsuList.add(new Shuntsu(true, P3));

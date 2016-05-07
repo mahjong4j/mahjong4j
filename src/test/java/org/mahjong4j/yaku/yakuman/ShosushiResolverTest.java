@@ -19,7 +19,7 @@ public class ShosushiResolverTest {
 
     @Before
     public void setUp() throws Exception {
-        List<MahjongMentsu> list = new ArrayList<>(5);
+        List<Mentsu> list = new ArrayList<>(5);
         list.add(new Toitsu(NAN));
         list.add(new Kotsu(true, TON));
         list.add(new Kotsu(true, M3));

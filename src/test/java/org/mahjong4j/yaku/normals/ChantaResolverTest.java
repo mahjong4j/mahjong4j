@@ -19,7 +19,7 @@ public class ChantaResolverTest {
 
     @Before
     public void setUp() throws Exception {
-        List<MahjongMentsu> matchList = new ArrayList<>(5);
+        List<Mentsu> matchList = new ArrayList<>(5);
         matchList.add(new Toitsu(NAN));
         matchList.add(new Shuntsu(true, M8));
         matchList.add(new Shuntsu(true, S2));

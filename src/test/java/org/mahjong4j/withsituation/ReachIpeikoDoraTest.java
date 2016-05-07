@@ -1,7 +1,12 @@
-package org.mahjong4j;
+package org.mahjong4j.withsituation;
 
+import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
+import org.mahjong4j.GeneralSituation;
+import org.mahjong4j.Player;
+import org.mahjong4j.PersonalSituation;
+import org.mahjong4j.Score;
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.normals.MahjongYakuEnum;
@@ -21,7 +26,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.*;
  */
 public class ReachIpeikoDoraTest {
     MahjongHands hands;
-    MahjongPlayer mahjongPlayer;
+    Player player;
 
     @Before
     public void setUp() throws Exception {
@@ -41,38 +46,38 @@ public class ReachIpeikoDoraTest {
         uradora.add(M9);
         GeneralSituation general = new GeneralSituation(false, false, TON, dora, uradora);
         PersonalSituation personal = new PersonalSituation(false, false, false, true, false, false, false, NAN);
-        mahjongPlayer = new MahjongPlayer(hands, general, personal);
-        mahjongPlayer.calculate();
+        player = new Player(hands, general, personal);
+        player.calculate();
     }
 
     @Test
     public void testGetYakumanList() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
+        List<MahjongYakumanEnum> actual = player.getYakumanList();
 
         assertEquals(0, actual.size());
     }
 
     @Test
     public void testGetNormalYakuListSize() throws Exception {
-        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
+        List<MahjongYakuEnum> actual = player.getNormalYakuList();
 
         assertEquals(4, actual.size());
     }
 
     @Test
     public void testGetNormalYakuListItem() throws Exception {
-        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
+        List<MahjongYakuEnum> actual = player.getNormalYakuList();
 
-        assertThat(actual, hasItems(REACHE, IPEIKO, DORA));
+        assertThat(actual, hasItems(REACH, IPEIKO, DORA));
     }
 
     @Test
     public void testGetFu() throws Exception {
-        assertEquals(32, mahjongPlayer.getFu());
+        assertEquals(32, player.getFu());
     }
 
     @Test
     public void testGetScore() throws Exception {
-        assertEquals(Score.SCORE8000, mahjongPlayer.getScore());
+        TestCase.assertEquals(Score.SCORE8000, player.getScore());
     }
 }

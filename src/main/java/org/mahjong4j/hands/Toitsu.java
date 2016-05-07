@@ -9,9 +9,7 @@ import java.util.List;
 /**
  * @author yu1ro
  */
-public class Toitsu implements MahjongMentsu {
-    private MahjongTile identifierTile;
-    private boolean isMentsu;
+public class Toitsu extends Mentsu {
 
     /**
      * 対子であることがわかっている場合に使います
@@ -63,29 +61,9 @@ public class Toitsu implements MahjongMentsu {
         return result;
     }
 
-    /**
-     * 対子として成立していなければnullを返します
-     *
-     * @return 対子の牌の種類
-     */
-    public MahjongTile getTile() {
-        return identifierTile;
-    }
-
-    /**
-     * @return 面子(対子)として成立していればtrue
-     */
-    public boolean isMentsu() {
-        return isMentsu;
-    }
-
-    /**
-     * 対子は常に見せないので常にfalse
-     *
-     * @return false
-     */
-    public boolean isOpen() {
-        return false;
+    @Override
+    public int getFu() {
+        return 0;
     }
 
     @Override

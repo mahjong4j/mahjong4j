@@ -1,6 +1,8 @@
 package org.mahjong4j;
 
-import org.mahjong4j.hands.*;
+import org.mahjong4j.hands.MahjongHands;
+import org.mahjong4j.hands.Mentsu;
+import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTile;
 import org.mahjong4j.yaku.normals.MahjongYakuEnum;
 import org.mahjong4j.yaku.normals.NormalYakuResolver;
@@ -22,7 +24,7 @@ import static org.mahjong4j.yaku.yakuman.MahjongYakumanEnum.KOKUSHIMUSO;
  *
  * @author yu1ro
  */
-public class MahjongPlayer {
+public class Player {
 
     //付いた役満リスト
     private List<MahjongYakumanEnum> yakumanList = new ArrayList<>(1);
@@ -45,11 +47,11 @@ public class MahjongPlayer {
     private PersonalSituation personalSituation;
 
 
-    public MahjongPlayer(MahjongHands hands) {
+    public Player(MahjongHands hands) {
         this.hands = hands;
     }
 
-    public MahjongPlayer(MahjongHands hands, GeneralSituation generalSituation, PersonalSituation personalSituation) {
+    public Player(MahjongHands hands, GeneralSituation generalSituation, PersonalSituation personalSituation) {
         this.hands = hands;
         this.generalSituation = generalSituation;
         this.personalSituation = personalSituation;
@@ -62,6 +64,18 @@ public class MahjongPlayer {
 
     public List<MahjongYakuEnum> getNormalYakuList() {
         return normalYakuList;
+    }
+
+    public int getFu() {
+        return fu;
+    }
+
+    public Score getScore() {
+        return score;
+    }
+
+    public int getHan() {
+        return han;
     }
 
     public void calculate() {
@@ -115,9 +129,6 @@ public class MahjongPlayer {
         return yakumanList.size() > 0;
     }
 
-    /**
-     *
-     */
     private void findNormalYaku() {
         //それぞれの面子の完成形で判定する
         for (MentsuComp comp : hands.getMentsuCompSet()) {
@@ -140,7 +151,7 @@ public class MahjongPlayer {
         }
 
         if (han > 0) {
-            calcDora(hands.getHandsComp(), generalSituation, normalYakuList.contains(REACHE));
+            calcDora(hands.getHandsComp(), generalSituation, normalYakuList.contains(REACH));
         }
         calcScore();
     }
@@ -175,28 +186,11 @@ public class MahjongPlayer {
 
         int tmpFu = 20;
         // 門前ロンなら+10
-        if (!hands.isOpen() && !personalSituation.isTsumo()) {
-            tmpFu += 10;
-        } else if (personalSituation.isTsumo()) { // ツモアガリなら+2
-            tmpFu += 2;
-        }
+        tmpFu += calcFuByAgari();
 
         // 各メンツの種類による加符
-        for (MahjongMentsu mentsu : comp.getAllMentsu()) {
-            if (mentsu instanceof Shuntsu) continue;
-            if (mentsu instanceof Toitsu) continue;
-
-            int mentsuFu = 2;
-            if (!mentsu.isOpen()) {
-                mentsuFu *= 2;
-            }
-            if (mentsu.getTile().isYaochu()) {
-                mentsuFu *= 2;
-            }
-            if (mentsu instanceof Kantsu) {
-                mentsuFu *= 4;
-            }
-            tmpFu += mentsuFu;
+        for (Mentsu mentsu : comp.getAllMentsu()) {
+            tmpFu += mentsu.getFu();
         }
 
         // 待ちの種類による可符
@@ -204,18 +198,36 @@ public class MahjongPlayer {
 
         // 雀頭の種類による加符
         // 連風牌の場合は+4とします
-        MahjongTile jantoTile = comp.getJanto().getTile();
-        if (jantoTile == generalSituation.getBakaze()) {
-            tmpFu += 2;
-        }
-        if (jantoTile == personalSituation.getJikaze()) {
-            tmpFu += 2;
-        }
-        if (jantoTile.getType() == SANGEN) {
-            tmpFu += 2;
-        }
+        tmpFu += calcFuByJanto();
 
         return tmpFu;
+    }
+
+    private int calcFuByJanto() {
+        MahjongTile jantoTile = comp.getJanto().getTile();
+        int tmp = 0;
+        if (jantoTile == generalSituation.getBakaze()) {
+            tmp += 2;
+        }
+        if (jantoTile == personalSituation.getJikaze()) {
+            tmp += 2;
+        }
+        if (jantoTile.getType() == SANGEN) {
+            tmp += 2;
+        }
+        return tmp;
+    }
+
+    private int calcFuByAgari() {
+        // 門前ロン
+        if (!hands.isOpen() && !personalSituation.isTsumo()) {
+            return 10;
+        }
+        // ツモ
+        if (personalSituation.isTsumo()) {
+            return 2;
+        }
+        return 0;
     }
 
     private int calcFuByWait(MentsuComp comp, MahjongTile last) {
@@ -275,17 +287,5 @@ public class MahjongPlayer {
             }
         }
         return hanSum;
-    }
-
-    public int getFu() {
-        return fu;
-    }
-
-    public Score getScore() {
-        return score;
-    }
-
-    public int getHan() {
-        return han;
     }
 }

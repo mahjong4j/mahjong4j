@@ -19,7 +19,7 @@ public class TsuisoResolverNormalTest {
 
     @Before
     public void setUp() throws Exception {
-        List<MahjongMentsu> normalList = new ArrayList<>(5);
+        List<Mentsu> normalList = new ArrayList<>(5);
         normalList.add(new Toitsu(NAN));
         normalList.add(new Kantsu(false, SHA));
         normalList.add(new Kotsu(true, HAK));

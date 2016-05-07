@@ -1,6 +1,6 @@
 package org.mahjong4j.yaku.normals;
 
-import org.mahjong4j.hands.MahjongMentsu;
+import org.mahjong4j.hands.Mentsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.hands.Shuntsu;
 
@@ -16,7 +16,7 @@ import static org.mahjong4j.yaku.normals.MahjongYakuEnum.TANYAO;
  */
 public class TanyaoResolver implements NormalYakuResolver {
     private final MahjongYakuEnum yakuEnum = TANYAO;
-    private final List<MahjongMentsu> allMentsu;
+    private final List<Mentsu> allMentsu;
 
     public TanyaoResolver(MentsuComp comp) {
         allMentsu = comp.getAllMentsu();
@@ -27,7 +27,7 @@ public class TanyaoResolver implements NormalYakuResolver {
     }
 
     public boolean isMatch() {
-        for (MahjongMentsu mentsu : allMentsu) {
+        for (Mentsu mentsu : allMentsu) {
             int number = mentsu.getTile().getNumber();
             if (number == 0 || number == 1 || number == 9) {
                 return false;

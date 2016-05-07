@@ -17,8 +17,8 @@ import static org.mahjong4j.tile.MahjongTile.*;
  * @author yu1ro
  */
 public class IllegalMentsuSizeExceptionTest {
-    private List<MahjongMentsu> less;
-    private List<MahjongMentsu> more;
+    private List<Mentsu> less;
+    private List<Mentsu> more;
 
     @Before
     public void setUp() throws Exception {

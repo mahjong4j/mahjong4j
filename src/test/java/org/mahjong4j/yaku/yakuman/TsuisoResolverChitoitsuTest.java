@@ -2,7 +2,7 @@ package org.mahjong4j.yaku.yakuman;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mahjong4j.hands.MahjongMentsu;
+import org.mahjong4j.hands.Mentsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.hands.Toitsu;
 
@@ -21,7 +21,7 @@ public class TsuisoResolverChitoitsuTest {
 
     @Before
     public void setUp() throws Exception {
-        List<MahjongMentsu> normalList = new ArrayList<>(5);
+        List<Mentsu> normalList = new ArrayList<>(5);
         normalList.add(new Toitsu(TON));
         normalList.add(new Toitsu(NAN));
         normalList.add(new Toitsu(SHA));

@@ -1,7 +1,7 @@
 package org.mahjong4j.yaku.normals;
 
 
-import org.mahjong4j.hands.MahjongMentsu;
+import org.mahjong4j.hands.Mentsu;
 import org.mahjong4j.hands.MentsuComp;
 import org.mahjong4j.tile.MahjongTileType;
 
@@ -30,14 +30,14 @@ public class ChinitsuResolver implements NormalYakuResolver {
     }
 
     public boolean isMatch() {
-        List<MahjongMentsu> allMentsu = comp.getAllMentsu();
+        List<Mentsu> allMentsu = comp.getAllMentsu();
         MahjongTileType firstType = allMentsu.get(0).getTile().getType();
 
         if (firstType == FONPAI || firstType == SANGEN) {
             return false;
         }
 
-        for (MahjongMentsu mentsu : allMentsu) {
+        for (Mentsu mentsu : allMentsu) {
             MahjongTileType checkType = mentsu.getTile().getType();
             if (firstType != checkType) {
                 return false;

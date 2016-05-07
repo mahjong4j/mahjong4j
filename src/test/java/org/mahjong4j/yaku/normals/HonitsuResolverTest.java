@@ -19,7 +19,7 @@ public class HonitsuResolverTest {
 
     @Before
     public void setUp() throws Exception {
-        List<MahjongMentsu> mentsuList = new ArrayList<>(5);
+        List<Mentsu> mentsuList = new ArrayList<>(5);
         mentsuList.add(new Toitsu(SHA));
         mentsuList.add(new Shuntsu(true, M5));
         mentsuList.add(new Shuntsu(true, M5));

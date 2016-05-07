@@ -1,7 +1,10 @@
-package org.mahjong4j;
+package org.mahjong4j.withsituation;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mahjong4j.GeneralSituation;
+import org.mahjong4j.Player;
+import org.mahjong4j.PersonalSituation;
 import org.mahjong4j.hands.Kotsu;
 import org.mahjong4j.hands.MahjongHands;
 import org.mahjong4j.hands.Shuntsu;
@@ -21,7 +24,7 @@ import static org.mahjong4j.tile.MahjongTile.*;
  */
 public class NoYakuTest {
     MahjongHands hands;
-    MahjongPlayer mahjongPlayer;
+    Player player;
 
     @Before
     public void setUp() throws Exception {
@@ -43,31 +46,31 @@ public class NoYakuTest {
         PersonalSituation personal = new PersonalSituation(false, false, false, true, false, false, false, NAN);
         hands = new MahjongHands(tiles, last, new Kotsu(true, PEI), new Shuntsu(true, P4));
 
-        mahjongPlayer = new MahjongPlayer(hands, general, personal);
-        mahjongPlayer.calculate();
+        player = new Player(hands, general, personal);
+        player.calculate();
     }
 
     @Test
     public void testGetYakumanList() throws Exception {
-        List<MahjongYakumanEnum> actual = mahjongPlayer.getYakumanList();
+        List<MahjongYakumanEnum> actual = player.getYakumanList();
 
         assertEquals(0, actual.size());
     }
 
     @Test
     public void testGetNormalYakuList() throws Exception {
-        List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
+        List<MahjongYakuEnum> actual = player.getNormalYakuList();
 
         assertEquals(0, actual.size());
     }
 
     @Test
     public void testGetFu() throws Exception {
-        assertEquals(0, mahjongPlayer.getFu());
+        assertEquals(0, player.getFu());
     }
 
     @Test
     public void testGetScore() throws Exception {
-        assertEquals(SCORE0, mahjongPlayer.getScore());
+        assertEquals(SCORE0, player.getScore());
     }
 }
