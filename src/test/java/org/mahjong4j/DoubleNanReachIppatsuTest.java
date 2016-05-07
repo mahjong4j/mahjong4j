@@ -67,4 +67,9 @@ public class DoubleNanReachIppatsuTest {
 
         assertThat(actual, hasItems(JIKAZE, BAKAZE, REACHE, IPPATSU));
     }
+
+    @Test
+    public void testGetFu() throws Exception {
+        assertEquals(38, mahjongPlayer.getFu());
+    }
 }

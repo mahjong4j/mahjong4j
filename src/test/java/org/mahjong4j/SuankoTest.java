@@ -48,4 +48,9 @@ public class SuankoTest {
 
         assertThat(actual, hasItems(SUANKO));
     }
+
+    @Test
+    public void testGetFu() throws Exception {
+        assertEquals(0, mahjongPlayer.getFu());
+    }
 }

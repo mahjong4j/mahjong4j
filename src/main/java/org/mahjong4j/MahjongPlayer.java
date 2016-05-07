@@ -35,7 +35,7 @@ public class MahjongPlayer {
     //翻
     private int han = 0;
     //符
-    private int fu = 20;
+    private int fu = 0;
 
     private MahjongHands hands;
     private GeneralSituation generalSituation;
@@ -143,13 +143,16 @@ public class MahjongPlayer {
 
     /**
      * 符計算をします
-     * 役満以外は計算しちゃいます
+     * 役なしの場合は0
+     * Situationが無い場合は一律で20
      */
     private int calcFu() {
-        if (personalSituation == null || generalSituation == null || comp == null) {
+        if (normalYakuList.size() == 0) {
             return 0;
         }
-        int tmpFu = 20;
+        if (personalSituation == null || generalSituation == null) {
+            return 20;
+        }
         // 特例の平和ツモと七対子の符
         if (normalYakuList.contains(PINFU) && normalYakuList.contains(TSUMO)) {
             return 20;
@@ -158,6 +161,7 @@ public class MahjongPlayer {
             return 25;
         }
 
+        int tmpFu = 20;
         // 門前ロンなら+10
         if (!hands.isOpen() && !personalSituation.isTsumo()) {
             tmpFu += 10;
@@ -257,5 +261,9 @@ public class MahjongPlayer {
             }
         }
         return hanSum;
+    }
+
+    public int getFu() {
+        return fu;
     }
 }

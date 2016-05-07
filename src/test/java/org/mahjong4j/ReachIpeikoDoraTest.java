@@ -66,4 +66,9 @@ public class ReachIpeikoDoraTest {
 
         assertThat(actual, hasItems(REACHE, IPEIKO));
     }
+
+    @Test
+    public void testGetFu() throws Exception {
+        assertEquals(32, mahjongPlayer.getFu());
+    }
 }

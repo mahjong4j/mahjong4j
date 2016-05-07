@@ -67,4 +67,9 @@ public class TenhoTest {
 
         assertEquals(0, actual.size());
     }
+
+    @Test
+    public void testGetFu() throws Exception {
+        assertEquals(0, mahjongPlayer.getFu());
+    }
 }

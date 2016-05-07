@@ -60,4 +60,9 @@ public class RinshankaihohSanshokuDoubleReachTsumoTest {
 
         assertThat(actual, hasItems(RINSHANKAIHOH, SANSHOKUDOHJUN, REACHE, DOUBLE_REACH, TSUMO));
     }
+
+    @Test
+    public void testGetFu() throws Exception {
+        assertEquals(38, mahjongPlayer.getFu());
+    }
 }

@@ -66,4 +66,9 @@ public class ChihoTest {
 
         assertThat(actual, hasItems(CHIHO));
     }
+
+    @Test
+    public void testGetFu() throws Exception {
+        assertEquals(0, mahjongPlayer.getFu());
+    }
 }

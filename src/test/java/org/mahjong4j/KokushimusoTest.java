@@ -38,4 +38,9 @@ public class KokushimusoTest {
         assertEquals(1, actual.size());
         assertEquals(KOKUSHIMUSO, actual.get(0));
     }
+
+    @Test
+    public void testGetFu() throws Exception {
+        assertEquals(0, mahjongPlayer.getFu());
+    }
 }

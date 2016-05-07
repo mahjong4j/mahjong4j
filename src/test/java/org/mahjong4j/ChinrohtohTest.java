@@ -39,4 +39,9 @@ public class ChinrohtohTest {
         assertEquals(1, actual.size());
         assertEquals(CHINROTO, actual.get(0));
     }
+
+    @Test
+    public void testGetFu() throws Exception {
+        assertEquals(0, mahjongPlayer.getFu());
+    }
 }

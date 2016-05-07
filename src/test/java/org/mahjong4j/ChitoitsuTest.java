@@ -51,4 +51,13 @@ public class ChitoitsuTest {
         assertEquals(1, actual.size());
         assertThat(actual, hasItems(CHITOITSU));
     }
+
+    /**
+     * Situationが無い場合は常に20
+     * @throws Exception
+     */
+    @Test
+    public void testGetFu() throws Exception {
+        assertEquals(20, mahjongPlayer.getFu());
+    }
 }

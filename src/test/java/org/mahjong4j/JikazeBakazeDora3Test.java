@@ -32,7 +32,7 @@ public class JikazeBakazeDora3Test {
             0, 3, 0, 0,
             0, 0, 0
         };
-        MahjongTile last = M9;
+        MahjongTile last = S7;
         MahjongHands hands = new MahjongHands(tiles, last);
         List<MahjongTile> dora = new ArrayList<>(1);
         dora.add(NAN);
@@ -67,5 +67,10 @@ public class JikazeBakazeDora3Test {
         List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
 
         assertThat(actual, hasItems(BAKAZE, DORA, DORA, DORA));
+    }
+
+    @Test
+    public void testGetFu() throws Exception {
+        assertEquals(40, mahjongPlayer.getFu());
     }
 }

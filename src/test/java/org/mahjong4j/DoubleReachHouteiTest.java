@@ -31,7 +31,7 @@ public class DoubleReachHouteiTest {
             0, 0, 3, 0,
             0, 0, 0
         };
-        MahjongTile last = M9;
+        MahjongTile last = M8;
         MahjongHands hands = new MahjongHands(tiles, last);
         List<MahjongTile> dora = new ArrayList<>(1);
         dora.add(CHN);
@@ -66,5 +66,10 @@ public class DoubleReachHouteiTest {
         List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
 
         assertThat(actual, hasItems(REACHE, DOUBLE_REACH, HOUTEI));
+    }
+
+    @Test
+    public void testGetFu() throws Exception {
+        assertEquals(40, mahjongPlayer.getFu());
     }
 }

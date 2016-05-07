@@ -189,7 +189,7 @@ public class MentsuComp {
             return false;
         }
         for (Shuntsu shuntsu : shuntsuList) {
-            if (!shuntsu.isOpen()) {
+            if (shuntsu.isOpen() || shuntsu.getTile().getType() != last.getType()) {
                 continue;
             }
             int shuntsuNum = shuntsu.getTile().getNumber();
@@ -206,7 +206,7 @@ public class MentsuComp {
             return false;
         }
         for (Shuntsu shuntsu : shuntsuList) {
-            if (!shuntsu.isOpen()) {
+            if (shuntsu.isOpen() || shuntsu.getTile().getType() != last.getType()) {
                 continue;
             }
             if (shuntsu.getTile().getNumber() == last.getNumber()) {
@@ -221,7 +221,7 @@ public class MentsuComp {
             return false;
         }
         for (Shuntsu shuntsu : shuntsuList) {
-            if (!shuntsu.isOpen()) {
+            if (shuntsu.isOpen() || shuntsu.getTile().getType() != last.getType()) {
                 continue;
             }
             int number = shuntsu.getTile().getNumber();

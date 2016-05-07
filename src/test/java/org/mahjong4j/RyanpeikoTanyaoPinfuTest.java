@@ -57,4 +57,9 @@ public class RyanpeikoTanyaoPinfuTest {
 
         assertThat(actual, hasItems(RYANPEIKO, TANYAO, PINFU));
     }
+
+    @Test
+    public void testGetFu() throws Exception {
+        assertEquals(20, mahjongPlayer.getFu());
+    }
 }

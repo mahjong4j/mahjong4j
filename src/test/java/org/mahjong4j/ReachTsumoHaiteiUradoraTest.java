@@ -31,7 +31,7 @@ public class ReachTsumoHaiteiUradoraTest {
             0, 0, 3, 0,
             0, 0, 0
         };
-        MahjongTile last = M9;
+        MahjongTile last = M7;
         MahjongHands hands = new MahjongHands(tiles, last);
         List<MahjongTile> dora = new ArrayList<>(1);
         dora.add(CHN);
@@ -66,5 +66,10 @@ public class ReachTsumoHaiteiUradoraTest {
         List<MahjongYakuEnum> actual = mahjongPlayer.getNormalYakuList();
 
         assertThat(actual, hasItems(REACHE, TSUMO, URADORA, HAITEI));
+    }
+
+    @Test
+    public void testGetFu() throws Exception {
+        assertEquals(32, mahjongPlayer.getFu());
     }
 }

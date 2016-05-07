@@ -56,4 +56,9 @@ public class IpeikoTest {
 
         assertThat(actual, hasItems(IPEIKO));
     }
+
+    @Test
+    public void testGetFu() throws Exception {
+        assertEquals(20, mahjongPlayer.getFu());
+    }
 }
