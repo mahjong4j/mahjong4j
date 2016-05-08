@@ -222,8 +222,8 @@ public class Hands {
      */
     private void checkTileOverFlow() throws MahjongTileOverFlowException {
         //
-        for (int i = 0; i < inputtedTiles.length; i++) {
-            int hand = inputtedTiles[i];
+        for (int i = 0; i < handsComp.length; i++) {
+            int hand = handsComp[i];
             if (hand > 4) {
                 canWin = false;
                 throw new MahjongTileOverFlowException(i, hand);
