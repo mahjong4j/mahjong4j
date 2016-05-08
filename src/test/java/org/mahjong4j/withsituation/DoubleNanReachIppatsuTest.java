@@ -45,7 +45,7 @@ public class DoubleNanReachIppatsuTest {
         GeneralSituation general;
         general = new GeneralSituation(false, false, NAN, dora, uradora);
         PersonalSituation personal;
-        personal = new PersonalSituation(false, false, true, true, false, false, false, NAN);
+        personal = new PersonalSituation(false, true, true, false, false, false, NAN);
 
         player = new Player(hands, general, personal);
         player.calculate();

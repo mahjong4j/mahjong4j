@@ -45,7 +45,7 @@ public class ChihoTest {
         GeneralSituation general;
         general = new GeneralSituation(true, false, PEI, dora, uradora);
         PersonalSituation personal;
-        personal = new PersonalSituation(false, true, false, false, false, false, false, NAN);
+        personal = new PersonalSituation(true, false, false, false, false, false, NAN);
 
         player = new Player(hands, general, personal);
         player.calculate();

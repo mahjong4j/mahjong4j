@@ -45,7 +45,7 @@ public class TenhoTest {
         GeneralSituation generalSituation;
         generalSituation = new GeneralSituation(true, false, TON, dora, uradora);
         PersonalSituation personalSituation;
-        personalSituation = new PersonalSituation(true, true, true, false, false, false, false, NAN);
+        personalSituation = new PersonalSituation(true, true, false, false, false, false, TON);
 
         player = new Player(hands, generalSituation, personalSituation);
         player.calculate();

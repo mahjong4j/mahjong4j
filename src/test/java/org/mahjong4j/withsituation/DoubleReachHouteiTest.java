@@ -45,7 +45,7 @@ public class DoubleReachHouteiTest {
         GeneralSituation general;
         general = new GeneralSituation(false, true, NAN, dora, uradora);
         PersonalSituation personal;
-        personal = new PersonalSituation(false, false, false, true, true, false, false, NAN);
+        personal = new PersonalSituation(false, false, true, true, false, false, NAN);
 
         player = new Player(hands, general, personal);
         player.calculate();

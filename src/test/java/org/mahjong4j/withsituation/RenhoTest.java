@@ -45,7 +45,7 @@ public class RenhoTest {
         GeneralSituation general;
         general = new GeneralSituation(true, false, SHA, dora, uradora);
         PersonalSituation personal;
-        personal = new PersonalSituation(false, false, false, false, false, false, false, NAN);
+        personal = new PersonalSituation(false, false, false, false, false, false, NAN);
 
         player = new Player(hands, general, personal);
         player.calculate();

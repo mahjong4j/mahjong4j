@@ -45,7 +45,7 @@ public class ChitoitsuWithSituationTest {
         GeneralSituation general;
         general = new GeneralSituation(true, false, PEI, dora, uradora);
         PersonalSituation personal;
-        personal = new PersonalSituation(true, false, false, false, false, false, false, SHA);
+        personal = new PersonalSituation(false, false, false, false, false, false, TON);
         hands = new Hands(tiles, last);
         player = new Player(hands, general, personal);
         player.calculate();
