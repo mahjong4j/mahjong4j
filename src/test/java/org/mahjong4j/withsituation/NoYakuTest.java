@@ -43,7 +43,7 @@ public class NoYakuTest {
         uradora.add(P4);
 
         GeneralSituation general = new GeneralSituation(false, false, TON, dora, uradora);
-        PersonalSituation personal = new PersonalSituation(false, false, false, true, false, false, false, NAN);
+        PersonalSituation personal = new PersonalSituation(false, false, true, false, false, false, NAN);
         hands = new Hands(tiles, last, new Kotsu(true, PEI), new Shuntsu(true, P4));
 
         player = new Player(hands, general, personal);

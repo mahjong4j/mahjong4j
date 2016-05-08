@@ -46,7 +46,7 @@ public class JikazeBakazeDora3Test {
         GeneralSituation general;
         general = new GeneralSituation(false, false, NAN, dora, uradora);
         PersonalSituation personal;
-        personal = new PersonalSituation(false, false, false, false, false, false, false, SHA);
+        personal = new PersonalSituation(false, false, false, false, false, false, SHA);
 
         player = new Player(hands, general, personal);
         player.calculate();

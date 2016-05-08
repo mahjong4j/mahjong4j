@@ -45,7 +45,7 @@ public class RinshankaihohSanshokuDoubleReachTsumoTest {
         GeneralSituation general;
         general = new GeneralSituation(false, false, SHA, dora, uradora);
         PersonalSituation personal;
-        personal = new PersonalSituation(false, true, false, true, true, false, true, NAN);
+        personal = new PersonalSituation(true, false, true, true, false, true, NAN);
 
         player = new Player(hands, general, personal);
         player.calculate();

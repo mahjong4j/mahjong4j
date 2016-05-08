@@ -45,7 +45,7 @@ public class ReachTsumoHaiteiUradoraTest {
         GeneralSituation general;
         general = new GeneralSituation(false, true, NAN, dora, uradora);
         PersonalSituation personal;
-        personal = new PersonalSituation(false, true, false, true, false, false, false, NAN);
+        personal = new PersonalSituation(true, false, true, false, false, false, NAN);
 
         player = new Player(hands, general, personal);
         player.calculate();

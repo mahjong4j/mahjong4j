@@ -45,7 +45,7 @@ public class ReachIpeikoDoraTest {
         List<Tile> uradora = new ArrayList<>(1);
         uradora.add(M9);
         GeneralSituation general = new GeneralSituation(false, false, TON, dora, uradora);
-        PersonalSituation personal = new PersonalSituation(false, false, false, true, false, false, false, NAN);
+        PersonalSituation personal = new PersonalSituation(false, false, true, false, false, false, NAN);
         player = new Player(hands, general, personal);
         player.calculate();
     }

@@ -48,7 +48,7 @@ public class PinfuTsumoTest {
         GeneralSituation general;
         general = new GeneralSituation(false, false, NAN, dora, uradora);
         PersonalSituation personal;
-        personal = new PersonalSituation(true, true, false, false, false, false, false, SHA);
+        personal = new PersonalSituation(true, false, false, false, false, false, TON);
 
         player = new Player(hands, general, personal);
         player.calculate();

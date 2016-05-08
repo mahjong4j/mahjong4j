@@ -47,7 +47,7 @@ public class JikazeTest {
         GeneralSituation general;
         general = new GeneralSituation(false, false, SHA, dora, uradora);
         PersonalSituation personal;
-        personal = new PersonalSituation(false, false, false, false, false, false, false, NAN);
+        personal = new PersonalSituation(false, false, false, false, false, false, NAN);
 
         player = new Player(hands, general, personal);
         player.calculate();
