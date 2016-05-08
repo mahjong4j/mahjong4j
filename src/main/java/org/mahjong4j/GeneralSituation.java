@@ -22,6 +22,9 @@ public class GeneralSituation {
         this.uradora = uradora;
     }
 
+    public GeneralSituation() {
+    }
+
     public boolean isFirstRound() {
 
         return isFirstRound;

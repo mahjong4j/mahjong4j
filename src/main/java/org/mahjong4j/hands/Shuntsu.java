@@ -100,8 +100,7 @@ public class Shuntsu extends Mentsu {
     }
 
     private void setIdentifierTile(Tile identifierTile) throws IllegalShuntsuIdentifierException {
-        int tileNum = identifierTile.getNumber();
-        if (tileNum == 0 || tileNum == 1 || tileNum == 9) {
+        if (identifierTile.isYaochu()) {
             throw new IllegalShuntsuIdentifierException(identifierTile);
         }
         this.identifierTile = identifierTile;

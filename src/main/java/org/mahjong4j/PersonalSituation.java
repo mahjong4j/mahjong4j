@@ -14,6 +14,8 @@ public class PersonalSituation {
     private boolean isChankan;
     private boolean isRinshankaihoh;
     private Tile jikaze;
+    public PersonalSituation() {
+    }
 
     public PersonalSituation(boolean isParent, boolean isTsumo, boolean isIppatsu, boolean isReach, boolean isDoubleReach, boolean isChankan, boolean isRinshankaihoh, Tile jikaze) {
         this.isParent = isParent;
