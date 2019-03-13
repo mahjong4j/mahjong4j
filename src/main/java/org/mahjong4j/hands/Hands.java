@@ -301,9 +301,8 @@ public class Hands {
                     handStocks[j]--;
                     handStocks[j + 1]--;
                 } else {
-                	// FIXME add this if-branch can solve the endless-loop 
-                	// leave the while-loop if this "j" isn't Mentsu
-                	break;
+                    // leave the while-loop if this "j" isn't Mentsu
+                    break;
                 }
             }
         }
