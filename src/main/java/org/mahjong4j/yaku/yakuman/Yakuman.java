@@ -19,7 +19,8 @@ public enum Yakuman {
     SUKANTSU("四槓子"),
     RENHO("人和"),
     CHIHO("地和"),
-    TENHO("天和"),;
+    TENHO("天和"),
+    ;
 
     private final String japanese;
 

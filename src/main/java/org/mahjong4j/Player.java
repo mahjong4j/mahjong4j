@@ -105,13 +105,13 @@ public class Player {
      * @return 役満が見つかったか
      */
     private boolean findYakuman() {
-        
+
 
         //それぞれの面子の完成形で判定する
         for (MentsuComp comp : hands.getMentsuCompSet()) {
-        	//役満をストックしておき、見つかったら先にこちらに保存する
+            //役満をストックしておき、見つかったら先にこちらに保存する
             List<Yakuman> yakumanStock = new ArrayList<>(4);
-        	
+
             Set<YakumanResolver> yakumanResolverSet
                 = Mahjong4jYakuConfig.getYakumanResolverSet(comp, generalSituation, personalSituation);
 

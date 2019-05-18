@@ -44,7 +44,8 @@ public enum NormalYaku {
     RYANPEIKO(3, 0, "二盃口"),
     JUNCHAN(3, 2, "純チャン"),
     HONITSU(3, 2, "混一色"),
-    CHINITSU(6, 5, "清一色"),;
+    CHINITSU(6, 5, "清一色"),
+    ;
 
     private final int han;
     private final int kuisagari;

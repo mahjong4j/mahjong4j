@@ -39,7 +39,8 @@ public enum Score {
     SCORE24000(24000, 8000, 12000, 6000),
     SCORE32000(32000, 0, 16000, 8000),
     SCORE36000(36000, 12000, 0, 0),
-    SCORE48000(48000, 16000, 0, 0),;
+    SCORE48000(48000, 16000, 0, 0),
+    ;
     private final int ron;
     private final int parentTsumo;
     private final int parent;

@@ -26,7 +26,6 @@ import static org.mahjong4j.yaku.yakuman.Yakuman.TENHO;
 public class TenhoTest {
     private Player player;
     private Player playerMultiMentsuComp;
-    
 
     @Before
     public void setUp() throws Exception {
@@ -51,36 +50,36 @@ public class TenhoTest {
 
         player = new Player(hands, generalSituation, personalSituation);
         player.calculate();
-        
+
         // two MentsuComp：七対子、二盃口 
         int[] tiles2 = {
-	        2, 2, 2, 0, 0, 0, 0, 0, 0,
-	        2, 2, 2, 0, 0, 0, 0, 0, 0,
-	        0, 0, 2, 0, 0, 0, 0, 0, 0,
-	        0, 0, 0, 0,
-	        0, 0, 0
-	    };
-	    Tile last2 = M1;
-	    Hands hands2 = new Hands(tiles2, last2);
-	    List<Tile> dora2 = new ArrayList<>(1);
-	    dora.add(CHN);
-	
-	    List<Tile> uradora2 = new ArrayList<>(1);
-	    uradora.add(M2);
-	    GeneralSituation generalSituation2;
-	    generalSituation2 = new GeneralSituation(true, false, TON, dora2, uradora2);
-	    PersonalSituation personalSituation2;
-	    personalSituation2 = new PersonalSituation(true, true, false, false, false, false, TON);
-	
-	    playerMultiMentsuComp = new Player(hands2, generalSituation2, personalSituation2);
-	    playerMultiMentsuComp.calculate();
+            2, 2, 2, 0, 0, 0, 0, 0, 0,
+            2, 2, 2, 0, 0, 0, 0, 0, 0,
+            0, 0, 2, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0,
+            0, 0, 0
+        };
+        Tile last2 = M1;
+        Hands hands2 = new Hands(tiles2, last2);
+        List<Tile> dora2 = new ArrayList<>(1);
+        dora.add(CHN);
+
+        List<Tile> uradora2 = new ArrayList<>(1);
+        uradora.add(M2);
+        GeneralSituation generalSituation2;
+        generalSituation2 = new GeneralSituation(true, false, TON, dora2, uradora2);
+        PersonalSituation personalSituation2;
+        personalSituation2 = new PersonalSituation(true, true, false, false, false, false, TON);
+
+        playerMultiMentsuComp = new Player(hands2, generalSituation2, personalSituation2);
+        playerMultiMentsuComp.calculate();
     }
 
     @Test
     public void testGetYakumanListSize() throws Exception {
         List<Yakuman> actual = player.getYakumanList();
         assertEquals(1, actual.size());
-        
+
         actual = playerMultiMentsuComp.getYakumanList();
         assertEquals(1, actual.size());
     }
@@ -89,7 +88,7 @@ public class TenhoTest {
     public void testGetYakumanListItem() throws Exception {
         List<Yakuman> actual = player.getYakumanList();
         assertThat(actual, hasItems(TENHO));
-        
+
         actual = playerMultiMentsuComp.getYakumanList();
         assertThat(actual, hasItems(TENHO));
     }
@@ -98,7 +97,7 @@ public class TenhoTest {
     public void testGetNormalYakuListSize() throws Exception {
         List<NormalYaku> actual = player.getNormalYakuList();
         assertEquals(0, actual.size());
-        
+
         actual = playerMultiMentsuComp.getNormalYakuList();
         assertEquals(0, actual.size());
     }
@@ -106,7 +105,7 @@ public class TenhoTest {
     @Test
     public void testGetFu() throws Exception {
         assertEquals(0, player.getFu());
-        
+
         assertEquals(0, playerMultiMentsuComp.getFu());
     }
 
