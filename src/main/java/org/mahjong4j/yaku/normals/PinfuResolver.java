@@ -100,10 +100,6 @@ public class PinfuResolver extends SituationResolver implements NormalYakuResolv
         }
 
         int i = shuntsuNum - lastNum;
-        if (i == 1 || i == -1) {
-            return true;
-        }
-
-        return false;
+        return i == 1 || i == -1;
     }
 }

@@ -47,17 +47,17 @@ public class HandsChitoitsuTest {
     }
 
     @Test
-    public void testGetCanWin() throws Exception {
+    public void testGetCanWin() {
         assertTrue(actual.getCanWin());
     }
 
     @Test
-    public void testGetLast() throws Exception {
+    public void testGetLast() {
         assertEquals(SHA, actual.getLast());
     }
 
     @Test
-    public void testGetHandsComp() throws Exception {
+    public void testGetHandsComp() {
         int[] expected = {
             2, 2, 0, 2, 2, 0, 2, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0,

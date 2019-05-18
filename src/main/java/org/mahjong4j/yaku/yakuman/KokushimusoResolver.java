@@ -51,7 +51,7 @@ public class KokushimusoResolver {
         }
         if (count == 1) {
             //残ってるのが么九牌1つならtrue
-            if (hands[0] == 1 ||
+            return hands[0] == 1 ||
                 hands[8] == 1 ||
                 hands[9] == 1 ||
                 hands[17] == 1 ||
@@ -63,9 +63,7 @@ public class KokushimusoResolver {
                 hands[30] == 1 ||
                 hands[31] == 1 ||
                 hands[32] == 1 ||
-                hands[33] == 1) {
-                return true;
-            }
+                hands[33] == 1;
         }
         //残ってるのが１個以外ならfalse
         return false;

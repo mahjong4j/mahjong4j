@@ -260,9 +260,7 @@ public class Hands {
             canWin = true;
             winCandidate.addAll(inputtedMentsuList);
             MentsuComp mentsuComp = new MentsuComp(winCandidate, last);
-            if (!mentsuCompSet.contains(mentsuComp)) {
-                mentsuCompSet.add(mentsuComp);
-            }
+            mentsuCompSet.add(mentsuComp);
         }
     }
 
