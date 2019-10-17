@@ -85,7 +85,7 @@ public class Hands {
         //整合性をチェック
         checkTiles(allTiles);
 
-        handsComp = allTiles;
+        System.arraycopy(allTiles, 0, handsComp, 0, allTiles.length);
 
         findMentsu();
     }
