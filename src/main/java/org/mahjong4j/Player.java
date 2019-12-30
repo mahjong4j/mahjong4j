@@ -82,11 +82,7 @@ public class Player {
         //和了れない場合は即座に終了
         if (!hands.getCanWin()) return;
 
-        //国士無双の場合はそれ以外ありえないので保存して即座に終了
-        if (hands.getIsKokushimuso()) {
-            yakumanList.add(KOKUSHIMUSO);
-            return;
-        }
+        
 
         //役満を探し見つかれば通常役は調べずに終了
         if (findYakuman()) {
@@ -105,6 +101,12 @@ public class Player {
      * @return 役満が見つかったか
      */
     private boolean findYakuman() {
+        
+        //国士無双の場合はそれ以外ありえないので保存して即座に終了
+        if (hands.getIsKokushimuso()) {
+            yakumanList.add(KOKUSHIMUSO);
+            return true;
+        }
 
 
         //それぞれの面子の完成形で判定する
